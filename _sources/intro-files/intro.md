@@ -4,7 +4,7 @@
 ```
 UNIVERSITY OF CALIFORNIA, BERKELEY DEPARTMENT OF PHYSICS
 ```
-**Instructor**: Prof. Oskar Hallatschek (he/his), *Office*: 408D Stanley Hall, *Email*: ohallats@berkeley.edu
+**Instructor**: Prof. Oskar Hallatschek (he/his), *Office*: 408C Stanley Hall, *Email*: ohallats@berkeley.edu
 
 
 The following lecture notes are designed to complement the Berkeley Physics course 211 material covered in the spring of 2026. Special thanks to Mike Zalatel and Dunghai Lee for their invaluable lecture notes, which have partially influenced my own.
