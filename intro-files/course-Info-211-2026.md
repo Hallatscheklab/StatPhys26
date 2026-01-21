@@ -40,9 +40,9 @@ Drop Deadline: Feb 12.
 
 These notes will almost certainly have to go through various editorial iterations until they reach a steady state. Therefore, **please send me info on typos or other kinds of suggested edits.** You could do this, for example, by opening any page on Google Colab, modify the jupyter notebook (text, references, code etc.) and send the modified notebook myway.
 
-The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPhys/intro.html](https://hallatscheklab.github.io/StatPhys/intro.html).
+The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPhys/intro.html](https://hallatscheklab.github.io/StatPhys26/intro-files/intro.html).
 
-**Exams and grades:** There will be one midterm and a final exam. The midterm will be in person (during class time) and the final exam will be a 24-hour take home exam. Dates:
+**Exams and grades:** There will be one midterm and a final exam. Dates:
 
 - Midterm, Tue, TBD (at or around March 10) 
 - Final, TBD 
@@ -52,7 +52,7 @@ Grades will be determined from a weighting of all the elements of the course as 
 - Midterm, 20 %
 - Final, 40 %
 - Homework, 40 %
-- *extra credit:* participation, 5 %
+- *extra credit:* participation, 10 %
 
 **Homework:** Assignments will be posted weekly on Fridays by 5PM and are due the following Friday by 11:59PM via Gradescope.
 
