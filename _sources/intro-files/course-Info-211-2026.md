@@ -40,7 +40,7 @@ Drop Deadline: Feb 12.
 
 These notes will almost certainly have to go through various editorial iterations until they reach a steady state. Therefore, **please send me info on typos or other kinds of suggested edits.** You could do this, for example, by opening any page on Google Colab, modify the jupyter notebook (text, references, code etc.) and send the modified notebook myway.
 
-The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPhys/intro.html](https://hallatscheklab.github.io/StatPhys26/intro-files/intro.html).
+The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPhys26/intro.html](https://hallatscheklab.github.io/StatPhys26/intro-files/intro.html).
 
 **Exams and grades:** There will be one midterm and a final exam. Dates:
 
