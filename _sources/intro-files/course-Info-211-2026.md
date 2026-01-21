@@ -14,8 +14,8 @@ UNIVERSITY OF CALIFORNIA, BERKELEY DEPARTMENT OF PHYSICS
 I’ll lecture live and post a recording to bCourses afterwards for those who can’t make it. If you have a question you’d like answered, but can’t make it to the lecture, send a note and I’ll answer it at the beginning of lecture and you can catch my answer on the recording.
 
 **Discussion sections:** will be a mixture of problem solving, python computer experiments and interesting stat-mech applications.\
-W 5:00PM - 6:00PM, Room: 109 - Morgan \
-F 3:00PM - 3:59PM, Room: 246 - Dwinelle
+W 5:00PM - 6:00PM, Room: 246 - Dwinelle \
+F 3:00PM - 3:59PM, Room: 109 - Morgan 
 
 **Office hours:** \
 Prof. H: TBD in 408C Stanley Hall\
