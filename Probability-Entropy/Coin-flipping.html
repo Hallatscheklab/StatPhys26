@@ -469,7 +469,7 @@ document.write(`
 <p>For a single coin flip, the probabilities of heads and tails are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P\left(\sigma_{i}\right)=\left\{\begin{array}{l}p \;, \quad\sigma=1 \\ q=1-p\;, \quad \sigma=-1\end{array}\right.\;,\end{split}\]</div>
-<p>which can also be concisely expressed as <span class="math notranslate nohighlight">\(P\left(\sigma_{i}\right)=p \cdot \delta_{\sigma_i 1}+q \delta_{\sigma_i 0}\)</span>, which is sometimes useful.</p>
+<p>which can also be concisely expressed as <span class="math notranslate nohighlight">\(P\left(\sigma_{i}\right)=p \cdot \delta_{\sigma_i,1}+q \delta_{\sigma_i,-1}\)</span>, which is sometimes useful.</p>
 <p>Since coin flips are uncorrelated (by assumption), the probability of observing a particular configuration is given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -517,10 +517,12 @@ P(X)= e^{S(X)}e^{-E(X)}
 \end{aligned}
 \]</div>
 <p>Now we invoke Stirling’s approximation, which is given by
+$<span class="math notranslate nohighlight">\(
 \begin{aligned}
 \ln N !=N(\ln N-1)+O(\ln N)
 \end{aligned}
-and can be roughly derived as <span class="math notranslate nohighlight">\(\ln N! = \sum_{j=1}^N \ln j \approx \int_1^N dx \ln x = N(\ln N - 1) + 1\)</span>, which successfully captures the leading dependence.</p>
+\)</span><span class="math notranslate nohighlight">\(
+and can be roughly derived as \)</span>\ln N! = \sum_{j=1}^N \ln j \approx \int_1^N dx \ln x = N(\ln N - 1) + 1$, which successfully captures the leading dependence.</p>
 <p>Using Stirling’s approximation, we find for the entropy</p>
 <div class="math notranslate nohighlight" id="equation-entropy-coin-flipping">
 <span class="eqno">(1)<a class="headerlink" href="#equation-entropy-coin-flipping" title="Permalink to this equation">#</a></span>\[
@@ -601,7 +603,7 @@ E(x) &amp; =-\ln \left(p^{N_{+}} q^{N_{-}}\right)=-N_{+} \ln (p)-N_{-} \ln (q) \
 <p>Notice:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(s(x)\)</span> and <span class="math notranslate nohighlight">\(e(x)\)</span> are the entropy and energy per coin, respectively (see legend).</p></li>
-<li><p>The entropy <span class="math notranslate nohighlight">\(s(x)\)</span> has a maximum at the neutral point <span class="math notranslate nohighlight">\(x = 0\)</span> and vanishes at the boundaries (all spin up / down)/</p></li>
+<li><p>The entropy <span class="math notranslate nohighlight">\(s(x)\)</span> has a maximum at the neutral point <span class="math notranslate nohighlight">\(x = 0\)</span> and vanishes at the boundaries (all spin up / down)</p></li>
 <li><p>“Low energy” states have higher probability.</p></li>
 <li><p>The competition between <span class="math notranslate nohighlight">\(e(x)\)</span> and <span class="math notranslate nohighlight">\(s(x)\)</span> leads to a maximum in their difference, <span class="math notranslate nohighlight">\(s(x)-e(x)\)</span>.</p></li>
 <li><p>Later, we will rather look at the negative, <span class="math notranslate nohighlight">\(e(x)-s(x)=:f(x)\)</span>, which we call a free energy. It is generally a convex function and has a <em>minimum</em> at the most likely value of <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
@@ -711,8 +713,8 @@ v. <span class="math notranslate nohighlight">\(\langle X\rangle^{2}=N^{2}(p-q)^
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/909493c6bdb2a8a26ea1a8e7934e7175c6476e409793eebe4273f35ec638c652.png" src="../_images/909493c6bdb2a8a26ea1a8e7934e7175c6476e409793eebe4273f35ec638c652.png" />
-<img alt="../_images/47d6400cdd6fbca8df7b218d0c2ac9a10b38008cbaaca514938af2bc1d935ac9.png" src="../_images/47d6400cdd6fbca8df7b218d0c2ac9a10b38008cbaaca514938af2bc1d935ac9.png" />
+<img alt="../_images/7cb489dd48e048748c35ce10ca4cd06c5065ca39075566b523a3ed6198e61b74.png" src="../_images/7cb489dd48e048748c35ce10ca4cd06c5065ca39075566b523a3ed6198e61b74.png" />
+<img alt="../_images/1b3fd332194321cd01bd88118ebcd476c49a6b49662766ef69867c8af03d0ada.png" src="../_images/1b3fd332194321cd01bd88118ebcd476c49a6b49662766ef69867c8af03d0ada.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -743,7 +745,7 @@ v. <span class="math notranslate nohighlight">\(\langle X\rangle^{2}=N^{2}(p-q)^
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b0520966cde66026542de6d12cac2e661dda294abbf3e9a45dd9ca8eb12d80c5.png" src="../_images/b0520966cde66026542de6d12cac2e661dda294abbf3e9a45dd9ca8eb12d80c5.png" />
+<img alt="../_images/016963eb8ad44f5a53a98aee95f0db0c2a5864bef188c2527c1c547f9ab4e839.png" src="../_images/016963eb8ad44f5a53a98aee95f0db0c2a5864bef188c2527c1c547f9ab4e839.png" />
 </div>
 </div>
 </section>
