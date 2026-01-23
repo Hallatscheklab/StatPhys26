@@ -790,7 +790,7 @@ I(X;Y)\equiv \text{entropy before}-\text{entropy after} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e8536b7ae9309cbe108f984ec28ba9d440bc4d16ea59b20cf7773ef90796958f.png" src="../_images/e8536b7ae9309cbe108f984ec28ba9d440bc4d16ea59b20cf7773ef90796958f.png" />
+<img alt="../_images/00f405fddfc373788238faa32b2111e8302575571bd9dbbbec16da3e9dad62dd.png" src="../_images/00f405fddfc373788238faa32b2111e8302575571bd9dbbbec16da3e9dad62dd.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n## Observations\n- **Low Noise Levels**: When noise is minimal, Y closely reflects X, resulting in high mutual information.\n- **High Noise Levels**: As noise increases, Y becomes less correlated with X, reducing mutual information.\n\n## Conclusion\nThis simulation demonstrates how mutual information quantifies the dependence between two variables and highlights its sensitivity to noise.\n&#39;
 </pre></div>
 </div>
@@ -814,7 +814,7 @@ Figure 6.5 shows the results of experiments on the motion-sensitive neuron H1 in
 <p><img alt="" src="../_images/6-5.jpg" /></p>
 <p>The figure below plots</p>
 <div class="math notranslate nohighlight">
-\[ I(\text{Words;Sensory inputs})= S(\text{Words})-\langle S(\text{Words| time in movie}) \rangle_{\text{time}} \]</div>
+\[ I(\text{Words;time in movie})= S(\text{Words})-\langle S(\text{Words| time in movie}) \rangle_{\text{time}} \]</div>
 <p>vs <span class="math notranslate nohighlight">\(S(\text{Words})\)</span> as a measure for how much information per second the spike trains encode about the the time stamp in the movie. The idea is that this gives an estimate of the information encoded about the entire sensory input (for which the time stamp is just a proxy).</p>
 <p>As the time resolution <span class="math notranslate nohighlight">\(\Delta \tau\)</span> is varied from 800 ms down to 2 ms,  the information rate follows the entropy rate <span class="math notranslate nohighlight">\(S(\text{Words})\)</span>, with a nearly constant 50% efficiency.  This result was influential because it suggests that neurons are making use of a significant fraction of their capacity in actually encoding sensory signals. Also, this is true even at millisecond time resolution. The  idea that the entropy of the spike train sets a limit to neural information transmission  emerged almost immediately after Shannon’s work, but it was never clear whether these limits could be approached by real systems.</p>
 <p><img alt="" src="../_images/6-7.jpg" /></p>
