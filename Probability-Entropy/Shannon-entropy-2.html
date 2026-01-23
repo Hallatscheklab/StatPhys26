@@ -754,13 +754,13 @@ I(X;Y)\equiv \text{entropy before}-\text{entropy after} \\
 
 <span class="c1"># Parameters</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Number of samples</span>
-<span class="n">noise_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Different noise levels</span>
+<span class="n">noise_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Different noise levels</span>
 <span class="n">mutual_information</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Simulation and mutual information calculation</span>
 <span class="k">for</span> <span class="n">noise</span> <span class="ow">in</span> <span class="n">noise_levels</span><span class="p">:</span>
     <span class="c1"># Generate X from a standard normal distribution</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="c1"># Generate Y as a noisy version of X</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     
@@ -777,25 +777,18 @@ I(X;Y)\equiv \text{entropy before}-\text{entropy after} \\
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">## Observations</span>
-<span class="sd">- **Low Noise Levels**: When noise is minimal, Y closely reflects X, resulting in high mutual information.</span>
-<span class="sd">- **High Noise Levels**: As noise increases, Y becomes less correlated with X, reducing mutual information.</span>
-
-<span class="sd">## Conclusion</span>
-<span class="sd">This simulation demonstrates how mutual information quantifies the dependence between two variables and highlights its sensitivity to noise.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00f405fddfc373788238faa32b2111e8302575571bd9dbbbec16da3e9dad62dd.png" src="../_images/00f405fddfc373788238faa32b2111e8302575571bd9dbbbec16da3e9dad62dd.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n## Observations\n- **Low Noise Levels**: When noise is minimal, Y closely reflects X, resulting in high mutual information.\n- **High Noise Levels**: As noise increases, Y becomes less correlated with X, reducing mutual information.\n\n## Conclusion\nThis simulation demonstrates how mutual information quantifies the dependence between two variables and highlights its sensitivity to noise.\n&#39;
-</pre></div>
+<img alt="../_images/d4833d030aa2e7aaafb5fb02d9768b537d188ab15ff11a752e5030466759732f.png" src="../_images/d4833d030aa2e7aaafb5fb02d9768b537d188ab15ff11a752e5030466759732f.png" />
 </div>
 </div>
-</div>
+<ul class="simple">
+<li><p><strong>Low Noise Levels</strong>: When noise is minimal, Y closely reflects X, resulting in high mutual information.</p></li>
+<li><p><strong>High Noise Levels</strong>: As noise increases, Y becomes less correlated with X, reducing mutual information.</p></li>
+</ul>
+<p>This simulation demonstrates how mutual information quantifies the dependence between two variables and highlights its sensitivity to noise.</p>
 </section>
 </section>
 <section id="information-transmission">
