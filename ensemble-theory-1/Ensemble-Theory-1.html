@@ -505,7 +505,7 @@ document.write(`
 <section id="thermal-equilibrium">
 <h3>Thermal equilibrium<a class="headerlink" href="#thermal-equilibrium" title="Permalink to this heading">#</a></h3>
 <p>Consider an isolated system <span class="math notranslate nohighlight">\({\mu, E, \boldsymbol{x}}\)</span> consisting of two subsystem in contact so that they can exchange energy,</p>
-<p><img alt="" src="ensemble-theory-1/figures/micro-can-compound-system.jpg" /></p>
+<p><img alt="" src="../_images/compound-system-exchanging-energy.png" /></p>
 <div class="math notranslate nohighlight">
 \[\mu=\mu_1 \otimes \mu_2\]</div>
 <div class="math notranslate nohighlight">
@@ -567,15 +567,16 @@ S(E,\boldsymbol{x}) \to S_{1}\left(E_{1}^{*},\boldsymbol{x}_1\right)+S_{2}\left(
 </section>
 <section id="second-law-of-thermodynamics">
 <h3>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Permalink to this heading">#</a></h3>
-<p>If we prepare an initial condition where <span class="math notranslate nohighlight">\(E_{1} \neq E_{1}^{*}\)</span>, by ergodicity <span class="math notranslate nohighlight">\(E_{1} \rightarrow E_{1}^{*}\)</span> at long times because <span class="math notranslate nohighlight">\(E_{1}^{*}\)</span> is <em>much more likely</em> (sketch). The entropy increases,</p>
+<p>If we prepare an initial condition where <span class="math notranslate nohighlight">\(E_{1} \neq E_{1}^{*}\)</span>, by ergodicity <span class="math notranslate nohighlight">\(E_{1} \rightarrow E_{1}^{*}\)</span> at long times because <span class="math notranslate nohighlight">\(E_{1}^{*}\)</span> is <em>much more likely</em>, i.e. the world has many more microstates (total entropy is larger) at <span class="math notranslate nohighlight">\(E_{1}^{*}\)</span> than at <span class="math notranslate nohighlight">\(E_{1}\)</span>.</p>
+<p>For large systems, we expect the entropy increase to occur in every time step of this equilibration process. Focussing on the step <span class="math notranslate nohighlight">\(E_1 \to E_1 +\delta E_1\)</span> (hence <span class="math notranslate nohighlight">\(E_2 \to E_2 -\delta E_1\)</span>), the entropy change reads</p>
 <div class="math notranslate nohighlight">
 \[
-\Delta S=S_{1}\left(E_{1}^{*}\right)+S_{2}\left(E_{2}^{*}\right)-S_1\left(E_{1}\right)-S_2\left(E_{2}\right) \geq 0
+\Delta S=S_{1}\left(E_{1}+\delta E_1\right)+S_{2}\left(E_{2}-\delta E_1\right)-S_1\left(E_{1}\right)-S_2\left(E_{2}\right) \geq 0
 \]</div>
-<p>which, to first order in <span class="math notranslate nohighlight">\(E_{1}^{*}-E_{1}=\delta E_{1}\)</span>, implies</p>
+<p>which, to first order in <span class="math notranslate nohighlight">\(\delta E_1\)</span>, yields</p>
 <div class="math notranslate nohighlight">
 \[
-\left(\frac{1}{T_{1}}-\frac{1}{T_{2}}\right) \delta E_{1} \geqslant 0 \;,
+\left(\frac{1}{T_{1}}-\frac{1}{T_{2}}\right) \delta E_1 \geqslant 0 \;,
 \]</div>
 <p>i.e., <span class="math notranslate nohighlight">\(T_2&gt;T_1\)</span> if <span class="math notranslate nohighlight">\(\delta E_1&gt;0\)</span> and <span class="math notranslate nohighlight">\(T_1&gt;T_2\)</span> if <span class="math notranslate nohighlight">\(\delta E_1&lt;0\)</span>.</p>
 <p>Thus, <strong>energy always flows from hot to cold.</strong></p>
@@ -595,25 +596,29 @@ S(E,\boldsymbol{x}) \to S_{1}\left(E_{1}^{*},\boldsymbol{x}_1\right)+S_{2}\left(
 <section id="work-and-the-first-law-of-thermodynamics">
 <h3>Work and the First Law of Thermodynamics<a class="headerlink" href="#work-and-the-first-law-of-thermodynamics" title="Permalink to this heading">#</a></h3>
 <p>Thus far, we kept the generalized coordinates fixed and studied just the redistribution of energy. When we manipulate the generalized coordinates, we do work on the system.</p>
-<p>To analyze this situation, consider first changing <span class="math notranslate nohighlight">\(\boldsymbol{x}\to \boldsymbol{x}+\boldsymbol{\delta x}\)</span> in a slow, <em>reversible</em>, manner. (I.e. we can return to the initial state by reversing the externally applied forces <span class="math notranslate nohighlight">\(\boldsymbol{J}\)</span>.)</p>
-<p>Then, the energy will change, <span class="math notranslate nohighlight">\(E\to E+\boldsymbol{J} \cdot \boldsymbol{\delta x}\)</span>, and so</p>
+<p>To analyze this situation, consider changing <span class="math notranslate nohighlight">\(\boldsymbol{x}\to \boldsymbol{x}+\boldsymbol{\delta x}\)</span>.</p>
+<!-- To analyze this situation, consider first changing $\boldsymbol{x}\to \boldsymbol{x}+\boldsymbol{\delta x}$ in a slow, *reversible*, manner. (I.e. we can return to the initial state by reversing the externally applied forces $\boldsymbol{J}$.)
+<p>Then, the energy will change, <span class="math notranslate nohighlight">\(E\to E+\boldsymbol{J} \cdot \boldsymbol{\delta x}\)</span>, where <span class="math notranslate nohighlight">\(\boldsymbol J\)</span> is the force conjugate to <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>.</p>
+<p>Hence, the entropy change is given by</p>
 <div class="math notranslate nohighlight">
 \[\delta S=S(E+\boldsymbol{J} \cdot \boldsymbol{\delta x},\boldsymbol{x}+\boldsymbol{\delta x})-S(E,\boldsymbol{x})=\left. \frac{\partial S}{\partial E}\right|_x(\boldsymbol{J} \cdot \boldsymbol{\delta x})+\left.\frac{\partial S}{\partial \boldsymbol{x}}\right|_E \cdot \boldsymbol{\delta x}\geq 0\]</div>
-<p>For a reversible dynamics, we must have the equal sign for all possible <span class="math notranslate nohighlight">\(\boldsymbol{\delta x}\)</span>, i.e.</p>
+<p>which cannot decrease by the second law.</p>
+<p>In equilibrium, where we have time reversible dynamics, we must have the equal sign for all possible <span class="math notranslate nohighlight">\(\boldsymbol{\delta x}\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[
-\left.\Rightarrow \frac{\partial S}{\partial x_{i}}\right|_{E, x_{j\neq i}}=-\frac{J_{i}}{T}
+\left.\Rightarrow \frac{\partial S}{\partial x_{i}}\right|_{E, x_{j\neq i}}=-\frac{J_{i}}{T} \qquad \text{in equilibrium}
 \]</div>
-<p>Thus, for a reversible transformation, the change in entropy becomes</p>
+<p>Thus, we have identified all variations of the entropy,</p>
 <div class="math notranslate nohighlight">
 \[
-\Rightarrow \delta S=\frac{d E}{T}-\frac{\boldsymbol{J} \cdot \boldsymbol{\delta x}}{T} \]</div>
-<p>which implies the <strong>first law of thermodynamics</strong>:</p>
+\Rightarrow d S=\frac{d E}{T}-\frac{\boldsymbol{J} \cdot \boldsymbol{\delta x}}{T} \]</div>
+<p>where it is important to keep in mind that the <span class="math notranslate nohighlight">\(\delta x\)</span> transformation has to be done in a reversible manner.</p>
+<p>We can rewrite this differential, yiealds the <strong>first law of thermodynamics</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 \Rightarrow dE=\underbrace{T d S}_{d Q}+\underbrace{\boldsymbol{J} \cdot \boldsymbol{\delta x}}_{dW}
 \]</div>
-<p>where the <span class="math notranslate nohighlight">\(dQ\)</span> is the heat added to the system and <span class="math notranslate nohighlight">\(dW\)</span> is the work done on the system.</p>
+<p>where the <span class="math notranslate nohighlight">\(dQ\)</span> is the heat added to the system and <span class="math notranslate nohighlight">\(dW\)</span> is the work done on the system in a reversible manner.</p>
 </section>
 </section>
 <section id="energy-exchange-canonical-ensemble">
