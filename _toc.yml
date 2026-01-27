@@ -9,8 +9,8 @@ chapters:
 - file: Probability-Entropy/Coin-flipping
 - file: Probability-Entropy/Shannon-entropy-2
 - file: ensemble-theory-1/Ensemble-Theory-1
-- file: ensemble-theory-1/Meaning-of-Equilibrium
-- file: ensemble-theory-1/Equipartition-Mesostates
+#- file: ensemble-theory-1/Meaning-of-Equilibrium
+#- file: ensemble-theory-1/Equipartition-Mesostates
 #- file: L5-ensemble-theory-II
 #- file: Gibbs_Distribution
 # - file: thermalization-simulation
