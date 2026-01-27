@@ -522,25 +522,26 @@ document.write(`
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[H(\mu)= H_1(\mu_1)+H_2(\mu_2)+\text{higher-order surface contribution}\]</div>
-<p>Then the total number of available microstates of the compound system is
-$<span class="math notranslate nohighlight">\(
+<p>Then the total number of available microstates of the compound system is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 \Omega(E, \boldsymbol{x}) &amp; =\int d \mu_{1} d \mu_{2} \delta(E-H(\mu)) \\
 &amp; =\int d E_{1} \Omega_{1}\left(E_{1}, \boldsymbol{x}_1\right) \Omega_{2}\left(E-E_{1}, \boldsymbol{x}_2\right)
 \end{aligned}
-\)</span><span class="math notranslate nohighlight">\(
-or equivalently
-\)</span><span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight" id="equation-x">
+<span class="eqno">(3)<a class="headerlink" href="#equation-x" title="Permalink to this equation">#</a></span>\[
 e^{S(E) / k_{B}} =\int d E_{1} e^{\left[S_{1}\left(E_{1}, \boldsymbol{x}_1\right)+S\left(E-E_{1}, \boldsymbol{x}_2\right)\right] / k_{B}}
-\)</span>$(X)
-(compound entropy).</p>
+\]</div>
 <p>The entropies <span class="math notranslate nohighlight">\(S_{1}, S_{2}\)</span> are extensive, so can be rewritten as</p>
 <div class="math notranslate nohighlight">
 \[
 S(E,\boldsymbol{x})=N s_{1}\left(\frac{E_{1}}{N},\frac{\boldsymbol{x}_1}N\right)+N s_{2}\left(\frac{E-E_{1}}{N},\frac{\boldsymbol{x}_2}N\right)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> are entropies per particle, which approach a constant as we increase the system sizes.</p>
-<p>Thus, as <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>, the integral in <code class="xref eq docutils literal notranslate"><span class="pre">X</span></code> is dominated by the maximum of the integrand, so that
+<p>Thus, as <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>, the integral in <a class="reference internal" href="#equation-x">(3)</a> is dominated by the maximum of the integrand, so that
 $<span class="math notranslate nohighlight">\(
 S(E,\boldsymbol{x}) \to S_{1}\left(E_{1}^{*},\boldsymbol{x}_1\right)+S_{2}\left(E_{2}^{*}=E-E_{1},\boldsymbol{x}_2\right)
 \)</span>$</p>
