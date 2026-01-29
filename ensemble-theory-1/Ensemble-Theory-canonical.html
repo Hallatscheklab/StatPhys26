@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Energy exchange – canonical ensemble &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ensemble-theory-1/Ensemble-Theory-canonical';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Classical statistical mechanics" href="Ensemble-Theory-1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Energy exchange – canonical ensemble</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/ensemble-theory-1/Ensemble-Theory-canonical.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2Fensemble-theory-1/Ensemble-Theory-canonical.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ensemble-theory-1/Ensemble-Theory-canonical.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Energy exchange – canonical ensemble</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Energy exchange – canonical ensemble</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-equilibrium">Meaning of equilibrium</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function">Partition function</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equipartition">Equipartition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-a-macrostate-is-a-microstate">When a Macrostate is a Microstate</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="energy-exchange-canonical-ensemble">
+<h1>Energy exchange – canonical ensemble<a class="headerlink" href="#energy-exchange-canonical-ensemble" title="Permalink to this heading">#</a></h1>
+<p>Most soft matter systems are closed but not isolated: they trade energy and volume with the environment (a.k.a. <em>reservoir</em>, <em>bath</em>, <em>sorroundings</em>). What can we say about <span class="math notranslate nohighlight">\(P(\nu_s)\)</span> in those cases?</p>
+<p>The combination of System (index s) and Reservoir (index r) forms an <em>isolated</em> system with fixed <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(N\)</span>. We can therefore apply our “Basic Principle” to conclude</p>
+<ul class="simple">
+<li><p>All states with <span class="math notranslate nohighlight">\(E_s+E_r=E\)</span> are equally likely.</p></li>
+<li><p>To reach a high energy state, s has to “steal” energy from b.
+What’s the probability <span class="math notranslate nohighlight">\(P(\nu_s)\)</span> of system state <span class="math notranslate nohighlight">\(\nu_s\)</span> irrespective of the state of the bath?</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[P(\nu_s)=\sum_{\nu_r} P(\nu_s,\nu_r)=\frac{\Omega_r(E-E_s)}{\Omega(E,V,N)}\]</div>
+<div class="math notranslate nohighlight">
+\[\boxed{\rightarrow P(\nu_s)\propto \Omega_r(E-E_s)}\]</div>
+<p>Note that <strong>the multiplicity of the bath alone controls the state of the system.</strong> I.e. the more states are available to the bath the more likely a given microstate of the system is. Energy exchange is important only in sofar as it modifies the number of states available to the bath and the system.</p>
+<p>The multiplicity of microstates grows exponentially with its parameters. This can be most easily demonstrated for particle numbers (see example below) but generally holds also for energy and volume. Therefore, it makes sense to introduce the logarithm of the multiplicity, as Ludwig Boltzmann did when introduced <span class="math notranslate nohighlight">\( S\equiv k_\mathrm{B} \ln \Omega \qquad k_\mathrm{B}=1.38064852 × 10^{-23} {\rm J/ K}\)</span> (see above).</p>
+<p>Using the Boltzmann entropy, we can write</p>
+<div class="math notranslate nohighlight">
+\[P(\nu_s)\propto e^{k_\mathrm{B}^{-1}S_r(E-E_s)}.\]</div>
+<p>When the bath is very big (thermodynamic limit), we can Taylor expand the exponent,</p>
+<div class="math notranslate nohighlight">
+\[ S_s(E-E_s)=S_r(E)+\left(\frac{\partial S}{\partial E}\right)_{V,N}(-E_s)+\cdots \]</div>
+<p>Inserting above yields</p>
+<div class="math notranslate nohighlight">
+\[\boxed{P(\nu_s)\propto \exp\left[\text{const.}-k_B^{-1}\left(\frac{\partial S_r}{\partial E}\right)_{V, N}E_s\right]\propto e^{-b E_s}\;,\qquad \text{where } b\equiv k_B^{-1}\left(\frac{\partial S_r}{\partial E}\right)_{V, N}\;.} \]</div>
+<p>The factor <span class="math notranslate nohighlight">\(e^{-b E_s}\)</span> is the <strong>Boltzmann factor</strong>, if we identify <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(\beta_r\equiv (k_\mathrm{B} T_r)^{-1}\)</span>.</p>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[\beta_r\equiv \left(\frac{\partial \ln \Omega_r}{\partial E}\right)_{V, N}=\frac 1{k_\mathrm{B}} \left(\frac{\partial S_r}{\partial E}\right)_{V, N}.\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[\boxed{T_r\equiv \left(\frac{\partial S_r}{\partial E}\right)_{V, N}^{-1}}\]</div>
+<p>is the  thermodynamic definition of the temperature of the reservoir.</p>
+<p><strong>Implication: The ratio of probabilities of two microstates is given by the ratio of their Boltzmann factors</strong></p>
+<div class="math notranslate nohighlight">
+\[\frac{P(\nu_s^{(1)})}{P(\nu_s^{(2)})}=e^{-\frac{E_s^{(2)}-E_s^{(1)}}{k_\mathrm{B} T_r}}=e^{-\frac{\Delta E}{k_\mathrm{B} T_r}}\]</div>
+<div class="alert alert-info">
+<p><strong>Example: Barometric height formula.</strong></p>
+<p>Consider a constant gravitational force <span class="math notranslate nohighlight">\(F=-mg\)</span> along the <span class="math notranslate nohighlight">\(z\)</span>-direction such that the potential energy is given by <span class="math notranslate nohighlight">\(E=mgz+E_0\)</span> where <span class="math notranslate nohighlight">\(E_0\)</span> is the energy at ground level. For simplicity, we set <span class="math notranslate nohighlight">\(E_0=0\)</span>.</p>
+<p>The potential energy difference due to a height difference <span class="math notranslate nohighlight">\(\Delta z\)</span> is given by <span class="math notranslate nohighlight">\(\Delta E = m g \Delta z\)</span>. Therefore, the ratio of the probabilities to find a particle at a given position compared to a position elevated by a height <span class="math notranslate nohighlight">\(\Delta z\)</span> is given by $<span class="math notranslate nohighlight">\(\frac{P(\nu_s^{(1)})}{P(\nu_s^{(2)})}=\exp\left(-\frac{\Delta z}{\lambda}\right), \qquad \text{in terms of the ``scale height''} \lambda\equiv \frac{k_B T}{m g}\approx 8 \text{km}.\)</span>$ Thus, increasing your elevation by 8 km approximately leads to an e-fold reduction of the air density. (“approximately”, because (i) the temperature changes with height, (ii) molecules interact and (ii) the atmosphere is not in equilibrium).</p>
+<p>So far, we just cared about ratios of probabilities. In general it is much harder to compute absolute probabilities, which requires computing a normalization constant – the partition function. In the present one-dimensional case, however, we can do it easily: The probability <span class="math notranslate nohighlight">\(p(z)\)</span> for finding the particle at position <span class="math notranslate nohighlight">\(z\)</span> is given by
+<span class="math notranslate nohighlight">\(p(z)=\frac{1}{\lambda}\exp\left( -\frac{z}{\lambda}\right)\)</span>, which is properly normalized, <span class="math notranslate nohighlight">\(\int_0^\infty p(z)=1\)</span>.</p>
+</div>
+<div class="alert alert-info">
+<p><strong>Example: Two-level-system</strong></p>
+<p>As another frequent application of Boltzmann’s law are state populations of two state systems, as we find them frequently in physics, e.g., for spin systems. Such two level spin systems are, for example, very important for nuclear magnetic resonance (NMR), which is an important tool to study the structure and dynamics of soft matter.</p>
+<p><img alt="Two Level" src="../_images/two_level.png" /></p>
+<p>Consider the image above, where a single energy level at zero magnetic field (<span class="math notranslate nohighlight">\(B=0\)</span>) splits into two energy levels due to the interaction of a proton spin (red arrow) with the external magnetic field.</p>
+<p>The magnetic moment of the proton spin may take two expectation values in the magnetic field, which are characterized by the magnetic quantum number <span class="math notranslate nohighlight">\(m_Z=\pm 1/2\)</span>. The magnetic moment projected along the magnetic field direction is then</p>
+<div class="math notranslate nohighlight">
+\[\mu_Z=\gamma m_Z \hbar\]</div>
+<p>and the energy of the states</p>
+<div class="math notranslate nohighlight">
+\[E(m_Z)=-\mu_Z B=-\gamma m_Z \hbar B\]</div>
+<p>with <span class="math notranslate nohighlight">\(\gamma=2.675222005\times 10^{8}\; \mathrm{s}^{-1} \mathrm{T}^{-1}\)</span> being the gyromagnetic ratio of the proton.
+The energy difference for a nonzero magnetic field is therefore given by</p>
+<div class="math notranslate nohighlight">
+\[\Delta E=\gamma \hbar B=\hbar \omega_\mathrm{L}\]</div>
+<p>which results for a magnetic field of <span class="math notranslate nohighlight">\(B=1\; \mathrm{T}\)</span> in <span class="math notranslate nohighlight">\(\Delta E\approx 1.76\times 10^{-7}\;{\rm eV}\)</span> or a Larmor frequency of <span class="math notranslate nohighlight">\(\omega_\mathrm{L}=42\; {\rm MHz}\)</span>. This energy difference is almost negligible as compared to the thermal energy at room temperature <span class="math notranslate nohighlight">\(k_\mathrm{B}T=2.6\times 10^{-2}\;{\rm eV}\)</span>. Yet, this small energy difference is used to give the contrast in NMR and related techniques such as MRI.</p>
+<p>Using the Boltzmann distribution we can now calculate the ratio of the population of spins in the lower or excited state</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_{-\frac{1}{2}}}{N_{+\frac{1}{2}}}=\exp\left (-\frac{\Delta E}{k_\mathrm{B} T} \right )\]</div>
+<p>which is very close to one:</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_{-\frac{1}{2}}}{N_{+\frac{1}{2}}}=0.99999332.\]</div>
+<p>If you consider now a volume of <span class="math notranslate nohighlight">\(V=1\;{\rm {\mu m}}^3\)</span> water, then you would roughly have about <span class="math notranslate nohighlight">\(N=6.7\times 10^{19}\)</span> protons. This then means that the excess number of protons in the excited state is just <span class="math notranslate nohighlight">\(N_{+\frac{1}{2}}-N_{-\frac{1}{2}}=4.5\times 10^{12}\)</span>, which is extremely low. Thus, to detect something in NMR or MRI, a certain number of protons in the volume is required.</p>
+</div></section>
+<section id="meaning-of-equilibrium">
+<h1>Meaning of equilibrium<a class="headerlink" href="#meaning-of-equilibrium" title="Permalink to this heading">#</a></h1>
+<p>Since the Boltzmann factor <span class="math notranslate nohighlight">\(\exp(E_S/k_\mathrm{B}T_R)\)</span> strongly suppresses energies that are much larger than the thermal energy <span class="math notranslate nohighlight">\(k_\mathrm{B}T_R\)</span>, one would think that system states with energies larger than <span class="math notranslate nohighlight">\(k_\mathrm{B}T_R\)</span> almost never occur.</p>
+<p>No! Even if any particular high energy state occurs with very low (exponentially small) probability, it can be that we typically observe one of them if there are sufficiently many of them. What matters is not only the Boltzmann factor but also how many states the <em>system</em> has with a given energy.</p>
+<p>To mathematize this insight, we introduce the multiplicity <span class="math notranslate nohighlight">\(\Omega_S(E_S)\)</span> of the system at energy <span class="math notranslate nohighlight">\(E_S\)</span>. With that we can say that the probability to observe the system in a state with energy <span class="math notranslate nohighlight">\(E_S\)</span> is given by how many states with that energy exist times the probablity to observe one of them, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[\boxed{P(E_S)\propto \Omega_S(E_S) \exp(-\beta_R E_S)}\]</div>
+<p>Usually there is a pronounced tradeoff between the two factors appearing in this equation. As the system energy increases, we gain a lot of new system states. But with increasing system energy, we also lose increasingly loose bath states, in fact at an exponential rate precisely given by the Boltzmann factor. The result is a pronounced peak of the product of both factors at a particular energy <span class="math notranslate nohighlight">\(U\)</span>. This typical situation is depicted below.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="ensemble-theory-1/figures/equilibrium-peak.png"><img alt="fishy" class="bg-primary mb-1 align-center" src="ensemble-theory-1/figures/equilibrium-peak.png" style="width: 400px;" /></a>
+<p>In macroscopic systems, made up of O(Avogardo number) of particles, the peak becomes extremely sharp even in log space. In equilibrium, where our Basic Principle is satisfied, one therefore finds the system essentially deterministically at the energy <span class="math notranslate nohighlight">\(U\)</span> corresponding to the peak. That energy is called <em>internal</em> energy and can be found by maximizing the product of <span class="math notranslate nohighlight">\(\Omega_S\)</span> and the Boltzmann factor:</p>
+<div class="math notranslate nohighlight">
+\[0=\left.\frac{\partial\ln P}{\partial E_S}\right|_U=\left.\frac{\partial\ln\Omega_S}{\partial E_S}\right|_U-\beta_R=0\]</div>
+<p>The internal energy can therefore be found graphically by following the trajectory of <span class="math notranslate nohighlight">\(\ln \Omega_S\)</span>, which is concave (bending downward), until its slope equals <span class="math notranslate nohighlight">\(\beta_R\)</span>.</p>
+<p>In complete analogy to our definition of the temperature of the bath, <span class="math notranslate nohighlight">\(\beta_R\equiv \partial_E \ln\Omega_R\)</span>, we now introduce the temperature of the system via <span class="math notranslate nohighlight">\(\beta_S\equiv \partial_E \ln\Omega_S\)</span>. The above equation says that, at the peak, both temperatures have to be the same,</p>
+<div class="math notranslate nohighlight">
+\[\beta_S\equiv \left.\frac{\partial\ln\Omega_S}{\partial E_S}\right|_U=\beta_R \]</div>
+<p>To make sure that the peak is actually a peak, we have to demand that the second derivative of <span class="math notranslate nohighlight">\(\ln P\)</span> is negative or, equivalently, that <span class="math notranslate nohighlight">\(\partial_E^2\ln \Omega_S&lt;0\)</span>. This condition is automatically met if <span class="math notranslate nohighlight">\(\ln \Omega_S\)</span> is a <em>concave</em> function, as sketched in the figure above.</p>
+<p>To summarize: At equilibrium, large systems coupled to a bath are almost deterministically found at a particular energy, the internal energy, where the temperature of bath and system are equal.</p>
+<p>If a large system is initially out of equilibrium, say it has a larger or smaller energy than <span class="math notranslate nohighlight">\(U\)</span>, it will gradually move towards the internal energy as a result of its internal dynamics towards higher probability (towards the peak). This is indicated by the blue arrow in my sketch above, indicating that <em>spontaneous</em> reactions always proceed towards the peak. Any reaction going away from the peak, towards lower probability, requires some kind of work and would not happen by itself (more precisely, would occur only with very low probability).</p>
+<section id="partition-function">
+<h2>Partition function<a class="headerlink" href="#partition-function" title="Permalink to this heading">#</a></h2>
+<p>To fully determine the probability <span class="math notranslate nohighlight">\(P(E_S)\)</span> to observe our system at a given energy <span class="math notranslate nohighlight">\(E_S\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(E_S)=\frac{\Omega_S(E_S)\exp(-\beta_R E_S)}{Z} 
+\]</div>
+<p>we still need to evaluate a normalization constant <span class="math notranslate nohighlight">\(Z\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+Z\equiv \int dE_S \Omega_S(E_S)\exp(-\beta_R E_S) \;.
+\]</div>
+<p>In large systems, the integral is dominated by the value of the integrand at the peak energy <span class="math notranslate nohighlight">\(U\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+Z\approx \Omega_S(U) \exp(\beta_RU).
+\]</div>
+<p>We define the Helmholtz Free energy <span class="math notranslate nohighlight">\(F\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[F\equiv -k_\mathrm{B}\ln Z=-k_\mathrm{B}\ln \Omega_S(U)+U=U-TS_S\]</div>
+<p>The free energy generally attains a minimum at equilbrium. The above expression shows that <span class="math notranslate nohighlight">\(F\)</span> can be lowered either by lowering the energy or by increasing the entropy. <strong>The tradeoff between lowering energy (more states for the environment) and increasing entropy (more states for the system) is a recurrent theme in statistical physics.</strong></p>
+</section>
+</section>
+<section id="equipartition">
+<h1>Equipartition<a class="headerlink" href="#equipartition" title="Permalink to this heading">#</a></h1>
+<p>The statistical physics of a system is particularly simple when the total energy only depends quadratically on the dynamic variables, e.g. the positions of particles or the length of a polymer. As we discuss below, the simplification comes from the fact that evaluating the partition function merely involved carrying out Gaussian integrals, which can be done analytically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The classical equipartition theorem, also known as the law of equipartition, equipartition of energy or simply equipartition, states that every degree of freedom that appears only quadratically in the total energy has an average energy of <span class="math notranslate nohighlight">\(\frac{1}{2}k_B T\)</span>.</p>
+</div>
+<p>Consider one degree of freedom for a monoatomic gas. This degree of freedom is the kinetic energy of one atom along the x-direction, which is given by</p>
+<p>\begin{equation}
+\mathcal{H}=\frac{p_{X}^{2}}{2 m}
+\end{equation}</p>
+<p>According to the Boltzmann distribution, the probability to find an atom with a certain momentum is given by</p>
+<p>\begin{equation}
+P\left(p_{x}\right)=\frac{\mathrm{e}^{-\beta\left(p_{x}^{2} / 2 m\right)}}{\sum_{\text {states }} \mathrm{e}^{-\beta\left(p_{x}^{2} / 2 m\right)}}
+\end{equation}</p>
+<p>We can calculate the denominator, which is the partition function <span class="math notranslate nohighlight">\(Z\)</span>, by summing up (or integrating when going to continuous states) over all possible momenta</p>
+<p>\begin{equation}
+\sum_{\text {states }} \rightarrow \int_{-\infty}^{\infty} \mathrm{d} p_{x}
+\end{equation}</p>
+<p>This yields</p>
+<p>\begin{equation}
+Z\equiv\int_{-\infty}^{\infty} \mathrm{e}^{-\beta p_{x}^{2} / 2 m} \mathrm{~d} p_{x}=\sqrt{\frac{2 m \pi}{\beta}}
+\end{equation}</p>
+<p>A simple but frequently used trick shows that the mean energy (like many other thermodynamic averages) can be obtained as a derivative of the logarithm of the partition function:</p>
+<p>\begin{equation}
+\langle E\rangle=\frac{\int_{-\infty}^{\infty} \frac{p_{x}^{2}}{2 m} \mathrm{e}^{-\beta\left(p_{x}^{2} / 2 m\right)} \mathrm{d} p_{x}}{Z}=-\frac{\partial \ln Z}{\partial\beta}=\frac 12 k_\mathrm{B}T
+\end{equation}</p>
+<p>This is the mean energy per degree of freedom. One can show that each degree of freedom, independent of the object (atom, colloid, parking car) is carrying this mean energy.</p>
+<div class="alert alert-warning">
+A good example for a non-quadratic degree of freedom is the barometric height formula with a potential energy that is linear in position.
+</div><p>Equipartition is useful in many ways. The fundamental degrees of freedom, e.g. the vibrations of a single molecule are quadratic in the bond length. Similarly all rotational degrees of freedom are as well. Their occupation is determined by a Boltzmann distribution and readily visible in molecular spectra. On more macroscopic scales it is very useful in the field of force measurements using optical tweezers.</p>
+<div class="alert alert-info">
+<p><strong>Example: Position of a Bead in an Optical Tweezer</strong></p>
+<p>In an optical tweezer, a polarizable object (e.g. a polymer bead) is hold in the intensity gradient of a focused laser beam. The nearly Gaussian intensity distribution of a focused beam leads, in first approximation to a linear force a parabolic potential and can be employed to measure tiny forces.</p>
+<p><img alt="tweezers" src="ensemble-theory-1/figures/tweezers.png" /></p>
+<p>For one dimension of the 3D optical potential it can thus be written as</p>
+<p>\begin{equation}
+F=-k x
+\end{equation}</p>
+<p>and</p>
+<p>\begin{equation}
+E=\frac{1}{2}k x^2
+\end{equation}</p>
+<p>Using the Boltznmann distribution for the potential provides the probability distribution for finding the particle at a certain position <span class="math notranslate nohighlight">\(x\)</span></p>
+<p>\begin{equation}<br />
+p(x)=\frac{1}{Z}\exp\left(-\frac{kx^2}{2k_B T} \right)
+\end{equation}</p>
+<p>which resembles a Gaussian distribution with a variance of</p>
+<p>\begin{equation}
+\sigma^2=\langle x^2 \rangle =\frac{k_B T}{k}
+\end{equation}</p>
+<p>We also readily recognize that the partition function <span class="math notranslate nohighlight">\(Z\)</span> is the normalization factor of the Gaussian</p>
+<p>\begin{equation}
+Z=\sqrt{2\pi }\sigma=\sqrt{2\pi\frac{k_B T }{k}}
+\end{equation}</p>
+<p>The mean potential energy is then calculated by</p>
+<p>\begin{equation}
+\langle E \rangle =\int_{-\infty}^{\infty} E, p(x),dx=\frac{1}{2}k\int_{-\infty}^{\infty} x^2 p(x)dx=\frac{1}{2}k \frac{k_B T}{k}=\frac{1}{2}k_B T
+\end{equation}</p>
+<p>With the help of the variance of the distribution mentioned above, we also recognize that the trap stiffness can be obtained by dividing th ethermal energy <span class="math notranslate nohighlight">\(k_B T\)</span> by the variance of the positional fluctuations.</p>
+<p>\begin{equation}
+k=\frac{k_B T}{\langle x^2\rangle }
+\end{equation}</p>
+<p>which is very helpful for the experiment calibrating the trap stiffness for using the tweezers for force measurements. According to that you just have to observe the position of the trapped object in the potential and measure the variance.<br />
+We will deal with this relation later again in the section about the fluctuation dissipation relation.</p>
+<p>The second degree of freedom of a particle in an optical tweezer is given by its velocity <span class="math notranslate nohighlight">\(v\)</span>. This is as well a quadratic degree in <span class="math notranslate nohighlight">\(v\)</span>, yet its measurement turns out to be tricky. As the particle is carrying out Brownian motion in the trap, its velocity is not given by the difference of positions divided by the difference in observation times. To measure the velocity accurately one has to got to very short times, when the particle is carrying out ballistic motion. This has been achieved only about 10 years ago, while the distribution connected to the velocities, the <strong>Maxwell-Boltzmann distribution</strong> is already known for a very long time.</p>
+<p>Take some time to have a look at the Maxwell-Boltzmann distribution again.</p>
+</div></section>
+<section id="when-a-macrostate-is-a-microstate">
+<h1>When a Macrostate is a Microstate<a class="headerlink" href="#when-a-macrostate-is-a-microstate" title="Permalink to this heading">#</a></h1>
+<p>In practice, we are often interested in the likelihood that the system is in a state that is described by some macroscopic parameter <span class="math notranslate nohighlight">\(X\)</span> that we can measure. For example, for a DNA molecule inside a cell, an interesting quantity, which can be measured using fluorescent markers, is the distance R between two sites on the DNA chain. Repeated measurements of <span class="math notranslate nohighlight">\(R\)</span> can to construct the probability distribution p(R).</p>
+<p>In general, the probability of the macrostate <span class="math notranslate nohighlight">\(X\)</span> is given by the sum of probabilities of all the microstates of the system that adopt the specified value <span class="math notranslate nohighlight">\(X\)</span>,</p>
+<p>\begin{equation}
+p(X)=\sum_{i_{X}} p_{i}=\sum_{i_{X}} \frac{1}{Z} \mathrm{e}^{-\beta E_{i}}
+\end{equation}</p>
+<p>For the DNA example, the sum in the above equation would run over only those microstates <span class="math notranslate nohighlight">\(i_X\)</span> that have the prescribed distance between the two labeled sites on the polymer, e.g. <span class="math notranslate nohighlight">\(X=R\)</span>.
+Using the basic relation between the partition function and the free energy, <span class="math notranslate nohighlight">\(F = −k_BT \ln(Z)\)</span>, we can express the probability of the macrostate X as</p>
+<p>\begin{equation}
+p(X)=\frac{1}{Z} \mathrm{e}^{-\beta F(X)}
+\end{equation}</p>
+<p>where</p>
+<p>\begin{equation}
+F(X)=-k_{\mathrm{B}} T \ln \left(\sum_{i_{X}} \mathrm{e}^{-\beta E_{i}}\right)
+\end{equation}</p>
+<p>is the free energy of the macrostate <span class="math notranslate nohighlight">\(X\)</span>. Note that the formula for <span class="math notranslate nohighlight">\(p(X)\)</span> is identical to the Boltzmann formula for the probability of a microstate, with the energy of the microstate replaced by the free energy of the macrostate. Note that the sum on the right side of the last equation is not the partition function <span class="math notranslate nohighlight">\(Z\)</span> but that of the subensemble of microstates fulfilling the condition X, i.e. <span class="math notranslate nohighlight">\(Z_X\)</span>. Similarly, when writing down the states and weights for the macrostates <span class="math notranslate nohighlight">\(X\)</span>, the energy is replaced by the free energy, as shown in in the figure below. In this sense, one person’s macrostate is truly another person’s microstate.</p>
+<p><img alt="micro_macro" src="ensemble-theory-1/figures/micro_macro.png" /></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ensemble-theory-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Ensemble-Theory-1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Classical statistical mechanics</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Energy exchange – canonical ensemble</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-equilibrium">Meaning of equilibrium</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function">Partition function</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equipartition">Equipartition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-a-macrostate-is-a-microstate">When a Macrostate is a Microstate</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
