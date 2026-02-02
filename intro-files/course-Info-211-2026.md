@@ -18,7 +18,7 @@ W 5:00PM - 6:00PM, Room: 246 - Dwinelle \
 F 3:00PM - 3:59PM, Room: 109 - Morgan 
 
 **Office hours:** \
-Prof. H: TBD in 408C Stanley Hall\
+Prof. OH: Wednesday 2-3pm in 408C Stanley Hall, (effective Feb 11; my apologies—faculty search obligations have significantly limited my availability)\
 Gabriel: TBD.
 
 Drop Deadline: Feb 12.
