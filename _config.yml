@@ -5,7 +5,7 @@ only_build_toc_files: true
 title: Equilibrium Statistical Physics
 author: Oskar Hallatschek
 logo: StatPhys-Logo26.png
-copyright: "2025"
+copyright: "2026"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
