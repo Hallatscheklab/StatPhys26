@@ -6,13 +6,13 @@ $$
 S_{S} \equiv-k_{B}\langle\ln P\rangle=-k_{B} \sum_{\mu_S} P(\mu_S) \ln P(\mu_S) \;.
 $$(Gibbs-Entropy)
 
-To that end, recall from our [discussion of information entropy](../Probability-Entropy/Shannon-entropy-2:max-ent-boltzmann) that Boltzmann distribution is the maximum entropy distribution given the mean energy $\left\langle \mathcal{H}_{S}\right\rangle$. Thus, Boltzmann distribution maximizes the Lagrange function
+To that end, recall from our [discussion of information entropy](max-ent-boltzmann) that Boltzmann distribution is the maximum entropy distribution given the mean energy $\left\langle \mathcal{H}_{S}\right\rangle$. Thus, Boltzmann distribution maximizes the Lagrange function
 
 $$
-\Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle=\frac{F}{T} \;,
+\Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle \;,
 $$
 
-where $T_{R}^{-1}$ is a Lagrange multiplier, only subject to the normalization constraint $\sum_i p_i=1$.
+where $T_{R}^{-1}$ is a Lagrange multiplier, only subject to the normalization constraint $\sum_i p_i=1$. Next we show that, up to a constabt, this Lagrange function is nothing other than the Helmholtz free energy $F$.
 
 
 ##### So, let's compute the Gibbs entropy:
@@ -157,7 +157,7 @@ The partition function evaluates to
 
 $$
 \begin{aligned}
-Z & =\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h N !} e^{-\beta p_{i}^{2} / 2 m-U} \\
+Z & =\frac 1{N!}\prod_{i}\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h} e^{-\beta p_{i}^{2} / 2 m-U} \\
 & =\frac{1}{N !}\left(\frac{V}{\lambda^{3}}\right)^{N} 
 \end{aligned}
 $$
