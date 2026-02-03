@@ -12,7 +12,7 @@ chapters:
 - file: ensemble-theory-1/Ensemble-Theory-canonical
 #- file: ensemble-theory-1/Meaning-of-Equilibrium
 #- file: ensemble-theory-1/Equipartition-Mesostates
-#- file: L5-ensemble-theory-II
+- file: ensemble-theory-1/L5-ensemble-theory-II
 #- file: Gibbs_Distribution
 # - file: thermalization-simulation
 # - file: paramagnet-FLC.ipynb
