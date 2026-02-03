@@ -42,7 +42,7 @@ These notes will almost certainly have to go through various editorial iteration
 
 The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPhys26/intro.html](https://hallatscheklab.github.io/StatPhys26/intro-files/intro.html).
 
-**Exams and grades:** There will be one midterm and a final exam. Dates:
+**Exams and grades:** There will be one midterm and a final exam. Dates: 
 
 - Midterm, Th, March 12, 5-6:30pm, Physics Building 2 
 - Final, Fri, May 16th, 7-10pm, Physics Building 2 
