@@ -165,7 +165,7 @@ $$
 where we introduced the characteristic length scale 
 
 $$
-\lambda=\frac{h}{\sqrt{2 \pi m k_{\beta} T}}
+\lambda=\frac{h}{\sqrt{2 \pi m k_{B} T}}
 $$
 
 associated with Planck's constant. Note that we introduced the factor $1/N!$ accounting for the fact that $N!$ configurations obtained by relabelling indices belong to the same microstate. 
