@@ -157,7 +157,7 @@ The partition function evaluates to
 
 $$
 \begin{aligned}
-Z & =\prod_{i}\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h N !} e^{-\beta p_{i}^{2} / 2 m-U} \\
+Z & =\frac 1{N!}\prod_{i}\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h} e^{-\beta p_{i}^{2} / 2 m-U} \\
 & =\frac{1}{N !}\left(\frac{V}{\lambda^{3}}\right)^{N} 
 \end{aligned}
 $$
