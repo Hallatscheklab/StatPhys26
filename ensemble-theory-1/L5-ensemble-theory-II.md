@@ -6,7 +6,7 @@ $$
 S_{S} \equiv-k_{B}\langle\ln P\rangle=-k_{B} \sum_{\mu_S} P(\mu_S) \ln P(\mu_S) \;.
 $$(Gibbs-Entropy)
 
-To that end, recall from our [discussion of information entropy](max-ent-boltzmann) that Boltzmann distribution is the maximum entropy distribution given the mean energy $\left\langle \mathcal{H}_{S}\right\rangle$. Thus, Boltzmann distribution maximizes the Lagrange function
+To that end, recall from our [discussion of information entropy](../Probability-Entropy/Shannon-entropy-2:max-ent-boltzmann) that Boltzmann distribution is the maximum entropy distribution given the mean energy $\left\langle \mathcal{H}_{S}\right\rangle$. Thus, Boltzmann distribution maximizes the Lagrange function
 
 $$
 \Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle=\frac{F}{T} \;,
