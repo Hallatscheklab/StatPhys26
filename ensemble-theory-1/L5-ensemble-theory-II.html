@@ -414,9 +414,9 @@ S_{S} \equiv-k_{B}\langle\ln P\rangle=-k_{B} \sum_{\mu_S} P(\mu_S) \ln P(\mu_S) 
 <p>To that end, recall from our <a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html#max-ent-boltzmann"><span class="std std-ref">discussion of information entropy</span></a> that Boltzmann distribution is the maximum entropy distribution given the mean energy <span class="math notranslate nohighlight">\(\left\langle \mathcal{H}_{S}\right\rangle\)</span>. Thus, Boltzmann distribution maximizes the Lagrange function</p>
 <div class="math notranslate nohighlight">
 \[
-\Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle=\frac{F}{T} \;,
+\Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle \;,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{R}^{-1}\)</span> is a Lagrange multiplier, only subject to the normalization constraint <span class="math notranslate nohighlight">\(\sum_i p_i=1\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(T_{R}^{-1}\)</span> is a Lagrange multiplier, only subject to the normalization constraint <span class="math notranslate nohighlight">\(\sum_i p_i=1\)</span>. Next we show that, up to a constabt, this Lagrange function is nothing other than the Helmholtz free energy <span class="math notranslate nohighlight">\(F\)</span>.</p>
 <section id="so-let-s-compute-the-gibbs-entropy">
 <h2>So, let’s compute the Gibbs entropy:<a class="headerlink" href="#so-let-s-compute-the-gibbs-entropy" title="Permalink to this heading">#</a></h2>
 <p>The Gibbs entropy depends on the probability distribution over micro-states,</p>
@@ -531,7 +531,7 @@ P\left(p_{i}\right)=\frac{e^{-\beta p_{i}^{2} / 2 m}}{\sqrt{2 \pi m / \beta}}
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-Z &amp; =\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h N !} e^{-\beta p_{i}^{2} / 2 m-U} \\
+Z &amp; =\prod_{i}\int \frac{d \vec{p}_{i} d \vec{q}_{i}}{h N !} e^{-\beta p_{i}^{2} / 2 m-U} \\
 &amp; =\frac{1}{N !}\left(\frac{V}{\lambda^{3}}\right)^{N} 
 \end{aligned}
 \end{split}\]</div>
