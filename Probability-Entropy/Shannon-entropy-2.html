@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-as-lack-of-knowledge">Interpretation as lack of knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-entropy-kullback-leibler-kl-divergence">Relative entropy (Kullback-Leibler (KL) divergence)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mutual-information-being-degraded-by-noise">Example Mutual Information being degraded by noise</a><ul class="nav section-nav flex-column">
@@ -599,10 +600,12 @@ Shannon Entropy of sample_text B: 4.1700 bits/character
 </div>
 </div>
 </div>
-<p>(max-ent-boltzmann)=##### Estimation:</p>
+</section>
+<section id="estimation">
+<span id="max-ent-boltzmann"></span><h3>Estimation:<a class="headerlink" href="#estimation" title="Permalink to this heading">#</a></h3>
 <p>Suppose we want to estimate a distribution of <span class="math notranslate nohighlight">\(X\)</span>, about which we have some partial information, e.g. we know the value of <span class="math notranslate nohighlight">\(\langle X\rangle=\sum_{i} p_{i} X_{i}\)</span> or <span class="math notranslate nohighlight">\(\operatorname{var}(X)\)</span>, but not <span class="math notranslate nohighlight">\(\left\{p_{i}\right\}\)</span>.</p>
 <p>According to Shannon’s interpretation of entropy, the least <em>biased</em> probability distribution is the one that maximises <span class="math notranslate nohighlight">\(H(X)\)</span> given the constraints. This distribution is called the Maximum Entropy distribution. Any other distribution would pretend to have more information than is actually available (in form of the constraints).</p>
-<p><a class="reference internal" href="#max-ent-boltzmann"><span class="xref myst">discussion of information entropy</span></a></p>
+<p><a class="reference internal" href="#max-ent-boltzmann"><span class="std std-ref">discussion of information entropy</span></a></p>
 <p>Example:</p>
 <p>Find the MaxEnt distribution under the constraint of a given fixed value <span class="math notranslate nohighlight">\(\phi\)</span> of <span class="math notranslate nohighlight">\(\langle F(x)\rangle=\sum_{i} p_{i} F\left(x_{i}\right)\)</span>. It goes without saying that we also have to enforce the probability distribution summing up to one, <span class="math notranslate nohighlight">\(\langle 1\rangle=\sum_{i} p_{i}=1\)</span>.</p>
 <p>To maximize the entropy <span class="math notranslate nohighlight">\(H=-\sum_{i} p_{i} \log p_{i}\)</span> subject to both constraint, we use two Lagrange multipliers <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> and maximize the Lagrangian function</p>
@@ -786,7 +789,7 @@ I(X;Y)\equiv \text{entropy before}-\text{entropy after} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ad5347458419b7d67acef5f59b80d9b6bfaf36620e5a19911d01b8a614114a83.png" src="../_images/ad5347458419b7d67acef5f59b80d9b6bfaf36620e5a19911d01b8a614114a83.png" />
+<img alt="../_images/744b87780120468ede49dec65571476da293e20b9aff5a26504ed7c97fd87024.png" src="../_images/744b87780120468ede49dec65571476da293e20b9aff5a26504ed7c97fd87024.png" />
 </div>
 </div>
 <ul class="simple">
@@ -886,6 +889,7 @@ Figure 6.5 shows the results of experiments on the motion-sensitive neuron H1 in
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-as-lack-of-knowledge">Interpretation as lack of knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-entropy-kullback-leibler-kl-divergence">Relative entropy (Kullback-Leibler (KL) divergence)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mutual-information-being-degraded-by-noise">Example Mutual Information being degraded by noise</a><ul class="nav section-nav flex-column">
