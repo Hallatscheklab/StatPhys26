@@ -12,7 +12,7 @@ $$
 \Phi=S_{S}-T_{R}^{-1}\left\langle \mathcal{H}_{S}\right\rangle \;,
 $$
 
-where $T_{R}^{-1}$ is a Lagrange multiplier, only subject to the normalization constraint $\sum_i p_i=1$. Next we show that, up to a constabt, this Lagrange function is nothing other than the Helmholtz free energy $F$.
+where $T_{R}^{-1}$ is a Lagrange multiplier, only subject to the normalization constraint $\sum_i p_i=1$. Next we show that, up to a constant, this Lagrange function is nothing other than the Helmholtz free energy $F=-k_B T \ln(Z) $.
 
 
 ##### So, let's compute the Gibbs entropy:
