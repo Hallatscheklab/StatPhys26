@@ -14,10 +14,10 @@ chapters:
 #- file: ensemble-theory-1/Equipartition-Mesostates
 - file: ensemble-theory-1/L5-ensemble-theory-II
 - file: Gibbs_Distribution
-# - file: thermalization-simulation
-# - file: paramagnet-FLC.ipynb
-# - file: Spontaneous-Reactions 
-# - file: Crooks
+- file: thermalization-simulation
+- file: paramagnet-FLC.ipynb
+- file: Spontaneous-Reactions 
+- file: Crooks
 # - file: Chemical-reactions
 # - file: Ising-lectures/Ising-all-to-all
 # - file: Ising-lectures/Ising-1D.ipynb
