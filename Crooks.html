@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Trading conserved quantities between reservoir and system // External forces &#8212; Equilibrium Statistical Physics</title>
+    <title>Non-equilibrium fluctuation theorems &#8212; Equilibrium Statistical Physics</title>
   
   
   
@@ -60,11 +60,10 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Gibbs_Distribution';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Crooks';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Molecular Dynamics Simulation of Thermalization" href="thermalization-simulation.html" />
-    <link rel="prev" title="Gibbs entropy / Partition Function / Free energy" href="ensemble-theory-1/L5-ensemble-theory-II.html" />
+    <link rel="prev" title="Spontaneous Reactions" href="Spontaneous-Reactions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,14 +195,14 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-equilibrium fluctuation theorems</a></li>
 </ul>
 
     </div>
@@ -250,37 +249,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Gibbs_Distribution.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -306,7 +274,7 @@
       
       
       
-      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FGibbs_Distribution.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FCrooks.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +304,7 @@
       
       
       
-      <li><a href="_sources/Gibbs_Distribution.ipynb" target="_blank"
+      <li><a href="_sources/Crooks.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +314,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -420,7 +388,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Trading conserved quantities between reservoir and system // External forces</h1>
+    <h1>Non-equilibrium fluctuation theorems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -430,8 +398,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-exchange-and-chemical-potential">Particle exchange and chemical potential</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-exchange-and-pressure">Volume exchange and pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-reversibility">Time reversibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-concrete-setup">A concrete setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crooks-fluctuation-theorem-cft-2000">Crooks Fluctuation Theorem (CFT) (2000):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jarzynski-1998">Jarzynski (1998):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-crooks-fluctuation-theorem">Testing the Crooks fluctuation theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -443,55 +414,131 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="trading-conserved-quantities-between-reservoir-and-system-external-forces">
-<h1>Trading conserved quantities between reservoir and system // External forces<a class="headerlink" href="#trading-conserved-quantities-between-reservoir-and-system-external-forces" title="Permalink to this heading">#</a></h1>
-<p>We have seen how the exchange of energy between reservoir and system biases the microstates of the system in a way described by a Boltzmann factor. In this section, we’ll see that the same happens when we trade other conserved quantities, like particle numbers or volume, except that the corresponding Boltzmann factors involved other (conjugated) variables than energy and temperature. We will also find that mathematically the same happens under the action of an external force, generating a Boltzmann factor that involves the force and the conjugated extensive quantity of the system, e.g. an external pressure acting on the volume of the system or a magnetic field acting on the magnetization of the system.</p>
-<section id="particle-exchange-and-chemical-potential">
-<h2>Particle exchange and chemical potential<a class="headerlink" href="#particle-exchange-and-chemical-potential" title="Permalink to this heading">#</a></h2>
-<p>So far, we have considered closed systems and derived and studied the Boltzmann distribution.  Now our systems are open and the particle number might change. To derive the microstate probability distribution, we retrace the steps that led us to the Boltzmann distribution, except for allowing the system to trade particles with the bath.</p>
-<a class="bg-primary mb-1 reference internal image-reference" href="_images/open_system.png"><img alt="open systems" class="bg-primary mb-1 align-center" src="_images/open_system.png" style="width: 300px;" /></a>
-<p>The probability to find a system in a given microstate <span class="math notranslate nohighlight">\(\nu_S\)</span>, in which the system has energy <span class="math notranslate nohighlight">\(E_S\)</span> and  <span class="math notranslate nohighlight">\(N_S\)</span> particeles, is proportional to the number of available bath states,</p>
+  <section id="non-equilibrium-fluctuation-theorems">
+<h1>Non-equilibrium fluctuation theorems<a class="headerlink" href="#non-equilibrium-fluctuation-theorems" title="Permalink to this heading">#</a></h1>
+<p>Statistical physics is a powerful framework to deduce general statements about the dynamics at or near equilibrium. However, for a long time, it was believed that no general statements can be made about far from equilibrium dynamics. This changed in the early 2000s with the discovery of non-equilibrium fluctuation theorems. We discuss the two best-known theorems, the Crooks and Jarzynski theorems.</p>
+<p>We have seen: In the thermodynamic limit, the work done on a system during an isothermal process always exceeds the change in free energy, <span class="math notranslate nohighlight">\(W\geq\Delta F.\)</span></p>
+<p>Jarzynski showed that this statement can be generalized to the equality</p>
 <div class="math notranslate nohighlight">
-\[P(\nu_S)\propto e^{k_\mathrm{B}^{-1}S_R(E-E_S,N-N_S)}\;.\]</div>
-<p>Next we Taylor expand the entropy of the large reservoir,</p>
+\[
+\langle e^{-\beta W}\rangle= e^{-\beta \Delta F} \qquad\text{(Jarzynski 1998)}
+\]</div>
+<p>To interpret this equation, we need to clarify the transformation process: Consider a system with an external control parameter, <span class="math notranslate nohighlight">\(\lambda\)</span>, such as the volume of a container or the length of a polymer. We assume at time <span class="math notranslate nohighlight">\(0\)</span>, the system is equilibrated with <span class="math notranslate nohighlight">\(\lambda=\lambda_i\)</span>. Then the system is driven out of equilbrium following a particular finite time protocol <span class="math notranslate nohighlight">\(\Lambda=\{\lambda(t)\}\)</span> until the final value <span class="math notranslate nohighlight">\(\lambda(T)=\lambda_f\)</span> is reached. The total work <span class="math notranslate nohighlight">\(W\)</span> done on the system during this process will be a random variable. It is different each time we rerun this process. The average on the left hand side is an average over many realizations of the above transformation.</p>
+<p>The free energy difference <span class="math notranslate nohighlight">\(\Delta F\)</span> on the right hand side is the difference between the free energy of the system for the initial and final parameters, i.e.,</p>
 <div class="math notranslate nohighlight">
-\[k_\mathrm{B}^{-1}S_R(E-E_S,N-N_S)=\mathrm{const.}-\beta_R(E_S-\mu_R N_S)\;,\]</div>
-<p>where we have the usual thermodynamic definition of temperature</p>
+\[
+\Delta F = F(T, \lambda_f)-F(T, \lambda_i)
+\]</div>
+<p>Note that if the transformation protocol <span class="math notranslate nohighlight">\(\Lambda\)</span> is short, the system will go through a dynamics very far from equilibrium and be at a state far from equilibrium at time <span class="math notranslate nohighlight">\(T\)</span>. Yet, the Jarzynski equation relates the ensuing work to the equilibrium quantity <span class="math notranslate nohighlight">\(\Delta F\)</span>, which is why this equation was so surprising.</p>
+<p>In the original publication, Jarzynksi derived his equation from Hamiltonian dynamics. We will take a different route, and show that the coarse-grained stochastic dynamics of a microscopically reversible equations of motions satisfies Crook’s theorem, from which the Jarzynski theorem follows easily.</p>
+<section id="time-reversibility">
+<h2>Time reversibility<a class="headerlink" href="#time-reversibility" title="Permalink to this heading">#</a></h2>
+<p>The crux of the Crooks theorem is that microscopic laws are time reversible. In a stochastic description of the dynamcis, this implies that, in equilibrium, <span class="math notranslate nohighlight">\(A \rightarrow B\)</span> occur at the same rate as <span class="math notranslate nohighlight">\(B \rightarrow A\)</span> transitions. Or in terms of probabilities, we must have the detailed balance condition,</p>
 <div class="math notranslate nohighlight">
-\[T_R^{-1}\equiv\frac{\partial S_R}{\partial E}\]</div>
-<p>and introduced the <strong>chemical potential</strong></p>
+\[
+p(A \rightarrow B)=p(B \rightarrow A) \qquad \text{(detailed balance)}
+\]</div>
+<p>implying</p>
 <div class="math notranslate nohighlight">
-\[\mu_R\equiv-T_R \frac{\partial S_R}{\partial N}\;.\]</div>
-<p>The chemical potential can be interpreted as the free energy added to the system when we inject one particle into the system.</p>
-<p>With these definitions, we obtain the Gibbs distribution</p>
-<div class="math notranslate nohighlight">
-\[P(\nu_S)=Z^{-1}e^{-\beta_R\left[E_S-\mu_R N_S\right]}\]</div>
-<p>where the grand canonical partition function <span class="math notranslate nohighlight">\(Z\)</span> is given by the sum</p>
-<div class="math notranslate nohighlight">
-\[Z=\sum_i e^{-\beta_R\left[E_S^{(i)}-\mu_R N_S^{(i)}\right]}\]</div>
-<p>over all microstates <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>To obtain the probability to find the system in <em>any one</em> of the states with energy <span class="math notranslate nohighlight">\(E_S\)</span> and particle number <span class="math notranslate nohighlight">\(N_S\)</span>, we have to multiply the Gibbs distribution with the multiplicity of system states,</p>
-<div class="math notranslate nohighlight">
-\[P(E_S,N_S)\propto e^{k_\mathrm{B}^{-1}S_S(E_S,N_S)}e^{-\beta_R\left[E_S-\mu_R N_S\right]}\;.\]</div>
-<p>If the system is large, this distribution has a pronounced peak, such that the system will have an almost deterministic energy <span class="math notranslate nohighlight">\(U\)</span> and particle number <span class="math notranslate nohighlight">\(N\)</span>. The conditions for the maximum imply</p>
-<div class="math notranslate nohighlight">
-\[T_R=T_S\qquad \mu_R=\mu_S\;.\]</div>
-<p>Thus, temperatures and chemical potentials of bath and system are equal at equilibrium.</p>
-<p>Analogously to Section, one can show that the grand potential minimizes</p>
-<div class="math notranslate nohighlight">
-\[\Sigma=-k_\mathrm{B}T\ln Z=E-T S- \mu N \;,\]</div>
-<p>which amounts to maximizing entropy under the constraints of mean energy and particle number</p>
+\[
+p(A \rightarrow B \mid A) \cdot p(A)=p(B \rightarrow A \mid B) p(B) 
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight" id="equation-detailed-balance">
+<span class="eqno">(5)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">#</a></span>\[
+\frac{p(A \rightarrow B \mid A)}{p(B \rightarrow A \mid B)} = \frac{p(B)}{p(A)}=e^{-\beta (E_B-E_A)}= e^{-\beta (Q+W)}\;,
+\]</div>
+<p>where we used the fact that, in equilibrium, the likelihood ratio of two states is given by the boltzmann factor. As we transform the system from one state to the other, the energy change is generated by a combination of heat from the reservoir into the system and work done by an external force.</p>
 </section>
-<section id="volume-exchange-and-pressure">
-<h2>Volume exchange and pressure<a class="headerlink" href="#volume-exchange-and-pressure" title="Permalink to this heading">#</a></h2>
-<p>In complete analogy, we can also treat the case where bath and system trade energy and volume, which we briefly summarize for completeness. One obtains the microstate distribution</p>
+<section id="a-concrete-setup">
+<h2>A concrete setup<a class="headerlink" href="#a-concrete-setup" title="Permalink to this heading">#</a></h2>
+<p>To be specific, let’s imagine the system consists of a polymer connected to an ideal spring. <span class="math notranslate nohighlight">\(x(t)\)</span> represents the (high-dimensional) configuration of the polymer and  <span class="math notranslate nohighlight">\(\lambda(t)\)</span> is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.</p>
+<p>Suppose we are interested in stretching the polymer from initial length <span class="math notranslate nohighlight">\(\lambda_i\)</span> to final length <span class="math notranslate nohighlight">\(\lambda_f\)</span> in the finite time <span class="math notranslate nohighlight">\(T\)</span>. Our goal is to measure <span class="math notranslate nohighlight">\(\Delta F=F(\lambda_f, T)-F(\lambda_i,T)\)</span>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/crooks-polymer.jpg"><img alt="polymer" class="bg-primary mb-1 align-center" src="_images/crooks-polymer.jpg" style="width: 400px;" /></a>
+<p>Let’s assume we discretize our stochastic dynamics into <span class="math notranslate nohighlight">\(N\)</span> time steps and let the control parameter change discontinuously at the end of each time step (see bottom right in figure).</p>
+<p>It is clear that, if our time steps are sufficiently small, we should be able to discretize the <span class="math notranslate nohighlight">\(\lambda(t)\)</span> dynamics into such a piecewise constant function. The advantage of this discretization is twofold:</p>
+<p>(1) it ensures that the external force does not perform any work in the time intervals between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(t+1\)</span> where <span class="math notranslate nohighlight">\(\lambda(t)=\lambda_{t,t+1}=\)</span> const.</p>
+<p>Thus,</p>
+<div class="math notranslate nohighlight" id="equation-conditional-probabilities-ratio">
+<span class="eqno">(6)<a class="headerlink" href="#equation-conditional-probabilities-ratio" title="Permalink to this equation">#</a></span>\[
+\frac{P\left(x_{t}^{+} \rightarrow x_{t+1}^{-} \mid \lambda_{t, t+1}, x_{t}^{+}\right)}{P\left(x_{t+1}^{-} \rightarrow x_{t}^{+} \mid \lambda_{t, t+1}, x_{t+1}^{-}\right)}=e^{-\beta Q_{t, t+1}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q_{t, 1+1}\)</span> is the heat added to the system in the time interval <span class="math notranslate nohighlight">\((t, t+1)\)</span>. The equality follows from equation <a class="reference internal" href="#equation-detailed-balance">(5)</a> and <span class="math notranslate nohighlight">\(W=0\)</span>.</p>
+<p>(2) During the instantaneous jumps in <span class="math notranslate nohighlight">\(\lambda(t)\)</span>, we can assume that the configuration <span class="math notranslate nohighlight">\(x\)</span> of the polymer does not change - only the ideal, massless spring gets stretched. Thus, the configuration before and after the jump are identical, <span class="math notranslate nohighlight">\(x^+_t=x^-_t \forall t\)</span>.</p>
+<p>Generalizing <a class="reference internal" href="#equation-conditional-probabilities-ratio">(6)</a>, we thus obtain</p>
 <div class="math notranslate nohighlight">
-\[P(\nu_S)\propto e^{-\beta_R\left[E_S+p_R dV_S\right]}\]</div>
-<p>with the equilibrium condition of equal pressures <span class="math notranslate nohighlight">\(p_R=p_S\)</span>.</p>
-<p>The equilibrium distribution minimizes the Gibbs free energy</p>
+\[
+\frac{P\left(X \mid \Lambda, x_{i}\right)}{P\left(\tilde{X} \mid \tilde{\Lambda}, x_{f}\right)}=e^{-\beta Q} 
+\]</div>
+<p>where</p>
 <div class="math notranslate nohighlight">
-\[G=E-T S+PV=\sum_i \mu_i N_i \;,\]</div>
-<p>where the last sum goes over all particle species <span class="math notranslate nohighlight">\(i\)</span>.</p>
+\[\begin{split}
+&amp; X=\left\{x_{i}, x_{1},  \ldots x_{N-1},x_{f}\right\} \\
+&amp; \tilde{X}=\left\{x_{f}, x_{N-1}, x_{N-2},\ldots,c_{i}\right\} \text { (time reversed) } \\
+&amp; \Lambda=\left\{\lambda_{i}, \ldots . \lambda_{f}\right\}\\
+&amp; \tilde \Lambda=\left\{\lambda_{f}, \ldots . \lambda_{i}\right\} \text { (time reversed) } 
+\end{split}\]</div>
+<p>Now, we integrate over the equilibrium distribution of the initial conditions for the forward path and the final conditions for the backward path.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{P\left(X \mid \Lambda \right)}{P\left(\tilde{X} \mid \tilde{\Lambda}\right)}=
+\frac{P\left(X \mid \Lambda ,x_{i}\right)}{P\left(\tilde{X} \mid \tilde{\Lambda}, x_{f}\right)}\frac{P\left(x_{i} \mid \lambda_{i}\right)}{P\left(x_{f} \mid \lambda_{j}\right)}=e^{-\beta Q} \frac{P\left(x_{i} \mid \lambda_{i}\right)}{P\left(x_{f} \mid \lambda_{j}\right)}
+\]</div>
+<p>Imposing the Boltzmann distribution,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P\left(x_{i} \mid \lambda_{i}\right)=e^{-\beta(E_{i}-F_i)}\\
+P\left(x_{f} \mid \lambda_{f}\right)=e^{-\beta(E_{f}-F_f)}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_i=E(x_i,\lambda_i)\)</span> and <span class="math notranslate nohighlight">\(F_i=F(\lambda_i,T)\)</span> and correspondingly <span class="math notranslate nohighlight">\(E_f=E(x_f,\lambda_f)\)</span> and <span class="math notranslate nohighlight">\(F_f=F(\lambda_f,T)\)</span>, we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{P\left(X \mid \Lambda \right)}{P\left(\tilde{X} \mid \tilde{\Lambda}\right)}=e^{-\beta(\underbrace{Q-\Delta E}_{-\Delta W}+\Delta F)}=e^{-\beta(\Delta F-W)}
+\]</div>
+</section>
+<section id="crooks-fluctuation-theorem-cft-2000">
+<h2>Crooks Fluctuation Theorem (CFT) (2000):<a class="headerlink" href="#crooks-fluctuation-theorem-cft-2000" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{r}
+P(+W \mid \Lambda)=\int D X \delta(W(X)-W) P(X \mid \Lambda) \\
+\stackrel{(3)}{=} \int D \tilde{X} \delta(W(\tilde{X})+W) P(\tilde{X} \mid \tilde{\Lambda})  e^{-\beta(\Delta F-W)} \\
+=e^{-\beta(\Delta F-W) }P(-W \mid \tilde{\Lambda}) 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-crooks">
+<span class="eqno">(7)<a class="headerlink" href="#equation-crooks" title="Permalink to this equation">#</a></span>\[
+\boxed{\frac{P(+W \mid \Lambda)}{P(-W \mid \tilde{\Lambda})}=e^{-\beta(\Delta F-W)}\qquad \text { Crooks, 2000 }}
+\]</div>
+</section>
+<section id="jarzynski-1998">
+<h2>Jarzynski (1998):<a class="headerlink" href="#jarzynski-1998" title="Permalink to this heading">#</a></h2>
+<p>From the Crooks theorem, we get the Jarzynski equation easily</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp; \left\langle e^{-\beta W}\right\rangle_{\Lambda}=\int d W P(+W \mid \Lambda) e^{-\beta W} \\
+&amp; \quad \stackrel{(6)}{=} \int d W P(-W \mid \tilde{\Lambda}) e^{-\beta W-\beta(\Delta F- W)} \\
+&amp; =e^{-\beta \Delta F} \int d W  P(-W \mid \tilde{\Lambda})  
+\end{aligned}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\left\langle e^{-\beta W}\right\rangle_{\Lambda}=e^{-\beta \Delta F} \qquad \text { Jarzynski, 1998 }}
+\]</div>
+<p>Jensens inequality <span class="math notranslate nohighlight">\(\left\langle e^{-x}\right\rangle \geqslant e^{-\langle x\rangle}\)</span> then implies</p>
+<div class="math notranslate nohighlight">
+\[
+\langle W\rangle \geq \Delta F \;,
+\]</div>
+<p>a version of the second law.</p>
+</section>
+<section id="testing-the-crooks-fluctuation-theorem">
+<h2>Testing the Crooks fluctuation theorem<a class="headerlink" href="#testing-the-crooks-fluctuation-theorem" title="Permalink to this heading">#</a></h2>
+<p>In 2005, Bustamante’s group at Berkeley published a test of the CFT (<span id="id1">[]</span>). They repeatedly unfolded and refolded a RNA hairpin and determined the work distributions for Unfolding, <span class="math notranslate nohighlight">\(P_U(W)\)</span>, and for refoldung, <span class="math notranslate nohighlight">\(P_R(-W)\)</span>. These two distributions deviate from one another, the more so the more rapid the unfolding protocal is, i.e., the more it is out of equilibrium. Yet, if the CFT is correct, both distributions have to cross at exactly <span class="math notranslate nohighlight">\(W=\Delta F\)</span>,
+since <span class="math notranslate nohighlight">\(P_U(\Delta F)=P_R(-\Delta F)\)</span>. Indeed, that’s what they found.</p>
+<p>{biography}</p>
 </section>
 </section>
 
@@ -526,22 +573,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ensemble-theory-1/L5-ensemble-theory-II.html"
+       href="Spontaneous-Reactions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Gibbs entropy / Partition Function / Free energy</p>
+        <p class="prev-next-title">Spontaneous Reactions</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="thermalization-simulation.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Molecular Dynamics Simulation of Thermalization</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -559,8 +597,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-exchange-and-chemical-potential">Particle exchange and chemical potential</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-exchange-and-pressure">Volume exchange and pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-reversibility">Time reversibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-concrete-setup">A concrete setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crooks-fluctuation-theorem-cft-2000">Crooks Fluctuation Theorem (CFT) (2000):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jarzynski-1998">Jarzynski (1998):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-crooks-fluctuation-theorem">Testing the Crooks fluctuation theorem</a></li>
 </ul>
   </nav></div>
 
