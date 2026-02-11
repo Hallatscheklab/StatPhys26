@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Spontaneous Reactions" href="Spontaneous-Reactions.html" />
-    <link rel="prev" title="Molecular Dynamics Simulation of Thermalization" href="thermalization-simulation.html" />
+    <link rel="prev" title="Trading conserved quantities between reservoir and system // External forces" href="Gibbs_Distribution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,10 +196,9 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Two standard examples for a system coupled to an external field</a></li>
-
 
 
 <li class="toctree-l1"><a class="reference internal" href="Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
@@ -438,9 +437,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-susceptibility">1.3 Magnetic Susceptibility</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-freely-jointed-chain-in-an-external-force-field">Section 2: Freely Jointed Chain in an External Force Field</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Section 2: Freely Jointed Chain in an External Force Field</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1 Derivation of the Partition Function</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-freely-jointed-chain-in-an-external-force-field">Section 2: Freely Jointed Chain in an External Force Field</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1 Derivation of the Partition Function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-value-of-end-to-end-distance">2.2 Expectation Value of End-to-End Distance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-response-to-an-increase-in-force">2.4 Linear Response to an Increase in Force</a></li>
 </ul>
@@ -573,11 +571,8 @@ F = -\frac{N}{\beta} \log(2 \cosh(\beta \mu H))
 </section>
 <section id="section-2-freely-jointed-chain-in-an-external-force-field">
 <h1>Section 2: Freely Jointed Chain in an External Force Field<a class="headerlink" href="#section-2-freely-jointed-chain-in-an-external-force-field" title="Permalink to this heading">#</a></h1>
-</section>
 <section id="id1">
-<h1>Section 2: Freely Jointed Chain in an External Force Field<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<section id="id2">
-<h2>2.1 Derivation of the Partition Function<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>2.1 Derivation of the Partition Function<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Consider a freely jointed chain with <span class="math notranslate nohighlight">\(N\)</span> segments, each of length <span class="math notranslate nohighlight">\(l\)</span>, in an external force field <span class="math notranslate nohighlight">\(F\)</span>.</p>
 <p><img alt="Freely jointed chain" src="_images/FJC.png" /></p>
 <p>The energy of the system is:</p>
@@ -607,7 +602,7 @@ Z = \left( \frac{\sinh(\beta F l)}{\beta F l} \right)^N
 <p>The end-to-end distance is:</p>
 <div class="math notranslate nohighlight">
 \[
-\langle R \rangle = N l L(\beta F l)
+\langle R \rangle = -\beta^{-1}\partial_F \ln(Z)=N l L(\beta F l)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(L(x) = \coth(x) - \frac{1}{x}\)</span> is the Langevin function.</p>
 </section>
@@ -695,12 +690,12 @@ Z = \left( \frac{\sinh(\beta F l)}{\beta F l} \right)^N
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="thermalization-simulation.html"
+       href="Gibbs_Distribution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Molecular Dynamics Simulation of Thermalization</p>
+        <p class="prev-next-title">Trading conserved quantities between reservoir and system // External forces</p>
       </div>
     </a>
     <a class="right-next"
@@ -736,9 +731,8 @@ Z = \left( \frac{\sinh(\beta F l)}{\beta F l} \right)^N
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-susceptibility">1.3 Magnetic Susceptibility</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-freely-jointed-chain-in-an-external-force-field">Section 2: Freely Jointed Chain in an External Force Field</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Section 2: Freely Jointed Chain in an External Force Field</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1 Derivation of the Partition Function</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-freely-jointed-chain-in-an-external-force-field">Section 2: Freely Jointed Chain in an External Force Field</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1 Derivation of the Partition Function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-value-of-end-to-end-distance">2.2 Expectation Value of End-to-End Distance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-response-to-an-increase-in-force">2.4 Linear Response to an Increase in Force</a></li>
 </ul>
