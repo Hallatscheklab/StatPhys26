@@ -13,8 +13,8 @@ chapters:
 #- file: ensemble-theory-1/Meaning-of-Equilibrium
 #- file: ensemble-theory-1/Equipartition-Mesostates
 - file: ensemble-theory-1/L5-ensemble-theory-II
-- file: Gibbs_Distribution
 - file: thermalization-simulation
+- file: Gibbs_Distribution
 - file: paramagnet-FLC.ipynb
 - file: Spontaneous-Reactions 
 - file: Crooks
