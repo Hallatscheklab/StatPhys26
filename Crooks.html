@@ -451,7 +451,7 @@ p(A \rightarrow B \mid A) \cdot p(A)=p(B \rightarrow A \mid B) p(B)
 </section>
 <section id="a-concrete-setup">
 <h2>A concrete setup<a class="headerlink" href="#a-concrete-setup" title="Permalink to this heading">#</a></h2>
-<p>To be specific, let’s imagine the system consists of a polymer connected to an ideal spring. <span class="math notranslate nohighlight">\(x(t)\)</span> represents the (high-dimensional) configuration of the polymer and  <span class="math notranslate nohighlight">\(\lambda(t)\)</span> is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.</p>
+<p>To be specific, let’s imagine the system consists of a polymer connected to an ideal spring. <span class="math notranslate nohighlight">\(x(t)\)</span> represents the end-to-end distance of the polymer and  <span class="math notranslate nohighlight">\(\lambda(t)\)</span> is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.</p>
 <p>Suppose we are interested in stretching the polymer from initial length <span class="math notranslate nohighlight">\(\lambda_i\)</span> to final length <span class="math notranslate nohighlight">\(\lambda_f\)</span> in the finite time <span class="math notranslate nohighlight">\(T\)</span>. Our goal is to measure <span class="math notranslate nohighlight">\(\Delta F=F(\lambda_f, T)-F(\lambda_i,T)\)</span>.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/crooks-polymer.jpg"><img alt="polymer" class="bg-primary mb-1 align-center" src="_images/crooks-polymer.jpg" style="width: 400px;" /></a>
 <p>Let’s assume we discretize our stochastic dynamics into <span class="math notranslate nohighlight">\(N\)</span> time steps and let the control parameter change discontinuously at the end of each time step (see bottom right in figure).</p>
@@ -465,19 +465,19 @@ p(A \rightarrow B \mid A) \cdot p(A)=p(B \rightarrow A \mid B) p(B)
 <p>where <span class="math notranslate nohighlight">\(Q_{t, 1+1}\)</span> is the heat added to the system in the time interval <span class="math notranslate nohighlight">\((t, t+1)\)</span>. The equality follows from equation <a class="reference internal" href="#equation-detailed-balance">(5)</a> and <span class="math notranslate nohighlight">\(W=0\)</span>.</p>
 <p>(2) During the instantaneous jumps in <span class="math notranslate nohighlight">\(\lambda(t)\)</span>, we can assume that the configuration <span class="math notranslate nohighlight">\(x\)</span> of the polymer does not change - only the ideal, massless spring gets stretched. Thus, the configuration before and after the jump are identical, <span class="math notranslate nohighlight">\(x^+_t=x^-_t \forall t\)</span>.</p>
 <p>Generalizing <a class="reference internal" href="#equation-conditional-probabilities-ratio">(6)</a>, we thus obtain</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-conditional-probabilities-ratio-2">
+<span class="eqno">(7)<a class="headerlink" href="#equation-conditional-probabilities-ratio-2" title="Permalink to this equation">#</a></span>\[
 \frac{P\left(X \mid \Lambda, x_{i}\right)}{P\left(\tilde{X} \mid \tilde{\Lambda}, x_{f}\right)}=e^{-\beta Q} 
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 &amp; X=\left\{x_{i}, x_{1},  \ldots x_{N-1},x_{f}\right\} \\
-&amp; \tilde{X}=\left\{x_{f}, x_{N-1}, x_{N-2},\ldots,c_{i}\right\} \text { (time reversed) } \\
+&amp; \tilde{X}=\left\{x_{f}, x_{N-1}, x_{N-2},\ldots,x_{i}\right\} \text { (time reversed) } \\
 &amp; \Lambda=\left\{\lambda_{i}, \ldots . \lambda_{f}\right\}\\
 &amp; \tilde \Lambda=\left\{\lambda_{f}, \ldots . \lambda_{i}\right\} \text { (time reversed) } 
 \end{split}\]</div>
-<p>Now, we integrate over the equilibrium distribution of the initial conditions for the forward path and the final conditions for the backward path.</p>
+<p>Note that the probability in the numerator (denominator) on the left hand side in <a class="reference internal" href="#equation-conditional-probabilities-ratio-2">(7)</a> is conditional on a given starting state <span class="math notranslate nohighlight">\(x_i\)</span> (end state <span class="math notranslate nohighlight">\(x_f\)</span>).  To remove these conditions, we multiply numerator and denominator wth the probabilities of actually sampling these states in equilibrium,</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{P\left(X \mid \Lambda \right)}{P\left(\tilde{X} \mid \tilde{\Lambda}\right)}=
@@ -506,7 +506,7 @@ P(+W \mid \Lambda)=\int D X \delta(W(X)-W) P(X \mid \Lambda) \\
 \end{array}
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-crooks">
-<span class="eqno">(7)<a class="headerlink" href="#equation-crooks" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-crooks" title="Permalink to this equation">#</a></span>\[
 \boxed{\frac{P(+W \mid \Lambda)}{P(-W \mid \tilde{\Lambda})}=e^{-\beta(\Delta F-W)}\qquad \text { Crooks, 2000 }}
 \]</div>
 </section>

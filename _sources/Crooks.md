@@ -48,7 +48,7 @@ where we used the fact that, in equilibrium, the likelihood ratio of two states 
 
 #### A concrete setup
 
-To be specific, let's imagine the system consists of a polymer connected to an ideal spring. $x(t)$ represents the (high-dimensional) configuration of the polymer and  $\lambda(t)$ is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.
+To be specific, let's imagine the system consists of a polymer connected to an ideal spring. $x(t)$ represents the end-to-end distance of the polymer and  $\lambda(t)$ is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.
 
 Suppose we are interested in stretching the polymer from initial length $\lambda_i$ to final length $\lambda_f$ in the finite time $T$. Our goal is to measure $\Delta F=F(\lambda_f, T)-F(\lambda_i,T)$.
 
@@ -82,19 +82,20 @@ Generalizing {eq}`conditional-probabilities-ratio`, we thus obtain
 
 $$
 \frac{P\left(X \mid \Lambda, x_{i}\right)}{P\left(\tilde{X} \mid \tilde{\Lambda}, x_{f}\right)}=e^{-\beta Q} 
-$$
+$$  (conditional-probabilities-ratio-2)
 
 where
 
 
+
 $$
 & X=\left\{x_{i}, x_{1},  \ldots x_{N-1},x_{f}\right\} \\
-& \tilde{X}=\left\{x_{f}, x_{N-1}, x_{N-2},\ldots,c_{i}\right\} \text { (time reversed) } \\
+& \tilde{X}=\left\{x_{f}, x_{N-1}, x_{N-2},\ldots,x_{i}\right\} \text { (time reversed) } \\
 & \Lambda=\left\{\lambda_{i}, \ldots . \lambda_{f}\right\}\\
 & \tilde \Lambda=\left\{\lambda_{f}, \ldots . \lambda_{i}\right\} \text { (time reversed) } 
 $$
 
-Now, we integrate over the equilibrium distribution of the initial conditions for the forward path and the final conditions for the backward path.
+Note that the probability in the numerator (denominator) on the left hand side in {eq}`conditional-probabilities-ratio-2` is conditional on a given starting state $x_i$ (end state $x_f$).  To remove these conditions, we multiply numerator and denominator wth the probabilities of actually sampling these states in equilibrium,
 
 $$
 \frac{P\left(X \mid \Lambda \right)}{P\left(\tilde{X} \mid \tilde{\Lambda}\right)}=
