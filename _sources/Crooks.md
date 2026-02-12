@@ -147,7 +147,7 @@ $$
 \left\langle e^{-\beta W}\right\rangle_{\Lambda}=e^{-\beta \Delta F} \qquad \text { Jarzynski, 1998 }}
 $$
 
-Jensens inequality $\left\langle e^{-x}\right\rangle \geqslant e^{-\langle x\rangle}$ then implies
+Jensens inequality $\left\langle e^{-x}\right\rangle \leqslant e^{-\langle x\rangle}$ then implies
 
 $$
 \langle W\rangle \geq \Delta F \;,
