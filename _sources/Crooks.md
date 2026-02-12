@@ -48,7 +48,7 @@ where we used the fact that, in equilibrium, the likelihood ratio of two states 
 
 #### A concrete setup
 
-To be specific, let's imagine the system consists of a polymer connected to an ideal spring. $x(t)$ represents the end-to-end distance of the polymer and  $\lambda(t)$ is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.
+To be specific, let's imagine the system consists of a polymer connected to an ideal spring. $x(t)$ represents the high-dimensional microstate configuration of the polymer and  $\lambda(t)$ is the end-to-end distance from the open ends of polymer and spring. The reservoir is the surrounding fluid.
 
 Suppose we are interested in stretching the polymer from initial length $\lambda_i$ to final length $\lambda_f$ in the finite time $T$. Our goal is to measure $\Delta F=F(\lambda_f, T)-F(\lambda_i,T)$.
 
