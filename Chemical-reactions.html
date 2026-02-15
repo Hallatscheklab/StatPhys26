@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Spontaneous Reactions &#8212; Equilibrium Statistical Physics</title>
+    <title>Chemical reactions &#8212; Equilibrium Statistical Physics</title>
   
   
   
@@ -60,11 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Spontaneous-Reactions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chemical-reactions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Non-equilibrium fluctuation theorems" href="Crooks.html" />
-    <link rel="prev" title="Two standard examples for a system coupled to an external field" href="paramagnet-FLC.html" />
+    <link rel="next" title="Statistical mechanics with interactions - Ising models" href="Ising-lectures/Ising-all-to-all.html" />
+    <link rel="prev" title="Non-equilibrium fluctuation theorems" href="Crooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,9 +201,9 @@
 <li class="toctree-l1"><a class="reference internal" href="paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crooks.html">Non-equilibrium fluctuation theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chemical reactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
 
@@ -261,37 +261,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Spontaneous-Reactions.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -317,7 +286,7 @@
       
       
       
-      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FSpontaneous-Reactions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FChemical-reactions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -347,7 +316,7 @@
       
       
       
-      <li><a href="_sources/Spontaneous-Reactions.ipynb" target="_blank"
+      <li><a href="_sources/Chemical-reactions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +326,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -418,7 +387,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -429,11 +400,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spontaneous Reactions</h1>
+    <h1>Chemical reactions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-mixtures">Dilute mixtures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-equilibrium">Chemical equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-atp-consumption">Example: ATP consumption</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -443,49 +426,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="spontaneous-reactions">
-<h1>Spontaneous Reactions<a class="headerlink" href="#spontaneous-reactions" title="Permalink to this heading">#</a></h1>
-<p>A change in the macrostate of the system is said to happen spontaneously if we do not need to apply a (thermodynamic) driving force to induce the change. It is then clear that, in large systems, spontaneous reactions cannot decrease the entropy of the world, <span class="math notranslate nohighlight">\(0\leq\Delta S_{\text{tot}},\)</span> which is one formulation fo the second law.</p>
-<p>The total entropy change can be decomposed into  entropy changes <span class="math notranslate nohighlight">\(\Delta S_S\)</span> and <span class="math notranslate nohighlight">\(\Delta S_R\)</span> of system and reservoir, respectively. Assuming that the generalized coordinates of the reservoir don’t change, we can Taylor expand the reservoir entropy change <span class="math notranslate nohighlight">\(\Delta S_R=\Delta E_R/T_R\)</span> in terms of the energy change <span class="math notranslate nohighlight">\(\Delta E_R\)</span> of the reservoir (just as we did to derive the Boltzmann factor). In terms of the the <em>heat</em> <span class="math notranslate nohighlight">\(Q\equiv-\Delta E_R\)</span> added to the system, we thus have</p>
+  <section id="chemical-reactions">
+<h1>Chemical reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this heading">#</a></h1>
+<p>To illustrate the conversion of free energy into work, we now discuss the equilibria aspired by chemical reactions. We then discuss ATP phosphorylation as an important reaction that is kept out of equilibrium in living systems, so that the drive towards equilibrium can be used inside biological cells to do work.</p>
+<section id="dilute-mixtures">
+<h2>Dilute mixtures<a class="headerlink" href="#dilute-mixtures" title="Permalink to this heading">#</a></h2>
+<p>The analysis of chemical reactions is only simple if one can assume that the relevant reactants are relatively dilute. For this case, we first need to analyze the chemical potential of dilute mixtures.</p>
+<p>Let’s divide up our entire space into cells of size <span class="math notranslate nohighlight">\(l^3\)</span>, such that, to a good approximation, each box contains 0 or <span class="math notranslate nohighlight">\(1\)</span> solutes (but not more).</p>
+<p><img alt="solutes in cells" src="_images/solutes-in-cells.png" /></p>
+<p>Let <span class="math notranslate nohighlight">\(z_{l} \equiv\)</span> be the partition function of a cell with a solute and <span class="math notranslate nohighlight">\(z_{0}=\)</span> the partition function of a cell without solute.</p>
+<p>The total partition function is then given by</p>
 <div class="math notranslate nohighlight">
-\[0\leq\Delta S_{\text{tot}}=\Delta S_S+\Delta S_R=\Delta S_S-\frac{Q}{T_R}\]</div>
-<p>and obtain the <strong>Clausius inequality</strong></p>
+\[\begin{split}
+\begin{aligned}
+Z &amp; =\frac{M^{N}}{N !} z_{l}^{N} z_{0}^{M-N}= \\
+&amp; =\frac{M^{N}}{N !}\left(\frac{z_{l}}{z_{0}}\right)^{N} z_{0}^{M} 
+\end{aligned}
+\end{split}\]</div>
+<p>where we assumed that the number <span class="math notranslate nohighlight">\(N\)</span> of filled cells is much less than the total number <span class="math notranslate nohighlight">\(M\)</span> of cells to simplify the combinatorial factor (binomial coefficient).</p>
+<p>So, the chemical potential of the solutes is given by</p>
 <div class="math notranslate nohighlight">
-\[\boxed{\Delta S_S\geq\frac{Q}{T_R}}\;,\]</div>
-<p>where the greater sign applies to <em>spontaneous</em> processes and the equal sign applies to <em>reversible</em> processes, which are the only ones that occur in equilibrium.</p>
-<p>Next, we invoke the first law of thermodynamics, to express the change in internal energy of the system as</p>
-<div class="math notranslate nohighlight">
-\[\Delta E_s=Q+W \]</div>
-<p>in terms of the heat <span class="math notranslate nohighlight">\(Q\)</span> and the <span class="math notranslate nohighlight">\(W\)</span> is the work done <em>on</em> the system through some external force.</p>
-<p>Also a footnote about <span class="math notranslate nohighlight">\(U\)</span>: In the context of spontaneous processes, we define it as an ensemble average of the energy of the system. That ensemble average can have a time dependence if the system starts out of equilibrium and is allowed to relax. Example: Consider a bottle of initially cold water that we through into a hot tub. The temperature of the bottle will increase over time until the temperature of the bottle matches the temperature of the hot tub. The energy <span class="math notranslate nohighlight">\(E_S(t)\)</span>  of the bottle will generally increase towards the peak energy (from above), but the time series will show fluctuations: If we repeat the entire experiment, <span class="math notranslate nohighlight">\(E_S(t)\)</span> will look slightly different because  the fluctuations are different. But the ensemble average <span class="math notranslate nohighlight">\(U(t)\)</span> over (infinitely) many realizations of the non-equilibrium process will be a deterministic time-dependent function.</p>
-<p>Now, we consider <em>isothermal</em> reactions in which the temperature is held constant, i.e. <span class="math notranslate nohighlight">\(\Delta T=0\)</span>. Assuming no work done, <span class="math notranslate nohighlight">\(W=0\)</span>, the Clausius inequality implies</p>
-<div class="math notranslate nohighlight">
-\[\Delta E_S-T_R\Delta S_S\leq 0.\]</div>
-<p>Note that the RHS is equal to the change <span class="math notranslate nohighlight">\(\Delta F\)</span> of the free energy (only in this isothermal case!). Thus, in a spontaneous process, the change in free energy is never positive,</p>
-<div class="math notranslate nohighlight">
-\[\boxed{\Delta F\leq0\qquad\text{(isothermal processes)}.}\]</div>
-<p>If the system does work, the Clausius inequality gives us a bound on how much work we can get out of a process that involves change <span class="math notranslate nohighlight">\(\Delta F&lt;0\)</span> in  free energy, namely</p>
-<div class="math notranslate nohighlight">
-\[\boxed{W\geq\Delta F\qquad\text{(isothermal processes)}.}\]</div>
-<div class="alert alert-warning">
-Summary:  
-<ul class="simple">
-<li><p>Spontaneous reactions reduce the free energy <span class="math notranslate nohighlight">\(F\)</span>.</p></li>
-<li><p>In equilibrium, the free energy is minimal.</p></li>
-<li><p>The work done on a system during a spontaneous process is typically larger than the change in free energy</p></li>
-<li><p>unless a process is reversible, in which case the Work just equals the change in free energy.</p></li>
-</ul>
-</div><p>The above discussion also implies a relationship we discovered earlier, namely between differentials for general reversible processes (not only isothermal ones):</p>
-<div class="math notranslate nohighlight">
-\[ dF=dE-T dS -S dT=+dW -S dT\]</div>
+\[
+\beta \mu =-\left.\frac{\partial \ln Z}{\partial N}\right|_{T_{1} N}=-\ln \left(\frac{M}{N}\right)-\ln \left(\frac{z_{l}}{z_{0}}\right)
+\]</div>
 <p>or</p>
+<div class="math notranslate nohighlight" id="equation-chem-pot-dilute">
+<span class="eqno">(9)<a class="headerlink" href="#equation-chem-pot-dilute" title="Permalink to this equation">#</a></span>\[
+\mu=\underbrace{k_{\text{B}} T \ln \left(\rho \ell^{3}\right)}_{\text{conc. dep. of ideal gas}}+\underbrace{\mu^{(o)}}_{k_B T  \ln \left(\frac{z_{0}}{z_{l}}\right)}
+\]</div>
+</section>
+<section id="chemical-equilibrium">
+<h2>Chemical equilibrium<a class="headerlink" href="#chemical-equilibrium" title="Permalink to this heading">#</a></h2>
+<p>Consider the simple chemical reaction</p>
+<div class="math notranslate nohighlight" id="equation-chem-react">
+<span class="eqno">(10)<a class="headerlink" href="#equation-chem-react" title="Permalink to this equation">#</a></span>\[
+b B \rightleftharpoons c C
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(b, c\)</span> are stoichometric coefficients.</p>
+<p>In equilibrium, the free energy <span class="math notranslate nohighlight">\(F\left(T, N_{B}, N_{C}\right)\)</span> is minimal. <span class="math notranslate nohighlight">\(\Rightarrow\)</span> Running <a class="reference internal" href="#equation-chem-react">(10)</a> in either direction should not change
+the free energy <span class="math notranslate nohighlight">\(F\)</span>. So, imagine running <a class="reference internal" href="#equation-chem-react">(10)</a> once in the forward direction such that</p>
 <div class="math notranslate nohighlight">
-\[ dE=T dS+ dW\]</div>
-<div class="alert alert-info">
-<p><strong>Example: ATP consumption</strong>
-Most cellular processes are powered by
-$<span class="math notranslate nohighlight">\(ATP\rightarrow ADP + P_i\)</span>$</p>
-</div></section>
+\[
+N_{B} \rightarrow N_{B}-b  \;,\qquad N_{C} \rightarrow N_{C}+c 
+\]</div>
+<p>then the free energy change is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta F=\left.\frac{\partial F}{\partial N_B}\right|_{T, p, N_{C}}(-b \Delta N)+\left(\frac{\partial F}{\partial N_{C}}\right)_{T, p, N_B}(c \Delta N)
+\]</div>
+<div class="math notranslate nohighlight" id="equation-free-energy-change-chem">
+<span class="eqno">(11)<a class="headerlink" href="#equation-free-energy-change-chem" title="Permalink to this equation">#</a></span>\[
+\Delta F=\mu_{B}(-b \Delta N)+\mu_{B}(c \Delta N)\;.
+\]</div>
+<p>This free energy change has to vanish in equilibrium, implying</p>
+<div class="math notranslate nohighlight">
+\[
+ \quad b \cdot \mu_{B}=c \cdot \mu_{c} .
+\]</div>
+<p>In dilute conditions, this equation turns into the law of mass action,</p>
+<div class="math notranslate nohighlight">
+\[
+b\left(k_{B} T \ln\left(\rho_{B} l^{3}\right)+\mu_{B}^{(0)}\right)=c\left(k_{B} T  \ln \left(\rho_{c} l^{3}\right)+\mu_{c}^{(0)}\right) 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\rho_{B}^{b}}{\rho_{C}^{c}}=\left(l^{-b+c}\right)^{3} e^{-\beta \Delta \mu_{\text{rxn}}^{(0)}}=K_{e q}(T) 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta \mu_{\text{rxn}}^{(0)}=b \mu_{b}^{(0)}-c \mu_{c}^{(0)} \;,
+\]</div>
+<p>defining the equilibrium constant in terms of chemical potential differences.</p>
+<p>Note, if a chemical reaction is not in equilibrium, it will run such that that <span class="math notranslate nohighlight">\(\Delta F &lt;0\)</span>. If the reaction is
+used to do work, we have</p>
+<div class="math notranslate nohighlight">
+\[
+W \geqslant \Delta F
+\]</div>
+<p>(W=work done on system) according to the second law, or the Jarzynski equality</p>
+<div class="math notranslate nohighlight">
+\[
+\langle\exp(-\beta W)\rangle = \exp(-\beta \Delta F) \;.
+\]</div>
+<section id="example-atp-consumption">
+<h3>Example: ATP consumption<a class="headerlink" href="#example-atp-consumption" title="Permalink to this heading">#</a></h3>
+<p>Many cellular processes are powered by ATP hydrolysis</p>
+<div class="math notranslate nohighlight">
+\[
+A T P + H_2 O\leftrightarrows A D P+P_i
+\]</div>
+<p>transforming adenosine triphosphate (ATP) into adenosine diphosphate (ADP) and inorganic phosphate (<span class="math notranslate nohighlight">\(P_i\)</span>).</p>
+<p>The ATP to ADP ratio is carefully <a class="reference external" href="https://book.bionumbers.org/how-much-energy-is-released-in-atp-hydrolysis/">controlled</a> inside cells to tune via Eq.s <a class="reference internal" href="#equation-free-energy-change-chem">(11)</a> and <a class="reference internal" href="#equation-chem-pot-dilute">(9)</a> the free energy difference <span class="math notranslate nohighlight">\(\Delta F_{A T P\rightarrow ADP+P_i} \)</span> released when ATP is hydrolyzed. For most cell types, <span class="math notranslate nohighlight">\(\Delta F\approx 20k_B T\)</span>, and the highest value, <span class="math notranslate nohighlight">\(30 k_BT\)</span>, in muscle cells of human athletes.</p>
+<p>Molecular motors are a good example of
+an engine that converts the free energy stored in ATP into mechanical work.</p>
+<p>Kinesin is a molecular motor that walks hand over hand in <span class="math notranslate nohighlight">\(\Delta r= 8\)</span>nm steps along biomolecules (Mictrotubules) to transport cargo faster than diffusion could.</p>
+<p>The Block team at Stanford measured how fast these molecular motors can walk under a precisely tuned force load, set by optical tweezers. As they increased the load, the walking speed went down and dropped to 0 at the so-called stall force, which depends on the free energy difference associated with ATP hydrolysis.</p>
+<p>If the free energy difference is converted into work via a reversible process, we expect the stall force to be</p>
+<div class="math notranslate nohighlight">
+\[
+f=\frac{\Delta F}{\Delta r} \approx 10 pN
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(\Delta F=20 k_BT\)</span>. The Block team measured about <span class="math notranslate nohighlight">\(5-7\)</span>pN (Visscher, Schnitzel, Block Nature, 1999). It’s interesting that the cell dissipates half the available free energy. Why did evolution not make these molecular motors more efficient? A plausible hypothesis is that live <strong>needs</strong> to dissipate energy to run deterministically / irreversibly.</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -518,20 +562,20 @@ $<span class="math notranslate nohighlight">\(ATP\rightarrow ADP + P_i\)</span>$
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="paramagnet-FLC.html"
+       href="Crooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Two standard examples for a system coupled to an external field</p>
+        <p class="prev-next-title">Non-equilibrium fluctuation theorems</p>
       </div>
     </a>
     <a class="right-next"
-       href="Crooks.html"
+       href="Ising-lectures/Ising-all-to-all.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Non-equilibrium fluctuation theorems</p>
+        <p class="prev-next-title">Statistical mechanics with interactions - Ising models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,7 +586,24 @@ $<span class="math notranslate nohighlight">\(ATP\rightarrow ADP + P_i\)</span>$
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-mixtures">Dilute mixtures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-equilibrium">Chemical equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-atp-consumption">Example: ATP consumption</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

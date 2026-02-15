@@ -61,6 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Diffusion/Diffusion_AI_DDPM_1D_with_Learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coarse-graining and Ergodic Theory" href="../Ergodicity/ergodicity.html" />
     <link rel="prev" title="Brownian Motion as a Free Energy Minimizing Process" href="Diffusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -200,8 +201,18 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
 </ul>
 
     </div>
@@ -479,20 +490,20 @@ Suggested TOC entry:</p>
 </section>
 <section id="physics-warm-up-diffusion-fokkerplanck-and-the-score">
 <h2>1) Physics warm-up: diffusion, Fokker–Planck, and the score<a class="headerlink" href="#physics-warm-up-diffusion-fokkerplanck-and-the-score" title="Permalink to this heading">#</a></h2>
-<p>Overdamped Langevin dynamics in 1D:
-[
+<p>Overdamped Langevin dynamics in 1D:</p>
+<p>[
 \dot x = -\mu U’(x) + \sqrt{2D},\eta(t),\qquad \langle \eta(t)\eta(t’)\rangle=\delta(t-t’).
 ]</p>
-<p>Probability density evolves by Fokker–Planck:
-[
+<p>Probability density evolves by Fokker–Planck:</p>
+<p>[
 \partial_t p = \partial_x!\big(\mu U’(x)p\big) + D,\partial_x^2 p.
 ]</p>
 <p>Special case (U=0): heat equation (\partial_t p = D\partial_x^2 p).</p>
-<p><strong>Score</strong> (force-like object):
-[
+<p><strong>Score</strong> (force-like object):</p>
+<p>[
 s(x,t)\equiv \partial_x\log p(x,t).
-]
-If (p\propto e^{-\beta U}), then (s=-\beta U’): score is literally a force.</p>
+]</p>
+<p>If (p\propto e^{-\beta U}), then (s=-\beta U’): score is literally a force.</p>
 <p>Diffusion models in AI use a forward diffusion to destroy structure, and a reverse-time dynamics (using an estimated score) to generate samples.</p>
 </section>
 <section id="a-toy-dataset-1d-mixture-of-gaussians">
@@ -613,30 +624,7 @@ x_t=\sqrt{\bar\alpha_t},x_0+\sqrt{1-\bar\alpha_t},\varepsilon,\quad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">torch</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;torch&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="s2">&quot;PyTorch is required for the learning part. &quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="s2">&quot;Install with `pip install torch` (CPU build is fine). &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="sa">f</span><span class="s2">&quot;Import error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">device</span>
-
-<span class="ne">RuntimeError</span>: PyTorch is required for the learning part. Install with `pip install torch` (CPU build is fine). Import error: No module named &#39;torch&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>device(type=&#39;cpu&#39;)
 </pre></div>
 </div>
 </div>
@@ -670,6 +658,11 @@ x_t=\sqrt{\bar\alpha_t},x_0+\sqrt{1-\bar\alpha_t},\varepsilon,\quad
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">EpsMLP</span><span class="p">(</span><span class="n">tdim</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20993
 </pre></div>
 </div>
 </div>
@@ -716,6 +709,39 @@ x_t=\sqrt{\bar\alpha_t},x_0+\sqrt{1-\bar\alpha_t},\varepsilon,\quad
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  250/2500  loss=0.5048
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  500/2500  loss=0.4725
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  750/2500  loss=0.4321
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1000/2500  loss=0.5297
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1250/2500  loss=0.4402
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1500/2500  loss=0.4274
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1750/2500  loss=0.4458
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2000/2500  loss=0.4646
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2250/2500  loss=0.4688
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2500/2500  loss=0.5049
+</pre></div>
+</div>
+<img alt="../_images/26adfd46536799af5a9d0639a4de8bbbe4bc7edd62df32f8de122a4d0362aaad.png" src="../_images/26adfd46536799af5a9d0639a4de8bbbe4bc7edd62df32f8de122a4d0362aaad.png" />
 </div>
 </div>
 </section>
@@ -773,6 +799,9 @@ We plug in (\hat x_0(x_t,t)) computed from (\varepsilon_\theta(x_t,t)).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9de183159f0452559c86f258a588fffdb9db1974b1b74029704d64dc4f4bc461.png" src="../_images/9de183159f0452559c86f258a588fffdb9db1974b1b74029704d64dc4f4bc461.png" />
 </div>
 </div>
 </section>
@@ -833,6 +862,15 @@ s_t(x_t) = \partial_x\log p_t(x_t) \approx -\frac{1}{\sqrt{1-\bar\alpha_t}},\var
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Brownian Motion as a Free Energy Minimizing Process</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../Ergodicity/ergodicity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coarse-graining and Ergodic Theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Monte Carlo, Markov Chains, and the Metropolis Algorithm &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MonteCarlo/MonteCarlo';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Debye-Hückel theory - charge screening" href="../Poisson-Boltzmann/Poisson-Boltzmann.html" />
+    <link rel="prev" title="Interacting Gases" href="../Variational-Methods/interacting-gases-f.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D_with_Learning.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FMonteCarlo/MonteCarlo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/MonteCarlo/MonteCarlo.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Monte Carlo, Markov Chains, and the Metropolis Algorithm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-challenge-in-statistical-mechanics">The Challenge in Statistical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-and-convergence">Accuracy and Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-problem-sampling-efficiently">The Core Problem: Sampling Efficiently</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chains">Markov Chains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-rule">Metropolis Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-considerations">Numerical Considerations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="monte-carlo-markov-chains-and-the-metropolis-algorithm">
+<h1>Monte Carlo, Markov Chains, and the Metropolis Algorithm<a class="headerlink" href="#monte-carlo-markov-chains-and-the-metropolis-algorithm" title="Permalink to this heading">#</a></h1>
+<p>For general <span class="math notranslate nohighlight">\(H\)</span>, it is not easy to compute</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathcal{O}\rangle=\frac{1}{Z} \sum_{\mu} \mathcal{O}(\mu) e^{-\beta H(\mu)}
+\]</div>
+<p>exactly. Except in special cases (1D, non-interacting, exactly solvable), either approximate (variational/perturbative) or numerical approaches needed.</p>
+<p>Monte Carlo is a general method for computing <span class="math notranslate nohighlight">\(\sum_{\mu} f_{\mu}\)</span> where <span class="math notranslate nohighlight">\(\mu \in\)</span> really big space. Applicable not just to statistical physics but also in biology, finance, complex systems etc. (cite)</p>
+<p>In a general setting, <span class="math notranslate nohighlight">\(\sum_\mu f_{\mu}\)</span> may not have an underlying probabilistic interpretation; for example we might be trying to evaluate an oscillatory integral in a high-dim space <span class="math notranslate nohighlight">\(\mu \in \mathbb{R}^{n}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-general-integral">
+<span class="eqno">(18)<a class="headerlink" href="#equation-general-integral" title="Permalink to this equation">#</a></span>\[
+\underbrace{\int_{0}^{1} d x_{1} d x_{2} \cdots d x_{n}}_{\sum_{\mu}} \underbrace{f\left(x_{1}, \cdots x_{n}\right)}_{f_{\mu}}
+\]</div>
+<section id="importance-sampling">
+<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this heading">#</a></h2>
+<p>Directly evaluating these integrals for large <span class="math notranslate nohighlight">\(n\)</span> is highly inefficient since visiting every point (voxel) in phase space takes an impractically long time.<br />
+<strong>Key idea:</strong> Rare or “unimportant” events (where <span class="math notranslate nohighlight">\(f\)</span> is small) contribute little to the result, so we should minimize the time spent on them. Instead, we can estimate <span class="math notranslate nohighlight">\(\langle \mathcal{O} \rangle_p\)</span> by <strong>sampling</strong> from a probability distribution <span class="math notranslate nohighlight">\(p_\mu\)</span> that gives more weight to significant regions in phase space where <span class="math notranslate nohighlight">\(f\)</span> is large.</p>
+<p>A natural choice for this probability distribution is: <span class="math notranslate nohighlight">\(p_{\mu} = \frac{|f_{\mu}|}{\sum |f_{\mu}|}\)</span>,  which assigns higher weights to larger summands. This allows us to rewrite the sum as:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{\mu} f_{\mu} = \sum p_{\mu} \cdot \overbrace{\left(\frac{f_{\mu}}{p_{\mu}}\right)}^{\mathcal{O}_{\mu}} = \langle\mathcal{O}\rangle_{p}
+\]</div>
+</section>
+<section id="the-challenge-in-statistical-mechanics">
+<h2>The Challenge in Statistical Mechanics<a class="headerlink" href="#the-challenge-in-statistical-mechanics" title="Permalink to this heading">#</a></h2>
+<p>In statistical mechanics, the “curse of dimensionality” is particularly severe. The entropy, <span class="math notranslate nohighlight">\(S \propto N\)</span>, scales extensively with the number of degrees of freedom <span class="math notranslate nohighlight">\(N\)</span>, which is often enormous (e.g., <span class="math notranslate nohighlight">\(N \sim 10^{23}\)</span>). As a result, the total number of possible microstates, <span class="math notranslate nohighlight">\(\Omega = e^{S/k_B}\)</span></p>
+<p>is vast, making an explicit summation over all states infeasible. Instead of computing <span class="math notranslate nohighlight">\(\sum_{\mu=1}^{\Omega} p_{\mu} \mathcal{O}_{\mu}\)</span>, we can use <strong>importance sampling</strong>, selecting states from a probability distribution <span class="math notranslate nohighlight">\(p_\mu\)</span> that prioritizes the most relevant microstates.</p>
+<p>A natural choice for <span class="math notranslate nohighlight">\(p_\mu\)</span> in statistical mechanics is the <strong>Boltzmann distribution</strong> <span class="math notranslate nohighlight">\(p_{\mu} = \frac{e^{-\beta H_{\mu}}}{Z}\)</span>, where <span class="math notranslate nohighlight">\(Z\)</span> is the partition function. Rather than summing over all microstates, we sample from <span class="math notranslate nohighlight">\(p_{\mu}\)</span>, effectively rolling an <span class="math notranslate nohighlight">\(\Omega\)</span>-sided die weighted by this distribution. This generates a sequence of sampled states <span class="math notranslate nohighlight">\(\mu_1, \mu_2, \dots, \mu_M\)</span>, where <span class="math notranslate nohighlight">\(M \ll \Omega\)</span>. The expectation value can then be estimated as:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathcal{O} \rangle_p \approx \frac{1}{M} \sum_{i=1}^{M} \mathcal{O}_{\mu_i}
+\]</div>
+<p>which converges to the true expectation in the limit:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{M \to \infty} \frac{1}{M} \sum_{i=1}^{M} \mathcal{O}_{\mu_i} = \langle \mathcal{O} \rangle_p.
+\]</div>
+</section>
+<section id="accuracy-and-convergence">
+<h2>Accuracy and Convergence<a class="headerlink" href="#accuracy-and-convergence" title="Permalink to this heading">#</a></h2>
+<p>For a finite sample size <span class="math notranslate nohighlight">\(M\)</span>, the estimate contains some error due to statistical fluctuations. According to the <strong>central limit theorem</strong>, the typical deviation is:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta \mathcal{O} = \frac{1}{\sqrt{M}} \sqrt{\langle (O - \langle O \rangle)^2 \rangle}
+\]</div>
+<p>Thus, the accuracy of a Monte Carlo estimate scales as:</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}.
+\]</div>
+<p>For most practical cases, <span class="math notranslate nohighlight">\(\text{var}(\mathcal{O})\)</span> remains bounded as the system size <span class="math notranslate nohighlight">\(\Omega \to \infty\)</span>. For example, in the Ising model, while the total number of states scales as <span class="math notranslate nohighlight">\(\Omega = 2^N\)</span>, the magnetization <span class="math notranslate nohighlight">\(\langle m^2 \rangle = N^{-1} \sum_i \sigma_i\)</span> remains independent of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>To achieve an accuracy of <span class="math notranslate nohighlight">\(\epsilon\)</span>, we require:</p>
+<div class="math notranslate nohighlight">
+\[
+M_{\epsilon} = \frac{\langle \mathcal{O}^2 \rangle}{\epsilon^2}
+\]</div>
+<p>which is vastly smaller than the full sum over all <span class="math notranslate nohighlight">\(\Omega\)</span> states.</p>
+</section>
+<section id="the-core-problem-sampling-efficiently">
+<h2>The Core Problem: Sampling Efficiently<a class="headerlink" href="#the-core-problem-sampling-efficiently" title="Permalink to this heading">#</a></h2>
+<p>A major obstacle remains: How do we efficiently sample from <span class="math notranslate nohighlight">\(p_{\mu} = \frac{e^{-\beta H_{\mu}}}{Z}\)</span> when we don’t know the normalization constant <span class="math notranslate nohighlight">\(Z\)</span>? The partition function,</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \sum_{\mu=1}^{\Omega} e^{-\beta H_{\mu}},
+\]</div>
+<p>is computationally infeasible to evaluate directly.</p>
+<p>This is where <strong>Metropolis et al. (1953)</strong> introduced a breakthrough. They devised a method to sample from <span class="math notranslate nohighlight">\(p_{\mu}\)</span> <strong>without knowing <span class="math notranslate nohighlight">\(Z\)</span></strong>. Their approach involves defining an artificial, stochastic process <span class="math notranslate nohighlight">\(\mu_t \to \mu_{t+1}\)</span> such that the sequence of sampled states,</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_1, \mu_2, \mu_3, \dots
+\]</div>
+<p>naturally occurs with frequency <span class="math notranslate nohighlight">\(p_{\mu}\)</span>.</p>
+<p>While, in principle, we could evolve phase space variables <span class="math notranslate nohighlight">\(r = \{q, p\}\)</span> using Newton’s laws with a heat reservoir (which, under the ergodic hypothesis, would sample <span class="math notranslate nohighlight">\(p_{\mu}\)</span>), this is computationally expensive. Instead, the <strong>Markov Chain Monte Carlo (MCMC) method</strong> introduces a simpler, artificial set of dynamics to generate the required samples efficiently.</p>
+</section>
+<section id="markov-chains">
+<h2>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this heading">#</a></h2>
+<p>A <strong>Markov chain</strong> is a set of transition rates <span class="math notranslate nohighlight">\(0 &lt; M_{\mu^{\prime} \mu} &lt; 1\)</span> under which the probability distribution evolves as:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{\mu^{\prime}}(t+1) = \sum_{N} M_{\mu^{\prime} \mu} p_{\mu}(t)
+\]</div>
+<p>This is known as the <strong>master equation</strong>.</p>
+<p>The transition matrix element <span class="math notranslate nohighlight">\(M_{\mu^{\prime} \mu} = P(\mu^{\prime} \mid \mu)\)</span> represents the conditional probability for the transition <span class="math notranslate nohighlight">\(\mu \to \mu^{\prime}\)</span> at each time step. Probability conservation requires that each column sums to one:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{\mu^{\prime}} M_{\mu^{\prime} \mu} = 1 \;.
+\]</div>
+<p>(In other words, with probability 1, the process must transition to one of the states.)</p>
+<p>A key property of Markov chains is that the jump probabilities depend only on the current state <span class="math notranslate nohighlight">\(\mu_t\)</span> and not on earlier states <span class="math notranslate nohighlight">\(\{\mu_0, \dots, \mu_{t-1}\}\)</span>. This property is known as <strong>memorylessness</strong>, or “Markovian” behavior.</p>
+<p>At long times, the probability distribution equilibrates to:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{\mu}(t=\infty) = \lim _{t \rightarrow \infty} M^t p_{\mu}(0) \equiv \pi_{\mu}
+\]</div>
+<p>where the equilibrium distribution <span class="math notranslate nohighlight">\(\pi\)</span> satisfies:</p>
+<div class="math notranslate nohighlight">
+\[
+(M \pi)_{\mu} = \pi_{\mu}
+\]</div>
+<p>i.e., <span class="math notranslate nohighlight">\(\pi\)</span> is the right eigenvector of <span class="math notranslate nohighlight">\(M\)</span> corresponding to the eigenvalue 1.</p>
+<p>Instead of tracking the full distribution <span class="math notranslate nohighlight">\(p_{\mu}(t)\)</span> (which is impractical for large <span class="math notranslate nohighlight">\(\Omega\)</span>), we sample from it to obtain a sequence <span class="math notranslate nohighlight">\(\{\mu_1, \mu_2, \dots\}\)</span>.</p>
+<p>To implement the Markov process governed by the master equation, we select a new state <span class="math notranslate nohighlight">\(\mu_{t+1}\)</span> at each time step based on the transition probability:</p>
+<div class="math notranslate nohighlight">
+\[
+P(\mu_{t+1} \mid \mu_t) = M_{\mu_{t+1} \mu_t}
+\]</div>
+<p>By repeating this process, we generate a sequence <span class="math notranslate nohighlight">\(\{\mu_1, \mu_2, \dots, \mu_T\}\)</span>, which becomes distributed according to <span class="math notranslate nohighlight">\(\pi_{\mu}\)</span> as <span class="math notranslate nohighlight">\(T \to \infty\)</span>.</p>
+<p>The key question is how to choose <span class="math notranslate nohighlight">\(M_{\mu^\prime \mu}\)</span> so that <span class="math notranslate nohighlight">\(\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}\)</span>.</p>
+<p>If the transition matrix satisfies the <strong>detailed balance condition</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+M_{\mu^{\prime} \mu} \pi_{\mu} = M_{\mu \mu^{\prime}} \pi_{\mu^{\prime}}
+\]</div>
+<p>for any two states <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\mu^{\prime}\)</span>, then the equilibrium distribution <span class="math notranslate nohighlight">\(\pi_{\mu}\)</span> is preserved.</p>
+<p>From this, we find:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(M \cdot \pi\right)_{\mu^{\prime}} = \sum_{\mu} M_{\mu^{\prime} \mu} \pi_{\mu} = \sum_{\mu} M_{\mu \mu^{\prime}} \pi_{\mu^{\prime}} = \pi_{\mu^{\prime}}
+\]</div>
+<p>This means that <strong>any</strong> distribution <span class="math notranslate nohighlight">\(\pi_\mu\)</span> can be realized by a Markov process if the transition rates satisfy the detailed balance condition:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{M_{\mu^{\prime} \mu}}{M_{\mu \mu^{\prime}}} = \frac{\pi_{\mu^{\prime}}}{\pi_{\mu}} = e^{-\beta (E_{\mu^{\prime}} - E_{\mu})} \;.
+\]</div>
+<p>A crucial simplification here is that the partition function <span class="math notranslate nohighlight">\(Z\)</span> cancels, making the right-hand side computable.</p>
+<p>There are multiple choices of <span class="math notranslate nohighlight">\(M_{\mu^{\prime} \mu}\)</span> that satisfy detailed balance; one of the simplest is the <strong>Metropolis algorithm</strong>.</p>
+<p><em>Side remark:</em> Markov processes are often used as a coarse-grained description of the actual dynamics of a physical system, for example, in the case of the Brownian motion of a particle or a polymer. In these cases, detailed balance <strong>needs</strong> to be satisfied because of the time reversibility of the microscopic laws of physics. From that it follows that the forward/backward dynamics have to look the same in equilibrium.</p>
+</section>
+<hr class="docutils" />
+<section id="metropolis-rule">
+<h2>Metropolis Rule<a class="headerlink" href="#metropolis-rule" title="Permalink to this heading">#</a></h2>
+<p>For notational simplicity, consider a spin system where <span class="math notranslate nohighlight">\(\mu = \{\sigma_1, \sigma_2, \dots, \sigma_N\}\)</span> (the original paper considers continuous variables <span class="math notranslate nohighlight">\(\mu = \{\vec{q}_i, \vec{p}_i\}\)</span>).</p>
+<ol class="arabic">
+<li><p><strong>Select a spin:</strong> Randomly pick one of the <span class="math notranslate nohighlight">\(N\)</span> spins, <span class="math notranslate nohighlight">\(\sigma_i\)</span>.</p></li>
+<li><p><strong>Propose a trial move:</strong> Generate a new trial configuration <span class="math notranslate nohighlight">\(\{\sigma'\}\)</span> by flipping <span class="math notranslate nohighlight">\(\sigma_i \to -\sigma_i\)</span>.<br />
+Example: If <span class="math notranslate nohighlight">\(\{\sigma\}_t = \uparrow \uparrow \downarrow \uparrow\)</span>, then a trial move might yield <span class="math notranslate nohighlight">\(\{\sigma'\} = \uparrow \downarrow \downarrow \uparrow\)</span>.</p></li>
+<li><p><strong>Compute the energy change:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   \Delta E = H[\{\sigma'\}] - H[\{\sigma\}_t]
+   \]</div>
+<p>Since <span class="math notranslate nohighlight">\(H\)</span> is local, this can be computed efficiently by considering only nearby spins.</p>
+</li>
+<li><p><strong>Accept or reject the move:</strong> Generate a random number <span class="math notranslate nohighlight">\(0 &lt; q &lt; 1\)</span>.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(q &lt; e^{-\beta \Delta E}\)</span>, <strong>accept</strong> the move: <span class="math notranslate nohighlight">\(\{\sigma\}_{t+1} = \{\sigma'\}\)</span>.</p></li>
+<li><p>Otherwise, <strong>reject</strong> the move: <span class="math notranslate nohighlight">\(\{\sigma\}_{t+1} = \{\sigma\}_t\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p>If <span class="math notranslate nohighlight">\(\Delta E &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(e^{-\beta \Delta E} &gt; 1\)</span>, meaning the move is always accepted.</p>
+<p>To check that this satisfies detailed balance:</p>
+<ul>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta E &lt; 0\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[
+  M_{\mu^{\prime} \mu} = 1, \quad M_{\mu \mu^{\prime}} = e^{+\beta \Delta E}
+  \]</div>
+<p>so that:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{M_{\mu^{\prime} \mu}}{M_{\mu \mu^{\prime}}} = e^{-\beta \Delta E}
+  \]</div>
+</li>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta E &gt; 0\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[
+  M_{\mu^{\prime} \mu} = e^{-\beta \Delta E}, \quad M_{\mu \mu^{\prime}} = 1
+  \]</div>
+<p>leading to:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{M_{\mu^{\prime} \mu}}{M_{\mu \mu^{\prime}}} = e^{-\beta \Delta E}
+  \]</div>
+</li>
+</ul>
+<p>Thus, the Metropolis transition probabilities satisfy detailed balance with respect to the Boltzmann distribution <span class="math notranslate nohighlight">\(\pi_\mu\)</span>.</p>
+<p>By running this in a loop and generating thousands of samples:</p>
+<div class="math notranslate nohighlight">
+\[
+\left\{\mu_1, \mu_2, \dots, \mu_M\right\}
+\]</div>
+<p>we can estimate observables as:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathcal{O} \rangle \approx \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="numerical-considerations">
+<h2>Numerical Considerations<a class="headerlink" href="#numerical-considerations" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Burn-in period:</strong> The Markov chain relaxes to equilibrium over a characteristic time <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   M^t p(t=0) = \pi + O(e^{-t/\tau})
+   \]</div>
+<p>It is good practice to discard the first <span class="math notranslate nohighlight">\(\sim \tau\)</span> samples:</p>
+<div class="math notranslate nohighlight">
+\[
+   \langle \mathcal{O} \rangle = \frac{1}{M - T} \sum_{t=T}^{M} \mathcal{O}(\mu_t)
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the <strong>burn-in time</strong>.</p>
+</li>
+<li><p><strong>Error estimation and autocorrelation:</strong></p>
+<p>For a finite sample size <span class="math notranslate nohighlight">\(M\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   \langle \mathcal{O} \rangle = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t) + \epsilon
+   \]</div>
+<p>The error <span class="math notranslate nohighlight">\(\epsilon\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+   \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}, \quad
+   \text{var}(\mathcal{O}) = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}^2(\mu_t) - \langle\mathcal{O}\rangle^2
+   \]</div>
+<p>However, Markov chains introduce correlations between samples:</p>
+<div class="math notranslate nohighlight">
+\[
+   \langle \mathcal{O}_t \mathcal{O}_{t+\Delta t} \rangle \sim e^{- \Delta t/\tau}
+   \]</div>
+<p>which affects error estimates:</p>
+<div class="math notranslate nohighlight">
+\[
+   \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M/\tau}}
+   \]</div>
+</li>
+</ol>
+<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is the <strong>autocorrelation time</strong>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./MonteCarlo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Variational-Methods/interacting-gases-f.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interacting Gases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Poisson-Boltzmann/Poisson-Boltzmann.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Debye-Hückel theory - charge screening</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-challenge-in-statistical-mechanics">The Challenge in Statistical Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-and-convergence">Accuracy and Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-problem-sampling-efficiently">The Core Problem: Sampling Efficiently</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chains">Markov Chains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-rule">Metropolis Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-considerations">Numerical Considerations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
