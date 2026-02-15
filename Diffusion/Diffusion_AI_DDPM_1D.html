@@ -441,7 +441,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-this-fits-in-your-jupyter-book">Where this fits in your Jupyter Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-warm-up-diffusion-fokkerplanck-and-the-score">1) Physics warm-up: diffusion, Fokker–Planck, and the score</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-dataset-1d-mixture-of-gaussians">2) A toy “dataset”: 1D mixture of Gaussians</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-process-ddpm-gaussian-corruption-as-a-discrete-diffusion">3) Forward process (DDPM): Gaussian corruption as a discrete diffusion</a></li>
@@ -462,22 +461,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="diffusion-models-in-ai-as-statistical-physics-1d-ddpm-a-simple-learning-protocol">
 <h1>Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol<a class="headerlink" href="#diffusion-models-in-ai-as-statistical-physics-1d-ddpm-a-simple-learning-protocol" title="Permalink to this heading">#</a></h1>
-<p>This notebook is a <strong>stat-phys-first</strong> introduction to diffusion models:</p>
 <ul class="simple">
 <li><p>Forward process = <strong>stochastic dynamics</strong> (diffusion / OU-like relaxation toward a Gaussian)</p></li>
-<li><p>Central object = <strong>score</strong> (s_t(x)=\partial_x\log p_t(x)) (force-like)</p></li>
+<li><p>Central object = <strong>score</strong> <span class="math notranslate nohighlight">\(s_t(x)=\partial_x\log p_t(x)\)</span> (force-like)</p></li>
 <li><p>Reverse process = <strong>time-reversed dynamics</strong> that uses the score</p></li>
-<li><p><strong>Learning protocol</strong> (DDPM): train a tiny network (\varepsilon_\theta(x_t,t)) to predict injected noise, then sample.</p></li>
+<li><p><strong>Learning protocol</strong> (DDPM): train a tiny network <span class="math notranslate nohighlight">\(\varepsilon_\theta(x_t,t)\)</span> to predict injected noise, then sample.</p></li>
 </ul>
 <p>We use a 1D “dataset” (a mixture of Gaussians) so everything is transparent and fast.</p>
-<hr class="docutils" />
-<section id="where-this-fits-in-your-jupyter-book">
-<h2>Where this fits in your Jupyter Book<a class="headerlink" href="#where-this-fits-in-your-jupyter-book" title="Permalink to this heading">#</a></h2>
-<p>This is designed to slot into your <code class="docutils literal notranslate"><span class="pre">Diffusion/</span></code> chapter, right after basic diffusion / Fokker–Planck.
-Suggested TOC entry:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Diffusion/Diffusion_AI_DDPM_1D_with_Learning</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -489,7 +479,6 @@ Suggested TOC entry:</p>
 </div>
 </div>
 </div>
-</section>
 <section id="physics-warm-up-diffusion-fokkerplanck-and-the-score">
 <h2>1) Physics warm-up: diffusion, Fokker–Planck, and the score<a class="headerlink" href="#physics-warm-up-diffusion-fokkerplanck-and-the-score" title="Permalink to this heading">#</a></h2>
 <p>Overdamped Langevin dynamics in 1D:</p>
@@ -502,13 +491,13 @@ Suggested TOC entry:</p>
 \[
 \partial_t p = \partial_x\!\big(\mu U'(x)p\big) + D\,\partial_x^2 p.
 \]</div>
-<p>Special case (U=0): heat equation (\partial_t p = D\partial_x^2 p).</p>
+<p>Special case <span class="math notranslate nohighlight">\(U=0\)</span>: heat equation <span class="math notranslate nohighlight">\(\partial_t p = D\partial_x^2 p\)</span>.</p>
 <p><strong>Score</strong> (force-like object):</p>
 <div class="math notranslate nohighlight">
 \[
 s(x,t)\equiv \partial_x\log p(x,t).
 \]</div>
-<p>If (p\propto e^{-\beta U}), then (s=-\beta U’): score is literally a force.</p>
+<p>If <span class="math notranslate nohighlight">\(p\propto e^{-\beta U}\)</span>, then <span class="math notranslate nohighlight">\(s=-\beta U'\)</span>: score is literally a force.</p>
 <p>Diffusion models in AI use a forward diffusion to destroy structure, and a reverse-time dynamics (using an estimated score) to generate samples.</p>
 </section>
 <section id="a-toy-dataset-1d-mixture-of-gaussians">
@@ -520,8 +509,8 @@ p_0(x)=\tfrac12\mathcal N(x;-m,\sigma_0^2)+\tfrac12\mathcal N(x;+m,\sigma_0^2).
 \]</div>
 <p>We will:</p>
 <ol class="arabic simple">
-<li><p>Define a DDPM forward noising process (x_0\to x_t),</p></li>
-<li><p>Show how (p_t) approaches a Gaussian,</p></li>
+<li><p>Define a DDPM forward noising process <span class="math notranslate nohighlight">\(x_0\to x_t\)</span>,</p></li>
+<li><p>Show how <span class="math notranslate nohighlight">\(p_t\)</span> approaches a Gaussian,</p></li>
 <li><p><strong>Train</strong> a small model to predict the noise,</p></li>
 <li><p>Run the reverse sampler to generate data.</p></li>
 </ol>
@@ -608,7 +597,7 @@ x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\varepsilon,\quad
 \min_\theta \; \mathbb E_{x_0,t,\varepsilon}\left[\|\varepsilon-\varepsilon_\theta(x_t,t)\|^2\right],
 \quad x_t=\sqrt{\bar\alpha_t}x_0+\sqrt{1-\bar\alpha_t}\varepsilon.
 \]</div>
-<p>From (\varepsilon_\theta) we get an estimate of (x_0):</p>
+<p>From <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span> we get an estimate of <span class="math notranslate nohighlight">\(x_0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \hat x_0(x_t,t)=\frac{x_t-\sqrt{1-\bar\alpha_t}\,\varepsilon_\theta(x_t,t)}{\sqrt{\bar\alpha_t}}.
@@ -721,44 +710,44 @@ x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\varepsilon,\quad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  250/2500  loss=0.4806
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  250/2500  loss=0.4710
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  500/2500  loss=0.4688
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  500/2500  loss=0.4649
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  750/2500  loss=0.5029
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step  750/2500  loss=0.4559
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1000/2500  loss=0.4612
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1000/2500  loss=0.4449
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1250/2500  loss=0.4640
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1250/2500  loss=0.4692
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1500/2500  loss=0.4630
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1500/2500  loss=0.4717
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1750/2500  loss=0.4474
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 1750/2500  loss=0.4375
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2000/2500  loss=0.4791
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2000/2500  loss=0.4215
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2250/2500  loss=0.4870
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2250/2500  loss=0.4604
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2500/2500  loss=0.4342
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step 2500/2500  loss=0.4699
 </pre></div>
 </div>
-<img alt="../_images/5d776a1ab3903aa12ac815a236ccb3c927d8f57665c42de05c954dc91dc772c5.png" src="../_images/5d776a1ab3903aa12ac815a236ccb3c927d8f57665c42de05c954dc91dc772c5.png" />
+<img alt="../_images/edb44b4a546b6970699752a9dc432d00184689f8e6207e591279fb96f4f97ec2.png" src="../_images/edb44b4a546b6970699752a9dc432d00184689f8e6207e591279fb96f4f97ec2.png" />
 </div>
 </div>
 </section>
 <section id="sampling-reverse-time-generation-ddpm-ancestral-sampler">
 <h2>5) Sampling: reverse-time generation (DDPM ancestral sampler)<a class="headerlink" href="#sampling-reverse-time-generation-ddpm-ancestral-sampler" title="Permalink to this heading">#</a></h2>
-<p>We start from (x_T\sim \mathcal N(0,1)) and step backward using the DDPM posterior.
-We plug in (\hat x_0(x_t,t)) computed from (\varepsilon_\theta(x_t,t)).</p>
+<p>We start from <span class="math notranslate nohighlight">\(x_T\sim \mathcal N(0,1)\)</span> and step backward using the DDPM posterior.
+We plug in <span class="math notranslate nohighlight">\(\hat x_0(x_t,t)\)</span> computed from <span class="math notranslate nohighlight">\(\varepsilon_\theta(x_t,t)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
@@ -811,7 +800,7 @@ We plug in (\hat x_0(x_t,t)) computed from (\varepsilon_\theta(x_t,t)).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f80ed18e109eac91824444d5f3001c624abcf29da7901466c1e24604c0f81b1f.png" src="../_images/f80ed18e109eac91824444d5f3001c624abcf29da7901466c1e24604c0f81b1f.png" />
+<img alt="../_images/70a9f85c55db63c61c4719c106fd6fd7d250ed3224cfbba3f55293d3a339d65e.png" src="../_images/70a9f85c55db63c61c4719c106fd6fd7d250ed3224cfbba3f55293d3a339d65e.png" />
 </div>
 </div>
 </section>
@@ -822,7 +811,7 @@ We plug in (\hat x_0(x_t,t)) computed from (\varepsilon_\theta(x_t,t)).</p>
 \[
 s_t(x_t) = \partial_x\log p_t(x_t) \approx -\frac{1}{\sqrt{1-\bar\alpha_t}}\,\varepsilon_\theta(x_t,t).
 \]</div>
-<p>So (\varepsilon_\theta) is essentially learning a <strong>force field</strong> (in log-density space) that drives the time-reversed dynamics.</p>
+<p>So <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span> is essentially learning a <strong>force field</strong> (in log-density space) that drives the time-reversed dynamics.</p>
 </section>
 <hr class="docutils" />
 <section id="exercises">
@@ -899,7 +888,6 @@ s_t(x_t) = \partial_x\log p_t(x_t) \approx -\frac{1}{\sqrt{1-\bar\alpha_t}}\,\va
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-this-fits-in-your-jupyter-book">Where this fits in your Jupyter Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-warm-up-diffusion-fokkerplanck-and-the-score">1) Physics warm-up: diffusion, Fokker–Planck, and the score</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-dataset-1d-mixture-of-gaussians">2) A toy “dataset”: 1D mixture of Gaussians</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-process-ddpm-gaussian-corruption-as-a-discrete-diffusion">3) Forward process (DDPM): Gaussian corruption as a discrete diffusion</a></li>
