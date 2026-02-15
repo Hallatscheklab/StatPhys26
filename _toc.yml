@@ -23,8 +23,8 @@ chapters:
 # - file: Variational-Methods/interacting-gases-f
 # - file: MonteCarlo/MonteCarlo
 # - file: Poisson-Boltzmann/Poisson-Boltzmann
-- file: Diffusion/Diffusion.md
-- file: Diffusion/Diffusion_AI_DDPM_1D_with_Learning
+# - file: Diffusion/Diffusion.md
+# - file: Diffusion/Diffusion_AI_DDPM_1D_with_Learning
 # - file: Ergodicity/ergodicity.md
 # - file: QM-SM-Intro/QM-SM-intro
 # - file: QM-SM-Intro/QM-SM-intro-2
