@@ -205,6 +205,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistical mechanics with interactions - Ising models</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Ising-1D.html">Finite dimensional Ising models</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
@@ -441,13 +443,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical mechanics with interactions - Ising models</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-to-all-ising-model">All-to-all Ising model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-question">Key question</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -630,11 +637,245 @@ s(m)=\ln (2)-\frac{m^{2}}{2}-\frac{m^{4}}{12}+O\left(m^{6}\right) \\
 <p>The behavior near the critical point <span class="math notranslate nohighlight">\(\bar{m} \propto (\frac{T_c-T}{T_c})^{1/2}\)</span> turns out to be <em>universal</em> for Ising-like order parameters in the all-to-all limit.</p>
 <p>(more analysis in HW4)</p>
 </section>
+</section>
+</section>
+<section id="self-consistency-condition-from-minimizing-f-m-curieweiss">
+<h1>Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)<a class="headerlink" href="#self-consistency-condition-from-minimizing-f-m-curieweiss" title="Permalink to this heading">#</a></h1>
+<p>At zero field (<span class="math notranslate nohighlight">\(h=0\)</span>), the all-to-all Ising (Curie–Weiss) model admits the large-<span class="math notranslate nohighlight">\(N\)</span> representation</p>
+<div class="math notranslate nohighlight">
+\[
+Z \propto \int_{-1}^{1} dm\; e^{-\beta N f(m)} ,
+\qquad
+\beta f(m)
+= -\frac{\beta J}{2} m^2
++ \frac{1+m}{2}\ln\frac{1+m}{2}
++ \frac{1-m}{2}\ln\frac{1-m}{2}
+\;(+\text{const}).
+\]</div>
+<p>In the thermodynamic limit, <span class="math notranslate nohighlight">\(Z\)</span> is dominated by the minima of <span class="math notranslate nohighlight">\(f(m)\)</span>, so we set <span class="math notranslate nohighlight">\(\partial f/\partial m=0\)</span>.
+Compute the derivative of <span class="math notranslate nohighlight">\(\beta f(m)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial (\beta f)}{\partial m}
+= -\beta J m + \frac{1}{2}\ln\frac{1+m}{1-m}.
+\]</div>
+<p>Setting this to zero gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2}\ln\frac{1+m}{1-m} = \beta J m
+\quad\Longleftrightarrow\quad
+\operatorname{artanh}(m) = \beta J m
+\quad\Longleftrightarrow\quad
+m = \tanh(\beta J m).
+\]</div>
+<p>This is the usual Curie–Weiss self-consistency (mean-field) equation at <span class="math notranslate nohighlight">\(h=0\)</span>.
+More generally, with a field <span class="math notranslate nohighlight">\(h\)</span> (coupled as <span class="math notranslate nohighlight">\(-h\sum_i s_i\)</span>), one finds</p>
+<div class="math notranslate nohighlight">
+\[
+m = \tanh\big(\beta(J m + h)\big).
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">rhs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Right-hand side of the self-consistency equation m = tanh(betaJ*m + betah).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">betaJ</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">betah</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">find_fixed_points</span><span class="p">(</span><span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="mi">20001</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Crude fixed-point finder by scanning sign changes of g(m)=m-rhs(m).&quot;&quot;&quot;</span>
+    <span class="n">mgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">mgrid</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">mgrid</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+    <span class="c1"># indices where sign changes</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">mgrid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">mgrid</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># bisection</span>
+        <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">),</span> <span class="n">b</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+            <span class="n">fc</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">fa</span><span class="o">*</span><span class="n">fc</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">b</span><span class="p">,</span> <span class="n">fb</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">fc</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">,</span> <span class="n">fa</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">fc</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_graphical_solution</span><span class="p">(</span><span class="n">betaJ_list</span><span class="p">,</span> <span class="n">betah</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">betaJ_list</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">betaJ_list</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">betaJ_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axs</span> <span class="o">=</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">betaJ</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">betaJ_list</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y=m$&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">rhs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$y=\tanh(\beta J m + \beta h)$, $\beta J=</span><span class="si">{</span><span class="n">betaJ</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="n">find_fixed_points</span><span class="p">(</span><span class="n">betaJ</span><span class="p">,</span> <span class="n">betah</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">roots</span><span class="p">,</span> <span class="n">roots</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;Graphical solution, $\beta J=</span><span class="si">{</span><span class="n">betaJ</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$m$&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Compare above and below Tc (Tc corresponds to betaJ=1)</span>
+<span class="n">plot_graphical_solution</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span> <span class="n">betah</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" src="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" />
+</div>
+</div>
+</section>
 <section id="phase-diagrams">
-<h3>Phase diagrams<a class="headerlink" href="#phase-diagrams" title="Permalink to this heading">#</a></h3>
-<p><img alt="" src="https://cdn.mathpix.com/cropped/2024_02_18_d4a93dd939ac97dd8d1dg-01.jpg?height=1153&amp;width=2055&amp;top_left_y=235&amp;top_left_x=42" /></p>
-</section>
-</section>
+<h1>Phase diagrams<a class="headerlink" href="#phase-diagrams" title="Permalink to this heading">#</a></h1>
+<p>Below are two standard visualizations for the Curie–Weiss (all-to-all) Ising model:</p>
+<ol class="arabic simple">
+<li><p><strong>Equilibrium magnetization vs temperature</strong> for several fixed fields <span class="math notranslate nohighlight">\(h\)</span> (including <span class="math notranslate nohighlight">\(h=0\)</span> and some small <span class="math notranslate nohighlight">\(\pm h\)</span>).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\((T,h)\)</span> diagram</strong>: the true thermodynamic transition is only on the line <span class="math notranslate nohighlight">\(h=0\)</span> at <span class="math notranslate nohighlight">\(T=T_c\)</span>; nevertheless, for <span class="math notranslate nohighlight">\(T&lt;T_c\)</span> there are <strong>metastable</strong> states separated by <strong>spinodal lines</strong> <span class="math notranslate nohighlight">\(h=\pm h_{\rm sp}(T)\)</span> where a local minimum disappears.</p></li>
+</ol>
+<p>We set <span class="math notranslate nohighlight">\(k_B=1\)</span> and <span class="math notranslate nohighlight">\(J=1\)</span> below, so <span class="math notranslate nohighlight">\(T_c=1\)</span>. You can change these in the parameters cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># --- Parameters ---</span>
+<span class="n">J</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">kB</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Tc</span> <span class="o">=</span> <span class="n">J</span> <span class="o">/</span> <span class="n">kB</span>
+
+<span class="k">def</span> <span class="nf">beta</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">kB</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">beta_f</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Dimensionless free-energy density beta*f(m) for Curie-Weiss with field h.</span>
+<span class="sd">    Additive constants are omitted (they don&#39;t affect minima).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">)</span>
+    <span class="n">ent</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">))</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">beta</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">J</span><span class="o">*</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">beta</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">m</span> <span class="o">+</span> <span class="n">ent</span>
+
+<span class="k">def</span> <span class="nf">rhs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="c1"># Self-consistency RHS: tanh(beta*(J m + h))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">beta</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">J</span><span class="o">*</span><span class="n">m</span> <span class="o">+</span> <span class="n">h</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">fixed_points</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="mi">20001</span><span class="p">):</span>
+    <span class="c1"># Find fixed points of m = tanh(beta*(J m + h)) in [-1,1] via sign changes + bisection.</span>
+    <span class="n">mgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">mgrid</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">mgrid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">mgrid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">mgrid</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">fa</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="n">fb</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+            <span class="n">fc</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">rhs</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">fa</span><span class="o">*</span><span class="n">fc</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">b</span><span class="p">,</span> <span class="n">fb</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">fc</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">,</span> <span class="n">fa</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">fc</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">equilibrium_m</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="c1"># Equilibrium magnetization from minimizing beta*f(m) over all fixed points.</span>
+    <span class="c1"># For h=0 and T&lt;Tc there are two degenerate minima ±m0; we return +m0 by convention.</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-14</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">T</span> <span class="o">&gt;=</span> <span class="n">Tc</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="n">fixed_points</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">roots</span><span class="p">))</span>
+
+    <span class="n">roots</span> <span class="o">=</span> <span class="n">fixed_points</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Fallback: fixed-point iteration</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+            <span class="n">m_new</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">m_new</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">m_new</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">beta_f</span><span class="p">(</span><span class="n">roots</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">vals</span><span class="p">)])</span>
+
+<span class="c1"># --- 1) Magnetization vs temperature for several fixed fields ---</span>
+<span class="n">Tvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">h_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.30</span><span class="p">]</span>
+
+<span class="c1"># h != 0 curves</span>
+<span class="n">m_curves</span> <span class="o">=</span> <span class="p">{</span><span class="n">h</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">equilibrium_m</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Tvals</span><span class="p">])</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_list</span><span class="p">}</span>
+
+<span class="c1"># h = 0: plot both symmetry-related branches below Tc (and 0 above Tc)</span>
+<span class="n">m0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">equilibrium_m</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Tvals</span><span class="p">])</span>
+<span class="n">m0_minus</span> <span class="o">=</span> <span class="o">-</span><span class="n">m0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tvals</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$h=0$ (+$m_0$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tvals</span><span class="p">,</span> <span class="n">m0_minus</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$h=0$ (-$m_0$)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_list</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tvals</span><span class="p">,</span> <span class="n">m_curves</span><span class="p">[</span><span class="n">h</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$h=</span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$T_c=</span><span class="si">{</span><span class="n">Tc</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature $T$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Equilibrium magnetization $m$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Curie-Weiss equilibrium $m(T)$ for several fields $h$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># --- 2) (T, h) diagram: coexistence line + spinodals ---</span>
+<span class="c1"># Spinodal condition: 1 = beta*J*(1-m^2). For T &lt; Tc: m_sp(T) = sqrt(1 - 1/(beta*J)) = sqrt(1 - (kB*T)/J)</span>
+<span class="c1"># Equation of state (rearranged): atanh(m) = beta*(J m + h)  -&gt;  h = kB*T*atanh(m) - J*m</span>
+
+<span class="k">def</span> <span class="nf">h_from_m</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kB</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">J</span><span class="o">*</span><span class="n">m</span>
+
+<span class="n">Tsp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">msp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">kB</span><span class="o">*</span><span class="n">Tsp</span><span class="p">)</span><span class="o">/</span><span class="n">J</span><span class="p">)</span>
+<span class="n">hsp</span> <span class="o">=</span> <span class="n">h_from_m</span><span class="p">(</span><span class="n">Tsp</span><span class="p">,</span> <span class="n">msp</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tsp</span><span class="p">,</span> <span class="o">+</span><span class="n">hsp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;spinodal $+h_{\rm sp}(T)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tsp</span><span class="p">,</span> <span class="o">-</span><span class="n">hsp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;spinodal $-h_{\rm sp}(T)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;coexistence line $h=0$ for $T&lt;T_c$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">Tc</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature $T$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Magnetic field $h$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Curie-Weiss $(T,h)$ diagram: coexistence and spinodals&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using J=</span><span class="si">{</span><span class="n">J</span><span class="si">}</span><span class="s2">, kB=</span><span class="si">{</span><span class="n">kB</span><span class="si">}</span><span class="s2">, so Tc = </span><span class="si">{</span><span class="n">Tc</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/83f6d80120ba01699e00c15c93368d38b2a8063692ef5f285fd09ae06a5f44e2.png" src="../_images/83f6d80120ba01699e00c15c93368d38b2a8063692ef5f285fd09ae06a5f44e2.png" />
+<img alt="../_images/78942f3a2a1afb92ed167a4bc4cbec1613dfe2e5130996a07205d92602e32b17.png" src="../_images/78942f3a2a1afb92ed167a4bc4cbec1613dfe2e5130996a07205d92602e32b17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using J=1.0, kB=1.0, so Tc = 1.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -701,13 +942,18 @@ s(m)=\ln (2)-\frac{m^{2}}{2}-\frac{m^{4}}{12}+O\left(m^{6}\right) \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical mechanics with interactions - Ising models</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-to-all-ising-model">All-to-all Ising model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-question">Key question</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
