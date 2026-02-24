@@ -605,6 +605,12 @@ m_{g}\equiv \langle \sigma_i \rangle_g= N^{-1}\left \langle \sum_{j} \sigma_{j}\
 g=J \zeta \cdot m_{g}=J \cdot \zeta \cdot \tanh (\beta g) \;,
 \]</div>
 <p>which has a simple physical interpretation: in <span class="math notranslate nohighlight">\(H=-J\sum_{\langle i, j\rangle} \sigma_{i} \sigma_{j}\)</span>, each <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> sees “on average” a field <span class="math notranslate nohighlight">\(J \zeta \langle \sigma_i\rangle_g=J \zeta m_g\)</span> induced by its neighors - suggesting <span class="math notranslate nohighlight">\(H\approx -J \zeta m_g\sum_i \sigma_i\)</span>. Since <span class="math notranslate nohighlight">\(H_{g}=-g \sum_i \sigma_{i}\)</span>, the condition is <span class="math notranslate nohighlight">\(g=J \zeta m_g\)</span>.</p>
+<p>Writing the self-consistency condition in terms of the average magnetization <span class="math notranslate nohighlight">\(m_g\)</span> yields</p>
+<div class="math notranslate nohighlight">
+\[
+m_g= \tanh (\beta J \zeta m_g)
+\]</div>
+<p>which is the same condition we found for the all-to-all model, except for the explicit dependence of the RHS on the coordination number. Thus, we obtain the same phenomenology as in the all-to-all model, i.e. a phase transition with the same critical exponents, except that the critical temperature is <span class="math notranslate nohighlight">\(\zeta\)</span>-dependent.</p>
 <p>Here’s a graphical solution of</p>
 <div class="math notranslate nohighlight">
 \[
@@ -620,42 +626,44 @@ g=J \zeta \cdot m_{g}=J \cdot \zeta \cdot \tanh (\beta g) \;,
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># Define the parameters for multiple J values</span>
+<span class="c1"># Parameters</span>
 <span class="n">J_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">g_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>  <span class="c1"># Range of g values for plotting</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">zeta</span> <span class="o">=</span> <span class="mf">1.0</span>
 
-<span class="c1"># Plotting for multiple J values</span>
+<span class="n">m_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>  <span class="c1"># range for m (a bit beyond [-1,1] for visual padding)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g_values</span><span class="p">,</span> <span class="n">g_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$g</span><span class="se">\\</span><span class="s1">beta$&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 
+<span class="c1"># Left-hand side: y = m</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_values</span><span class="p">,</span> <span class="n">m_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$m$&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Right-hand side: y = tanh(beta * J * zeta * m)</span>
 <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="n">J_values</span><span class="p">:</span>
-    <span class="n">tanh_function</span> <span class="o">=</span> <span class="n">J</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">g_values</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g_values</span><span class="p">,</span> <span class="n">tanh_function</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="si">{</span><span class="n">J</span><span class="si">}</span><span class="s1"> </span><span class="se">\\</span><span class="s1">tanh(g)$&#39;</span><span class="p">)</span>
+    <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">beta</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">m_values</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_values</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s1">&#39;$\tanh(</span><span class="si">{</span><span class="n">J</span><span class="si">}</span><span class="s1">\, m)$&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Graphical Solution of $</span><span class="se">\\</span><span class="s1">beta g = J </span><span class="se">\\</span><span class="s1">beta </span><span class="se">\\</span><span class="s1">zeta * </span><span class="se">\\</span><span class="s1">tanh(</span><span class="se">\\</span><span class="s1">beta g)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$g</span><span class="se">\\</span><span class="s1">beta$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Function value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Graphical Solution of $m_g=\tanh(\beta J \zeta\, m_g)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$m$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Function value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/da7553412ed18a4460229da2845ee07238b28ac7df7c539a370f1abc5f9f05f5.png" src="../_images/da7553412ed18a4460229da2845ee07238b28ac7df7c539a370f1abc5f9f05f5.png" />
+<img alt="../_images/fc875ecd4feb767a0c4a322102ce72f509d052c7b146f5cd29896e6b4b7dc1ca.png" src="../_images/fc875ecd4feb767a0c4a322102ce72f509d052c7b146f5cd29896e6b4b7dc1ca.png" />
 </div>
 </div>
-<p>Writing the self-consistency condition in terms of the average magnetization <span class="math notranslate nohighlight">\(m_g\)</span> yields</p>
-<div class="math notranslate nohighlight">
-\[
-m_g= \tanh (\beta J \zeta m_g)
-\]</div>
-<p>which is the same condition we found for the all-to-all model, except for the explicit dependence of the RHS on the coordination number. Thus, we obtain the same phenomenology as in the all-to-all model, i.e. a phase transition with the same critical exponents, except that the critical temperature is <span class="math notranslate nohighlight">\(\zeta\)</span>-dependent.</p>
 <section id="is-this-variational-approximation-good">
 <h3>Is this variational approximation good?<a class="headerlink" href="#is-this-variational-approximation-good" title="Permalink to this heading">#</a></h3>
 <p>It knows about the lattice and dimensions <span class="math notranslate nohighlight">\(D=1,2,3\)</span> only through coordinatione number <span class="math notranslate nohighlight">\(\zeta\)</span>. e.g., for square lattice <span class="math notranslate nohighlight">\(\quad \zeta=2 D \)</span></p>
-<p>But we know that the exact solution of 1D Ising model does not have symmetry breaking: the variational result is bad in 1D. On the other hand, if <span class="math notranslate nohighlight">\((D, \zeta) \rightarrow \infty\)</span>, you can verify <span class="math notranslate nohighlight">\(F[p(g)]\)</span> is identical to the exact result of the all-to-all model: it is good in large <span class="math notranslate nohighlight">\(D\)</span> and large <span class="math notranslate nohighlight">\(\zeta\)</span>.</p>
+<p>But we know that the exact solution of 1D Ising model does not have symmetry breaking: the variational result is bad in 1D. On the other hand, if <span class="math notranslate nohighlight">\((D, \zeta) \rightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(F[p(g)]\)</span> is identical to the exact result of the all-to-all model provided that we identify <span class="math notranslate nohighlight">\(J \zeta\)</span> of the mean field model with <span class="math notranslate nohighlight">\(J\)</span> of teh all-to-all model. Mean field approximations are always good in large <span class="math notranslate nohighlight">\(D\)</span> and large <span class="math notranslate nohighlight">\(\zeta\)</span> because every spin is coupled to many other spins such that it nearly sees a mean field generated by those other spins.</p>
 <p>For <span class="math notranslate nohighlight">\(D=2,3\)</span>, the accuracy is intermediate; it correctly predicts symmetry breaking  but doesn’t get <span class="math notranslate nohighlight">\(T_{c}\)</span> or <span class="math notranslate nohighlight">\(m \sim\left|T-T_{c}\right|^{\beta}\)</span> quantitatively right.</p>
 </section>
 </section>
