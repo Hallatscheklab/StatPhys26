@@ -505,10 +505,10 @@ r \\
 m
 \end{array}\right)  p_{d.w.}^{m}(1-p_{d.w.})^{r-m}(-1)^{m}
 \end{split}\]</div>
-<p>But the right-hand side is just the binomial expansion of the <span class="math notranslate nohighlight">\(r^{\text{th}}\)</span> power of <span class="math notranslate nohighlight">\(1-p_{d.w.}\)</span>,</p>
+<p>But the right-hand side is just the binomial expansion of the <span class="math notranslate nohighlight">\(r^{\text{th}}\)</span> power of <span class="math notranslate nohighlight">\(1-2 p_{d.w.}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-\left\langle\sigma_{0} \sigma_{r}\right\rangle  =\left(1-p_{d.w.}\right)^r=\exp\left[r \ln(1-2p_{d.w.}) \right]= e^{-\frac r\xi}\;,
+\left\langle\sigma_{0} \sigma_{r}\right\rangle  =\left(1- 2p_{d.w.}\right)^r=\exp\left[r \ln(1-2p_{d.w.}) \right]= e^{-\frac r\xi}\;,
 \]</div>
 <p>where the correlation length is given by</p>
 <div class="math notranslate nohighlight">
@@ -536,7 +536,7 @@ Z=\sum_{\{\sigma\}} \prod_{i} e^{\beta J \sigma_{i} \sigma_{i+1}}
 T=\left[\begin{array}{cc}
 e^{\beta J} &amp; e^{-\beta J} \\
 e^{-\beta J} &amp; e^{\beta J}
-\end{array}\right]=\sigma^{T} \sigma^{\prime}
+\end{array}\right] 
 \end{split}\]</div>
 <p>The partition function can then be rewritten as</p>
 <div class="math notranslate nohighlight">
@@ -560,10 +560,10 @@ e^{-\beta J} &amp; e^{\beta(J-B)}
 \[
 Z_{N}=\left(T^{N-1}\right)_{11}+\left(T^{N-1}\right)_{22}=\operatorname{Tr}\left(T^{N-1}\right)
 \]</div>
-<p>The benefit of realizing that there’s a matrix multiplication under the hood of the partition function is we can analyze powers of the transfer matrix <span class="math notranslate nohighlight">\(T\)</span> simply in terms of its eigen spectrum. You’ll study the case <span class="math notranslate nohighlight">\(B\neq 0\)</span> study in HW3.</p>
+<p>The benefit of realizing that there’s a matrix multiplication under the hood of the partition function is we can analyze powers of the transfer matrix <span class="math notranslate nohighlight">\(T\)</span> simply in terms of its eigen spectrum. You’ll study the case <span class="math notranslate nohighlight">\(B\neq 0\)</span> study in HW4.</p>
 <p>Here, we focus on <span class="math notranslate nohighlight">\(B=0\)</span>, for which <span class="math notranslate nohighlight">\(\lambda_{ \pm}=e^{\beta J}\pm e^{-\beta J}\)</span></p>
 <p>Note that <span class="math notranslate nohighlight">\(\frac{\lambda_{-}}{\lambda_{+}}=\tanh (\beta J)&lt;1 \quad \forall \beta J\)</span>.</p>
-<p>So <span class="math notranslate nohighlight">\(\lim _{N \rightarrow \infty} Z_{N}=\lim _{N \rightarrow \infty}\lambda_{+}^{N-1}\left(1+\left(\frac{\lambda_{2}}{\lambda_{i}}\right)^{N-1}\right) \longrightarrow \lambda_{+}^{N}\)</span>, implying a free energy of</p>
+<p>So <span class="math notranslate nohighlight">\(\lim _{N \rightarrow \infty} Z_{N}=\lim _{N \rightarrow \infty}\lambda_{+}^{N-1}\left(1+\left(\frac{\lambda_{-}}{\lambda_{+}}\right)^{N-1}\right) \longrightarrow \lambda_{+}^{N}\)</span>, implying a free energy of</p>
 <div class="math notranslate nohighlight">
 \[
 \boxed{F=-k_{B} T N \ln (2 \cosh (\beta J))+o(1)} \;.
@@ -590,7 +590,7 @@ e=\frac EN = \frac{1}{N} \partial_{\beta}(\beta F)
 \Rightarrow \sum_{\sigma} p_{\sigma} \sigma(\sigma)=\sum_{\sigma} p_{-\sigma} O(\sigma)=\sum_{\sigma} p_{\sigma} O(\sigma) .
 \]</div>
 <p><span class="math notranslate nohighlight">\(\rightarrow\)</span> all odd moments vanish.</p>
-<p>The same is true, of course, for the all-to-all Ising model. How can we then get a ferromagnetic phase with non-zero extensive magnetization? We need to apply a tiny but non-zero magnetic field to bias the spins. This is an order of limits issue: <span class="math notranslate nohighlight">\(\lim _{N \rightarrow \infty}\)</span> and <span class="math notranslate nohighlight">\(\lim _{B \rightarrow 0}\)</span> do not commute! You’ll explore this in HW3.</p>
+<p>The same is true, of course, for the all-to-all Ising model. How can we then get a ferromagnetic phase with non-zero extensive magnetization? We need to apply a tiny but non-zero magnetic field to bias the spins. This is an order of limits issue: <span class="math notranslate nohighlight">\(\lim _{N \rightarrow \infty}\)</span> and <span class="math notranslate nohighlight">\(\lim _{B \rightarrow 0}\)</span> do not commute! You’ll explore this in HW4.</p>
 <p>Let’s also see what we get for the correlation function <span class="math notranslate nohighlight">\(C(r) \equiv\left\langle\sigma_{r} \sigma_{0}\right\rangle\)</span> using transfer matrices. Does it match up with the domain wall picture from above?</p>
 <p>Using the full microstate distribution in terms of a product of transfer, we can express the expectation of the two focal spins <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(r\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -723,7 +723,7 @@ M(T) = \left(1 - \sinh^{-4}(2/T)\right)^{1/8} \;,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zz/1vw5bbc56354j3gzyyp8xx4m0000gn/T/ipykernel_51159/3083171715.py:12: RuntimeWarning: invalid value encountered in power
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zz/1vw5bbc56354j3gzyyp8xx4m0000gn/T/ipykernel_72495/3083171715.py:12: RuntimeWarning: invalid value encountered in power
   M = np.where(T &lt; T_c, (1 - np.sinh(2/T)**(-4))**(1/8), 0)
 </pre></div>
 </div>

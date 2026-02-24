@@ -443,7 +443,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-variational-approximation-good">Is this variational approximation good?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-ising-model">Mean field Ising model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-variational-approximation-good">Is this variational approximation good?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -541,6 +544,8 @@ F[p(g)]-F_{0}=F_{g}-F_{0}+\langle H\rangle_{g}-\left\langle H_{g}\right\rangle_{
 &amp; \ln (Z) \geqslant \ln (Z_g)+\beta\left(\langle H_g\rangle_{g}-\langle H\rangle_{g}\right)
 \end{aligned}
 \end{split}\]</div>
+<section id="mean-field-ising-model">
+<h2>Mean field Ising model<a class="headerlink" href="#mean-field-ising-model" title="Permalink to this heading">#</a></h2>
 <p>Let’s try this for</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -659,10 +664,11 @@ m_{g}= \pm \sqrt{3\left(1-\frac{1}{J \zeta \beta}\right)}
 </div>
 </div>
 <section id="is-this-variational-approximation-good">
-<h2>Is this variational approximation good?<a class="headerlink" href="#is-this-variational-approximation-good" title="Permalink to this heading">#</a></h2>
+<h3>Is this variational approximation good?<a class="headerlink" href="#is-this-variational-approximation-good" title="Permalink to this heading">#</a></h3>
 <p>It knows about the lattice and dimensions <span class="math notranslate nohighlight">\(D=1,2,3\)</span> only through coordinatione number <span class="math notranslate nohighlight">\(\zeta\)</span>. e.g., for square lattice <span class="math notranslate nohighlight">\(\quad \zeta=2 D \)</span></p>
 <p>But we know that the exact solution of 1D Ising model does not have symmetry breaking: the variational result is bad in 1D. On the other hand, if <span class="math notranslate nohighlight">\((D, \zeta) \rightarrow \infty\)</span>, you can verify <span class="math notranslate nohighlight">\(F[p(g)]\)</span> is identical to the exact result of the all-to-all model: it is good in large <span class="math notranslate nohighlight">\(D\)</span> and large <span class="math notranslate nohighlight">\(\zeta\)</span>.</p>
 <p>For <span class="math notranslate nohighlight">\(D=2,3\)</span>, the accuracy is intermediate; it correctly predicts symmetry breaking  but doesn’t get <span class="math notranslate nohighlight">\(T_{c}\)</span> or <span class="math notranslate nohighlight">\(m \sim\left|T-T_{c}\right|^{\beta}\)</span> quantitatively right.</p>
+</section>
 </section>
 </section>
 
@@ -730,7 +736,10 @@ m_{g}= \pm \sqrt{3\left(1-\frac{1}{J \zeta \beta}\right)}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-variational-approximation-good">Is this variational approximation good?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-ising-model">Mean field Ising model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-variational-approximation-good">Is this variational approximation good?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

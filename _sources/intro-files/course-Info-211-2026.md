@@ -45,7 +45,7 @@ The notes are hosted on github pages at [https://hallatscheklab.github.io/StatPh
 **Exams and grades:** There will be one midterm and a final exam. Dates: 
 
 - Midterm, Tue, March 10, 5-6:30pm, Physics Building 2 
-- Final, Fri, May 16th, 7-10pm, Physics Building 2 
+- Final, Fri, May 15th, 11:30am-2:30pm, Physics Building 2 
 
 Grades will be determined from a weighting of all the elements of the course as follows:
 

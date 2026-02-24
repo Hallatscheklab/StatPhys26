@@ -562,8 +562,13 @@ Z(\beta, J, B)=\int_{-1}^{1} d m e^{-\beta N\left[-\frac{J}2 m^2- B m - T s(m)\r
 \beta f(m) = -\frac{\beta J}{2} m^2 + \frac{1+m}{2}\ln{\frac{1+m}{2}} + \frac{1-m}{2} \ln{\frac{1-m}{2}}
 \]</div>
 <p>Depending on <span class="math notranslate nohighlight">\(\beta J\)</span>, <span class="math notranslate nohighlight">\(f(m)\)</span> can look like a single or double well:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -597,15 +602,10 @@ Z(\beta, J, B)=\int_{-1}^{1} d m e^{-\beta N\left[-\frac{J}2 m^2- B m - T s(m)\r
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/3dfc57682d228fe42ea6d43fdb6b96b0347c3aa116db32ad5de0c95480322e46.png" src="../_images/3dfc57682d228fe42ea6d43fdb6b96b0347c3aa116db32ad5de0c95480322e46.png" />
 </div>
-</details>
 </div>
 <p>As <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span> (TDL), sum is dominated by minima <span class="math notranslate nohighlight">\(f(m)=f(\bar{m})+\frac{1}{2} f^{\prime \prime}(m)(m-\bar{m})^{2}\)</span></p>
 <div class="math notranslate nohighlight">
@@ -674,8 +674,13 @@ More generally, with a field <span class="math notranslate nohighlight">\(h\)</s
 \[
 m = \tanh\big(\beta(J m + h)\big).
 \]</div>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -728,15 +733,10 @@ m = \tanh\big(\beta(J m + h)\big).
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" src="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" />
 </div>
-</details>
 </div>
 </section>
 <section id="phase-diagrams">
@@ -747,8 +747,13 @@ m = \tanh\big(\beta(J m + h)\big).
 <li><p><strong><span class="math notranslate nohighlight">\((T,h)\)</span> diagram</strong>: the true thermodynamic transition is only on the line <span class="math notranslate nohighlight">\(h=0\)</span> at <span class="math notranslate nohighlight">\(T=T_c\)</span>; nevertheless, for <span class="math notranslate nohighlight">\(T&lt;T_c\)</span> there are <strong>metastable</strong> states separated by <strong>spinodal lines</strong> <span class="math notranslate nohighlight">\(h=\pm h_{\rm sp}(T)\)</span> where a local minimum disappears.</p></li>
 </ol>
 <p>We set <span class="math notranslate nohighlight">\(k_B=1\)</span> and <span class="math notranslate nohighlight">\(J=1\)</span> below, so <span class="math notranslate nohighlight">\(T_c=1\)</span>. You can change these in the parameters cell.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -874,11 +879,7 @@ m = \tanh\big(\beta(J m + h)\big).
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/83f6d80120ba01699e00c15c93368d38b2a8063692ef5f285fd09ae06a5f44e2.png" src="../_images/83f6d80120ba01699e00c15c93368d38b2a8063692ef5f285fd09ae06a5f44e2.png" />
 <img alt="../_images/78942f3a2a1afb92ed167a4bc4cbec1613dfe2e5130996a07205d92602e32b17.png" src="../_images/78942f3a2a1afb92ed167a4bc4cbec1613dfe2e5130996a07205d92602e32b17.png" />
@@ -886,7 +887,6 @@ m = \tanh\big(\beta(J m + h)\big).
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 </section>
 
