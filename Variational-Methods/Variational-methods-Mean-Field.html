@@ -549,14 +549,14 @@ F[p(g)]-F_{0}=F_{g}-F_{0}+\langle H\rangle_{g}-\left\langle H_{g}\right\rangle_{
 <p>where the notation <span class="math notranslate nohighlight">\(\langle i, j\rangle\)</span> indicates that sites <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are in contact (i.e. they are nearest neighbors) and each pair is only counted once. We might then choose a “Mean field ansatz”</p>
 <div class="math notranslate nohighlight">
 \[
-H_{g} &amp; =-g \sum_{i}^{N} \sigma_{i}, \quad \text { &quot;Mean field ansatz&quot;, where g=&quot;Mean Field&quot;. }
+H_{g}  =-g \sum_{i}^{N} \sigma_{i}, \quad \text { &quot;Mean field ansatz&quot;, where g=&quot;Mean Field&quot;. }
 \]</div>
 <p>where the mean field <span class="math notranslate nohighlight">\(g\)</span> is a parameter we will adjust.</p>
 <p>We need to compute <span class="math notranslate nohighlight">\(Z_{g},\left\langle H_{g}\right\rangle_{g},\langle H\rangle_{g}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-&amp; Z_{g}=\left(e^{\beta g}+e^{-\beta g}\right)^{N}=[2 \cosh (\beta g)]^{N}\equiv z_g^N \\
+&amp; Z_{g}=\sum_{\sigma}e^{-\beta H_g[\sigma]}=\left(e^{\beta g}+e^{-\beta g}\right)^{N}=[2 \cosh (\beta g)]^{N}\equiv z_g^N \\
 &amp; F_{g}=-\frac{1}{\beta} N \ln[2 \cosh (\beta g)] \\
 &amp; \left\langle H_{g}\right\rangle_g=-g\left \langle \sum_{i} \sigma_{i}\right\rangle_{g}
 \end{aligned}
@@ -593,7 +593,7 @@ m_{g}\equiv \langle \sigma_i \rangle_g= N^{-1}\left \langle \sum_{j} \sigma_{j}\
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-&amp; \partial_{g} F[p(g)]=N\partial_{g} \left[-J \frac{\zeta}{2} m_{g}^{2}+g m_{g}\right]+N\partial_{g}F_g \\
+&amp; \partial_{g} F[p(g)]=N\partial_{g} \left[-J \frac{\zeta}{2} m_{g}^{2}+g m_{g}\right]+\partial_{g}F_g \\
 &amp;=N\left[-J \zeta m_{g} m_{g}^{\prime}+g m_{g}^{\prime}+m_{g}-m_{g}\right]=0 
 \end{aligned}
 \end{split}\]</div>
