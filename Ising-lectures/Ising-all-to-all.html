@@ -451,7 +451,10 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-exponents">Critical exponents</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
 </ul>
 
@@ -634,8 +637,6 @@ s(m)=\ln (2)-\frac{m^{2}}{2}-\frac{m^{4}}{12}+O\left(m^{6}\right) \\
 \end{aligned}
 \end{split}\]</div>
 <p>Which minimum is attained depends on sign (B), even for infinitesimal <span class="math notranslate nohighlight">\(B\)</span> !</p>
-<p>The behavior near the critical point <span class="math notranslate nohighlight">\(\bar{m} \propto (\frac{T_c-T}{T_c})^{1/2}\)</span> turns out to be <em>universal</em> for Ising-like order parameters in the all-to-all limit.</p>
-<p>(more analysis in HW4)</p>
 </section>
 </section>
 </section>
@@ -668,12 +669,13 @@ Compute the derivative of <span class="math notranslate nohighlight">\(\beta f(m
 \quad\Longleftrightarrow\quad
 m = \tanh(\beta J m).
 \]</div>
-<p>This is the usual Curie–Weiss self-consistency (mean-field) equation at <span class="math notranslate nohighlight">\(h=0\)</span>.
+<p>This is the usual Curie–Weiss equation at <span class="math notranslate nohighlight">\(h=0\)</span>.
 More generally, with a field <span class="math notranslate nohighlight">\(h\)</span> (coupled as <span class="math notranslate nohighlight">\(-h\sum_i s_i\)</span>), one finds</p>
 <div class="math notranslate nohighlight">
 \[
 m = \tanh\big(\beta(J m + h)\big).
 \]</div>
+<p>This equation can be analyzed admits a nice graphical solution by plotting both sides of this equation.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -738,6 +740,35 @@ m = \tanh\big(\beta(J m + h)\big).
 <img alt="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" src="../_images/1aed8290be91499e6e27a53523a5ebf4a2914ae7621a1e1e29a9d485c40b203c.png" />
 </div>
 </div>
+<section id="critical-exponents">
+<h2>Critical exponents<a class="headerlink" href="#critical-exponents" title="Permalink to this heading">#</a></h2>
+<p>Let’s focus on the case of vanishing magnetic field, <span class="math notranslate nohighlight">\(h=0\)</span>. Near the phase transition, we can obtain analytical results, because we can assume that  <span class="math notranslate nohighlight">\(m\)</span> is small and expand <span class="math notranslate nohighlight">\(\tanh x = x-\frac{x^{3}}{3}+\cdots\)</span> with <span class="math notranslate nohighlight">\(x=\beta J m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+m = \beta J m\left(1-\frac{1}{3}(\beta J m)^2\right)+\cdots
+\]</div>
+<p>Solution 1: <span class="math notranslate nohighlight">\(m=0\)</span>.</p>
+<p>But for <span class="math notranslate nohighlight">\(\beta J&gt;1\)</span> we can look for nonzero solutions. Dividing by <span class="math notranslate nohighlight">\(m\neq 0\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+1=\beta J\left(1-\frac{1}{3}(\beta J m)^2\right)+\cdots
+\]</div>
+<p>so to leading order</p>
+<div class="math notranslate nohighlight">
+\[
+(\beta J m)^2 = 3\left(1-\frac{1}{\beta J}\right).
+\]</div>
+<p>Hence</p>
+<div class="math notranslate nohighlight">
+\[
+m=\pm \sqrt{\frac{3(\beta J-1)}{(\beta J)^3}}
+\;\;\approx\;\;
+\pm \sqrt{3\left(1-\frac{1}{\beta J}\right)}\quad(\beta J\simeq 1).
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(\beta J&gt;1\)</span>, these symmetry-broken solutions correspond to the lower-free-energy phase.</p>
+<p>Note that the behavior near the critical point <span class="math notranslate nohighlight">\(\bar{m} \propto (\frac{T_c-T}{T_c})^{1/2}\)</span> turns out to be <em>universal</em> for Ising-like order parameters in the all-to-all limit.</p>
+<p>(more analysis in HW4)</p>
+</section>
 </section>
 <section id="phase-diagrams">
 <h1>Phase diagrams<a class="headerlink" href="#phase-diagrams" title="Permalink to this heading">#</a></h1>
@@ -962,7 +993,10 @@ m = \tanh\big(\beta(J m + h)\big).
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-exponents">Critical exponents</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-diagrams">Phase diagrams</a></li>
 </ul>
 
