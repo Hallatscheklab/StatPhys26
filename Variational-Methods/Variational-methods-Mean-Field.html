@@ -518,10 +518,7 @@ D_{K L}(P \| Q)= \sum P_{i} \ln \left(\frac{P_{i}}{Q_{i}}\right) \geq 0
 \[
 p(g) \equiv \frac{1}{Z_{g}} e^{-\beta H_{g}}\;.
 \]</div>
-<p>Consider, for example, the generalized Ising Hamiltonian</p>
-<div class="math notranslate nohighlight">
-\[H=-J \sum_{\langle i, j\rangle} \sigma_{i} \sigma_{j}\]</div>
-<p>where the notation <span class="math notranslate nohighlight">\(\langle i, j\rangle\)</span> indicates that sites <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are in contact (i.e. they are nearest neighbors) and each pair is only counted once. We might then choose <span class="math notranslate nohighlight">\(H_{g}=-g \sum_{i} \sigma_{i}\)</span>, where <span class="math notranslate nohighlight">\(g\)</span> is a parameter we will adjust. In terms of <span class="math notranslate nohighlight">\(H_g\)</span>, we have</p>
+<p>In terms of <span class="math notranslate nohighlight">\(H_g\)</span>, we have</p>
 <div class="math notranslate nohighlight">
 \[
 F[p(g)]=\sum_{\mu} \frac{e^{-\beta H_{g}(\mu)}}{Z_{g}}\left(H(\mu)+\frac{1}{\beta} \ln \left(\frac{e^{-\beta H_{g}(\mu)}}{Z_{g}}\right)\right)
@@ -546,14 +543,15 @@ F[p(g)]-F_{0}=F_{g}-F_{0}+\langle H\rangle_{g}-\left\langle H_{g}\right\rangle_{
 \end{split}\]</div>
 <section id="mean-field-ising-model">
 <h2>Mean field Ising model<a class="headerlink" href="#mean-field-ising-model" title="Permalink to this heading">#</a></h2>
-<p>Let’s try this for</p>
+<p>Let’s try this for the generalized Ising Hamiltonian</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-H &amp; =-J \sum_{\langle i, j\rangle} \sigma_{i} \sigma_{j}, \\
+\[H=-J \sum_{\langle i, j\rangle} \sigma_{i} \sigma_{j}\]</div>
+<p>where the notation <span class="math notranslate nohighlight">\(\langle i, j\rangle\)</span> indicates that sites <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are in contact (i.e. they are nearest neighbors) and each pair is only counted once. We might then choose a “Mean field ansatz”</p>
+<div class="math notranslate nohighlight">
+\[
 H_{g} &amp; =-g \sum_{i}^{N} \sigma_{i}, \quad \text { &quot;Mean field ansatz&quot;, where g=&quot;Mean Field&quot;. }
-\end{aligned}
-\end{split}\]</div>
+\]</div>
+<p>where the mean field <span class="math notranslate nohighlight">\(g\)</span> is a parameter we will adjust.</p>
 <p>We need to compute <span class="math notranslate nohighlight">\(Z_{g},\left\langle H_{g}\right\rangle_{g},\langle H\rangle_{g}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -566,7 +564,7 @@ H_{g} &amp; =-g \sum_{i}^{N} \sigma_{i}, \quad \text { &quot;Mean field ansatz&q
 <p>which depends on the mean magnetization <span class="math notranslate nohighlight">\(m_g\)</span> under the fictitious Hamiltonian,</p>
 <div class="math notranslate nohighlight">
 \[
-m_{g}\equiv \langle \sigma_i \rangle_g= N^{-1}\left \langle \sum_{j} \sigma_{j}\right\rangle_{g}=(Ng)^{-1}\partial_{\beta} \ln \left(Z_{g}\right)=\tanh (\beta g)\;.
+m_{g}\equiv \langle \sigma_i \rangle_g= N^{-1}\left \langle \sum_{j} \sigma_{j}\right\rangle_{g}=-(N\beta)^{-1}\partial_{g} \ln \left(Z_{g}\right)=N^{-1}\partial_g F_g=\tanh (\beta g)\;.
 \]</div>
 <p>And crucially, because under <span class="math notranslate nohighlight">\(p(g)\)</span> the different spins are uncorrelated,</p>
 <div class="math notranslate nohighlight">
@@ -588,14 +586,14 @@ m_{g}\equiv \langle \sigma_i \rangle_g= N^{-1}\left \langle \sum_{j} \sigma_{j}\
 \[\begin{split}
 \begin{aligned}
 &amp; F[p(g)]=\langle H\rangle_{g}-\langle H_g\rangle_{g}+F_{g} \\
-&amp; =-J \frac{N \zeta}{2} m_{g}^{2}+N g m_{g}-\frac{1}{\beta} N \ln [2 \cosh (\beta g)]  
+&amp; =-J \frac{N \zeta}{2} m_{g}^{2}+N g m_{g}+F_g  
 \end{aligned}
 \end{split}\]</div>
 <p>Now, finally, we minimize (<span class="math notranslate nohighlight">\(m_{g}^{\prime}=\partial_{g} m_{g}\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-&amp; \partial_{g} F[p(g)]=N\partial_{g} \left[-J \frac{\zeta}{2} m_{g}^{2}+g m_{g}-\frac{1}{\beta} \ln (\cosh (\beta g))\right] \\
+&amp; \partial_{g} F[p(g)]=N\partial_{g} \left[-J \frac{\zeta}{2} m_{g}^{2}+g m_{g}\right]+N\partial_{g}F_g \\
 &amp;=N\left[-J \zeta m_{g} m_{g}^{\prime}+g m_{g}^{\prime}+m_{g}-m_{g}\right]=0 
 \end{aligned}
 \end{split}\]</div>
