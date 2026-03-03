@@ -54,13 +54,13 @@ $$
 \Delta \mathcal{O} = \frac{1}{\sqrt{M}} \sqrt{\langle (O - \langle O \rangle)^2 \rangle}
 $$
 
-Thus, the accuracy of a Monte Carlo estimate scales as:
+Thus, if samples are drawn i.i.d., the accuracy of a Monte Carlo estimate scales as:
 
 $$
 \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}.
 $$
 
-For most practical cases, $\text{var}(\mathcal{O})$ remains bounded as the system size $\Omega \to \infty$. For example, in the Ising model, while the total number of states scales as $\Omega = 2^N$, the magnetization $\langle m^2 \rangle = N^{-1} \sum_i \sigma_i$ remains independent of $N$.
+For most practical cases, $\text{var}(\mathcal{O})$ remains bounded as the system size $\Omega \to \infty$. For example, in the Ising model, while the total number of states scales as $\Omega = 2^N$, the variance of the magnetization $Var(m)  = \frac{\partial\langle m\rangle}{\partial B} (\beta N)^{-1}= \chi_m/(\beta N)$ scales like the susceptibility, which is finite except at the critical point.
 
 To achieve an accuracy of $\epsilon$, we require:
 
@@ -88,7 +88,7 @@ $$
 
 naturally occurs with frequency $p_{\mu}$. 
 
-While, in principle, we could evolve phase space variables $r = \{q, p\}$ using Newton’s laws with a heat reservoir (which, under the ergodic hypothesis, would sample $p_{\mu}$), this is computationally expensive. Instead, the **Markov Chain Monte Carlo (MCMC) method** introduces a simpler, artificial set of dynamics to generate the required samples efficiently.
+While, in principle, we could evolve phase space variables $r = \{q, p\}$ using Newton’s laws with a heat reservoir (which, under the ergodic hypothesis, would sample $p_{\mu}$), such molecular dynamics simulations are computationally expensive. Instead, the **Markov Chain Monte Carlo (MCMC) method** introduces a simpler, artificial set of dynamics to generate the required samples efficiently.
 
 ### Markov Chains
 
@@ -124,19 +124,11 @@ $$
 
 i.e., $\pi$ is the right eigenvector of $M$ corresponding to the eigenvalue 1.
 
-Instead of tracking the full distribution $p_{\mu}(t)$ (which is impractical for large $\Omega$), we sample from it to obtain a sequence $\{\mu_1, \mu_2, \dots\}$.
+### Key Idea
 
-To implement the Markov process governed by the master equation, we select a new state $\mu_{t+1}$ at each time step based on the transition probability:
+If we design a Markov chain $M_{\mu^{\prime} \mu} $ such that $\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}$, we can generate a sequence $\{\mu_1, \mu_2, \dots, \mu_M\}$, which becomes distributed according to $\pi_{\mu}$ as $T \to \infty$, and approximate $ \langle \mathcal{O} \rangle \approx \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t) $
 
-$$
-P(\mu_{t+1} \mid \mu_t) = M_{\mu_{t+1} \mu_t}
-$$
-
-By repeating this process, we generate a sequence $\{\mu_1, \mu_2, \dots, \mu_T\}$, which becomes distributed according to $\pi_{\mu}$ as $T \to \infty$.
-
-The key question is how to choose $M_{\mu^\prime \mu}$ so that $\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}$.
-
-If the transition matrix satisfies the **detailed balance condition**:
+Importantly, $M_{\mu^\prime \mu}$ can be designed to generate $\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}$ without knowing $Z$ in the first place. To see this, note that, if the transition matrix satisfies the **detailed balance condition**:
 
 $$
 M_{\mu^{\prime} \mu} \pi_{\mu} = M_{\mu \mu^{\prime}} \pi_{\mu^{\prime}}
