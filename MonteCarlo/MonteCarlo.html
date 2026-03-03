@@ -417,6 +417,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-and-convergence">Accuracy and Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-problem-sampling-efficiently">The Core Problem: Sampling Efficiently</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chains">Markov Chains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-idea">Key Idea</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-rule">Metropolis Rule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-considerations">Numerical Considerations</a></li>
 </ul>
@@ -476,12 +477,12 @@ document.write(`
 \[
 \Delta \mathcal{O} = \frac{1}{\sqrt{M}} \sqrt{\langle (O - \langle O \rangle)^2 \rangle}
 \]</div>
-<p>Thus, the accuracy of a Monte Carlo estimate scales as:</p>
+<p>Thus, if samples are drawn i.i.d., the accuracy of a Monte Carlo estimate scales as:</p>
 <div class="math notranslate nohighlight">
 \[
 \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}.
 \]</div>
-<p>For most practical cases, <span class="math notranslate nohighlight">\(\text{var}(\mathcal{O})\)</span> remains bounded as the system size <span class="math notranslate nohighlight">\(\Omega \to \infty\)</span>. For example, in the Ising model, while the total number of states scales as <span class="math notranslate nohighlight">\(\Omega = 2^N\)</span>, the magnetization <span class="math notranslate nohighlight">\(\langle m^2 \rangle = N^{-1} \sum_i \sigma_i\)</span> remains independent of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>For most practical cases, <span class="math notranslate nohighlight">\(\text{var}(\mathcal{O})\)</span> remains bounded as the system size <span class="math notranslate nohighlight">\(\Omega \to \infty\)</span>. For example, in the Ising model, while the total number of states scales as <span class="math notranslate nohighlight">\(\Omega = 2^N\)</span>, the variance of the magnetization <span class="math notranslate nohighlight">\(Var(m)  = \frac{\partial\langle m\rangle}{\partial B} (\beta N)^{-1}= \chi_m/(\beta N)\)</span> scales like the susceptibility, which is finite except at the critical point.</p>
 <p>To achieve an accuracy of <span class="math notranslate nohighlight">\(\epsilon\)</span>, we require:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -503,7 +504,7 @@ Z = \sum_{\mu=1}^{\Omega} e^{-\beta H_{\mu}},
 \mu_1, \mu_2, \mu_3, \dots
 \]</div>
 <p>naturally occurs with frequency <span class="math notranslate nohighlight">\(p_{\mu}\)</span>.</p>
-<p>While, in principle, we could evolve phase space variables <span class="math notranslate nohighlight">\(r = \{q, p\}\)</span> using Newton’s laws with a heat reservoir (which, under the ergodic hypothesis, would sample <span class="math notranslate nohighlight">\(p_{\mu}\)</span>), this is computationally expensive. Instead, the <strong>Markov Chain Monte Carlo (MCMC) method</strong> introduces a simpler, artificial set of dynamics to generate the required samples efficiently.</p>
+<p>While, in principle, we could evolve phase space variables <span class="math notranslate nohighlight">\(r = \{q, p\}\)</span> using Newton’s laws with a heat reservoir (which, under the ergodic hypothesis, would sample <span class="math notranslate nohighlight">\(p_{\mu}\)</span>), such molecular dynamics simulations are computationally expensive. Instead, the <strong>Markov Chain Monte Carlo (MCMC) method</strong> introduces a simpler, artificial set of dynamics to generate the required samples efficiently.</p>
 </section>
 <section id="markov-chains">
 <h2>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this heading">#</a></h2>
@@ -531,15 +532,11 @@ p_{\mu}(t=\infty) = \lim _{t \rightarrow \infty} M^t p_{\mu}(0) \equiv \pi_{\mu}
 (M \pi)_{\mu} = \pi_{\mu}
 \]</div>
 <p>i.e., <span class="math notranslate nohighlight">\(\pi\)</span> is the right eigenvector of <span class="math notranslate nohighlight">\(M\)</span> corresponding to the eigenvalue 1.</p>
-<p>Instead of tracking the full distribution <span class="math notranslate nohighlight">\(p_{\mu}(t)\)</span> (which is impractical for large <span class="math notranslate nohighlight">\(\Omega\)</span>), we sample from it to obtain a sequence <span class="math notranslate nohighlight">\(\{\mu_1, \mu_2, \dots\}\)</span>.</p>
-<p>To implement the Markov process governed by the master equation, we select a new state <span class="math notranslate nohighlight">\(\mu_{t+1}\)</span> at each time step based on the transition probability:</p>
-<div class="math notranslate nohighlight">
-\[
-P(\mu_{t+1} \mid \mu_t) = M_{\mu_{t+1} \mu_t}
-\]</div>
-<p>By repeating this process, we generate a sequence <span class="math notranslate nohighlight">\(\{\mu_1, \mu_2, \dots, \mu_T\}\)</span>, which becomes distributed according to <span class="math notranslate nohighlight">\(\pi_{\mu}\)</span> as <span class="math notranslate nohighlight">\(T \to \infty\)</span>.</p>
-<p>The key question is how to choose <span class="math notranslate nohighlight">\(M_{\mu^\prime \mu}\)</span> so that <span class="math notranslate nohighlight">\(\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}\)</span>.</p>
-<p>If the transition matrix satisfies the <strong>detailed balance condition</strong>:</p>
+</section>
+<section id="key-idea">
+<h2>Key Idea<a class="headerlink" href="#key-idea" title="Permalink to this heading">#</a></h2>
+<p>If we design a Markov chain <span class="math notranslate nohighlight">\(M_{\mu^{\prime} \mu} \)</span> such that <span class="math notranslate nohighlight">\(\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}\)</span>, we can generate a sequence <span class="math notranslate nohighlight">\(\{\mu_1, \mu_2, \dots, \mu_M\}\)</span>, which becomes distributed according to <span class="math notranslate nohighlight">\(\pi_{\mu}\)</span> as <span class="math notranslate nohighlight">\(T \to \infty\)</span>, and approximate <span class="math notranslate nohighlight">\( \langle \mathcal{O} \rangle \approx \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t) \)</span></p>
+<p>Importantly, <span class="math notranslate nohighlight">\(M_{\mu^\prime \mu}\)</span> can be designed to generate <span class="math notranslate nohighlight">\(\pi_{\mu} = \frac{1}{Z} e^{-\beta H_{\mu}}\)</span> without knowing <span class="math notranslate nohighlight">\(Z\)</span> in the first place. To see this, note that, if the transition matrix satisfies the <strong>detailed balance condition</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 M_{\mu^{\prime} \mu} \pi_{\mu} = M_{\mu \mu^{\prime}} \pi_{\mu^{\prime}}
@@ -732,6 +729,7 @@ Example: If <span class="math notranslate nohighlight">\(\{\sigma\}_t = \uparrow
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-and-convergence">Accuracy and Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-problem-sampling-efficiently">The Core Problem: Sampling Efficiently</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chains">Markov Chains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-idea">Key Idea</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-rule">Metropolis Rule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-considerations">Numerical Considerations</a></li>
 </ul>
