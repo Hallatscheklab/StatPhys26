@@ -450,6 +450,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-treatment-of-a-gas-and-the-van-der-waals-equation-of-state">Variational treatment of a gas and the van der Waals equation of state</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-treatment">Mean-field treatment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-ansatz">Variational ansatz:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#van-der-waals-equation-of-state">Van der Waals equation of state</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transition">Phase transition</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-attractive-interaction">Minimal attractive interaction</a></li>
 </ul>
@@ -716,82 +717,58 @@ P(\mu,T) =\frac{\ln Q(\mu,T,V)}{\beta V} \geq \psi_u[n,\mu,T]
 <span class="eqno">(16)<a class="headerlink" href="#equation-non-dim-pressure" title="Permalink to this equation">#</a></span>\[
 \tilde \psi_{\tilde u}(\tilde n, \tilde \mu) =\frac{\psi}{P_0}= \tilde n \ln(\tilde n^{-1}-1)+\tilde \mu \tilde n + \tilde u \frac{\tilde n^2}2
 \]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>The procedure above is called &quot;Non-Dimensionalizing&quot; and has three benefits. 
-
-
-```{note} **Non-Dimensionalizing equations**
-- **Revealing characteristic scales:** Each remaining &quot;tilde&quot; variable is just a number and represents the original variable in units of its characteristic scale: $\tilde \psi$ measures $\psi$ in units of the characteristic pressure $P_0 =2 k_B T/\Omega_{ex}$. Without doing anything further, we know that the problem will depend on how the pressure relates to this characteristic pressure. The density is measured in units of its characteristic density $2/\Omega_{ex}$, which is the maximal density possible with hard core interactions. etc.
-
-- **Simplification:** the process has uncovered that $\tilde \psi$ really is just a function of three independent control parameters, $\tilde u$, $\tilde mu$ and $\tilde n$. The parameter temperature could be fully absorbed in one of the other effective parameters.
-  
-- **Plotting:** Thirdly, because the remaining formula relates numbers to numbers, we can directly produce plots to get a sense of the behavior of $\tilde \psi$, without worrying about what units we should put on the different axis: Each effective parameter should be studied for values much smaller and much larger than 1.
-```
-
-
-Now, let&#39;s maximize $\tilde \psi$ w.r.t. our variational parameter $\tilde n$:
-
-$$
+<p>The procedure above is called “Non-Dimensionalizing” and has three benefits.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Non-Dimensionalizing equations</strong></p>
+<ul class="simple">
+<li><p><strong>Revealing characteristic scales:</strong> Each remaining “tilde” variable is just a number and represents the original variable in units of its characteristic scale: <span class="math notranslate nohighlight">\(\tilde \psi\)</span> measures <span class="math notranslate nohighlight">\(\psi\)</span> in units of the characteristic pressure <span class="math notranslate nohighlight">\(P_0 =2 k_B T/\Omega_{ex}\)</span>. Without doing anything further, we know that the problem will depend on how the pressure relates to this characteristic pressure. The density is measured in units of its characteristic density <span class="math notranslate nohighlight">\(2/\Omega_{ex}\)</span>, which is the maximal density possible with hard core interactions. etc.</p></li>
+<li><p><strong>Simplification:</strong> the process has uncovered that <span class="math notranslate nohighlight">\(\tilde \psi\)</span> really is just a function of three independent control parameters, <span class="math notranslate nohighlight">\(\tilde u\)</span>, <span class="math notranslate nohighlight">\(\tilde mu\)</span> and <span class="math notranslate nohighlight">\(\tilde n\)</span>. The parameter temperature could be fully absorbed in one of the other effective parameters.</p></li>
+<li><p><strong>Plotting:</strong> Thirdly, because the remaining formula relates numbers to numbers, we can directly produce plots to get a sense of the behavior of <span class="math notranslate nohighlight">\(\tilde \psi\)</span>, without worrying about what units we should put on the different axis: Each effective parameter should be studied for values much smaller and much larger than 1.</p></li>
+</ul>
+</div>
+<p>Now, let’s maximize <span class="math notranslate nohighlight">\(\tilde \psi\)</span> w.r.t. our variational parameter <span class="math notranslate nohighlight">\(\tilde n\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-maximizing-psi">
+<span class="eqno">(17)<a class="headerlink" href="#equation-maximizing-psi" title="Permalink to this equation">#</a></span>\[
 \partial_{\tilde n} \tilde \psi=\ln \left({\tilde n}^{-1}-1\right) -\frac{1}{1-\tilde n } +\tilde \mu + \tilde u \tilde n= 0
-$$ (maximizing-psi)
-
-This has multiple $\tilde n$--solutions for a given $\tilde \mu$ (see below). 
-
-
-#### Van der Waals equation of state
-
-But for a given $\tilde n$, it has a single $\tilde \mu$ solution
-
-$$
+\]</div>
+<p>This has multiple <span class="math notranslate nohighlight">\(\tilde n\)</span>–solutions for a given <span class="math notranslate nohighlight">\(\tilde \mu\)</span> (see below).</p>
+</section>
+<section id="van-der-waals-equation-of-state">
+<h3>Van der Waals equation of state<a class="headerlink" href="#van-der-waals-equation-of-state" title="Permalink to this heading">#</a></h3>
+<p>But for a given <span class="math notranslate nohighlight">\(\tilde n\)</span>, it has a single <span class="math notranslate nohighlight">\(\tilde \mu\)</span> solution</p>
+<div class="math notranslate nohighlight">
+\[
 \tilde \mu=\frac{1}{1-\tilde n }-\tilde u \tilde n-\ln \left({\tilde n}^{-1}-1\right)
-$$
-
-Substituting this back into our approximation Eq. {eq}`non-dim-pressure`, we obtain an approximation of the pressure as a function of density,
-
-$$
+\]</div>
+<p>Substituting this back into our approximation Eq. <a class="reference internal" href="#equation-non-dim-pressure">(16)</a>, we obtain an approximation of the pressure as a function of density,</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{P}{P_0} \approx \tilde \psi_{\tilde u}[\tilde n,\tilde \mu] = \frac{\tilde n}{1-\tilde n}-\tilde u \frac{\tilde n^2}{2}
-$$
-
-Reinserting the original variables, we obtain 
-
-$$
+\]</div>
+<p>Reinserting the original variables, we obtain</p>
+<div class="math notranslate nohighlight">
+\[
 \left(P+u n^{2} / 2\right)(V-N \Omega_{ex}/ 2)=N k_{B} T \;,
-$$
-
-which is nothing but the van der Waals equation of state
-
-$$
+\]</div>
+<p>which is nothing but the van der Waals equation of state</p>
+<div class="math notranslate nohighlight">
+\[
 \left(P+a n^{2}\right)(V-b N)=N k_{B} T \;,
-$$
-
-with $a=u/2$ and $b=\Omega_{ex}/ 2$. This shows that the two phenomenological coefficients $a$ and $b$ of VdW have their origin in the mean field treatment of long-range attraction (a) and short-distance repulsion (b).
-
-In terms of the molecular volume $v=n^{-1}$, we can also write
-
-$$
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(a=u/2\)</span> and <span class="math notranslate nohighlight">\(b=\Omega_{ex}/ 2\)</span>. This shows that the two phenomenological coefficients <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> of VdW have their origin in the mean field treatment of long-range attraction (a) and short-distance repulsion (b).</p>
+<p>In terms of the molecular volume <span class="math notranslate nohighlight">\(v=n^{-1}\)</span>, we can also write</p>
+<div class="math notranslate nohighlight">
+\[
 P=\frac{k_B T}{v-b}-\frac{a}{v^2}
-$$
-
-showing that effect of long-range interaction is to shift $P \rightarrow P-a n^2=P-a v^{-2}$ due to the average attraction $u n$ experienced by each particle (mean-field).
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="n">The</span> <span class="n">procedure</span> <span class="n">above</span> <span class="ow">is</span> <span class="n">called</span> <span class="s2">&quot;Non-Dimensionalizing&quot;</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">three</span> <span class="n">benefits</span><span class="o">.</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+\]</div>
+<p>showing that effect of long-range interaction is to shift <span class="math notranslate nohighlight">\(P \rightarrow P-a n^2=P-a v^{-2}\)</span> due to the average attraction <span class="math notranslate nohighlight">\(u n\)</span> experienced by each particle (mean-field).</p>
 </section>
 <section id="phase-transition">
 <h3>Phase transition<a class="headerlink" href="#phase-transition" title="Permalink to this heading">#</a></h3>
-<p>Let’s return to <code class="xref eq docutils literal notranslate"><span class="pre">maximizing-psi</span></code> determining the optimal density <em>given</em> the chemical potential, which can be rewritten as</p>
+<p>Let’s return to <a class="reference internal" href="#equation-maximizing-psi">(17)</a> determining the optimal density <em>given</em> the chemical potential, which can be rewritten as</p>
 <div class="math notranslate nohighlight" id="equation-graphical-vdw">
-<span class="eqno">(17)<a class="headerlink" href="#equation-graphical-vdw" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-graphical-vdw" title="Permalink to this equation">#</a></span>\[
 \ln \left({\tilde n}^{-1}-1\right) -\frac{1}{1-\tilde n } =-\tilde \mu -\tilde u \tilde n \;.
 \]</div>
 <p>Note that the LHS is a complicated non-linear function, but does not depend on any parameter. The RHS is merely a straight line with axis intercept <span class="math notranslate nohighlight">\(-\tilde \mu\)</span> and negative slope <span class="math notranslate nohighlight">\(-\tilde u\)</span>. So, we may solve the equation graphically by plotting the parameter-free RHS, and see under which conditions this function can be cut by a negative slope straight line.</p>
@@ -884,7 +861,7 @@ showing that effect of long-range interaction is to shift $P \rightarrow P-a n^2
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/14d4a99c67703f98d2018f0f2f6937fd4cbfd4b58a4156648336ce5e4e019c19.png" src="../_images/14d4a99c67703f98d2018f0f2f6937fd4cbfd4b58a4156648336ce5e4e019c19.png" />
+<img alt="../_images/a6505cdc8a542f4f1f31e59fb2f910a7212539f5630cbe39e699688ba8479dcf.png" src="../_images/a6505cdc8a542f4f1f31e59fb2f910a7212539f5630cbe39e699688ba8479dcf.png" />
 </div>
 </div>
 <p>The interpretation here is that for low <span class="math notranslate nohighlight">\(\tilde \mu\)</span> (large negative <span class="math notranslate nohighlight">\(\mu\)</span>), a low density phase obtains, and vice versa for high <span class="math notranslate nohighlight">\(\tilde\mu\)</span>. There is a transition point <span class="math notranslate nohighlight">\(\tilde\mu_c(\tilde u)\)</span>, where the density jumps – phase transition:</p>
@@ -893,7 +870,7 @@ showing that effect of long-range interaction is to shift $P \rightarrow P-a n^2
 <p>The extremum structure of <span class="math notranslate nohighlight">\(\tilde \psi\)</span> matters for the relaxation to equilibrium. If there are two maxima, and we start out at the lower maximum, relaxation proceeds via droplets of a minimal size. If there’s just one maximum, the relaxation proceeds spontanously.</p>
 <section id="minimal-attractive-interaction">
 <h4>Minimal attractive interaction<a class="headerlink" href="#minimal-attractive-interaction" title="Permalink to this heading">#</a></h4>
-<p>However, to be able to observe a phase transition as function of <span class="math notranslate nohighlight">\(\mu\)</span>, the value of <span class="math notranslate nohighlight">\(\tilde u\)</span> has to exceed a critical <span class="math notranslate nohighlight">\(\tilde u_c\)</span> so that <span class="math notranslate nohighlight">\(\tilde \psi\)</span> has two maxima and one minimum. We can determine the minimal <span class="math notranslate nohighlight">\(\tilde u_c\)</span> by finding the maximal slope of the LHS in <a class="reference internal" href="#equation-graphical-vdw">(17)</a>,</p>
+<p>However, to be able to observe a phase transition as function of <span class="math notranslate nohighlight">\(\mu\)</span>, the value of <span class="math notranslate nohighlight">\(\tilde u\)</span> has to exceed a critical <span class="math notranslate nohighlight">\(\tilde u_c\)</span> so that <span class="math notranslate nohighlight">\(\tilde \psi\)</span> has two maxima and one minimum. We can determine the minimal <span class="math notranslate nohighlight">\(\tilde u_c\)</span> by finding the maximal slope of the LHS in <a class="reference internal" href="#equation-graphical-vdw">(18)</a>,</p>
 <div class="math notranslate nohighlight">
 \[
 u_c =\max_{n} \partial_{\tilde n} \left(\frac{1}{1-\tilde n }-\ln \left({\tilde n}^{-1}-1\right) \right)=\max_{n} \frac{1}{n(1-n)^2} 
@@ -1001,6 +978,7 @@ u_c =\max_{n} \partial_{\tilde n} \left(\frac{1}{1-\tilde n }-\ln \left({\tilde 
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-treatment-of-a-gas-and-the-van-der-waals-equation-of-state">Variational treatment of a gas and the van der Waals equation of state</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-treatment">Mean-field treatment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-ansatz">Variational ansatz:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#van-der-waals-equation-of-state">Van der Waals equation of state</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transition">Phase transition</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-attractive-interaction">Minimal attractive interaction</a></li>
 </ul>
