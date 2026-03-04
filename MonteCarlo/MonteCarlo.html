@@ -623,7 +623,7 @@ Example: If <span class="math notranslate nohighlight">\(\{\sigma\}_t = \uparrow
 <li><p><strong>Burn-in period:</strong> The Markov chain relaxes to equilibrium over a characteristic time <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-   M^t p(t=0) = \pi + O(e^{-t/\tau})
+   M^t p(t=0) = \pi (1+ O(e^{-t/\tau}))
    \]</div>
 <p>It is good practice to discard the first <span class="math notranslate nohighlight">\(\sim \tau\)</span> samples:</p>
 <div class="math notranslate nohighlight">
@@ -638,11 +638,11 @@ Example: If <span class="math notranslate nohighlight">\(\{\sigma\}_t = \uparrow
 \[
    \langle \mathcal{O} \rangle = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t) + \epsilon
    \]</div>
-<p>The error <span class="math notranslate nohighlight">\(\epsilon\)</span> is given by:</p>
+<p>For i.i.d. samples, the error <span class="math notranslate nohighlight">\(\epsilon\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[
    \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}, \quad
-   \text{var}(\mathcal{O}) = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}^2(\mu_t) - \langle\mathcal{O}\rangle^2
+   \text{var}(\mathcal{O}) = \frac{1}{M} \sum_{t=1}^{M} (\mathcal{O}^2(\mu_t) - \langle\mathcal{O}\rangle^2)
    \]</div>
 <p>However, Markov chains introduce correlations between samples:</p>
 <div class="math notranslate nohighlight">
