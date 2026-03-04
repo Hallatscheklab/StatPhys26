@@ -223,7 +223,7 @@ $$
 1. **Burn-in period:** The Markov chain relaxes to equilibrium over a characteristic time $\tau$:
 
    $$
-   M^t p(t=0) = \pi + O(e^{-t/\tau})
+   M^t p(t=0) = \pi (1+ O(e^{-t/\tau}))
    $$
 
    It is good practice to discard the first $\sim \tau$ samples:
@@ -242,11 +242,11 @@ $$
    \langle \mathcal{O} \rangle = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}(\mu_t) + \epsilon
    $$
 
-   The error $\epsilon$ is given by:
+   For i.i.d. samples, the error $\epsilon$ is given by:
 
    $$
    \epsilon = \frac{\text{var}(\mathcal{O})}{\sqrt{M}}, \quad
-   \text{var}(\mathcal{O}) = \frac{1}{M} \sum_{t=1}^{M} \mathcal{O}^2(\mu_t) - \langle\mathcal{O}\rangle^2
+   \text{var}(\mathcal{O}) = \frac{1}{M} \sum_{t=1}^{M} (\mathcal{O}^2(\mu_t) - \langle\mathcal{O}\rangle^2)
    $$
 
    However, Markov chains introduce correlations between samples:
