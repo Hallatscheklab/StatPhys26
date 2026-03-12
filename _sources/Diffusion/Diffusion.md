@@ -64,6 +64,7 @@ v_{fl} = -\xi^{-1} \frac{\partial}{\partial x} \left( U + D \xi \ln c \right) = 
 $$
 
 where $\tilde \mu(x)$ is defined as 
+
 $$
 \tilde \mu(x) = D \xi \ln c + U(x);.
 $$
@@ -252,6 +253,7 @@ which is much shorter than the $20$ min lifecycle of *E. coli* $\rightarrow$ **d
 How many ligands are captured per sec?
 
 Use diffusion equation to model the ligands:
+
 $$
 \partial_{t} c=D \nabla^{2} c=D\left(\partial_{x}^{2} c+\partial_{y}^{2} c+\partial_{z}^{2} c\right)
 $$
@@ -328,6 +330,7 @@ $\Rightarrow$ they require more than just one collision to form a product.
 - Relation to Michaelis-Menten kinetics: Rate of product formation =$k_{max}[E][S]/(K_M+[S])$.
 
 Comparing with the above equation, we see that the enzyme efficience is bounded by $k_{diff}$
+
 $$
 \left[\frac{k_{\max }}{K_{\mu}}\right]=\frac{1}{\text { Concentration time }}
 $$
