@@ -327,43 +327,6 @@ Notes:
 - Most enzymes are 100-1000 times slower
 $\Rightarrow$ they require more than just one collision to form a product.
 - ... could be modeled by assuming a finite absorption rate.
-- Relation to Michaelis-Menten kinetics: Rate of product formation =$k_{max}[E][S]/(K_M+[S])$.
-
-Comparing with the above equation, we see that the enzyme efficience is bounded by $k_{diff}$
-
-$$
-\left[\frac{k_{\max }}{K_{\mu}}\right]=\frac{1}{\text { Concentration time }}
-$$
-
-
-
-
-For $A + B \to C$:
-
-$$
-\tilde{k}_{A \leftarrow B} = 4 \pi (2 D) (2 R) C_B = 16 \pi D R C_B.
-$$
-
-Thus,
-
-$$
-\frac{\partial C_C}{\partial t} = k_{\text{diff}} C_A C_B
-$$
-
-with:
-
-$$
-k_{\text{diff}} = 16 \pi D R = \frac{8 k_B T}{3 \eta}.
-$$
-
-Estimate:
-
-$$
-k_{\text{diff}} \approx 7 \times 10^9 \, \frac{1}{M \cdot s}.
-$$
-
-- Most enzymes operate 100–1000x slower.
-- Enzyme efficiency is thus bounded by $k_{\text{diff}}$.
 
 Relation to **Michaelis-Menten**:
 
