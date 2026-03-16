@@ -1,0 +1,1080 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Formalism of quantum statistical mechanics &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QM-SM-Intro/QM-SM-Formalism';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem" href="QM-SM-intro-2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-intro-2.html">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Formalism of quantum statistical mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FQM-SM-Intro/QM-SM-Formalism.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/QM-SM-Intro/QM-SM-Formalism.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Formalism of quantum statistical mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-analog-of-a-distribution-over-microstates-the-density-matrix">Quantum Analog of a Distribution Over Microstates: The Density Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics">Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-matrices-in-equilbrium">Density matrices in equilbrium.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-many-body-hilbert-space">The Many-Body Hilbert Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spins-and-qubits">Spins and Qubits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-spins">Two Spins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-spins"><span class="math notranslate nohighlight">\(N\)</span> Spins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-vs-quantum-storage">Classical vs. Quantum Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#many-body-operators">Many-Body Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-density-matrices-and-entanglement">Reduced Density Matrices and Entanglement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">Entropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entanglement">Entanglement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-quantum-information">Measures of Quantum Information</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="formalism-of-quantum-statistical-mechanics">
+<h1>Formalism of quantum statistical mechanics<a class="headerlink" href="#formalism-of-quantum-statistical-mechanics" title="Permalink to this heading">#</a></h1>
+<p>(Also see Kardar 6.4 (Quantum microstates) and Kardar 6.5 (Quantum macrostates))</p>
+<section id="quantum-analog-of-a-distribution-over-microstates-the-density-matrix">
+<h2>Quantum Analog of a Distribution Over Microstates: The Density Matrix<a class="headerlink" href="#quantum-analog-of-a-distribution-over-microstates-the-density-matrix" title="Permalink to this heading">#</a></h2>
+<p>In classical statistical mechanics, we describe a system by a probability distribution over microstates. In quantum mechanics, the analogous object is the density matrix.</p>
+<p>Suppose a quantum system is in a pure state <span class="math notranslate nohighlight">\(\left|\psi_{\alpha}\right\rangle\)</span> with probability <span class="math notranslate nohighlight">\(p_{\alpha}\)</span>. The system’s statistical state is then described by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho} \equiv \sum_{\alpha} p_{\alpha} \left| \psi_{\alpha} \right\rangle \left\langle \psi_{\alpha} \right|, \qquad \sum_{\alpha} p_{\alpha} = 1
+\]</div>
+<p>This matrix satisfies:</p>
+<div class="math notranslate nohighlight">
+\[
+\operatorname{Tr}(\hat{\rho}) = 1
+\]</div>
+<p>The expectation value of an observable <span class="math notranslate nohighlight">\(\hat{O}\)</span> in this state is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \hat{O} \rangle_{\hat{\rho}} = \sum_{\alpha} p_{\alpha} \left\langle \psi_{\alpha} | \hat{O} | \psi_{\alpha} \right\rangle = \operatorname{Tr}(\hat{O} \hat{\rho})
+\]</div>
+<p>To derive the trace form, consider:</p>
+<div class="math notranslate nohighlight">
+\[
+\operatorname{Tr}(\hat{O} \hat{\rho})=\sum_{\alpha}\langle\alpha|\hat{O} \hat{\rho}| \alpha\rangle=\sum_{\alpha \beta}\langle\alpha|\hat{O}| \beta\rangle \underbrace{\langle\beta|\hat{\rho}| \alpha\rangle}_{=p_{\alpha}\delta_{\alpha, \beta}}
+ =\sum_{\alpha} p_{\alpha}\langle\alpha|\hat{O}| \alpha\rangle
+\]</div>
+<p>The density matrix can be represented in any orthonormal basis <span class="math notranslate nohighlight">\({|i\rangle}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho} = \sum_{i,j} \rho_{ij} |i\rangle \langle j|, \qquad \rho_{ij} = \langle i | \hat{\rho} | j \rangle
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conditions for a valid density matrix:</p>
+<ol class="arabic simple">
+<li><p>Trace one: <span class="math notranslate nohighlight">\(\operatorname{Tr}(\hat{\rho}) = 1\)</span></p></li>
+<li><p>Hermitian: <span class="math notranslate nohighlight">\(\hat{\rho}^\dagger = \hat{\rho}\)</span></p></li>
+<li><p>Positive semi-definite: For all <span class="math notranslate nohighlight">\(|v\rangle\)</span>,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\langle v | \hat{\rho} | v \rangle = \sum_{\alpha} p_{\alpha} \left| \langle v | \psi_{\alpha} \rangle \right|^2 \geq 0
+\]</div>
+</div>
+<p>In a general basis, the density matrix can be understood as having two distinct components: <strong>populations</strong> and <strong>coherences</strong>.</p>
+<ul class="simple">
+<li><p>The <strong>populations</strong> are represented by the diagonal elements of the density matrix, <span class="math notranslate nohighlight">\(p_i\equiv \rho_{ii}\)</span>. These elements behave like probabilities, satisfying <span class="math notranslate nohighlight">\(0 \leq p_i \leq 1\)</span> and <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>. They describe the likelihood of the system being in a particular quantum state associated with the chosen basis. But note that the probabilistic interpretation of the density matrix depends on the chosen basis.</p></li>
+<li><p>The <strong>coherences</strong> are represented by the off-diagonal elements, <span class="math notranslate nohighlight">\(\rho_{ij}\)</span> for <span class="math notranslate nohighlight">\(i \neq j\)</span>. These elements capture the quantum interference effects between different basis states, reflecting the phase relationships and superposition properties of the quantum system.</p></li>
+</ul>
+<p>The structure of the density matrix in a general basis can be visualized as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho} =
+\begin{bmatrix}
+p_1=\rho_{11} &amp; \rho_{12} &amp; \cdots &amp; \rho_{1n} \\
+\rho_{21} &amp; p_2=\rho_{22} &amp; \cdots &amp; \rho_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\rho_{n1} &amp; \rho_{n2} &amp; \cdots &amp; p_n=\rho_{nn}
+\end{bmatrix}
+\end{split}\]</div>
+<p>Here, the diagonal elements <span class="math notranslate nohighlight">\(p_i=\rho_{ii}\)</span> correspond to the populations, while the off-diagonal elements <span class="math notranslate nohighlight">\(\rho_{ij}\)</span> (<span class="math notranslate nohighlight">\(i \neq j\)</span>) represent the coherences. The populations are basis-dependent, and in certain special bases (e.g., the eigenbasis of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>), the coherences vanish, leaving a diagonal matrix.</p>
+<p>This decomposition into populations and coherences provides a useful framework for understanding the physical meaning of the density matrix in quantum mechanics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example: Single Spin System</strong></p>
+<p>Consider a single spin system. Let us examine how the density matrix transforms when we change the basis from the <span class="math notranslate nohighlight">\(|\uparrow\rangle, |\downarrow\rangle\)</span> (up/down) basis to the <span class="math notranslate nohighlight">\(|\rightarrow\rangle, |\leftarrow\rangle\)</span> (left/right) basis.</p>
+<p>In the up/down basis, the density matrix is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho}_{\text{up/down}} = \frac{1}{2} \begin{bmatrix}
+1 &amp; -1 \\
+-1 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>This represents a completely mixed state, where the probabilities of being in the <span class="math notranslate nohighlight">\(|\uparrow\rangle\)</span> and <span class="math notranslate nohighlight">\(|\downarrow\rangle\)</span> states are equal.</p>
+<p>To change to the left/right basis, we use the fact that the <span class="math notranslate nohighlight">\(|\rightarrow\rangle\)</span> and <span class="math notranslate nohighlight">\(|\leftarrow\rangle\)</span> states are related to the <span class="math notranslate nohighlight">\(|\uparrow\rangle\)</span> and <span class="math notranslate nohighlight">\(|\downarrow\rangle\)</span> states by the following transformations:</p>
+<div class="math notranslate nohighlight">
+\[
+|\rightarrow\rangle = \frac{1}{\sqrt{2}} \left( |\uparrow\rangle + |\downarrow\rangle \right), \quad
+|\leftarrow\rangle = \frac{1}{\sqrt{2}} \left( |\uparrow\rangle - |\downarrow\rangle \right)
+\]</div>
+<p>The transformation matrix <span class="math notranslate nohighlight">\(U\)</span> that relates the two bases is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U = \frac{1}{\sqrt{2}} \begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}
+\end{split}\]</div>
+<p>To express the density matrix in the right/left basis, we perform the basis transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}_{\text{left/right}} = U \hat{\rho}_{\text{up/down}} U^\dagger
+\]</div>
+<p>Substituting <span class="math notranslate nohighlight">\(\hat{\rho}_{\text{up/down}}\)</span> and <span class="math notranslate nohighlight">\(U\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho}_{\text{left/right}} = \frac{1}{\sqrt{2}} \begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}
+\cdot \frac{1}{2} \begin{bmatrix}
+1 &amp; -1 \\
+-1 &amp; 1
+\end{bmatrix}
+\cdot \frac{1}{\sqrt{2}} \begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}^\dagger
+\end{split}\]</div>
+<p>Carrying out the matrix multiplication:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho}_{\text{left/right}} = \begin{bmatrix}
+0 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>This result shows that in the right/left basis, the density matrix becomes diagonal, with the system entirely in the <span class="math notranslate nohighlight">\(|\leftarrow\rangle\)</span> state. The coherence terms present in the up/down basis vanish in this new basis.</p>
+</div>
+<p>There always exists a special basis, namely the eigenbasis of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>, in which the density matrix becomes diagonal:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho} = \operatorname{diag}(p_i)
+\]</div>
+<p>In this eigenbasis, the diagonal elements <span class="math notranslate nohighlight">\(p_i\)</span> can be interpreted as the “populations” of the corresponding quantum states, such as energy levels or other relevant states.</p>
+</section>
+<hr class="docutils" />
+<section id="dynamics">
+<h2>Dynamics<a class="headerlink" href="#dynamics" title="Permalink to this heading">#</a></h2>
+<p><strong>Exercise:</strong> Show that the Schrödinger equation</p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar \partial_{t}|\psi\rangle = \hat{H}|\psi\rangle
+\]</div>
+<p>leads to the von Neumann equation:</p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar \partial_{t} \hat{\rho} = [\hat{H}, \hat{\rho}]
+\]</div>
+<p>From this, we can deduce:</p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar \partial_{t} \sum_{i} \rho_{i,i} = i\hbar \partial_{t} (\operatorname{Tr}(\hat{\rho})) = \operatorname{Tr}([\hat{H}, \hat{\rho}]) = 0
+\]</div>
+<p>(since <span class="math notranslate nohighlight">\(\operatorname{Tr}([A, B]) = 0\)</span> for any operators <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>).</p>
+<p>Thus, the trace condition <span class="math notranslate nohighlight">\(\operatorname{Tr}(\hat{\rho}) = 1\)</span> is preserved under unitary time evolution.</p>
+<p>For a time-independent Hamiltonian, the state evolves as <span class="math notranslate nohighlight">\(\psi(t) = \hat{U}(t) \psi(0)\)</span>, where:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{U}(t) = e^{-i \hat{H} t / \hbar}
+\]</div>
+<p>The corresponding evolution of the density matrix is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}(t) = \hat{U}(t) \hat{\rho}_{0} \hat{U}^\dagger(t)
+\]</div>
+<p>For systems interacting with an environment, the evolution is no longer unitary, and the dynamics are described by the Lindblad equation, which incorporates aspects of a master equation.</p>
+</section>
+<section id="density-matrices-in-equilbrium">
+<h2>Density matrices in equilbrium.<a class="headerlink" href="#density-matrices-in-equilbrium" title="Permalink to this heading">#</a></h2>
+<p>The various equilibrium ensembles are then taken to be diagonal in the <span class="math notranslate nohighlight">\(\hat{H}\)</span> basis:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp; \hat{\rho}_{E}=\frac{1}{\Omega} \sum_{n} \delta\left(E_{n}-E\right)\left|E_{n}\right\rangle\left\langle E_{n}\right| \\
+&amp; \hat{\rho}_{\beta}=\frac{1}{Z} \sum_{n} e^{-\beta E_{n}}\left|E_{n}\right\rangle\left\langle E_{n}\right| \\
+&amp; \hat{\rho}_{\beta, \mu}=\frac{1}{Q} \sum_{n} e^{-\beta\left(E_{n}-\mu N_{n}\right)} \left|E_{n}\right\rangle\left\langle E_{n}\right\rangle
+\end{aligned}
+\end{split}\]</div>
+<p>(Note that <span class="math notranslate nohighlight">\([\hat{H}, \hat{N}]=0\)</span>). The density matrices can be conveniently summarized as operator expressions, eg.</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}_{\beta}=\frac{1}{Z} e^{-\beta \hat{H}}, \quad Z=\operatorname{Tr}\left(e^{-\beta \hat{H}}\right)
+\]</div>
+<p>This points to an interesting observation: with</p>
+<div class="math notranslate nohighlight">
+\[
+\beta=\frac{1}{K_{B} T} \rightarrow i t /  \hbar, \quad e^{-\beta \hat{H}} \rightarrow e^{-i t \hat{H} / h}=\text { Time Evolution! }
+\]</div>
+<p>Thus the thermal density matrix is formally equivalent to “imaginary time evolution”,</p>
+<div class="math notranslate nohighlight" id="equation-wick-rotation">
+<span class="eqno">(31)<a class="headerlink" href="#equation-wick-rotation" title="Permalink to this equation">#</a></span>\[
+\hat{\rho}_{\beta}=\frac{1}{Z} \hat{U}(t=-i \beta)
+\]</div>
+<p>This mathematical coincidence <a class="reference internal" href="#equation-wick-rotation">(31)</a> gives rise to a number of technical tricks (Wick rotation | Euclidean path integral) important to quantum field and many body theory.</p>
+<p>For an ensemble like <span class="math notranslate nohighlight">\(\hat{H}-\mu \hat{N}\)</span>, where <span class="math notranslate nohighlight">\([\hat{H}, \hat{N}]=0\)</span>, it is easy to show that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp; \langle E\rangle=\langle\hat{H}\rangle=\frac{1}{Z} \partial_{(-\beta)} \operatorname{Tr}\left(e^{-\beta \hat{H}}\right) \\
+&amp; =\frac{1}{Z} \partial_{-\beta} Z=-\partial_{\beta} \ln (Z)
+\end{aligned}
+\end{split}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(Z\)</span> is just a number (as in classical stat mech) in contrast to <span class="math notranslate nohighlight">\(\hat{H}\)</span>  and  <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>.</p>
+<p>So, fortunately, all our thermo results like <span class="math notranslate nohighlight">\(F=-\frac{1}{\beta} \ln (Z), \mu=-\frac{\partial F}{\partial N}\)</span>, etc and Maxwell’s relations / thermodynamic inequalities are unchanged by quantum effects. It’s just harder to compute <span class="math notranslate nohighlight">\(Z\)</span> because we need eigenspectrom <span class="math notranslate nohighlight">\(\hat{H} \longrightarrow E_{n}\)</span>, which is itself hard!</p>
+</section>
+<section id="the-many-body-hilbert-space">
+<h2>The Many-Body Hilbert Space<a class="headerlink" href="#the-many-body-hilbert-space" title="Permalink to this heading">#</a></h2>
+<p>The sum <span class="math notranslate nohighlight">\(\sum_{n} e^{-\beta E_{n}}\left|E_{n}\right\rangle\left\langle E_{n}\right|\)</span> spans the Hilbert space <span class="math notranslate nohighlight">\(\left|E_{n}\right\rangle \in \mathcal{H}\)</span>. To understand this better in the context of many-body systems, let us explore the structure of <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> in three common cases:</p>
+<ol class="arabic simple">
+<li><p><strong>Spins/qubits</strong>: States like <span class="math notranslate nohighlight">\(|\uparrow \uparrow \downarrow \uparrow \cdots\rangle\)</span>.</p></li>
+<li><p><strong>Bosons</strong>: Symmetric wavefunctions, <span class="math notranslate nohighlight">\(\psi(x_1, x_2) = \psi(x_2, x_1)\)</span>.</p></li>
+<li><p><strong>Fermions</strong>: Antisymmetric wavefunctions, <span class="math notranslate nohighlight">\(\psi(x_1, x_2) = -\psi(x_2, x_1)\)</span>.</p></li>
+</ol>
+<p>We will focus on (1) for now, with (2) and (3) covered in future lectures.</p>
+<section id="spins-and-qubits">
+<h3>Spins and Qubits<a class="headerlink" href="#spins-and-qubits" title="Permalink to this heading">#</a></h3>
+<p>The Hilbert space for a single <span class="math notranslate nohighlight">\(s = 1/2\)</span> spin is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H} = \operatorname{span}(\{|\uparrow\rangle, |\downarrow\rangle\}) = \mathbb{C}^2
+\]</div>
+<p>A general state is written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+|\psi\rangle = \psi_\uparrow |\uparrow\rangle + \psi_\downarrow |\downarrow\rangle = \begin{pmatrix} \psi_\uparrow \\ \psi_\downarrow \end{pmatrix}
+\end{split}\]</div>
+<p>In quantum information, this is referred to as a “qubit,” with basis states <span class="math notranslate nohighlight">\(\{|0\rangle, |1\rangle\}\)</span>. Operators acting on this space are spanned by the <span class="math notranslate nohighlight">\(2 \times 2\)</span> Pauli matrices <span class="math notranslate nohighlight">\(\sigma^{x/y/z}\)</span>, often denoted as <span class="math notranslate nohighlight">\(X, Y, Z\)</span> in quantum information.</p>
+<p>For a spin-<span class="math notranslate nohighlight">\(S\)</span> system, the Hilbert space generalizes to:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H} = \operatorname{span}(\{|m\rangle\}) = \mathbb{C}^{2S+1}, \quad -S \leq m \leq S
+\]</div>
+<p>This is referred to as a “qudit,” where <span class="math notranslate nohighlight">\(d = 2S + 1\)</span>.</p>
+</section>
+<section id="two-spins">
+<h3>Two Spins<a class="headerlink" href="#two-spins" title="Permalink to this heading">#</a></h3>
+<p>For two spins, the Hilbert space is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H}^{(2)} = \operatorname{span}(\{|\uparrow\uparrow\rangle, |\uparrow\downarrow\rangle, |\downarrow\uparrow\rangle, |\downarrow\downarrow\rangle\}) = \mathbb{C}^2 \otimes \mathbb{C}^2 = \mathbb{C}^4
+\]</div>
+<p>This is a tensor product space:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+|\psi\rangle = \sum_{\sigma_1, \sigma_2 = \uparrow, \downarrow} \psi_{\sigma_1 \sigma_2} |\sigma_1 \sigma_2\rangle = \begin{pmatrix} \psi_{\uparrow\uparrow} \\ \psi_{\uparrow\downarrow} \\ \psi_{\downarrow\uparrow} \\ \psi_{\downarrow\downarrow} \end{pmatrix}
+\end{split}\]</div>
+</section>
+<section id="n-spins">
+<h3><span class="math notranslate nohighlight">\(N\)</span> Spins<a class="headerlink" href="#n-spins" title="Permalink to this heading">#</a></h3>
+<p>For <span class="math notranslate nohighlight">\(N\)</span> spins, the Hilbert space extends as:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H}^{(N)} = \operatorname{span}(\{| \sigma_1, \sigma_2, \ldots, \sigma_N \rangle\}) = \mathbb{C}^2 \otimes \mathbb{C}^2 \otimes \cdots = \mathbb{C}^{2^N}
+\]</div>
+<p>The dimension of <span class="math notranslate nohighlight">\(\mathcal{H}^{(N)}\)</span> is <span class="math notranslate nohighlight">\(2^N\)</span>, not <span class="math notranslate nohighlight">\(2 \times N\)</span>. A general state is:</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi\rangle = \sum_{\sigma_1, \sigma_2, \ldots, \sigma_N} \psi_{\sigma_1, \sigma_2, \ldots} | \{\sigma\} \rangle
+\]</div>
+<p>This requires <span class="math notranslate nohighlight">\(2^N\)</span> complex coefficients <span class="math notranslate nohighlight">\(\psi_{\{\sigma\}}\)</span>, which grows exponentially with <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</section>
+<section id="classical-vs-quantum-storage">
+<h3>Classical vs. Quantum Storage<a class="headerlink" href="#classical-vs-quantum-storage" title="Permalink to this heading">#</a></h3>
+<p>In contrast, a classical Ising model microstate <span class="math notranslate nohighlight">\(\mu = \sigma_1 \sigma_2 \cdots \sigma_N\)</span> requires only <span class="math notranslate nohighlight">\(N\)</span> classical bits. For example, simulating a <span class="math notranslate nohighlight">\(20 \times 20 = 400\)</span> spin system in classical Monte Carlo requires less than 1 KB of RAM. However, storing the quantum state <span class="math notranslate nohighlight">\(\psi_{\{\sigma\}}\)</span> with 128-bit precision would require:</p>
+<div class="math notranslate nohighlight">
+\[
+128 \cdot 2^{400} \approx 3 \cdot 10^{122} \text{ bits} \approx 3 \cdot 10^{112} \text{ GB}
+\]</div>
+<p>This demonstrates the exponential difficulty of simulating quantum systems with classical resources.</p>
+</section>
+<section id="many-body-operators">
+<h3>Many-Body Operators<a class="headerlink" href="#many-body-operators" title="Permalink to this heading">#</a></h3>
+<p>The tensor product structure also applies to operators:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\hat{Z}_{i}\left|\sigma_{1}, \sigma_{2}, \cdots, \sigma_{N}\right\rangle &amp; = \sigma_{i}\left|\sigma_{1}, \cdots, \sigma_{N}\right\rangle, \\
+\left(\hat{Z}_{i} \cdot \hat{Z}_{j}\right)\left|\sigma_{1}, \cdots, \sigma_{N}\right\rangle &amp; = \sigma_{i} \cdot \sigma_{j}\left|\sigma_{1}, \cdots, \sigma_{N}\right\rangle.
+\end{aligned}
+\end{split}\]</div>
+<p>For the Pauli matrix <span class="math notranslate nohighlight">\(\hat{X} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}\)</span>, with <span class="math notranslate nohighlight">\(\sigma \in \{1, -1\}\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\hat{X}|\sigma\rangle &amp; = |-\sigma\rangle \quad \text{(Bit-flip)}, \\
+\hat{X}_{1}\left|\sigma_{1}, \sigma_{2}, \cdots, \sigma_{N}\right\rangle &amp; = \left|-\sigma_{1}, \sigma_{2}, \cdots\right\rangle.
+\end{aligned}
+\end{split}\]</div>
+<p>The operators <span class="math notranslate nohighlight">\(\hat{Z}_{i}\)</span> and <span class="math notranslate nohighlight">\(\hat{X}_{i}\)</span> are <span class="math notranslate nohighlight">\(2^N \times 2^N\)</span> matrices. For example, for <span class="math notranslate nohighlight">\(N = 2\)</span>, the Hilbert space is <span class="math notranslate nohighlight">\(\{|1, 1\rangle, |1, -1\rangle, |-1, 1\rangle, |-1, -1\rangle\}\)</span>, and the operators are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\hat{Z}_{1} &amp; = \begin{bmatrix} 
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; -1 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; -1 
+\end{bmatrix}, \quad
+\hat{Z}_{2} = \begin{bmatrix} 
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; -1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 1 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; -1 
+\end{bmatrix}, \\
+\hat{X}_{1} &amp; = \begin{bmatrix} 
+0 &amp; 0 &amp; 1 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 1 &amp; 0 &amp; 0 
+\end{bmatrix}, \quad
+\hat{X}_{2} = \begin{bmatrix} 
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+0 &amp; 0 &amp; 1 &amp; 0 
+\end{bmatrix}.
+\end{aligned}
+\end{split}\]</div>
+<p>Generic <span class="math notranslate nohighlight">\(2^N \times 2^N\)</span> operators can be constructed by combining <span class="math notranslate nohighlight">\(\hat{Z}_{i}\)</span> and <span class="math notranslate nohighlight">\(\hat{X}_{i}\)</span> through addition or multiplication.</p>
+<p><strong>Example: Transverse-Field Ising Model</strong></p>
+<p>The Hamiltonian for the transverse-field Ising model is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}_{\text{TFI}} = \sum_{i=1}^{N} \left[-J \hat{Z}_{i} \cdot \hat{Z}_{i+1} - g \hat{X}_{i}\right],
+\]</div>
+<p>and the magnetization operator is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{m} = \frac{1}{N} \sum_{i} \hat{Z}_{i}.
+\]</div>
+<p><strong>Typical Problem:</strong></p>
+<p>Given the thermal density matrix <span class="math notranslate nohighlight">\(\hat{\rho}_{\beta} = \frac{e^{-\beta \hat{H}_{\text{TFI}}}}{Z}\)</span>, compute the expectation value <span class="math notranslate nohighlight">\(\operatorname{Tr}(\hat{m} \hat{\rho}_{\beta})\)</span>.</p>
+<p>This is challenging because calculating <span class="math notranslate nohighlight">\(\hat{\rho}_{\beta}\)</span> requires diagonalizing the <span class="math notranslate nohighlight">\(2^N \times 2^N\)</span> Hamiltonian matrix <span class="math notranslate nohighlight">\(\hat{H}_{\text{TFI}}\)</span>. Current computational techniques can handle systems with <span class="math notranslate nohighlight">\(N \sim 20\)</span> spins, as discussed in the context of “quantum supremacy.”</p>
+</section>
+</section>
+<section id="reduced-density-matrices-and-entanglement">
+<h2>Reduced Density Matrices and Entanglement<a class="headerlink" href="#reduced-density-matrices-and-entanglement" title="Permalink to this heading">#</a></h2>
+<p>In <strong>classical</strong> probability theory, a joint distribution over two random variables, <span class="math notranslate nohighlight">\(\mu = \{\mu_1, \mu_2\}\)</span>, is given by <span class="math notranslate nohighlight">\(p(\mu_1, \mu_2)\)</span>. From this, we can define a marginal distribution for one variable:</p>
+<div class="math notranslate nohighlight">
+\[
+p_1(\mu_1) \equiv \sum_{\mu_2} p(\mu_1, \mu_2)
+\]</div>
+<p>If we are only interested in observables <span class="math notranslate nohighlight">\(O_1(\mu_1)\)</span> (rather than <span class="math notranslate nohighlight">\(O(\mu_1, \mu_2)\)</span>), we can compute their expectation value using the marginal distribution:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\langle O_1 \rangle &amp; = \sum_{\mu_1, \mu_2} O_1(\mu_1) p(\mu_1, \mu_2) \\
+&amp; = \sum_{\mu_1} O_1(\mu_1) p_1(\mu_1)
+\end{aligned}
+\end{split}\]</div>
+<p>Thus, the marginal <span class="math notranslate nohighlight">\(p_1\)</span> is sufficient to recover <span class="math notranslate nohighlight">\(\langle O_1 \rangle\)</span>. However, in general:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\mu_1, \mu_2) \neq p_1(\mu_1) \cdot p_2(\mu_2)
+\]</div>
+<p>This indicates that <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\mu_2\)</span> are “correlated,” leading to <span class="math notranslate nohighlight">\(\langle O_1 O_2 \rangle \neq \langle O_1 \rangle \langle O_2 \rangle\)</span>.</p>
+<p>For example, the distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\{\sigma\}) = \frac{1}{Z} e^{-\beta \sum_i \sigma_i \cdot \sigma_{i+1}}
+\]</div>
+<p>does not factorize, whereas:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\sigma) = \frac{1}{Z} e^{-\beta \sum_i h \sigma_i} = \frac{1}{Z} \prod_i e^{-\beta h \sigma_i}
+\]</div>
+<p>does factorize as <span class="math notranslate nohighlight">\(p_1(\sigma_1) p_2(\sigma_2) \ldots\)</span>.</p>
+<p>In <strong>quantum</strong> mechanics, for a system on <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2\)</span>, the equivalent of a marginal distribution is the <strong>Reduced Density Matrix</strong>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\operatorname{span}\{\left|i_1\right\rangle\} = \mathcal{H}_1 = \mathbb{C}^{D_1}\)</span> and <span class="math notranslate nohighlight">\(\operatorname{span}\{\left|i_2\right\rangle\} = \mathcal{H}_2 = \mathbb{C}^{D_2}\)</span>. Then:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H} = \operatorname{span}\{\left|i_1, i_2\right\rangle\} = \mathbb{C}^{D_1 \cdot D_2}
+\]</div>
+<p>A general quantum state can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi\rangle = \sum_{i_1, i_2} \psi_{i_1, i_2} \left|i_1, i_2\right\rangle
+\]</div>
+<p>The corresponding density matrix is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho} = \sum p_\alpha |\psi_\alpha\rangle \langle\psi_\alpha| = \sum \rho_{i_1, i_2; j_1, j_2} |i_1, i_2\rangle \langle j_1, j_2|
+\]</div>
+<p>For an observable <span class="math notranslate nohighlight">\(\hat{O} = \hat{O}_1 \otimes \hat{\mathbb{I}}\)</span>, which acts only on subsystem 1, we have:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{O}_1 = \sum_{i_1, i_2, j_1} \hat{O}_{i_1, j_1} \left|i_1, i_2\right\rangle \left\langle j_1, i_2\right|
+\]</div>
+<p>This effectively traces out subsystem 2.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For instance, in a two-spin system <span class="math notranslate nohighlight">\(\mathcal{H} = \mathbb{C}^2 \otimes \mathbb{C}^2\)</span>, we might physically separate them to different regions of the lab, and then use a <a class="reference external" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Gerlach_experiment">Stern-Gerlach aparatus</a> to measure <em>only</em> spin 1. This is equivalent to projecting onto an operator <span class="math notranslate nohighlight">\(\hat{G} = \hat{Z}_1 \otimes \hat{\mathbb{I}}_2\)</span>.</p>
+</div>
+<p>The expectation value of the observable is:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \hat{O} \rangle = \operatorname{Tr}(\hat{O} \hat{\rho}) = \sum O_{i_1, j_1} \rho_{j_1, i_2; i_1, i_2}
+\]</div>
+<p>Defining a <span class="math notranslate nohighlight">\(D_1 \times D_1\)</span> matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho_{j_1; i_1}^{(1)} \equiv \sum_{i_2} \rho_{j_1, i_2; i_1, i_2}
+\]</div>
+<p>and the corresponding operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}^{(1)} = \sum \rho_{i_1, j_1}^{(1)} \left|i_1\right\rangle \left\langle j_1\right|
+\]</div>
+<p>we find:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \hat{O}_1 \rangle = \operatorname{Tr}(\hat{O}_1 \hat{\rho}^{(1)})
+\]</div>
+<p>This shows that the “partial trace” <span class="math notranslate nohighlight">\(\hat{\rho}^{(1)} = \operatorname{Tr}_2(\hat{\rho})\)</span> serves as the quantum analog of a marginal distribution, known as the <strong>Reduced Density Matrix</strong> for subsystem 1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example: EPR State</strong>
+Consider the EPR state:</p>
+<div class="math notranslate nohighlight">
+\[
+|EPR\rangle = \frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle)
+\]</div>
+<p>The density matrix is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho} = |EPR\rangle \langle EPR| = \frac{1}{2} \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>The reduced density matrix for subsystem 1 is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\rho}_1 = \begin{bmatrix}
+\frac{1}{2} &amp; 0 \\
+0 &amp; \frac{1}{2}
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>Note:</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{\rho}_1\)</span> is mixed, even though <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> is pure!!</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle X_1 \rangle = \langle Y_1 \rangle = \langle Z_1 \rangle = 0\)</span> despite the fact that <span class="math notranslate nohighlight">\(\langle Z_1 Z_2 \rangle = -1\)</span>. This shows that even though the subsystem for themselves look completely random, the two subsystems are strongly correlated (entangled) when considered together. the two EPR spins are (anti-)correlated, even though the overall system is in a definite (pure) state.  The randomness of the individual subsystems does not contradict the fact that the overall system is in a definite (pure) state. “Local randomness with global order” is a hallmark of quantum entanglement.</p></li>
+</ol>
+</div>
+</section>
+<section id="entropy">
+<h2>Entropy<a class="headerlink" href="#entropy" title="Permalink to this heading">#</a></h2>
+<p>The entropy of a quantum state is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+S = -\operatorname{Tr}(\hat{\rho} \ln \hat{\rho})
+\]</div>
+<p>For a density matrix <span class="math notranslate nohighlight">\(\hat{\rho} = \sum_\alpha p_\alpha |\alpha\rangle \langle\alpha|\)</span>, where <span class="math notranslate nohighlight">\(\langle\alpha | \beta\rangle = \delta_{\alpha \beta}\)</span>, this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+S = -\sum_\alpha p_\alpha \ln p_\alpha
+\]</div>
+<p>A state <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> is called <strong>pure</strong> if:</p>
+<div class="math notranslate nohighlight">
+\[
+S[\hat{\rho}] = 0 \quad \Longleftrightarrow \quad \hat{\rho} = |\psi\rangle \langle\psi|
+\]</div>
+<p>Otherwise, if <span class="math notranslate nohighlight">\(S[\hat{\rho}] &gt; 0\)</span>, the state <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> is considered <strong>mixed</strong>.</p>
+<section id="entanglement">
+<h3>Entanglement<a class="headerlink" href="#entanglement" title="Permalink to this heading">#</a></h3>
+<p>Consider a composite system with Hilbert space <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2\)</span>, and let <span class="math notranslate nohighlight">\(|\psi\rangle \in \mathcal{H}\)</span> be a pure state. While the total state <span class="math notranslate nohighlight">\(\hat{\rho} = |\psi\rangle \langle\psi|\)</span> has <span class="math notranslate nohighlight">\(S[\hat{\rho}] = 0\)</span>, the reduced density matrix (RDM) for a subsystem, <span class="math notranslate nohighlight">\(\hat{\rho}_1 = \operatorname{Tr}_2(\hat{\rho})\)</span>, can be mixed.</p>
+<p>The entropy of the RDM, <span class="math notranslate nohighlight">\(S[\hat{\rho}_1]\)</span>, is referred to as the <strong>entanglement entropy</strong>. This measures the degree of quantum entanglement between the two subsystems.</p>
+<p>Even though the overall system is in a pure state, measurements on subsystems <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> can exhibit correlations:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle O_1 O_2 \rangle \neq \langle O_1 \rangle \langle O_2 \rangle
+\]</div>
+<p>For example, in the EPR state <span class="math notranslate nohighlight">\(|\psi\rangle = |EPR\rangle\)</span>, the reduced density matrix for one subsystem is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}_1 = \operatorname{diag}\left(\frac{1}{2}, \frac{1}{2}\right)
+\]</div>
+<p>This gives an entanglement entropy of <span class="math notranslate nohighlight">\(S = \ln(2)\)</span>, corresponding to one bit of entanglement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more insights, check out <a class="reference external" href="https://www.youtube.com/watch?v=2YCOlbMk4FA">Matthew Fisher’s recent colloquium</a> on phase transitions in entanglement entropy.</p>
+</div>
+</section>
+<section id="measures-of-quantum-information">
+<h3>Measures of Quantum Information<a class="headerlink" href="#measures-of-quantum-information" title="Permalink to this heading">#</a></h3>
+<p>Many concepts from classical information theory extend to the quantum domain, though not all do.</p>
+<p>For a composite Hilbert space <span class="math notranslate nohighlight">\(\mathcal{H}_{A} \otimes \mathcal{H}_{B} = \mathcal{H}_{AB}\)</span>, with the reduced density matrix <span class="math notranslate nohighlight">\(\hat{\rho}_{A} = \operatorname{Tr}_{B}(\hat{\rho}_{AB})\)</span>, the <strong>mutual information</strong> is defined as a measure of total correlation between subsystems <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+I(A: B) = S[\hat{\rho}_{A}] + S[\hat{\rho}_{B}] - S[\hat{\rho}_{AB}] \geq 0
+\]</div>
+<p>The mutual information is zero if and only if the joint state factorizes:</p>
+<div class="math notranslate nohighlight">
+\[
+I(A: B) = 0 \quad \Longleftrightarrow \quad \hat{\rho}_{AB} = \hat{\rho}_{A} \otimes \hat{\rho}_{B}
+\]</div>
+<p>An important property of mutual information is its relationship to the <strong>strong subadditivity</strong> of quantum entropy:</p>
+<div class="math notranslate nohighlight">
+\[
+I(A: BC) \geq I(A: B)
+\]</div>
+<p>The difference <span class="math notranslate nohighlight">\(I(A: BC) - I(A: B)\)</span> can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I(A: BC) - I(A: B) &amp;= S_{A} + S_{BC} - S_{ABC} - S_{A} - S_{B} + S_{AB} \\
+&amp;= S_{AB} + S_{BC} - S_{ABC} - S_{B} \geq 0
+\end{aligned}
+\end{split}\]</div>
+<p>This inequality, known as the <strong>strong subadditivity of quantum entropy</strong>, is a fundamental result in quantum information theory, though its proof is non-trivial. For more details, see the <a class="reference external" href="https://en.wikipedia.org/wiki/Strong_subadditivity_of_quantum_entropy">Wikipedia article on strong subadditivity of quantum entropy</a>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./QM-SM-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="QM-SM-intro-2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-analog-of-a-distribution-over-microstates-the-density-matrix">Quantum Analog of a Distribution Over Microstates: The Density Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics">Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-matrices-in-equilbrium">Density matrices in equilbrium.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-many-body-hilbert-space">The Many-Body Hilbert Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spins-and-qubits">Spins and Qubits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-spins">Two Spins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-spins"><span class="math notranslate nohighlight">\(N\)</span> Spins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-vs-quantum-storage">Classical vs. Quantum Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#many-body-operators">Many-Body Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-density-matrices-and-entanglement">Reduced Density Matrices and Entanglement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">Entropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entanglement">Entanglement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-quantum-information">Measures of Quantum Information</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>When does quantum mechanics make a difference? &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QM-SM-Intro/QM-SM-intro';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem" href="QM-SM-intro-2.html" />
+    <link rel="prev" title="Coarse-graining and Ergodic Theory" href="../Ergodicity/ergodicity.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-intro-2.html">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FQM-SM-Intro/QM-SM-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/QM-SM-Intro/QM-SM-intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>When does quantum mechanics make a difference?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuations-of-a-hydrogen-atom">Fluctuations of a Hydrogen atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-polyatomic-gases">Dilute Polyatomic Gases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vibrational-modes">Vibrational Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotations">Rotations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="when-does-quantum-mechanics-make-a-difference">
+<h1>When does quantum mechanics make a difference?<a class="headerlink" href="#when-does-quantum-mechanics-make-a-difference" title="Permalink to this heading">#</a></h1>
+<p>Following Kardar 6.1 and 6.2, we’ll motivate quantum statistical mechanics with some cases where classical mechanics gives incorrect answers or even diverges, before developing the general formalism.</p>
+<section id="fluctuations-of-a-hydrogen-atom">
+<h2>Fluctuations of a Hydrogen atom<a class="headerlink" href="#fluctuations-of-a-hydrogen-atom" title="Permalink to this heading">#</a></h2>
+<p>Consider the classical Hamiltonian for a hydrogen atom:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p_{1}^{2}}{2 m_{e}} + \frac{p_{2}^{2}}{2 m_{p}} + V\left(r_{1} - r_{2}\right)
+\]</div>
+<p>Determine the partition function <span class="math notranslate nohighlight">\(Z(T)\)</span>, the free energy <span class="math notranslate nohighlight">\(F(T)\)</span>, the internal energy <span class="math notranslate nohighlight">\(E(T)\)</span>, and other thermodynamic quantities.</p>
+<p>We begin by transforming to center of mass and relative coordinates. Define the center of mass coordinates as <span class="math notranslate nohighlight">\(\vec{R} = \frac{1}{M}(m_e \vec{r}_1 + m_p \vec{r}_2)\)</span> with total momentum <span class="math notranslate nohighlight">\(\vec{P}\)</span>, and the relative coordinates as <span class="math notranslate nohighlight">\(\vec{r} = \vec{r}_1 - \vec{r}_2\)</span> with relative momentum <span class="math notranslate nohighlight">\(\vec{p}\)</span>. The Hamiltonian then separates into:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{P^2}{2M} + \frac{p^2}{2\mu} + V(\vec{r})\;,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(M = m_e + m_p\)</span> is the total mass, and <span class="math notranslate nohighlight">\(\mu = \frac{m_e m_p}{m_e + m_p}\)</span> is the reduced mass.</p>
+<p>The center of mass and relative motions separate, allowing the partition function to factorize as <span class="math notranslate nohighlight">\(Z = Z_{\mathrm{cm}} \cdot Z_{r}\)</span>. For the relative motion, the partition function is given by:</p>
+<div class="math notranslate nohighlight" id="equation-p-fct">
+<span class="eqno">(29)<a class="headerlink" href="#equation-p-fct" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{aligned}
+Z_{r} &amp; = \int \frac{d^{3}p \, d^{3}r}{h^{3}} \, e^{-\beta \left(\frac{p^{2}}{2\mu} + V(r)\right)} \\
+&amp; = \frac{1}{\lambda_\mu^{3}} \cdot 4\pi \int_{0}^{\infty} dr \, r^{2} \, e^{+\beta \frac{e^{2}}{4\pi\epsilon_{0}r}}
+\end{aligned}
+\end{split}\]</div>
+<p>where the thermal de Broglie wavelength is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_\mu \equiv \sqrt{\frac{h^2 \beta}{2\pi \mu}}.
+\]</div>
+<p>At short wavelengths, classical mechanics encounters a problem. The integral in Eq.~<a class="reference internal" href="#equation-p-fct">(29)</a> diverges because <span class="math notranslate nohighlight">\(e^{r_{0} / r} \rightarrow \infty\)</span> as <span class="math notranslate nohighlight">\(r \rightarrow 0\)</span></p>
+<p>Quantum mechanics addresses this problem through Heisenberg’s uncertainty principle:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta p \Delta r \geq h
+\]</div>
+<p>This principle leads to a discrete set of energy levels:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}\left|E_{\alpha}\right\rangle = E_{\alpha}\left|E_{\alpha}\right\rangle
+\]</div>
+<p>Rather than using the classical partition function:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \int \frac{d q \, d p}{h} e^{-\beta H(q, p)},
+\]</div>
+<p>we adopt the quantum mechanical formulation:</p>
+<div class="math notranslate nohighlight" id="equation-qm-partition-function">
+<span class="eqno">(30)<a class="headerlink" href="#equation-qm-partition-function" title="Permalink to this equation">#</a></span>\[
+\boxed{Z = \sum_{\alpha} e^{-\beta E_{\alpha}}}
+\]</div>
+<p>This quantum partition function is well-defined and avoids the divergences inherent in the classical approach. The examples below demonstrate how this quantum formulation transitions to classical results in the high-temperature limit (<span class="math notranslate nohighlight">\(T \rightarrow \infty\)</span>).</p>
+<p>In approximately two lectures, we will derive <a class="reference internal" href="#equation-qm-partition-function">(30)</a> from a more formal perspective on quantum statistical mechanics.</p>
+<p>It is important to note that in <a class="reference internal" href="#equation-qm-partition-function">(30)</a>, the summation is over all measurable quantum states <span class="math notranslate nohighlight">\(\alpha\)</span>, which serve as the quantum analog of microstates in classical statistical mechanics.</p>
+</section>
+<section id="dilute-polyatomic-gases">
+<h2>Dilute Polyatomic Gases<a class="headerlink" href="#dilute-polyatomic-gases" title="Permalink to this heading">#</a></h2>
+<p>Let’s consider a gas composed of tightly bound molecules. For each molecule, the internal Hamiltonian is given by</p>
+<div class="math notranslate nohighlight">
+\[
+H=\sum_{i=1}^{n} \frac{p_{i}^{2}}{2 m}+V\left(q_{1}, \cdots, q_{n}\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of atoms per molecule. We’ve rescaled variables so that all particles have the same effective mass <span class="math notranslate nohighlight">\(m\)</span> by transforming <span class="math notranslate nohighlight">\(q_i \rightarrow q_i \sqrt{m_i/m}\)</span> and <span class="math notranslate nohighlight">\(p_i \rightarrow p_i \sqrt{m/m_i}\)</span>, preserving the phase space volume element <span class="math notranslate nohighlight">\(dq \cdot dp\)</span>.</p>
+<p>The partition function for a single molecule is:</p>
+<div class="math notranslate nohighlight">
+\[
+Z_1 = \int \prod_{i=1}^{n} \frac{d^3 q_i d^3 p_i}{h^3} , e^{-\beta\left(H_{\text{kin}} + V(\vec{q})\right)}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(N\)</span> such molecules (neglecting interactions), the total partition function is:</p>
+<div class="math notranslate nohighlight">
+\[
+Z(N) = \frac{Z_1^N}{N!}.
+\]</div>
+<p>(Note: there’s no factor of <span class="math notranslate nohighlight">\(1/n!\)</span> unless the atoms are identical.)</p>
+<p>The interaction potential <span class="math notranslate nohighlight">\(V\)</span> has a typical energy scale on the order of the Rydberg:</p>
+<div class="math notranslate nohighlight">
+\[
+R_y \sim 13.6,\text{eV} \approx 1160\text{K} \cdot k_B.
+\]</div>
+<p>For temperatures <span class="math notranslate nohighlight">\(T &lt; 1000,\text{K}\)</span>, the molecules remain tightly bound and fluctuate around a stable equilibrium configuration <span class="math notranslate nohighlight">\(q_i^*\)</span>. Defining <span class="math notranslate nohighlight">\(u_i = q_i - q_i^*\)</span> and expanding to second order:</p>
+<div class="math notranslate nohighlight">
+\[
+V({q_i}) \approx V^* + \frac{1}{2} \sum_{i,j} \frac{\partial^2 V}{\partial q_i \partial q_j} u_i \cdot u_j,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(V^* = V({q_i^*})\)</span> and the first derivatives vanish at equilibrium. The Hessian matrix is symmetric and positive definite and can be diagonalized:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 V}{\partial q \partial q} = O^\top K O, \quad K = \text{diag}(K_s),
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(O\)</span> orthogonal. Defining transformed variables:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{u} = O u, \quad \tilde{p} = O p,
+\]</div>
+<p>the partition function becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \int \prod_{i=1}^n \frac{d^3 \tilde{u}_i d^3 \tilde{p}_i}{h^3}  e^{-\beta\left(\frac{1}{2m} \tilde{p}^\top \tilde{p} + V^* + \frac{1}{2} \tilde{u}^\top K \tilde{u}\right)}.
+\]</div>
+<p>This separates into kinetic and potential parts. Using:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \sqrt{\frac{h^2 \beta}{2\pi m}},
+\]</div>
+<p>and integrating over all <span class="math notranslate nohighlight">\(\tilde{p}_i\)</span>, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \frac{1}{\lambda^{3n}} \prod_{s=1}^{3n} \int d\tilde{u}_s e^{-\beta \frac{K_s}{2} \tilde{u}_s^2} = \prod_{s=1}^{3n} \sqrt{\frac{m}{K_s h^2 \beta^2}}.
+\]</div>
+<p>The internal energy follows as:</p>
+<div class="math notranslate nohighlight">
+\[
+E = -\partial_\beta \ln Z = 3n k_B T,
+\]</div>
+<p>which reflects the classical equipartition result: <span class="math notranslate nohighlight">\(\frac{1}{2}k_B T\)</span> per quadratic degree of freedom.</p>
+<p>If any <span class="math notranslate nohighlight">\(K_s = 0\)</span>, that mode contributes no <span class="math notranslate nohighlight">\(\beta\)</span>-dependence, and hence no contribution to <span class="math notranslate nohighlight">\(E\)</span>. Let <span class="math notranslate nohighlight">\(m\)</span> be the number of nonzero modes, then:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{3n + m}{2} k_B T.
+\]</div>
+<p>The number of zero modes <span class="math notranslate nohighlight">\(r = 3n - m\)</span> is determined by symmetry—typically 3 translational and 0–3 rotational modes, depending on whether the molecule is mono-, di-, or polyatomic.</p>
+<p>Therefore, the heat capacity per molecule is:</p>
+<div class="math notranslate nohighlight">
+\[
+C_v = \left.\frac{dE}{dT}\right|_V = \left(3n - \frac{r}{2}\right) k_B.
+\]</div>
+<p>This predicts a temperature-independent <span class="math notranslate nohighlight">\(C_v\)</span>.</p>
+<p>However, this is not what is observed in experiments: at low temperatures, many degrees of freedom are “frozen out” due to energy quantization, and <span class="math notranslate nohighlight">\(C_v\)</span> increases stepwise with temperature as different modes become accessible.</p>
+<p><img alt="" src="https://cdn.mathpix.com/cropped/2024_03_19_23a706af92a350552302g-08.jpg?height=709&amp;width=1045&amp;top_left_y=207&amp;top_left_x=578" /></p>
+<p>For <span class="math notranslate nohighlight">\(H_{2}\)</span>, a diatomic molecule, we have <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(r=5\)</span>, accounting for 3 translational and 2 rotational degrees of freedom.</p>
+<p>The predicted heat capacity is:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C_V}{k_B} = 6 - \frac{5}{2} = \frac{7}{2}  = \frac{\text{3 translational + 2 rotational + 1 vibrational}}{2}.
+\]</div>
+<p>However, the observed behavior varies with temperature:</p>
+<ul class="simple">
+<li><p>As <span class="math notranslate nohighlight">\(T \rightarrow 0\)</span>, <span class="math notranslate nohighlight">\(C_V \sim \frac{3}{2} k_B\)</span> due to center-of-mass translation.</p></li>
+<li><p>Around <span class="math notranslate nohighlight">\(T \sim 500 \, \mathrm{K}\)</span>, <span class="math notranslate nohighlight">\(C_V \sim \frac{5}{2} k_B\)</span>, reflecting contributions from center-of-mass translation and rotation.</p></li>
+<li><p>At <span class="math notranslate nohighlight">\(T \gg 1000 \, \mathrm{K}\)</span>, <span class="math notranslate nohighlight">\(C_V \sim \frac{7}{2} k_B\)</span>, including contributions from center-of-mass translation, rotation, and vibration.</p></li>
+</ul>
+<p>Classical results are only recovered when <span class="math notranslate nohighlight">\(k_B T &gt; \mathrm{eV}\)</span>. At intermediate temperatures, certain degrees of freedom remain “frozen out” due to energy quantization effects.</p>
+</section>
+<section id="vibrational-modes">
+<h2>Vibrational Modes<a class="headerlink" href="#vibrational-modes" title="Permalink to this heading">#</a></h2>
+<p>A diatomic molecule has <span class="math notranslate nohighlight">\(3 \cdot 2 - 5 = 1\)</span> vibrational mode with <span class="math notranslate nohighlight">\(K_s &gt; 0\)</span>, corresponding to the oscillation of the bond connecting the two atoms.</p>
+<p>Let <span class="math notranslate nohighlight">\(q = x - x_0\)</span> represent the bond length deviation from its equilibrium value <span class="math notranslate nohighlight">\(x_0\)</span>. The vibrational Hamiltonian is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\text{vib}} = \frac{p^2}{2m} + \frac{K_s q^2}{2} = \frac{p^2}{2m} + \frac{m \omega^2}{2} q^2,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega = \sqrt{K_s / m}\)</span> is the classical vibrational frequency.</p>
+<p>Classically, the partition function is:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \frac{1}{\lambda} \sqrt{\frac{2\pi}{\beta K_s}} = \sqrt{\frac{m}{K_s \hbar^2 \beta^2}} = \frac{k_B T}{\hbar \omega} = \frac{1}{\beta \hbar \omega}.
+\]</div>
+<p>The corresponding internal energy is:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \langle H \rangle = -\partial_\beta \ln(Z) = k_B T,
+\]</div>
+<p>which reflects two degrees of freedom.</p>
+<p>In quantum mechanics, the energy eigenstates are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}|n\rangle = \hbar \omega \left(n + \frac{1}{2}\right)|n\rangle, \quad n = 0, 1, 2, \dots
+\]</div>
+<p>The partition function can be computed as:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+Z &amp; = \sum_{n=
+&amp; =\frac{e^{-\beta \hbar \omega / 2}}{1-e^{-\beta \hbar \omega}}=\frac{1}{2 \sinh (\beta \hbar \omega / 2)}
+\end{aligned}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Z=\frac{e^{-\beta \hbar \omega / 2}}{1-e^{-\beta \hbar \omega}}=\frac{1}{2 \sinh (\beta \hbar \omega / 2)}
+\]</div>
+<p>As <span class="math notranslate nohighlight">\(\quad T \rightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\beta \rightarrow 0\)</span>, we get the classical result,</p>
+<div class="math notranslate nohighlight">
+\[
+\lim _{T \rightarrow \infty} Z=\frac{1}{\beta\hbar\omega}=Z_{\text {classical }}
+\]</div>
+<p>Note this required the <span class="math notranslate nohighlight">\(\int \frac{d q d p}{h}\)</span> we’ve conventionally put in the classical phase-space integral. While it doesn’t affect observables, it arises from the semiclassical principle!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quantum states and phase space volume</p>
+<p>Each quantum state occupies a phase space volume of <span class="math notranslate nohighlight">\(2 \pi \hbar\)</span>. This relationship arises from the Bohr-Sommerfeld quantization condition:</p>
+<div class="math notranslate nohighlight">
+\[
+S = \int_{\partial S} p(q) \cdot dq = n \cdot h,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(S\)</span> represents the action, and <span class="math notranslate nohighlight">\(n\)</span> is an integer.</p>
+<p>The phase space volume can also be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{\partial S} p \, dq = \int_{S} dp \wedge dq,
+\]</div>
+<p>which corresponds to the total phase space volume enclosed. This principle is foundational to the Weyl formula and the Gutzwiller trace formula.</p>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(\ln (Z) = \ln (2) - \ln (\sinh (\beta \hbar \omega / 2))\)</span>, the internal energy is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+E = -\partial_\beta \ln Z = \frac{\hbar \omega}{2} \coth \left(\frac{\beta \hbar \omega}{2}\right) = \frac{\hbar \omega}{2} \frac{e^{\beta \hbar \omega} + 1}{e^{\beta \hbar \omega} - 1}.
+\]</div>
+<p>To visualize this function, we plot the reduced energy <span class="math notranslate nohighlight">\(\frac{E}{\hbar \omega}\)</span> as a function of the reduced temperature <span class="math notranslate nohighlight">\(T / \theta_\text{vib}\)</span>, where <span class="math notranslate nohighlight">\(\theta_\text{vib} = \frac{\hbar \omega}{k_B}\)</span> is the vibrational temperature.</p>
+<figure class="align-default" id="energy-vs-temperature">
+<a class="reference internal image-reference" href="../_images/Reduced_Energy_vs_Tvib.png"><img alt="../_images/Reduced_Energy_vs_Tvib.png" src="../_images/Reduced_Energy_vs_Tvib.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Plot of the reduced energy <span class="math notranslate nohighlight">\(\frac{E}{\hbar \omega}\)</span> as a function of the reduced temperature <span class="math notranslate nohighlight">\(T / \theta_\text{vib}\)</span>. The energy approaches <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> at low temperatures and increases linearly with <span class="math notranslate nohighlight">\(T / \theta_\text{vib}\)</span> at high temperatures, reflecting the transition from quantum to classical behavior.</span><a class="headerlink" href="#energy-vs-temperature" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The plot shows that at low temperatures (<span class="math notranslate nohighlight">\(T / \theta_\text{vib} \ll 1\)</span>), the energy approaches the zero-point energy <span class="math notranslate nohighlight">\(\frac{\hbar \omega}{2}\)</span>. At high temperatures (<span class="math notranslate nohighlight">\(T / \theta_\text{vib} \gg 1\)</span>), the energy asymptotically approaches the classical result <span class="math notranslate nohighlight">\(k_B T\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+C_V=\partial_T E=k_{B}\left(\frac{k \omega}{k_{B} T}\right)^{2} \frac{e^{-\beta \hbar \omega}}{\left(1-e^{-\beta A \omega}\right)^{2}}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note <span class="math notranslate nohighlight">\(\frac{C_V}{K_{B}} \sim\left(\frac{\hbar w}{K_{B} T}\right)^{2} e^{-\hbar \omega / K_{B} T}\)</span> is exponentially small as <span class="math notranslate nohighlight">\(T \rightarrow 0\)</span>. This is a general feature of any model with a gap <span class="math notranslate nohighlight">\(\Delta E=\hbar \omega \)</span> above ground state.</p>
+</div>
+</section>
+<section id="rotations">
+<h2>Rotations<a class="headerlink" href="#rotations" title="Permalink to this heading">#</a></h2>
+<p><img alt="" src="https://cdn.mathpix.com/cropped/2024_03_19_23a706af92a350552302g-12.jpg?height=384&amp;width=218&amp;top_left_y=820&amp;top_left_x=194" /></p>
+<p>The orientation of a diatomic molecule can be described using the angles <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\varphi\)</span>, which parameterize a point on the surface of a 3D ball (<span class="math notranslate nohighlight">\(S_2\)</span>). The Lagrangian for the system is:</p>
+<div class="math notranslate nohighlight">
+\[
+L = \frac{I}{2} \left(\dot{\theta}^2 + \sin^2 \theta \, \dot{\phi}^2\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia. The conjugate momenta are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{\theta} = \frac{\partial L}{\partial \dot{\theta}} = I \dot{\theta}, \quad \rho_{\phi} = \frac{\partial L}{\partial \dot{\phi}} = I \sin^2 \theta \, \dot{\phi}.
+\]</div>
+<p>The Hamiltonian, expressed in terms of these momenta, is:</p>
+<div class="math notranslate nohighlight">
+\[
+H = p \dot{q} - L = \frac{1}{2I} \left(\rho_{\theta}^2 + \frac{\rho_{\phi}^2}{\sin^2 \theta}\right) = \frac{\vec{L}^2}{2I},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{L}\)</span> is the angular momentum vector. This formulation is analogous to the dynamics of a particle constrained to move on the surface of a unit ball.</p>
+<p>Classically, the partition function is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Z &amp; = \frac{1}{h^{2}} \int_{0}^{\pi} \int_{0}^{2 \pi} d\theta \, d\phi \int d\rho_{\theta} \, d\rho_{\phi} \, e^{-\frac{\beta}{2I} \left(\rho_{\theta}^{2} + \frac{\rho_{\phi}^{2}}{\sin^{2} \theta}\right)} \\
+&amp; = \frac{1}{h^{2}} \int_{0}^{\pi} \int_{0}^{2 \pi} d\theta \, d\phi \, \sqrt{\frac{2 \pi I}{\beta}} \sqrt{\frac{2 \pi I \sin^{2} \theta}{\beta}} \\
+&amp; = \frac{2 \pi I}{\beta h^{2}} \int_{0}^{\pi} d\theta \, \sin \theta \int_{0}^{2 \pi} d\phi \\
+&amp; = \frac{2 \pi I}{\beta} \cdot \frac{4 \pi}{h^{2}}.
+\end{aligned}
+\end{split}\]</div>
+<p>From this, we find:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(Z) \propto -\ln(\beta),
+\]</div>
+<p>which implies the energy and heat capacity are:</p>
+<div class="math notranslate nohighlight">
+\[
+E = k_B T, \quad C_V = k_B.
+\]</div>
+<p>This result corresponds to two degrees of freedom, associated with <span class="math notranslate nohighlight">\(\rho_{\theta}\)</span> and <span class="math notranslate nohighlight">\(\rho_{\phi}\)</span>.</p>
+<p>Quantum mechanically, the rotational Hamiltonian is expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{\vec{L}^2}{2I},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{L}\)</span> is the angular momentum operator. However, the components of <span class="math notranslate nohighlight">\(\vec{L}\)</span> do not commute:</p>
+<div class="math notranslate nohighlight">
+\[
+\left[L_i, L_j\right] \neq 0.
+\]</div>
+<p>The wavefunctions are spherical harmonics, <span class="math notranslate nohighlight">\(\psi(\theta, \phi) = Y_{l, m}(\theta, \phi)\)</span>, with eigenvalues:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{L}^2 = \hbar^2 l(l+1), \quad -l \leq m \leq l.
+\]</div>
+<p>The quantum partition function is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Z_1 &amp; = \sum_{l=0}^\infty \sum_{|m| \leq l} e^{-\frac{\beta}{2I} \hbar^2 l(l+1)} \\
+&amp; = \sum_{l=0}^\infty (2l + 1) e^{-\frac{\beta}{2I} \hbar^2 l(l+1)}.
+\end{aligned}
+\end{split}\]</div>
+<p>In the high-temperature limit (<span class="math notranslate nohighlight">\(T \to \infty\)</span>, <span class="math notranslate nohighlight">\(\beta \to 0\)</span>), the summation over <span class="math notranslate nohighlight">\(l\)</span> can be approximated by an integral:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{T \to \infty} Z = \frac{T}{\theta_r}, \quad \theta_r = \frac{h^2}{2I k_B},
+\]</div>
+<p>recovering the classical result <span class="math notranslate nohighlight">\(Z_{cl}\)</span>.</p>
+<p>At low temperatures (<span class="math notranslate nohighlight">\(T \to 0\)</span>), the partition function simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = 1 + 3 e^{-2\theta_r / T},
+\]</div>
+<p>leading to a steep drop in the specific heat as <span class="math notranslate nohighlight">\(T \to 0\)</span>. The rotational energy is approximately:</p>
+<div class="math notranslate nohighlight">
+\[
+E_{rot} = -\partial_\beta \ln(Z) \approx 6k_B \theta_r e^{-2\theta_r / T},
+\]</div>
+<p>and the specific heat is:</p>
+<div class="math notranslate nohighlight">
+\[
+C_{rot} = \partial_T E_{rot} \approx 3k_B \left(\frac{2\theta_r}{T}\right)^2 e^{-2\theta_r / T}.
+\]</div>
+<figure class="align-default" id="rotational-energy-vs-temperature">
+<a class="reference internal image-reference" href="../_images/Reduced_Rotational_Energy_vs_Trot.png"><img alt="../_images/Reduced_Rotational_Energy_vs_Trot.png" src="../_images/Reduced_Rotational_Energy_vs_Trot.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Plot of the reduced rotational energy <span class="math notranslate nohighlight">\(E_{rot} / k_B \theta_r\)</span> as a function of the reduced temperature <span class="math notranslate nohighlight">\(T / \theta_r\)</span>. The energy approaches zero at low temperatures due to quantum effects and increases linearly with <span class="math notranslate nohighlight">\(T / \theta_r\)</span> at high temperatures, reflecting the transition to classical behavior.</span><a class="headerlink" href="#rotational-energy-vs-temperature" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<h3 class="rubric" id="why-is-there-no-zero-point-rotational-energy">Why is there no zero-point rotational energy?</h3>
+<p>In quantum mechanics, <strong>zero-point energy</strong> arises when a system is confined by a potential, such as in a harmonic oscillator. The uncertainty principle prevents the particle from being completely at rest, leading to a nonzero ground-state energy:</p>
+<div class="math notranslate nohighlight">
+\[
+E_0^{\text{vib}} = \frac{1}{2} \hbar \omega
+\]</div>
+<p>In contrast, for a <strong>rigid rotor</strong> (like a diatomic molecule), the system moves freely on a sphere without a confining potential. Its energy levels are:</p>
+<div class="math notranslate nohighlight">
+\[
+E_\ell = \frac{\hbar^2}{2I} \ell(\ell + 1), \quad \ell = 0, 1, 2, \dots
+\]</div>
+<p>The ground state (<span class="math notranslate nohighlight">\(\ell = 0\)</span>) has:</p>
+<div class="math notranslate nohighlight">
+\[
+E_0^{\text{rot}} = 0
+\]</div>
+<p>Since there’s no restoring force and no potential minimum, <strong>there’s no quantum requirement for zero-point rotational motion</strong>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./QM-SM-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Ergodicity/ergodicity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coarse-graining and Ergodic Theory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="QM-SM-intro-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuations-of-a-hydrogen-atom">Fluctuations of a Hydrogen atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-polyatomic-gases">Dilute Polyatomic Gases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vibrational-modes">Vibrational Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotations">Rotations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

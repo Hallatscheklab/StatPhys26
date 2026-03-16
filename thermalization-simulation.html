@@ -215,6 +215,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
 </ul>
 
     </div>
@@ -881,42 +884,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imga8f6512560d24927a45b55951ab9cbf3">
+  <img id="_anim_img8995d9f0004e4a44aa463e9e61448a4d">
   <div class="anim-controls">
-    <input id="_anim_slidera8f6512560d24927a45b55951ab9cbf3" type="range" class="anim-slider"
+    <input id="_anim_slider8995d9f0004e4a44aa463e9e61448a4d" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anima8f6512560d24927a45b55951ab9cbf3.set_frame(parseInt(this.value));">
+           oninput="anim8995d9f0004e4a44aa463e9e61448a4d.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anima8f6512560d24927a45b55951ab9cbf3.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anima8f6512560d24927a45b55951ab9cbf3.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anima8f6512560d24927a45b55951ab9cbf3.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anima8f6512560d24927a45b55951ab9cbf3.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anima8f6512560d24927a45b55951ab9cbf3.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anima8f6512560d24927a45b55951ab9cbf3.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anima8f6512560d24927a45b55951ab9cbf3.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anima8f6512560d24927a45b55951ab9cbf3.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anima8f6512560d24927a45b55951ab9cbf3.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim8995d9f0004e4a44aa463e9e61448a4d.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selecta8f6512560d24927a45b55951ab9cbf3"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select8995d9f0004e4a44aa463e9e61448a4d"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_a8f6512560d24927a45b55951ab9cbf3"
+      <input type="radio" name="state" value="once" id="_anim_radio1_8995d9f0004e4a44aa463e9e61448a4d"
              >
-      <label for="_anim_radio1_a8f6512560d24927a45b55951ab9cbf3">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_a8f6512560d24927a45b55951ab9cbf3"
+      <label for="_anim_radio1_8995d9f0004e4a44aa463e9e61448a4d">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_8995d9f0004e4a44aa463e9e61448a4d"
              checked>
-      <label for="_anim_radio2_a8f6512560d24927a45b55951ab9cbf3">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_a8f6512560d24927a45b55951ab9cbf3"
+      <label for="_anim_radio2_8995d9f0004e4a44aa463e9e61448a4d">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_8995d9f0004e4a44aa463e9e61448a4d"
              >
-      <label for="_anim_radio3_a8f6512560d24927a45b55951ab9cbf3">Reflect</label>
+      <label for="_anim_radio3_8995d9f0004e4a44aa463e9e61448a4d">Reflect</label>
     </form>
   </div>
 </div>
@@ -926,9 +929,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imga8f6512560d24927a45b55951ab9cbf3";
-    var slider_id = "_anim_slidera8f6512560d24927a45b55951ab9cbf3";
-    var loop_select_id = "_anim_loop_selecta8f6512560d24927a45b55951ab9cbf3";
+    var img_id = "_anim_img8995d9f0004e4a44aa463e9e61448a4d";
+    var slider_id = "_anim_slider8995d9f0004e4a44aa463e9e61448a4d";
+    var loop_select_id = "_anim_loop_select8995d9f0004e4a44aa463e9e61448a4d";
     var frames = new Array(133);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAYAAAC+ZpjcAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -107042,7 +107045,7 @@ REQiY4JFREREJDImWEREREQi+z9wR0qhj6LdNQAAAABJRU5ErkJggg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anima8f6512560d24927a45b55951ab9cbf3 = new Animation(frames, img_id, slider_id, 10.0,
+        anim8995d9f0004e4a44aa463e9e61448a4d = new Animation(frames, img_id, slider_id, 10.0,
                                  loop_select_id);
     }, 0);
   })()

@@ -1,0 +1,848 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QM-SM-Intro/QM-SM-intro-2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Formalism of quantum statistical mechanics" href="QM-SM-Formalism.html" />
+    <link rel="prev" title="When does quantum mechanics make a difference?" href="QM-SM-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FQM-SM-Intro/QM-SM-intro-2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/QM-SM-Intro/QM-SM-intro-2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phonons-and-the-debye-model">Phonons and the Debye Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-values-of-vec-k">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic Boundary Conditions in Real Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-in-k-space">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debye-model">Debye Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem">
+<h1>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem<a class="headerlink" href="#gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem" title="Permalink to this heading">#</a></h1>
+<section id="phonons-and-the-debye-model">
+<h2>Phonons and the Debye Model<a class="headerlink" href="#phonons-and-the-debye-model" title="Permalink to this heading">#</a></h2>
+<p>Previously, we examined systems with a small number of degrees of freedom, where the quantum Hamiltonian exhibits an energy gap, such as <span class="math notranslate nohighlight">\(\Delta E = \hbar \omega\)</span> or <span class="math notranslate nohighlight">\(\Delta E = \frac{\hbar^{2}}{I}\)</span>. This leads to specific heat behavior like <span class="math notranslate nohighlight">\(C_V \sim e^{-\Delta E / (k_B T)}\)</span>.</p>
+<p>However, as <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>, more intriguing behavior emerges if the Hamiltonian becomes gapless. To illustrate this, we now explore the vibrations in a crystal as an example of a gapless system.</p>
+<p>Consider a crystal consisting of a regular lattice of atoms, where the equilibrium positions are described by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\vec{q}_{l, m, n}^{*} = l \vec{R}_{1} + m \vec{R}_{2} + n \vec{R}_{3}, \\
+l, m, n \in \mathbb{Z}.
+\end{aligned}
+\end{split}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\vec{R}_{i}\)</span> are the “Bravais vectors.” For a simple cubic lattice, these vectors are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{R}_{1}=a \hat{x}, \quad \vec{R}_{2}=a \hat{y}, \quad \vec{R}_{3}=a \hat{z}.
+\]</div>
+<p>Other lattice structures, such as hexagonal or orthorhombic, are also possible, leading to 14 distinct Bravais lattices in 3D. Additionally, there may be multiple atoms within a unit cell. However, for simplicity, we will focus on the simple cubic case.
+The equilibrium positions of the atoms, <span class="math notranslate nohighlight">\(\vec{q}^{*}_{l, m, n}\)</span>, are maintained by various chemical or electrical forces. However, due to thermal and quantum effects, the atoms can deviate from these positions:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q}_{l, m, n} = \vec{q}_{l, m, n}^{*} + \vec{u}_{l, m, n},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{u}_{l, m, n}\)</span> represents the displacement of the atom at <span class="math notranslate nohighlight">\((l, m, n)\)</span> from its equilibrium position.</p>
+<p>To simplify notation, it is convenient to label the atom at <span class="math notranslate nohighlight">\((l, m, n)\)</span> by its equilibrium position <span class="math notranslate nohighlight">\(\vec{r} \equiv \vec{q}_{l, m, n}^{*}\)</span>. This leads to:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q}_{\vec{r}} = \vec{r} + \vec{u}_{\vec{r}}.
+\]</div>
+<p>The potential energy of the system can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+V(\{\vec q_{\vec r}\})=V^*+\frac 12 \sum_{\vec r, \vec r', \alpha, \beta} \frac{\partial^2 V}{\partial q_{\alpha,r} \partial q_{\beta, r'}}u_{\alpha, r}u_{\beta, r'},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> are the vector indices (<span class="math notranslate nohighlight">\(\{x, y, z\}\)</span>) of the displacement vector. This expression assumes <span class="math notranslate nohighlight">\(|\vec{u}| \ll a\)</span>, which is valid when <span class="math notranslate nohighlight">\(T \rightarrow 0\)</span> and the atomic mass <span class="math notranslate nohighlight">\(\rightarrow \infty\)</span> (since <span class="math notranslate nohighlight">\(\Delta v \Delta u \geq \hbar / \text{mass}\)</span>). Outside this regime, the crystal would melt. Note that at equilibrium, <span class="math notranslate nohighlight">\(\left.\frac{\partial V}{\partial q}\right|_{q^{*}}=0\)</span>.</p>
+<p>Using translation invariance, <span class="math notranslate nohighlight">\(V\left(\left\{\vec{q}_{\vec{r}}+\vec{c}\right\}\right)=V\left(\left\{\vec{q}_{\vec{r}}\right\}\right)\)</span>, we deduce:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^{2} V}{\partial q_{\alpha}(r) \partial q_{\beta}\left(r^{\prime}\right)} \equiv K_{\alpha \beta}\left(\vec{r}-\vec{r}^{\prime}\right).
+\]</div>
+<p>The total Hamiltonian of the system is then given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}=V^{*}+\sum_{\vec{r}} \frac{\vec{p}_{\vec{r}}^{2}}{2 m}+\frac{1}{2} \sum_{\vec{r}, \vec{r}^{\prime}} u_{\alpha, \vec{r}} K_{\alpha \beta}\left(\vec{r}-\vec{r}^{\prime}\right) u_{\beta, \vec{r}^{\prime}},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left[p_{\alpha, \vec{r}}, u_{\beta, \vec{r}^{\prime}}\right]=-i \delta_{\alpha \beta} \delta_{\vec{r} \vec{r}^{\prime}}\)</span>.</p>
+<p>To simplify <span class="math notranslate nohighlight">\(\hat{H}\)</span>, we use the discrete Fourier transform:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp; u_{\alpha}(\vec{k}) \equiv \frac{1}{\sqrt{N}} \int \sum_{\vec{r}} e^{-i \vec{k} \cdot \vec{r}} u_{\alpha, r} \\
+&amp; p_{\alpha}(\vec{k}) \equiv \frac{1}{\sqrt{N}} \sum_{\vec{r}} e^{-i \vec{k} \cdot \vec{r}} p_{\alpha, r} \\
+&amp; K_{\alpha \beta}(\vec{k}) \equiv \sum_{\vec{r}} e^{i \vec{k} \cdot \vec{r}} K_{\alpha, \beta}(\vec{r})
+\end{aligned}
+\end{split}\]</div>
+<p>For simplicity, assume <span class="math notranslate nohighlight">\(K_{\alpha \beta}(\vec{k}) = \delta_{\alpha \beta} \tilde{K}(\vec{k})\)</span>. The Hamiltonian then becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = V^* + \sum_{\vec{k}} \left[ \frac{\vec{p}(\vec{k}) \cdot \vec{p}(-\vec{k})}{2m} + \frac{1}{2} \tilde{K}(\vec{k}) \vec{u}(\vec{k}) \cdot \vec{u}(-\vec{k}) \right].
+\]</div>
+</section>
+<section id="discrete-values-of-vec-k">
+<h2>Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span><a class="headerlink" href="#discrete-values-of-vec-k" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="periodicity-in-k-space">
+<h2>1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#periodicity-in-k-space" title="Permalink to this heading">#</a></h2>
+<p>Recall that <span class="math notranslate nohighlight">\(\vec{r} = a(l \hat{x} + m \hat{y} + n \hat{z})\)</span>. This implies:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i \vec{k} \cdot \vec{r}} = e^{i \left( \vec{k} + \frac{2\pi}{a} \hat{e}_i \right) \cdot \vec{r}}, \quad \hat{e}_i = \hat{x}, \hat{y}, \hat{z}.
+\]</div>
+<p>Thus, <span class="math notranslate nohighlight">\(u_{\alpha}(\vec{k}) = u_{\alpha}\left(\vec{k} + \frac{2\pi}{a} \hat{e}_i\right)\)</span>, meaning <span class="math notranslate nohighlight">\(\vec{k}\)</span> is periodic in <span class="math notranslate nohighlight">\(k\)</span>-space. This periodicity defines the “Brillouin Zone” (BZ), a toroidal region in <span class="math notranslate nohighlight">\(k\)</span>-space.</p>
+</section>
+<section id="periodic-boundary-conditions-in-real-space">
+<h2>2. Periodic Boundary Conditions in Real Space<a class="headerlink" href="#periodic-boundary-conditions-in-real-space" title="Permalink to this heading">#</a></h2>
+<p>Assuming periodic boundary conditions in real space, <span class="math notranslate nohighlight">\(\vec{r} \sim \vec{r} + L \cdot \hat{e}_i\)</span>, we find that <span class="math notranslate nohighlight">\(\vec{k}\)</span> must satisfy:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+e^{i \vec{k} \cdot \vec{r}} &amp;= e^{i \vec{k} \cdot (\vec{r} + L \cdot \hat{e}_i)} \\
+\Rightarrow \vec{k} &amp;\in \frac{2\pi}{L} \cdot (i, j, k), \quad i, j, k \in \mathbb{Z}, \\
+-\frac{L}{2} &amp;\leq i, j, k \leq \frac{L}{2}.
+\end{aligned}
+\end{split}\]</div>
+<p>This establishes a one-to-one correspondence between the <span class="math notranslate nohighlight">\((L/a)^3\)</span> points in real space and the <span class="math notranslate nohighlight">\((L/a)^3\)</span> discrete <span class="math notranslate nohighlight">\(\vec{k}\)</span> points in <span class="math notranslate nohighlight">\(k\)</span>-space.</p>
+</section>
+<section id="original-variables-are-real-valued">
+<h2>3. Original variables are real-valued<a class="headerlink" href="#original-variables-are-real-valued" title="Permalink to this heading">#</a></h2>
+<p>Since <span class="math notranslate nohighlight">\(\vec{p}_{\vec{r}}\)</span> and <span class="math notranslate nohighlight">\(\vec{u}_{\vec{r}}\)</span> are real-valued, we have:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{u}_{\alpha, \vec{k}} = \vec{u}_{\alpha, -\vec{k}}^*, \quad \vec{p}_{\alpha, \vec{k}} = \vec{p}_{\alpha, -\vec{k}}^*.
+\]</div>
+<p>The Hamiltonian can then be rewritten as:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = V^* + \sum_{\vec{k}} \left[ \frac{|\vec{p}(\vec{k})|^2}{2m} + \frac{1}{2} \tilde{K}(\vec{k}) |\vec{u}(\vec{k})|^2 \right].
+\]</div>
+</section>
+<section id="interpretation-in-k-space">
+<h2>Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#interpretation-in-k-space" title="Permalink to this heading">#</a></h2>
+<p>In <span class="math notranslate nohighlight">\(k\)</span>-space, the system decomposes into <span class="math notranslate nohighlight">\(3N = 3(L/a)^3\)</span> independent harmonic oscillators, each with frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega(\vec{k}) = \sqrt{\frac{\tilde{K}(\vec{k})}{m}}.
+\]</div>
+<p>These oscillations correspond to waves in the atomic positions, which are the sound waves of the crystal. The group velocity of these waves is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{\vec{k}} = \frac{\partial \omega(\vec{k})}{\partial \vec{k}},
+\]</div>
+<p>and depends on the dispersion relation <span class="math notranslate nohighlight">\(\omega(\vec{k})\)</span>.</p>
+</section>
+<section id="qm-description">
+<h2>QM description<a class="headerlink" href="#qm-description" title="Permalink to this heading">#</a></h2>
+<p>Quantum mechanically, we define <span class="math notranslate nohighlight">\(3N\)</span> raising and lowering operators, <span class="math notranslate nohighlight">\(\hat{a}_{\alpha, \vec{k}}^{+}\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_{\alpha, \vec{k}}\)</span>, with the number operator <span class="math notranslate nohighlight">\(\hat{n}_{\alpha, \vec{k}} = \hat{a}_{\alpha, \vec{k}}^{+} \hat{a}_{\alpha, \vec{k}}\)</span>. These operators satisfy the commutation relations:</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\hat{a}_{\alpha, \vec{k}}, \hat{a}_{\beta, \vec{k}'}^{+}\right] = \delta_{\alpha \beta} \delta_{\vec{k}, \vec{k}'}, \quad \left[\hat{a}_{\alpha, \vec{k}}, \hat{a}_{\beta, \vec{k}'}\right] = \left[\hat{a}_{\alpha, \vec{k}}^{+}, \hat{a}_{\beta, \vec{k}'}^{+}\right] = 0.
+\]</div>
+<p>Using the ansatz:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp; \hat{u}_{\alpha, \vec{k}} = \sqrt{\frac{\hbar}{2m\omega(\vec{k})}} \left(\hat{a}_{\alpha, \vec{k}}^{+} + \hat{a}_{\alpha, -\vec{k}}\right), \\
+&amp; \hat{p}_{\alpha, \vec{k}} = i \sqrt{\frac{\hbar m \omega(\vec{k})}{2}} \left(\hat{a}_{\alpha, \vec{k}}^{+} - \hat{a}_{\alpha, -\vec{k}}\right),
+\end{aligned}
+\end{split}\]</div>
+<p>we can verify that the canonical commutation relation holds:</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\hat{u}_{\alpha, \vec{k}}, \hat{p}_{\beta, -\vec{k}'}\right] = i\hbar \delta_{\alpha \beta} \delta_{\vec{k}, \vec{k}'}.
+\]</div>
+<p>we find the Hamiltonian becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = V^{*} + \sum_{\vec{k}, \alpha} \hbar \omega(\vec{k}) \left(\hat{n}_{\alpha, \vec{k}} + \frac{1}{2}\right).
+\]</div>
+<p>These quantized sound wave excitations are called “phonons,” analogous to photons in quantum electrodynamics (QED). Phonons are bosonic quasiparticles, even though the underlying atoms may be fermions. This exemplifies a recurring theme in condensed matter and quantum many-body physics: the emergence of low-energy quasiparticle excitations distinct from the system’s constituent particles, often referred to as “collective modes.”</p>
+<p>The Hilbert space is spanned by specifying the occupation numbers of the <span class="math notranslate nohighlight">\(3N\)</span> modes, <span class="math notranslate nohighlight">\(n_{\alpha, \vec{k}} = 0, 1, 2, \ldots\)</span>, with basis states:</p>
+<div class="math notranslate nohighlight">
+\[
+\left|\{n_{\alpha, \vec{k}}\}\right\rangle = \left|0, 3, 1, 2, \ldots\right\rangle.
+\]</div>
+<p>The quantum mechanical partition function is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Z &amp;= \sum_{\{n_{\alpha, \vec{k}}\}} e^{-\beta \hat{H}} = e^{-\beta E_{0}} \sum_{\{n_{\alpha, \vec{k}}\}} e^{-\beta \sum_{\vec{k}, \alpha} \hbar \omega(\vec{k}) n_{\alpha, \vec{k}}} \\
+&amp;= e^{-\beta E_{0}} \prod_{\vec{k}, \alpha} \left(\sum_{n_{\alpha, \vec{k}}=0}^{\infty} e^{-\beta \hbar \omega(\vec{k}) n_{\alpha, \vec{k}}}\right) \\
+&amp;= e^{-\beta E_{0}} \prod_{\vec{k}, \alpha} \left(\frac{1}{1 - e^{-\beta \hbar \omega(\vec{k})}}\right).
+\end{aligned}
+\end{split}\]</div>
+<p>The free energy is then:</p>
+<div class="math notranslate nohighlight">
+\[
+F = -\frac{1}{\beta} \ln(Z) = E_{0} + \frac{1}{\beta} \sum_{\vec{k}, \alpha} \ln\left(1 - e^{-\beta \hbar \omega(\vec{k})}\right).
+\]</div>
+<p>Key physical observables include the average energy:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle = E_{0} + \sum_{\alpha, \vec{k}} \langle n_{\alpha, \vec{k}} \rangle \hbar \omega(\vec{k}),
+\]</div>
+<p>and the heat capacity:</p>
+<div class="math notranslate nohighlight">
+\[
+C = \frac{\partial \langle E \rangle}{\partial T}.
+\]</div>
+<p>For a single quantum mechanical degree of freedom, we previously found that the heat capacity scales as <span class="math notranslate nohighlight">\(C \sim e^{-\Delta E / (k_B T)}\)</span>. However, as we will now demonstrate, this behavior does not hold for phonons.</p>
+<p>To begin, we calculate the average occupation number of a phonon mode:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\left\langle n_{\alpha, \vec{k}} \right\rangle &amp;= \frac{\sum_{n=0}^{\infty} n e^{-\beta \hbar \omega(\vec{k}) n}}{\sum_{n=0}^{\infty} e^{-\beta \hbar \omega(\vec{k}) n}} = \frac{1}{e^{\beta \hbar \omega(\vec{k})} - 1}.
+\end{aligned}
+\]</div>
+<p>This expression describes the average number of phonons in a given mode, and is called Bose-Einstein statistics.</p>
+<p>The total energy of the system is then given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\langle E \rangle &amp;= E_0 + \sum_{\alpha, \vec{k}} \left\langle n_{\alpha, \vec{k}} \right\rangle \hbar \omega(\vec{k}),
+\end{aligned}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_0\)</span> is the zero-point energy. The heat capacity can be derived by differentiating the energy with respect to temperature:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+C &amp;= \frac{\partial \langle E \rangle}{\partial T} = k_B \sum_{\alpha, \vec{k}} \frac{1}{\left(e^{\beta \hbar \omega(\vec{k})} - 1\right)^2} \left(\frac{\hbar \omega(\vec{k})}{k_B T}\right)^2.
+\end{aligned}
+\]</div>
+<p>To proceed further, we need to determine the specific form of the phonon dispersion relation <span class="math notranslate nohighlight">\(\omega(\vec{k})\)</span>.</p>
+</section>
+<section id="debye-model">
+<h2>Debye Model<a class="headerlink" href="#debye-model" title="Permalink to this heading">#</a></h2>
+<p>The exact form of <span class="math notranslate nohighlight">\(\omega(k)\)</span> depends on the detailed chemistry of the system, which determines <span class="math notranslate nohighlight">\(V(\{\vec{q}_{\vec{r}}\})\)</span> and, consequently, <span class="math notranslate nohighlight">\(K_{\alpha \beta}(\vec{r})\)</span>. However, translation invariance ensures that <span class="math notranslate nohighlight">\(V(\{\vec{q}_{\vec{r}} + \vec{c}\}) = V(\{\vec{q}_{\vec{r}}\})\)</span>, implying that a rigid shift of the lattice, <span class="math notranslate nohighlight">\(\vec{u}_{\vec{r}} = \vec{c}\)</span>, results in no change in energy (<span class="math notranslate nohighlight">\(\Delta E = 0\)</span>). This corresponds to the <span class="math notranslate nohighlight">\(\vec{u}(\vec{k} = 0)\)</span> mode, leading to:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}_{\alpha \beta}(\vec{k} = 0) = 0.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(K_{\alpha \beta}(\vec{r})\)</span> is local, meaning it decays exponentially as <span class="math notranslate nohighlight">\(\vec{r} \to \infty\)</span>, its Fourier transform is analytic and can be expanded as:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k}) = 0 + \tilde{\kappa}_{\alpha} k_{\alpha} + \frac{1}{2} \tilde{\kappa}_{\alpha \beta} k_{\alpha} k_{\beta} + \frac{1}{3!} \tilde{\kappa}_{\alpha \beta \gamma} k_{\alpha} k_{\beta} k_{\gamma} + \cdots
+\]</div>
+<p>With inversion symmetry, <span class="math notranslate nohighlight">\(K(\vec{r}) = K(-\vec{r})\)</span>, the odd-<span class="math notranslate nohighlight">\(k\)</span> terms vanish, leaving:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k}) = \frac{1}{2} \tilde{\kappa}_{\alpha \beta} k_{\alpha} k_{\beta} + O(k^4).
+\]</div>
+<p>For an isotropic system, where <span class="math notranslate nohighlight">\(x \sim y \sim z\)</span>, this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k}) = B |\vec{k}|^2 + O(k^4),
+\]</div>
+<p>resulting in the dispersion relation:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega(\vec{k}) = \sqrt{\frac{B |\vec{k}|^2}{m}} = v |\vec{k}| + O(k^3),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(v = \sqrt{B / m}\)</span> is the speed of sound. This approximation breaks down as <span class="math notranslate nohighlight">\(k \to \pi / a\)</span>.</p>
+<p>Under this approximation, the total energy is:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle = E_0 + \sum_{\alpha, \vec{k}} \frac{\hbar v |\vec{k}|}{e^{\beta \hbar v |\vec{k}|} - 1}.
+\]</div>
+<p>In the limit <span class="math notranslate nohighlight">\(L \to \infty\)</span>, where <span class="math notranslate nohighlight">\(\vec{k} = \frac{2\pi}{L}(i, j, k)\)</span>, the sum over <span class="math notranslate nohighlight">\(\vec{k}\)</span> becomes an integral:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{\vec{k}} \to \left(\frac{L}{2\pi}\right)^3 \int_{BZ} d^3k.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle \approx E_0 + 3 V \int_{BZ} \frac{d^3k}{(2\pi)^3} \frac{\hbar v |\vec{k}|}{e^{\beta \hbar v |\vec{k}|} - 1}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(T \ll T_D\)</span>, where <span class="math notranslate nohighlight">\(T_D = \frac{\hbar v \pi}{k_B a}\)</span>, the boundary of the Brillouin Zone, with energy <span class="math notranslate nohighlight">\(E \sim \hbar v \frac{\pi}{a} \gg T\)</span>, does not contribute significantly. Extending the integration domain to infinity, we find:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle = E_0 + 3 V \int_0^\infty dk \frac{4\pi k^2}{(2\pi)^3} \frac{\hbar v k}{e^{\beta \hbar v k} - 1}.
+\]</div>
+<p>Evaluating this integral yields:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle = E_0 + \frac{\pi^2}{10} V \frac{(k_B T)^4}{(\hbar v)^3}.
+\]</div>
+<p>The heat capacity per unit volume is then:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C}{V} = k_B \frac{2\pi^2}{5} \left(\frac{k_B T}{\hbar v}\right)^3.
+\]</div>
+<p>The key result is that <span class="math notranslate nohighlight">\(E \sim T^4\)</span> and <span class="math notranslate nohighlight">\(C_V \sim T^3\)</span>, contrasting with the exponential behavior <span class="math notranslate nohighlight">\(E, C \sim e^{-\Delta E / T}\)</span>. This difference arises because phonons are gapless: <span class="math notranslate nohighlight">\(\hbar \omega(k) \sim v |\vec{k}|\)</span> permits excitations with arbitrarily low energy. In high-energy physics terms, phonons are “massless,” with dispersion <span class="math notranslate nohighlight">\(E(k) = v |\vec{k}|\)</span>, unlike systems with a mass gap where <span class="math notranslate nohighlight">\(E(p) = \sqrt{m_0^2 v^4 + p^2 v^2}\)</span>.</p>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this heading">#</a></h3>
+<p>This highlights a profound principle: low-temperature behavior depends only on a few “relevant” parameters (e.g., <span class="math notranslate nohighlight">\(v\)</span>) and not on the detailed microscopic structure.</p>
+<p>Relation to spontaneous symmetry breaking: “Goldstone modes.”</p>
+<p>For <span class="math notranslate nohighlight">\(T &lt; T_c\)</span>, the Ising model spontaneously breaks time-reversal symmetry, where <span class="math notranslate nohighlight">\(E(\{\sigma\}) = E(\{-\sigma\})\)</span>.</p>
+<p>Similarly, the phonon model exhibits a symmetry: <span class="math notranslate nohighlight">\(E\left(\left\{q_{\vec{r}}\right\}\right) = E\left(\left\{\vec{q}_{\vec{r}} + \vec{c}\right\}\right)\)</span>.</p>
+<p>This means that any realized equilibrium position <span class="math notranslate nohighlight">\(\left\langle \vec{q}_{\vec{r}} \right\rangle = \vec{r}\)</span> spontaneously breaks translation symmetry.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\left\langle \vec{q}_{\vec{r}} \right\rangle = \vec{r} + \left\langle \vec{u}_{\vec{r}} \right\rangle\)</span>, and:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\left\langle \vec{u}_{\vec{r}} \right\rangle &amp;= \sum_{\vec{k}} \frac{e^{i \vec{k} \cdot \vec{r}}}{\sqrt{N}} \sqrt{\frac{1}{2 m \omega_{\vec{k}}}} \left\langle \hat{a}_{\vec{k}}^{+} + \hat{a}_{-\vec{k}} \right\rangle \\
+&amp;= 0.
+\end{aligned}
+\end{split}\]</div>
+<p>(Caveat: In <span class="math notranslate nohighlight">\(D = 2\)</span>, this is more subtle due to the “Mermin-Wagner theorem,” which states that continuous symmetry cannot be spontaneously broken. This is covered in Physics 212.)</p>
+<p>The existence of translation symmetry ensures <span class="math notranslate nohighlight">\(\hbar \omega(k = 0) = 0\)</span>, leading to <span class="math notranslate nohighlight">\(\omega(k) \sim v \cdot k\)</span>, which implies gaplessness.</p>
+<p>This is a specific case of a broader result: Goldstone’s Theorem.</p>
+<p>“A system with a spontaneously broken continuous global symmetry has a gapless mode (the Goldstone boson).”</p>
+<p>[There are subtleties depending on whether the symmetry is Lorentz-invariant or non-relativistic, and whether it is internal or spacetime-related.]</p>
+<p>In this context, the phonon (sound wave) is the “Goldstone mode” associated with the spontaneous breaking of translation symmetry.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./QM-SM-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="QM-SM-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">When does quantum mechanics make a difference?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="QM-SM-Formalism.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Formalism of quantum statistical mechanics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phonons-and-the-debye-model">Phonons and the Debye Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-values-of-vec-k">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic Boundary Conditions in Real Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-in-k-space">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debye-model">Debye Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
