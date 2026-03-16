@@ -26,9 +26,9 @@ chapters:
 - file: Diffusion/Diffusion.md
 - file: Diffusion/Diffusion_AI_DDPM_1D
 - file: Ergodicity/ergodicity.md
-# - file: QM-SM-Intro/QM-SM-intro
-# - file: QM-SM-Intro/QM-SM-intro-2
-# - file: QM-SM-Intro/QM-SM-Formalism
+- file: QM-SM-Intro/QM-SM-intro
+- file: QM-SM-Intro/QM-SM-intro-2
+- file: QM-SM-Intro/QM-SM-Formalism
 # - file: Boson-Fermions/QM-SM-Boson-Fermion-Hilbertspace
 # - file: Boson-Fermions/QM-SM-Dilute-ideal-qm-gases
 # - file: Boson-Fermions/QM-SM-DegenerateFermi
