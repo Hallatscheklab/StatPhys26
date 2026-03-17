@@ -479,7 +479,7 @@ F(\zeta)-F(0) = \sum_{n=1}^{\infty} \frac{(-\zeta)^n}{n!} \partial_X^n F(X)|_{X=
 \alpha_n(x)\equiv \int d\zeta \zeta^n K(\zeta,x)
 \]</div>
 <p>is the <span class="math notranslate nohighlight">\(n^{\text{th}}\)</span> jump moment.</p>
-<p><strong>Diffusion limit</strong>: Only keep <span class="math notranslate nohighlight">\(n=1,2\)</span>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Kramers%E2%80%93Moyal_expansion#Pawula_theorem">Pawula theorem</a> shows that either all higher order moments vanish, or all even terms are positive.</p>
+<p><strong>Diffusion limit</strong>: Keep only the n=1,2 terms of the Kramers–Moyal expansion, yielding a “Fokker–Planck equation”. By <a class="reference external" href="https://en.wikipedia.org/wiki/Kramers%E2%80%93Moyal_expansion#Pawula_theorem">Pawula’s theorem</a>, a Kramers–Moyal expansion that is truncated at any finite order higher than 2 generally does not preserve positivity of the probability density. Thus, for a Markov process, either the expansion terminates exactly at second order, or one must retain infinitely many terms. In many situations with small jumps and finite second moments, the second-order truncation still gives a good long-time, large-scale approximation, consistent with central-limit-type behavior.</p>
 </section>
 <section id="ergodic-theory">
 <h2>Ergodic Theory<a class="headerlink" href="#ergodic-theory" title="Permalink to this heading">#</a></h2>
@@ -494,7 +494,7 @@ P_i(t\to\infty)=P_i^{eq} \;.
 <span class="eqno">(26)<a class="headerlink" href="#equation-ergodicity" title="Permalink to this equation">#</a></span>\[
 \langle \mathcal{O}(t)\rangle \to \sum_i O_i P_i^{eq}=\langle \mathcal{O} \rangle_{eq} \;.
 \]</div>
-<p>This means that the long-time average of any observable is identical to the ensemble average. Systems with this property are called “ergodic”.</p>
+<p>This means that the long-time expectation of any observable is identical to the ensemble average.</p>
 <p>But, clearly, our derivation was heuristic and necessarily approximate, since the coarse-grained equations break the time reversibility of the underlying dynamics (free energy is a Lyapunov function).</p>
 <p>A more mathematically sound approach is <strong>ergodic theory</strong>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote the microscopic state space, and for <span class="math notranslate nohighlight">\(A \subset X, \mu(A)\)</span> the “volume” (measure) of <span class="math notranslate nohighlight">\(A\)</span>. E.g. for our the phase space of particles, we have</p>
@@ -512,7 +512,7 @@ T^{t_{1}} \cdot T^{t_{2}} &amp; =T^{t_{1}+t_{2}}
 \end{split}\]</div>
 <p><span class="math notranslate nohighlight">\(t \in \mathbb{R}^{+}, \mathbb{Z}^{+}\)</span> for real/discrete time.</p>
 <p>Example: Hamiltonian evolution for time “t”.</p>
-<p>Def.: A map is called “measure preserving” if <span class="math notranslate nohighlight">\(N(A)=N\left(T^{t}(A)\right)\)</span> for all <span class="math notranslate nohighlight">\(A, t\)</span>.</p>
+<p>Def.: A map is called “measure preserving” if <span class="math notranslate nohighlight">\(\mu(A)=\mu\left(T^{t}(A)\right)\)</span> for all <span class="math notranslate nohighlight">\(A, t\)</span>.</p>
 <p>Example: By <a class="reference external" href="https://en.wikipedia.org/wiki/Liouville%27s_theorem_(Hamiltonian)">Liouville’s theorem</a>, Hamiltonian dynamics is measure-preserving.</p>
 <p>Def.: A measure-preserving <span class="math notranslate nohighlight">\((X, \mu, T)\)</span> is “ergodic” if</p>
 <div class="math notranslate nohighlight">
@@ -530,29 +530,29 @@ T^{t}(A)=A \Rightarrow A=\{0\} \text { or } X
 \]</div>
 <p>(or <span class="math notranslate nohighlight">\(\left.\frac{1}{N} \int_{t=0}^{N} f\left(T^{t} x_{0}\right) d t\right)\)</span></p>
 <p>for “almost all” <span class="math notranslate nohighlight">\(x_{0} \in X\)</span>. (exceptions have measure 0).</p>
-<p>This is our desired property: “Average over time” <span class="math notranslate nohighlight">\(\longrightarrow\)</span> “average over microstates”</p>
+<p>This means: “Average over time” <span class="math notranslate nohighlight">\(\longrightarrow\)</span> “average over microstates”</p>
 <p>So, if measurements coarse grain (average) over time, we can use <span class="math notranslate nohighlight">\(P^{eq}(x)=1/\mu(x)\)</span></p>
 <p>It is interesting to note there are two distinct scenarios:</p>
 <p>(1) Getting the ensemble average requires a long-time average over time:</p>
 <div class="math notranslate nohighlight" id="equation-t-avg">
 <span class="eqno">(27)<a class="headerlink" href="#equation-t-avg" title="Permalink to this equation">#</a></span>\[
-\lim _{t \rightarrow \infty} t^{-1}\int_{t'=0}^t \int_{x} P(t', x) f(x) d \mu dt' \rightarrow \int_{x} \frac{1}{\operatorname{vol}(x)} f(x) d \mu
+\lim _{t \rightarrow \infty} t^{-1}\int_{t'=0}^t \int_{x} P(t', x) f(x) d \mu dt' \rightarrow \frac{1}{\mu(X)} \int_{x} f(x) d \mu
 \]</div>
 <p>(2) At fixed time <span class="math notranslate nohighlight">\(t \gg 0\)</span>, any initial distribution will spread out in <span class="math notranslate nohighlight">\(X\)</span>,</p>
 <p><img alt="" src="https://cdn.mathpix.com/cropped/2025_03_20_117673b20d0434d5b07ag-08.jpg?height=408&amp;width=2006&amp;top_left_y=961&amp;top_left_x=62" /></p>
 <p>So if <span class="math notranslate nohighlight">\(f(x)\)</span> varies “smoothly” in <span class="math notranslate nohighlight">\(x\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-local-t-avg">
 <span class="eqno">(28)<a class="headerlink" href="#equation-local-t-avg" title="Permalink to this equation">#</a></span>\[
-\lim _{t \rightarrow \infty} \int_{x} P(t, x) f(x) d \mu \rightarrow \int_{x} \frac{1}{\operatorname{vol}(x)} f(x) d \mu
+\lim _{t \rightarrow \infty} \int_{x} P(t, x) f(x) d \mu \rightarrow \int_{x} \frac{1}{\mu(X)} f(x) d \mu
 \]</div>
-<p>essentially as if <span class="math notranslate nohighlight">\(\quad P(t \rightarrow \infty, x) \rightarrow \frac{1}{\operatorname{vol}(x)}\)</span>.</p>
+<p>essentially as if <span class="math notranslate nohighlight">\(\quad P(t \rightarrow \infty, x) \rightarrow \frac{1}{\mu(X)}\)</span>.</p>
 <p>In scenario 2, regardless of how localized the initial probability distribution is, it eventually spreads across the entire state space <span class="math notranslate nohighlight">\(X\)</span>. Consequently, the ensemble average is obtained by averaging over the probability distribution at sufficiently long times. Practically, this requires waiting for a duration significantly exceeding the system’s longest relaxation time. Note: <em>Ergodicity implies equation <a class="reference internal" href="#equation-t-avg">(27)</a>, but not equation <a class="reference internal" href="#equation-local-t-avg">(28)</a>!</em></p>
 <p>Indeed, <span class="math notranslate nohighlight">\(T:(q, p) \longrightarrow\left(q+q_{0}, p+p_{0}\right)\)</span> is ergodic for irrational shifts, but</p>
 <p><img alt="" src="https://cdn.mathpix.com/cropped/2025_03_20_117673b20d0434d5b07ag-08.jpg?height=279&amp;width=602&amp;top_left_y=2378&amp;top_left_x=938" /></p>
 <p>The mathematical property implying (2) is “mixing”:</p>
 <div class="math notranslate nohighlight">
 \[
-\lim _{t \rightarrow \infty} \mu\left(T^{t}(A) \cup B\right)=\mu(A) \mu(B)
+\lim _{t \rightarrow \infty} \mu\left(T^{t}(A) \cup B\right)=\frac{\mu(A)}{\mu(X)} \mu(B)
 \]</div>
 <p>Why? If <span class="math notranslate nohighlight">\(T^{t}(A)\)</span> “spreads out” evenly in space,</p>
 <p><img alt="" src="https://cdn.mathpix.com/cropped/2025_03_20_117673b20d0434d5b07ag-09.jpg?height=326&amp;width=699&amp;top_left_y=671&amp;top_left_x=901" /></p>
@@ -572,7 +572,7 @@ T^{t}(A)=A \Rightarrow A=\{0\} \text { or } X
 <p><span class="math notranslate nohighlight">\(D(E) \cdot d \Sigma_{E} \equiv \delta(E-H(q, p)) d N\)</span> where <span class="math notranslate nohighlight">\(D(E) \equiv \int \delta(E-H) d_{N}\)</span>
 so that <span class="math notranslate nohighlight">\(\quad \int_{\Sigma_{E}} d \Sigma_{E}=1\)</span>, the dynamics still preserve measure <span class="math notranslate nohighlight">\(\Sigma_{E}\)</span>.</p>
 <p><strong>“Ergodic hypothesis”</strong> Manybody systems are ergodic on <span class="math notranslate nohighlight">\(\Sigma_{E}\)</span>.</p>
-<p>So, Knowing <span class="math notranslate nohighlight">\(E\)</span>, the coarse-grained behaviour governed by</p>
+<p>So, Knowing <span class="math notranslate nohighlight">\(E\)</span>, the coarse-grained behavior is governed by</p>
 <div class="math notranslate nohighlight">
 \[
 \langle f\rangle_{E} \equiv \int_{\Sigma_{E}} f \quad d \Sigma_{E}
