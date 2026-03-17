@@ -58,7 +58,7 @@ $$
 
 is the $n^{\text{th}}$ jump moment.
 
-**Diffusion limit**: Only keep $n=1,2$. The [Pawula theorem](https://en.wikipedia.org/wiki/Kramers%E2%80%93Moyal_expansion#Pawula_theorem) shows that either all higher order moments vanish, or all even terms are positive.
+**Diffusion limit**: Keep only the n=1,2 terms of the Kramers–Moyal expansion, yielding a "Fokker–Planck equation". By [Pawula’s theorem](https://en.wikipedia.org/wiki/Kramers%E2%80%93Moyal_expansion#Pawula_theorem), a Kramers–Moyal expansion that is truncated at any finite order higher than 2 generally does not preserve positivity of the probability density. Thus, for a Markov process, either the expansion terminates exactly at second order, or one must retain infinitely many terms. In many situations with small jumps and finite second moments, the second-order truncation still gives a good long-time, large-scale approximation, consistent with central-limit-type behavior.
 
 ### Ergodic Theory
 Our coarse-grained equations (master / diffusion / Kramers-Moyal) "predict" 
@@ -75,7 +75,7 @@ $$
 \langle \mathcal{O}(t)\rangle \to \sum_i O_i P_i^{eq}=\langle \mathcal{O} \rangle_{eq} \;.
 $$ (ergodicity)
 
-This means that the long-time average of any observable is identical to the ensemble average. Systems with this property are called "ergodic".
+This means that the long-time expectation of any observable is identical to the ensemble average.
 
 But, clearly, our derivation was heuristic and necessarily approximate, since the coarse-grained equations break the time reversibility of the underlying dynamics (free energy is a Lyapunov function). 
 
@@ -101,7 +101,7 @@ $t \in \mathbb{R}^{+}, \mathbb{Z}^{+}$ for real/discrete time.
 
 Example: Hamiltonian evolution for time "t". 
 
-Def.: A map is called "measure preserving" if $N(A)=N\left(T^{t}(A)\right)$ for all $A, t$. 
+Def.: A map is called "measure preserving" if $\mu(A)=\mu\left(T^{t}(A)\right)$ for all $A, t$. 
 
 Example: By [Liouville's theorem](https://en.wikipedia.org/wiki/Liouville%27s_theorem_(Hamiltonian)), Hamiltonian dynamics is measure-preserving.
 
@@ -129,7 +129,7 @@ $$
 
 for "almost all" $x_{0} \in X$. (exceptions have measure 0).
 
-This is our desired property: "Average over time" $\longrightarrow$ "average over microstates"
+This means: "Average over time" $\longrightarrow$ "average over microstates"
 
 So, if measurements coarse grain (average) over time, we can use $P^{eq}(x)=1/\mu(x)$
 
@@ -140,7 +140,7 @@ It is interesting to note there are two distinct scenarios:
 (1) Getting the ensemble average requires a long-time average over time:
 
 $$
-\lim _{t \rightarrow \infty} t^{-1}\int_{t'=0}^t \int_{x} P(t', x) f(x) d \mu dt' \rightarrow \int_{x} \frac{1}{\operatorname{vol}(x)} f(x) d \mu
+\lim _{t \rightarrow \infty} t^{-1}\int_{t'=0}^t \int_{x} P(t', x) f(x) d \mu dt' \rightarrow \frac{1}{\mu(X)} \int_{x} f(x) d \mu
 $$ (t-avg)
 
 
@@ -153,10 +153,10 @@ $$ (t-avg)
 So if $f(x)$ varies "smoothly" in $x$,
 
 $$
-\lim _{t \rightarrow \infty} \int_{x} P(t, x) f(x) d \mu \rightarrow \int_{x} \frac{1}{\operatorname{vol}(x)} f(x) d \mu
+\lim _{t \rightarrow \infty} \int_{x} P(t, x) f(x) d \mu \rightarrow \int_{x} \frac{1}{\mu(X)} f(x) d \mu
 $$ (local-t-avg)
 
-essentially as if $\quad P(t \rightarrow \infty, x) \rightarrow \frac{1}{\operatorname{vol}(x)}$.
+essentially as if $\quad P(t \rightarrow \infty, x) \rightarrow \frac{1}{\mu(X)}$.
 
 In scenario 2, regardless of how localized the initial probability distribution is, it eventually spreads across the entire state space $X$. Consequently, the ensemble average is obtained by averaging over the probability distribution at sufficiently long times. Practically, this requires waiting for a duration significantly exceeding the system's longest relaxation time. Note: *Ergodicity implies equation {eq}`t-avg`, but not equation {eq}`local-t-avg`!*
 
@@ -168,7 +168,7 @@ Indeed, $T:(q, p) \longrightarrow\left(q+q_{0}, p+p_{0}\right)$ is ergodic for i
 The mathematical property implying (2) is "mixing":
 
 $$
-\lim _{t \rightarrow \infty} \mu\left(T^{t}(A) \cup B\right)=\mu(A) \mu(B)
+\lim _{t \rightarrow \infty} \mu\left(T^{t}(A) \cup B\right)=\frac{\mu(A)}{\mu(X)} \mu(B)
 $$ 
 
 Why? If $T^{t}(A)$ "spreads out" evenly in space,
@@ -197,7 +197,7 @@ so that $\quad \int_{\Sigma_{E}} d \Sigma_{E}=1$, the dynamics still preserve me
 
 **"Ergodic hypothesis"** Manybody systems are ergodic on $\Sigma_{E}$.
 
-So, Knowing $E$, the coarse-grained behaviour governed by
+So, Knowing $E$, the coarse-grained behavior is governed by
 
 $$
 \langle f\rangle_{E} \equiv \int_{\Sigma_{E}} f \quad d \Sigma_{E}
