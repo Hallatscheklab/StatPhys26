@@ -192,7 +192,7 @@ $$
 However, if we restrict space to an energy shell $\sum_E$, with measure
 ![](https://cdn.mathpix.com/cropped/2025_03_20_117673b20d0434d5b07ag-10.jpg?height=293&width=604&top_left_y=1185&top_left_x=593)
 
-$D(E) \cdot d \Sigma_{E} \equiv \delta(E-H(q, p)) d N$ where $D(E) \equiv \int \delta(E-H) d_{N}$
+$D(E) \cdot d \Sigma_{E} \equiv \delta(E-H(q, p)) d \mu$ where $D(E) \equiv \int \delta(E-H) d_{N}$
 so that $\quad \int_{\Sigma_{E}} d \Sigma_{E}=1$, the dynamics still preserve measure $\Sigma_{E}$.
 
 **"Ergodic hypothesis"** Manybody systems are ergodic on $\Sigma_{E}$.
@@ -206,7 +206,7 @@ $$
 We can think of this as just a particularly simple equilibrium distribution,
 
 $$
-p_{eq}(\{ q, p \}) d V=\frac{1}{D(E)} \delta(E-H(q, p ))
+p_{eq}(\{ q, p \}) d \mu=\frac{1}{D(E)} \delta(E-H(q, p ))d \mu
 $$
 
 equidistributed on energy shell. The "micro canonical ensemble".
