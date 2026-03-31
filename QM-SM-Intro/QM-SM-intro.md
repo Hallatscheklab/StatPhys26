@@ -84,6 +84,14 @@ Later, we will derive {eq}`qm-partition-function` from the general formalism of 
 
 The sum in {eq}`qm-partition-function` runs over all quantum states $\alpha$. These play the role of microstates in the quantum theory.
 
+For hydrogen, the characteristic electronic excitation scale is set by the Rydberg,
+
+$$
+R_y \approx 13.6\,\mathrm{eV} \approx 1.6 \times 10^5\,\mathrm{K}\cdot k_B.
+$$
+
+This is an extremely high temperature scale, so under ordinary laboratory conditions thermal occupation of highly excited electronic states is usually negligible. For that reason, hydrogen is not the best example for understanding how thermal energy gradually activates additional internal degrees of freedom. To see that effect more clearly, it is better to move on to molecules, whose rotational and vibrational energy scales are much smaller and often lie in the experimentally accessible thermal range.
+
 
 
 #### Dilute Polyatomic Gases
@@ -118,13 +126,13 @@ $$
 
 There is no extra factor of $1/n!$ unless the atoms within a molecule are identical and being treated as indistinguishable.
 
-The interaction potential has a characteristic energy scale of order the Rydberg:
+The relevant scale here is the interatomic binding energy that holds the molecule together. At temperatures of order $T \sim 10^3\,\mathrm{K}$, the thermal energy is only
 
 $$
-R_y \sim 13.6,\text{eV} \approx 1160\text{K} \cdot k_B.
+k_B T \sim 0.1\,\mathrm{eV},
 $$
 
-For temperatures $T \lesssim 1000\,\mathrm{K}$, the molecules remain tightly bound and fluctuate only weakly around a stable equilibrium configuration $q_i^*$. Writing
+which is still small enough that the molecule remains bound and fluctuates only weakly around a stable equilibrium configuration $q_i^*$. Writing
 
 $$
 u_i = q_i - q_i^*
