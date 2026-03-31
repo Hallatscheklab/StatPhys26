@@ -499,6 +499,12 @@ Z = \int \frac{d q \, d p}{h} e^{-\beta H(q, p)},
 <p>This expression is well defined and avoids the short-distance divergence of the classical treatment. In the examples below, we will see explicitly how the quantum result crosses over to the classical one in the high-temperature limit <span class="math notranslate nohighlight">\(T \to \infty\)</span>.</p>
 <p>Later, we will derive <a class="reference internal" href="#equation-qm-partition-function">(30)</a> from the general formalism of quantum statistical mechanics.</p>
 <p>The sum in <a class="reference internal" href="#equation-qm-partition-function">(30)</a> runs over all quantum states <span class="math notranslate nohighlight">\(\alpha\)</span>. These play the role of microstates in the quantum theory.</p>
+<p>For hydrogen, the characteristic electronic excitation scale is set by the Rydberg,</p>
+<div class="math notranslate nohighlight">
+\[
+R_y \approx 13.6\,\mathrm{eV} \approx 1.6 \times 10^5\,\mathrm{K}\cdot k_B.
+\]</div>
+<p>This is an extremely high temperature scale, so under ordinary laboratory conditions thermal occupation of highly excited electronic states is usually negligible. For that reason, hydrogen is not the best example for understanding how thermal energy gradually activates additional internal degrees of freedom. To see that effect more clearly, it is better to move on to molecules, whose rotational and vibrational energy scales are much smaller and often lie in the experimentally accessible thermal range.</p>
 </section>
 <section id="dilute-polyatomic-gases">
 <h2>Dilute Polyatomic Gases<a class="headerlink" href="#dilute-polyatomic-gases" title="Permalink to this heading">#</a></h2>
@@ -526,12 +532,12 @@ Z_1 = \int \prod_{i=1}^{n} \frac{d^3 q_i d^3 p_i}{h^3} , e^{-\beta\left(H_{\text
 Z(N) = \frac{Z_1^N}{N!}.
 \]</div>
 <p>There is no extra factor of <span class="math notranslate nohighlight">\(1/n!\)</span> unless the atoms within a molecule are identical and being treated as indistinguishable.</p>
-<p>The interaction potential has a characteristic energy scale of order the Rydberg:</p>
+<p>The relevant scale here is the interatomic binding energy that holds the molecule together. At temperatures of order <span class="math notranslate nohighlight">\(T \sim 10^3\,\mathrm{K}\)</span>, the thermal energy is only</p>
 <div class="math notranslate nohighlight">
 \[
-R_y \sim 13.6,\text{eV} \approx 1160\text{K} \cdot k_B.
+k_B T \sim 0.1\,\mathrm{eV},
 \]</div>
-<p>For temperatures <span class="math notranslate nohighlight">\(T \lesssim 1000\,\mathrm{K}\)</span>, the molecules remain tightly bound and fluctuate only weakly around a stable equilibrium configuration <span class="math notranslate nohighlight">\(q_i^*\)</span>. Writing</p>
+<p>which is still small enough that the molecule remains bound and fluctuates only weakly around a stable equilibrium configuration <span class="math notranslate nohighlight">\(q_i^*\)</span>. Writing</p>
 <div class="math notranslate nohighlight">
 \[
 u_i = q_i - q_i^*
