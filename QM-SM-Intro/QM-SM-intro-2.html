@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem &#8212; Equilibrium Statistical Physics</title>
+    <title>Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem &#8212; Equilibrium Statistical Physics</title>
   
   
   
@@ -218,7 +218,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
 </ul>
 
@@ -405,7 +407,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</h1>
+    <h1>Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,18 +417,37 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phonons-and-the-debye-model">Phonons and the Debye Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-values-of-vec-k">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic Boundary Conditions in Real Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic boundary conditions in real space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reality-conditions">3. Reality conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-in-k-space">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-description">Quantum Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debye-model">Debye Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-spontaneous-symmetry-breaking-and-goldstone-modes">Relation to Spontaneous Symmetry Breaking and Goldstone Modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#original-version">Original Version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Phonons and the Debye Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. Periodic Boundary Conditions in Real Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Debye Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -437,10 +458,602 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem">
-<h1>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem<a class="headerlink" href="#gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem" title="Permalink to this heading">#</a></h1>
+  <section id="gapless-quantum-matter-phonons-the-debye-model-and-goldstone-s-theorem">
+<h1>Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem<a class="headerlink" href="#gapless-quantum-matter-phonons-the-debye-model-and-goldstone-s-theorem" title="Permalink to this heading">#</a></h1>
 <section id="phonons-and-the-debye-model">
 <h2>Phonons and the Debye Model<a class="headerlink" href="#phonons-and-the-debye-model" title="Permalink to this heading">#</a></h2>
+<p>So far, we have focused on systems with only a few quantum degrees of freedom. In those examples, the spectrum had a nonzero gap, for example</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta E = \hbar \omega
+\qquad \text{or} \qquad
+\Delta E = \frac{\hbar^2}{I},
+\]</div>
+<p>and as a result the low-temperature specific heat was exponentially suppressed:</p>
+<div class="math notranslate nohighlight">
+\[
+C_V \sim e^{-\Delta E/(k_B T)}.
+\]</div>
+<p>In an extended many-body system, however, something qualitatively new can happen: the spectrum can become gapless. A crystal provides a central example. Its low-energy vibrational modes are phonons, and these will lead to the Debye law</p>
+<div class="math notranslate nohighlight">
+\[
+C_V \sim T^3.
+\]</div>
+<p>Consider a crystal whose atoms sit on a Bravais lattice with equilibrium positions</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q}_{l,m,n}^{\,*} = l \vec{R}_1 + m \vec{R}_2 + n \vec{R}_3,
+\qquad
+l,m,n \in \mathbb{Z}.
+\]</div>
+<p>For a simple cubic lattice,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{R}_1 = a \hat{x}, \qquad
+\vec{R}_2 = a \hat{y}, \qquad
+\vec{R}_3 = a \hat{z}.
+\]</div>
+<p>More generally, there are 14 Bravais lattices in three dimensions, and a unit cell may contain more than one atom. For now, though, we restrict attention to the simple cubic case.</p>
+<p>The atoms are held near their equilibrium positions by electromagnetic and chemical forces, but they can fluctuate around those positions. We therefore write</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q}_{l,m,n} = \vec{q}_{l,m,n}^{\,*} + \vec{u}_{l,m,n},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{u}_{l,m,n}\)</span> is the displacement from equilibrium.</p>
+<p>It is convenient to label each atom by its equilibrium position</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} \equiv \vec{q}_{l,m,n}^{\,*},
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q}_{\vec{r}} = \vec{r} + \vec{u}_{\vec{r}}.
+\]</div>
+<p>For small displacements, <span class="math notranslate nohighlight">\(|\vec{u}_{\vec{r}}| \ll a\)</span>, we may expand the potential energy to quadratic order:</p>
+<div class="math notranslate nohighlight">
+\[
+V(\{\vec{q}_{\vec{r}}\})
+=
+V^*
++
+\frac{1}{2}
+\sum_{\vec{r},\vec{r}',\alpha,\beta}
+\frac{\partial^2 V}{\partial q_{\alpha,\vec{r}} \partial q_{\beta,\vec{r}'}}
+u_{\alpha,\vec{r}} u_{\beta,\vec{r}'}.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\alpha,\beta \in \{x,y,z\}\)</span> label Cartesian components, and the linear term vanishes because we expand about equilibrium:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\partial V}{\partial q}\right|_{q^*} = 0.
+\]</div>
+<p>This harmonic approximation is valid at sufficiently low temperature, where the displacements are small compared with the lattice spacing.</p>
+<p>Because the crystal is translationally invariant,</p>
+<div class="math notranslate nohighlight">
+\[
+V\bigl(\{\vec{q}_{\vec{r}}+\vec{c}\}\bigr) = V\bigl(\{\vec{q}_{\vec{r}}\}\bigr),
+\]</div>
+<p>the Hessian depends only on coordinate differences:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 V}{\partial q_\alpha(\vec{r}) \partial q_\beta(\vec{r}')}
+\equiv
+K_{\alpha\beta}(\vec{r}-\vec{r}').
+\]</div>
+<p>The Hamiltonian is then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}
+=
+V^*
++
+\sum_{\vec{r}} \frac{\vec{p}_{\vec{r}}^{\,2}}{2m}
++
+\frac{1}{2}
+\sum_{\vec{r},\vec{r}'}
+u_{\alpha,\vec{r}} K_{\alpha\beta}(\vec{r}-\vec{r}') u_{\beta,\vec{r}'}.
+\]</div>
+<p>The canonical commutation relations are</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{u}_{\alpha,\vec{r}}, \hat{p}_{\beta,\vec{r}'}]
+=
+i \hbar \delta_{\alpha\beta} \delta_{\vec{r}\vec{r}'}.
+\]</div>
+<p>To diagonalize the Hamiltonian, we introduce the discrete Fourier transforms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+u_{\alpha}(\vec{k})
+&amp;\equiv
+\frac{1}{\sqrt{N}}
+\sum_{\vec{r}} e^{-i\vec{k}\cdot\vec{r}} u_{\alpha,\vec{r}}, \\
+p_{\alpha}(\vec{k})
+&amp;\equiv
+\frac{1}{\sqrt{N}}
+\sum_{\vec{r}} e^{-i\vec{k}\cdot\vec{r}} p_{\alpha,\vec{r}}, \\
+K_{\alpha\beta}(\vec{k})
+&amp;\equiv
+\sum_{\vec{r}} e^{i\vec{k}\cdot\vec{r}} K_{\alpha\beta}(\vec{r}).
+\end{aligned}
+\end{split}\]</div>
+<p>For simplicity, suppose</p>
+<div class="math notranslate nohighlight">
+\[
+K_{\alpha\beta}(\vec{k}) = \delta_{\alpha\beta}\,\tilde{K}(\vec{k}).
+\]</div>
+<p>Then the Hamiltonian becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}
+=
+V^*
++
+\sum_{\vec{k}}
+\left[
+\frac{\vec{p}(\vec{k}) \cdot \vec{p}(-\vec{k})}{2m}
++
+\frac{1}{2}\tilde{K}(\vec{k})\,\vec{u}(\vec{k}) \cdot \vec{u}(-\vec{k})
+\right].
+\]</div>
+</section>
+<section id="discrete-values-of-vec-k">
+<h2>Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span><a class="headerlink" href="#discrete-values-of-vec-k" title="Permalink to this heading">#</a></h2>
+<p>There are three important facts about the allowed <span class="math notranslate nohighlight">\(\vec{k}\)</span> values.</p>
+</section>
+<section id="periodicity-in-k-space">
+<h2>1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-space<a class="headerlink" href="#periodicity-in-k-space" title="Permalink to this heading">#</a></h2>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} = a(l\hat{x} + m\hat{y} + n\hat{z}),
+\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i\vec{k}\cdot\vec{r}}
+=
+e^{i\left(\vec{k}+\frac{2\pi}{a}\hat{e}_i\right)\cdot\vec{r}},
+\qquad
+\hat{e}_i \in \{\hat{x},\hat{y},\hat{z}\}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+u_\alpha(\vec{k})
+=
+u_\alpha\left(\vec{k}+\frac{2\pi}{a}\hat{e}_i\right),
+\]</div>
+<p>so <span class="math notranslate nohighlight">\(\vec{k}\)</span> is periodic in reciprocal space. This periodicity defines the Brillouin zone.</p>
+</section>
+<section id="periodic-boundary-conditions-in-real-space">
+<h2>2. Periodic boundary conditions in real space<a class="headerlink" href="#periodic-boundary-conditions-in-real-space" title="Permalink to this heading">#</a></h2>
+<p>If we impose periodic boundary conditions on a cube of side length <span class="math notranslate nohighlight">\(L\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} \sim \vec{r} + L \hat{e}_i,
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i\vec{k}\cdot\vec{r}}
+=
+e^{i\vec{k}\cdot(\vec{r}+L\hat{e}_i)}
+\]</div>
+<p>requires</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{k} = \frac{2\pi}{L}(n_x,n_y,n_z),
+\qquad
+n_x,n_y,n_z \in \mathbb{Z}.
+\]</div>
+<p>Restricting to one Brillouin zone gives exactly one allowed <span class="math notranslate nohighlight">\(\vec{k}\)</span> point per unit cell, so there are <span class="math notranslate nohighlight">\(N=(L/a)^3\)</span> distinct <span class="math notranslate nohighlight">\(\vec{k}\)</span> values.</p>
+</section>
+<section id="reality-conditions">
+<h2>3. Reality conditions<a class="headerlink" href="#reality-conditions" title="Permalink to this heading">#</a></h2>
+<p>Because the original displacement and momentum fields are real,</p>
+<div class="math notranslate nohighlight">
+\[
+u_\alpha(\vec{k}) = u_\alpha(-\vec{k})^*,
+\qquad
+p_\alpha(\vec{k}) = p_\alpha(-\vec{k})^*.
+\]</div>
+<p>Using this, the Hamiltonian can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}
+=
+V^*
++
+\sum_{\vec{k}}
+\left[
+\frac{|\vec{p}(\vec{k})|^2}{2m}
++
+\frac{1}{2}\tilde{K}(\vec{k}) |\vec{u}(\vec{k})|^2
+\right].
+\]</div>
+</section>
+<section id="interpretation-in-k-space">
+<h2>Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#interpretation-in-k-space" title="Permalink to this heading">#</a></h2>
+<p>In <span class="math notranslate nohighlight">\(k\)</span>-space, the crystal decomposes into <span class="math notranslate nohighlight">\(3N\)</span> independent harmonic oscillators, one for each polarization and each allowed wavevector. Their frequencies are</p>
+<div class="math notranslate nohighlight">
+\[
+\omega(\vec{k}) = \sqrt{\frac{\tilde{K}(\vec{k})}{m}}.
+\]</div>
+<p>These normal modes are collective oscillations of the lattice, that is, sound waves in the crystal. Their group velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{\vec{k}} = \frac{\partial \omega(\vec{k})}{\partial \vec{k}},
+\]</div>
+<p>which is determined by the dispersion relation <span class="math notranslate nohighlight">\(\omega(\vec{k})\)</span>.</p>
+</section>
+<section id="quantum-description">
+<h2>Quantum Description<a class="headerlink" href="#quantum-description" title="Permalink to this heading">#</a></h2>
+<p>Quantum mechanically, each normal mode becomes a harmonic oscillator. We introduce creation and annihilation operators <span class="math notranslate nohighlight">\(\hat{a}^{\dagger}_{\alpha,\vec{k}}\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_{\alpha,\vec{k}}\)</span>, together with number operators</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{n}_{\alpha,\vec{k}} = \hat{a}^{\dagger}_{\alpha,\vec{k}} \hat{a}_{\alpha,\vec{k}}.
+\]</div>
+<p>They satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\hat{a}_{\alpha,\vec{k}}, \hat{a}^{\dagger}_{\beta,\vec{k}'}\right]
+=
+\delta_{\alpha\beta}\delta_{\vec{k},\vec{k}'},
+\qquad
+\left[\hat{a}_{\alpha,\vec{k}}, \hat{a}_{\beta,\vec{k}'}\right]
+=
+\left[\hat{a}^{\dagger}_{\alpha,\vec{k}}, \hat{a}^{\dagger}_{\beta,\vec{k}'}\right]
+=
+0.
+\]</div>
+<p>In terms of these operators,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\hat{u}_{\alpha,\vec{k}}
+&amp;=
+\sqrt{\frac{\hbar}{2m\omega(\vec{k})}}
+\left(\hat{a}^{\dagger}_{\alpha,\vec{k}} + \hat{a}_{\alpha,-\vec{k}}\right), \\
+\hat{p}_{\alpha,\vec{k}}
+&amp;=
+i\sqrt{\frac{\hbar m \omega(\vec{k})}{2}}
+\left(\hat{a}^{\dagger}_{\alpha,\vec{k}} - \hat{a}_{\alpha,-\vec{k}}\right),
+\end{aligned}
+\end{split}\]</div>
+<p>and one can check that</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\hat{u}_{\alpha,\vec{k}}, \hat{p}_{\beta,-\vec{k}'}\right]
+=
+i\hbar\,\delta_{\alpha\beta}\delta_{\vec{k},\vec{k}'}.
+\]</div>
+<p>The Hamiltonian becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}
+=
+V^*
++
+\sum_{\vec{k},\alpha}
+\hbar\omega(\vec{k})
+\left(\hat{n}_{\alpha,\vec{k}}+\frac{1}{2}\right).
+\]</div>
+<p>The quanta of these vibrational modes are called phonons. They are bosonic quasiparticles, even if the underlying atoms are not bosons. This is one of the main lessons of many-body physics: the low-energy excitations of a system can look very different from its microscopic constituents.</p>
+<p>The Hilbert space is spanned by occupation-number states</p>
+<div class="math notranslate nohighlight">
+\[
+\left|\{n_{\alpha,\vec{k}}\}\right\rangle,
+\qquad
+n_{\alpha,\vec{k}} = 0,1,2,\ldots
+\]</div>
+<p>for all <span class="math notranslate nohighlight">\(3N\)</span> modes.</p>
+<p>The partition function is therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Z
+&amp;=
+\sum_{\{n_{\alpha,\vec{k}}\}} e^{-\beta \hat{H}} \\
+&amp;=
+e^{-\beta E_0}
+\sum_{\{n_{\alpha,\vec{k}}\}}
+e^{-\beta \sum_{\vec{k},\alpha} \hbar\omega(\vec{k}) n_{\alpha,\vec{k}}} \\
+&amp;=
+e^{-\beta E_0}
+\prod_{\vec{k},\alpha}
+\left(
+\sum_{n_{\alpha,\vec{k}}=0}^{\infty}
+e^{-\beta \hbar\omega(\vec{k}) n_{\alpha,\vec{k}}}
+\right) \\
+&amp;=
+e^{-\beta E_0}
+\prod_{\vec{k},\alpha}
+\frac{1}{1-e^{-\beta \hbar\omega(\vec{k})}},
+\end{aligned}
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+E_0
+=
+V^*
++
+\frac{1}{2}\sum_{\vec{k},\alpha}\hbar\omega(\vec{k})
+\]</div>
+<p>is the zero-point energy.</p>
+<p>The free energy is</p>
+<div class="math notranslate nohighlight">
+\[
+F
+=
+-\frac{1}{\beta}\ln Z
+=
+E_0
++
+\frac{1}{\beta}
+\sum_{\vec{k},\alpha}
+\ln\left(1-e^{-\beta\hbar\omega(\vec{k})}\right).
+\]</div>
+<p>The average energy is</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+=
+E_0
++
+\sum_{\alpha,\vec{k}}
+\langle n_{\alpha,\vec{k}} \rangle\,\hbar\omega(\vec{k}),
+\]</div>
+<p>and the heat capacity is</p>
+<div class="math notranslate nohighlight">
+\[
+C = \frac{\partial \langle E \rangle}{\partial T}.
+\]</div>
+<p>For a single gapped quantum degree of freedom, we found earlier that <span class="math notranslate nohighlight">\(C \sim e^{-\Delta E/(k_B T)}\)</span> at low temperature. Phonons behave differently because their spectrum is gapless.</p>
+<p>The average occupation number of a phonon mode is</p>
+<div class="math notranslate nohighlight">
+\[
+\left\langle n_{\alpha,\vec{k}} \right\rangle
+=
+\frac{\sum_{n=0}^{\infty} n e^{-\beta \hbar \omega(\vec{k}) n}}
+{\sum_{n=0}^{\infty} e^{-\beta \hbar \omega(\vec{k}) n}}
+=
+\frac{1}{e^{\beta \hbar \omega(\vec{k})}-1},
+\]</div>
+<p>which is the Bose-Einstein distribution.</p>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+=
+E_0
++
+\sum_{\alpha,\vec{k}}
+\frac{\hbar\omega(\vec{k})}{e^{\beta\hbar\omega(\vec{k})}-1},
+\]</div>
+<p>and differentiating with respect to temperature gives</p>
+<div class="math notranslate nohighlight">
+\[
+C
+=
+k_B
+\sum_{\alpha,\vec{k}}
+\left(\frac{\hbar\omega(\vec{k})}{k_B T}\right)^2
+\frac{e^{\beta\hbar\omega(\vec{k})}}
+{\left(e^{\beta\hbar\omega(\vec{k})}-1\right)^2}.
+\]</div>
+<p>To proceed, we need the low-<span class="math notranslate nohighlight">\(k\)</span> form of the dispersion relation.</p>
+</section>
+<section id="debye-model">
+<h2>Debye Model<a class="headerlink" href="#debye-model" title="Permalink to this heading">#</a></h2>
+<p>The exact dispersion <span class="math notranslate nohighlight">\(\omega(\vec{k})\)</span> depends on microscopic details, that is, on the interaction potential and hence on <span class="math notranslate nohighlight">\(K_{\alpha\beta}(\vec{r})\)</span>. But translational invariance already tells us something crucial. A rigid displacement of the entire crystal,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{u}_{\vec{r}} = \vec{c},
+\]</div>
+<p>costs no energy, so the <span class="math notranslate nohighlight">\(\vec{k}=0\)</span> mode must have zero frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}_{\alpha\beta}(0)=0.
+\]</div>
+<p>If the interaction is short-ranged, then <span class="math notranslate nohighlight">\(K_{\alpha\beta}(\vec{r})\)</span> decays rapidly with distance, and its Fourier transform is analytic near <span class="math notranslate nohighlight">\(\vec{k}=0\)</span>. We may therefore expand</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k})
+=
+\tilde{\kappa}_{\alpha}k_\alpha
++
+\frac{1}{2}\tilde{\kappa}_{\alpha\beta}k_\alpha k_\beta
++
+\frac{1}{3!}\tilde{\kappa}_{\alpha\beta\gamma}k_\alpha k_\beta k_\gamma
++
+\cdots
+\]</div>
+<p>with no constant term because <span class="math notranslate nohighlight">\(\tilde{K}(0)=0\)</span>.</p>
+<p>If the crystal also has inversion symmetry, then</p>
+<div class="math notranslate nohighlight">
+\[
+K(\vec{r}) = K(-\vec{r}),
+\]</div>
+<p>so the odd powers of <span class="math notranslate nohighlight">\(\vec{k}\)</span> vanish. Hence, for small <span class="math notranslate nohighlight">\(\vec{k}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k})
+=
+\frac{1}{2}\tilde{\kappa}_{\alpha\beta}k_\alpha k_\beta + O(k^4).
+\]</div>
+<p>In an isotropic medium this reduces to</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K}(\vec{k}) = B |\vec{k}|^2 + O(k^4),
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\omega(\vec{k})
+=
+\sqrt{\frac{B|\vec{k}|^2}{m}}
+=
+v |\vec{k}| + O(k^3),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\frac{B}{m}}
+\]</div>
+<p>is the speed of sound.</p>
+<p>This linear dispersion is valid only at long wavelength, i.e. for <span class="math notranslate nohighlight">\(|\vec{k}| \ll \pi/a\)</span>, but that is exactly the regime relevant at low temperature.</p>
+<p>Under this approximation,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+=
+E_0
++
+\sum_{\alpha,\vec{k}}
+\frac{\hbar v |\vec{k}|}{e^{\beta\hbar v |\vec{k}|}-1}.
+\]</div>
+<p>In the thermodynamic limit,</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{\vec{k}}
+\to
+\left(\frac{L}{2\pi}\right)^3 \int_{BZ} d^3k,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+\approx
+E_0
++
+3V
+\int_{BZ}
+\frac{d^3k}{(2\pi)^3}
+\frac{\hbar v |\vec{k}|}{e^{\beta\hbar v |\vec{k}|}-1}.
+\]</div>
+<p>At temperatures much smaller than the Debye temperature,</p>
+<div class="math notranslate nohighlight">
+\[
+T_D \sim \frac{\hbar v \pi}{k_B a},
+\]</div>
+<p>the dominant contribution comes from small <span class="math notranslate nohighlight">\(|\vec{k}|\)</span>, so we may extend the integral to infinity:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+=
+E_0
++
+3V
+\int_0^\infty dk\,
+\frac{4\pi k^2}{(2\pi)^3}
+\frac{\hbar v k}{e^{\beta\hbar v k}-1}.
+\]</div>
+<p>Evaluating the integral gives</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle
+=
+E_0
++
+\frac{\pi^2}{10}
+V
+\frac{(k_B T)^4}{(\hbar v)^3}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C}{V}
+=
+\frac{2\pi^2}{5}
+k_B
+\left(\frac{k_B T}{\hbar v}\right)^3.
+\]</div>
+<p>This is the Debye <span class="math notranslate nohighlight">\(T^3\)</span> law:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle E \rangle - E_0 \sim T^4,
+\qquad
+C_V \sim T^3.
+\]</div>
+<p>This is completely different from the activated behavior <span class="math notranslate nohighlight">\(e^{-\Delta E/(k_B T)}\)</span> found in gapped systems. The reason is simple: phonons are gapless. Since</p>
+<div class="math notranslate nohighlight">
+\[
+\hbar\omega(\vec{k}) \sim \hbar v |\vec{k}|,
+\]</div>
+<p>there are always modes with arbitrarily small excitation energy.</p>
+<p>The important lesson is that the low-temperature behavior depends only on a few coarse-grained parameters, such as the sound velocity <span class="math notranslate nohighlight">\(v\)</span>, and not on all the microscopic details of the lattice Hamiltonian.</p>
+<section id="relation-to-spontaneous-symmetry-breaking-and-goldstone-modes">
+<h3>Relation to Spontaneous Symmetry Breaking and Goldstone Modes<a class="headerlink" href="#relation-to-spontaneous-symmetry-breaking-and-goldstone-modes" title="Permalink to this heading">#</a></h3>
+<p>This connects directly to spontaneous symmetry breaking.</p>
+<p>In the Ising model below <span class="math notranslate nohighlight">\(T_c\)</span>, the Hamiltonian is symmetric under spin flip,</p>
+<div class="math notranslate nohighlight">
+\[
+E(\{\sigma\}) = E(\{-\sigma\}),
+\]</div>
+<p>but an ordered phase chooses one of the two magnetized states, so the symmetry is spontaneously broken.</p>
+<p>A crystal behaves similarly. The microscopic Hamiltonian is invariant under uniform translations,</p>
+<div class="math notranslate nohighlight">
+\[
+E\bigl(\{q_{\vec{r}}\}\bigr)
+=
+E\bigl(\{q_{\vec{r}}+\vec{c}\}\bigr),
+\]</div>
+<p>but once the crystal forms, it selects a particular set of equilibrium positions,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \vec{q}_{\vec{r}} \rangle = \vec{r},
+\]</div>
+<p>thereby spontaneously breaking continuous translation symmetry.</p>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \vec{q}_{\vec{r}} \rangle
+=
+\vec{r} + \langle \vec{u}_{\vec{r}} \rangle,
+\]</div>
+<p>one typically has</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\langle \vec{u}_{\vec{r}} \rangle
+&amp;=
+\sum_{\vec{k}}
+\frac{e^{i\vec{k}\cdot\vec{r}}}{\sqrt{N}}
+\sqrt{\frac{1}{2m\omega_{\vec{k}}}}
+\left\langle \hat{a}^{\dagger}_{\vec{k}} + \hat{a}_{-\vec{k}} \right\rangle \\
+&amp;= 0,
+\end{aligned}
+\end{split}\]</div>
+<p>but the reference lattice itself still picks out a preferred origin and thus represents broken translational symmetry.</p>
+<p>Because translation symmetry implies</p>
+<div class="math notranslate nohighlight">
+\[
+\omega(\vec{k}=0)=0,
+\]</div>
+<p>the broken-symmetry phase necessarily contains a gapless long-wavelength mode. In this case that mode is the phonon.</p>
+<p>This is an example of Goldstone’s theorem:</p>
+<blockquote>
+<div><p>A system with a spontaneously broken continuous global symmetry has a gapless mode.</p>
+</div></blockquote>
+<p>There are important subtleties depending on whether the symmetry is internal or spacetime-related, and whether the theory is relativistic or nonrelativistic. But for our purposes, the main point is clear:</p>
+<p>The phonon is the Goldstone mode associated with spontaneously broken translation symmetry.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In two dimensions, the situation is more subtle. Continuous symmetries cannot be broken in the same way at finite temperature, as expressed by the Mermin-Wagner theorem. You will discuss this in more detail in Physics 212.</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+<section id="original-version">
+<h1>Original Version<a class="headerlink" href="#original-version" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem">
+<h1>Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem<a class="headerlink" href="#gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>Phonons and the Debye Model<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Previously, we examined systems with a small number of degrees of freedom, where the quantum Hamiltonian exhibits an energy gap, such as <span class="math notranslate nohighlight">\(\Delta E = \hbar \omega\)</span> or <span class="math notranslate nohighlight">\(\Delta E = \frac{\hbar^{2}}{I}\)</span>. This leads to specific heat behavior like <span class="math notranslate nohighlight">\(C_V \sim e^{-\Delta E / (k_B T)}\)</span>.</p>
 <p>However, as <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>, more intriguing behavior emerges if the Hamiltonian becomes gapless. To illustrate this, we now explore the vibrations in a crystal as an example of a gapless system.</p>
 <p>Consider a crystal consisting of a regular lattice of atoms, where the equilibrium positions are described by:</p>
@@ -500,11 +1113,11 @@ V(\{\vec q_{\vec r}\})=V^*+\frac 12 \sum_{\vec r, \vec r', \alpha, \beta} \frac{
 \hat{H} = V^* + \sum_{\vec{k}} \left[ \frac{\vec{p}(\vec{k}) \cdot \vec{p}(-\vec{k})}{2m} + \frac{1}{2} \tilde{K}(\vec{k}) \vec{u}(\vec{k}) \cdot \vec{u}(-\vec{k}) \right].
 \]</div>
 </section>
-<section id="discrete-values-of-vec-k">
-<h2>Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span><a class="headerlink" href="#discrete-values-of-vec-k" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h2>Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="periodicity-in-k-space">
-<h2>1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#periodicity-in-k-space" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h2>1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Recall that <span class="math notranslate nohighlight">\(\vec{r} = a(l \hat{x} + m \hat{y} + n \hat{z})\)</span>. This implies:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -512,8 +1125,8 @@ e^{i \vec{k} \cdot \vec{r}} = e^{i \left( \vec{k} + \frac{2\pi}{a} \hat{e}_i \ri
 \]</div>
 <p>Thus, <span class="math notranslate nohighlight">\(u_{\alpha}(\vec{k}) = u_{\alpha}\left(\vec{k} + \frac{2\pi}{a} \hat{e}_i\right)\)</span>, meaning <span class="math notranslate nohighlight">\(\vec{k}\)</span> is periodic in <span class="math notranslate nohighlight">\(k\)</span>-space. This periodicity defines the “Brillouin Zone” (BZ), a toroidal region in <span class="math notranslate nohighlight">\(k\)</span>-space.</p>
 </section>
-<section id="periodic-boundary-conditions-in-real-space">
-<h2>2. Periodic Boundary Conditions in Real Space<a class="headerlink" href="#periodic-boundary-conditions-in-real-space" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h2>2. Periodic Boundary Conditions in Real Space<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>Assuming periodic boundary conditions in real space, <span class="math notranslate nohighlight">\(\vec{r} \sim \vec{r} + L \cdot \hat{e}_i\)</span>, we find that <span class="math notranslate nohighlight">\(\vec{k}\)</span> must satisfy:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -538,8 +1151,8 @@ e^{i \vec{k} \cdot \vec{r}} &amp;= e^{i \vec{k} \cdot (\vec{r} + L \cdot \hat{e}
 \hat{H} = V^* + \sum_{\vec{k}} \left[ \frac{|\vec{p}(\vec{k})|^2}{2m} + \frac{1}{2} \tilde{K}(\vec{k}) |\vec{u}(\vec{k})|^2 \right].
 \]</div>
 </section>
-<section id="interpretation-in-k-space">
-<h2>Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#interpretation-in-k-space" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h2>Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>In <span class="math notranslate nohighlight">\(k\)</span>-space, the system decomposes into <span class="math notranslate nohighlight">\(3N = 3(L/a)^3\)</span> independent harmonic oscillators, each with frequency:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -632,8 +1245,8 @@ C &amp;= \frac{\partial \langle E \rangle}{\partial T} = k_B \sum_{\alpha, \vec{
 \]</div>
 <p>To proceed further, we need to determine the specific form of the phonon dispersion relation <span class="math notranslate nohighlight">\(\omega(\vec{k})\)</span>.</p>
 </section>
-<section id="debye-model">
-<h2>Debye Model<a class="headerlink" href="#debye-model" title="Permalink to this heading">#</a></h2>
+<section id="id6">
+<h2>Debye Model<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>The exact form of <span class="math notranslate nohighlight">\(\omega(k)\)</span> depends on the detailed chemistry of the system, which determines <span class="math notranslate nohighlight">\(V(\{\vec{q}_{\vec{r}}\})\)</span> and, consequently, <span class="math notranslate nohighlight">\(K_{\alpha \beta}(\vec{r})\)</span>. However, translation invariance ensures that <span class="math notranslate nohighlight">\(V(\{\vec{q}_{\vec{r}} + \vec{c}\}) = V(\{\vec{q}_{\vec{r}}\})\)</span>, implying that a rigid shift of the lattice, <span class="math notranslate nohighlight">\(\vec{u}_{\vec{r}} = \vec{c}\)</span>, results in no change in energy (<span class="math notranslate nohighlight">\(\Delta E = 0\)</span>). This corresponds to the <span class="math notranslate nohighlight">\(\vec{u}(\vec{k} = 0)\)</span> mode, leading to:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -780,18 +1393,37 @@ C &amp;= \frac{\partial \langle E \rangle}{\partial T} = k_B \sum_{\alpha, \vec{
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phonons-and-the-debye-model">Phonons and the Debye Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-values-of-vec-k">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic Boundary Conditions in Real Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicity-in-k-space">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions-in-real-space">2. Periodic boundary conditions in real space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reality-conditions">3. Reality conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-in-k-space">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-description">Quantum Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debye-model">Debye Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-spontaneous-symmetry-breaking-and-goldstone-modes">Relation to Spontaneous Symmetry Breaking and Goldstone Modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#original-version">Original Version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gapless-quantum-matter-phonons-and-the-debye-model-goldstone-s-theorem">Gapless Quantum Matter: Phonons and the Debye Model, Goldstone’s Theorem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Phonons and the Debye Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Discrete Values of <span class="math notranslate nohighlight">\(\vec{k}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. Periodicity in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. Periodic Boundary Conditions in Real Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-variables-are-real-valued">3. Original variables are real-valued</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretation in <span class="math notranslate nohighlight">\(k\)</span>-Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qm-description">QM description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Debye Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
