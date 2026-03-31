@@ -1,6 +1,6 @@
 ## When does quantum mechanics make a difference?
 
-Following Kardar 6.1 and 6.2, we'll motivate quantum statistical mechanics with some cases where classical mechanics gives incorrect answers or even diverges, before developing the general formalism.
+Following Kardar 6.1 and 6.2, we motivate quantum statistical mechanics by looking at examples where classical statistical mechanics gives the wrong answer, or even diverges. These examples will also help us see how the quantum results reduce to the classical ones in the appropriate high-temperature limit.
 
 #### Fluctuations of a Hydrogen atom
 
@@ -10,17 +10,29 @@ $$
 H = \frac{p_{1}^{2}}{2 m_{e}} + \frac{p_{2}^{2}}{2 m_{p}} + V\left(r_{1} - r_{2}\right)
 $$
 
-Determine the partition function $Z(T)$, the free energy $F(T)$, the internal energy $E(T)$, and other thermodynamic quantities.
+We would like to determine the partition function $Z(T)$, the free energy $F(T)$, the internal energy $E(T)$, and related thermodynamic quantities.
 
-We begin by transforming to center of mass and relative coordinates. Define the center of mass coordinates as $\vec{R} = \frac{1}{M}(m_e \vec{r}_1 + m_p \vec{r}_2)$ with total momentum $\vec{P}$, and the relative coordinates as $\vec{r} = \vec{r}_1 - \vec{r}_2$ with relative momentum $\vec{p}$. The Hamiltonian then separates into:
+It is convenient to transform to center-of-mass and relative coordinates. Define the center-of-mass coordinate
+
+$$
+\vec{R} = \frac{1}{M}(m_e \vec{r}_1 + m_p \vec{r}_2)
+$$
+
+with conjugate momentum $\vec{P}$, and the relative coordinate
+
+$$
+\vec{r} = \vec{r}_1 - \vec{r}_2
+$$
+
+with conjugate momentum $\vec{p}$. The Hamiltonian then separates as
 
 $$
 H = \frac{P^2}{2M} + \frac{p^2}{2\mu} + V(\vec{r})\;,
 $$
 
-where $M = m_e + m_p$ is the total mass, and $\mu = \frac{m_e m_p}{m_e + m_p}$ is the reduced mass.
+where $M = m_e + m_p$ is the total mass and $\mu = \frac{m_e m_p}{m_e + m_p}$ is the reduced mass.
 
-The center of mass and relative motions separate, allowing the partition function to factorize as $Z = Z_{\mathrm{cm}} \cdot Z_{r}$. For the relative motion, the partition function is given by:
+Because the center-of-mass and relative motions decouple, the partition function factorizes as $Z = Z_{\mathrm{cm}} Z_{r}$. For the relative motion we obtain
 
 $$
 \begin{aligned}
@@ -35,9 +47,12 @@ $$
 \lambda_\mu \equiv \sqrt{\frac{h^2 \beta}{2\pi \mu}}.
 $$
 
+Here classical mechanics immediately runs into trouble: the integral in {eq}`p-fct` diverges because the Coulomb attraction makes
 
-
-At short wavelengths, classical mechanics encounters a problem. The integral in Eq.~{eq}`p-fct` diverges because $e^{r_{0} / r} \rightarrow \infty$ as $r \rightarrow 0$
+$$
+e^{+\beta e^2/(4\pi\epsilon_0 r)} \to \infty
+\qquad \text{as } r \to 0.
+$$
 
 Quantum mechanics addresses this problem through Heisenberg's uncertainty principle:
 
@@ -45,149 +60,161 @@ $$
 \Delta p \Delta r \geq h
 $$
 
-This principle leads to a discrete set of energy levels:
+This prevents the electron from collapsing arbitrarily close to the proton and leads instead to a discrete spectrum of bound states:
 
 $$
 \hat{H}\left|E_{\alpha}\right\rangle = E_{\alpha}\left|E_{\alpha}\right\rangle
 $$
 
-Rather than using the classical partition function:
+So, instead of the classical phase-space expression
 
 $$
 Z = \int \frac{d q \, d p}{h} e^{-\beta H(q, p)},
 $$
 
-we adopt the quantum mechanical formulation:
+we use the quantum partition function
 
 $$
 \boxed{Z = \sum_{\alpha} e^{-\beta E_{\alpha}}}
 $$ (qm-partition-function)
 
-This quantum partition function is well-defined and avoids the divergences inherent in the classical approach. The examples below demonstrate how this quantum formulation transitions to classical results in the high-temperature limit ($T \rightarrow \infty$).
+This expression is well defined and avoids the short-distance divergence of the classical treatment. In the examples below, we will see explicitly how the quantum result crosses over to the classical one in the high-temperature limit $T \to \infty$.
 
-In approximately two lectures, we will derive {eq}`qm-partition-function` from a more formal perspective on quantum statistical mechanics.
+Later, we will derive {eq}`qm-partition-function` from the general formalism of quantum statistical mechanics.
 
-It is important to note that in {eq}`qm-partition-function`, the summation is over all measurable quantum states $\alpha$, which serve as the quantum analog of microstates in classical statistical mechanics.
+The sum in {eq}`qm-partition-function` runs over all quantum states $\alpha$. These play the role of microstates in the quantum theory.
 
 
 
 #### Dilute Polyatomic Gases
 
-Let’s consider a gas composed of tightly bound molecules. For each molecule, the internal Hamiltonian is given by
+Now consider a dilute gas of tightly bound molecules. For each molecule, the internal Hamiltonian can be written as
 
 $$
 H=\sum_{i=1}^{n} \frac{p_{i}^{2}}{2 m}+V\left(q_{1}, \cdots, q_{n}\right),
 $$
 
-where $n$ is the number of atoms per molecule. We’ve rescaled variables so that all particles have the same effective mass $m$ by transforming $q_i \rightarrow q_i \sqrt{m_i/m}$ and $p_i \rightarrow p_i \sqrt{m/m_i}$, preserving the phase space volume element $dq \cdot dp$.
+where $n$ is the number of atoms in a molecule. We have rescaled the coordinates so that all particles have the same effective mass $m$ by sending $q_i \rightarrow q_i \sqrt{m_i/m}$ and $p_i \rightarrow p_i \sqrt{m/m_i}$. This preserves the phase-space volume element $dq \cdot dp$.
 
-The partition function for a single molecule is:
+The single-molecule partition function is
 
 $$
 Z_1 = \int \prod_{i=1}^{n} \frac{d^3 q_i d^3 p_i}{h^3} , e^{-\beta\left(H_{\text{kin}} + V(\vec{q})\right)}.
 $$
 
-For $N$ such molecules (neglecting interactions), the total partition function is:
+For $N$ such molecules, neglecting intermolecular interactions,
 
 $$
 Z(N) = \frac{Z_1^N}{N!}.
 $$
 
-(Note: there’s no factor of $1/n!$ unless the atoms are identical.)
+There is no extra factor of $1/n!$ unless the atoms within a molecule are identical and being treated as indistinguishable.
 
-The interaction potential $V$ has a typical energy scale on the order of the Rydberg:
+The interaction potential has a characteristic energy scale of order the Rydberg:
 
 $$
 R_y \sim 13.6,\text{eV} \approx 1160\text{K} \cdot k_B.
 $$
 
-For temperatures $T < 1000,\text{K}$, the molecules remain tightly bound and fluctuate around a stable equilibrium configuration $q_i^*$. Defining $u_i = q_i - q_i^*$ and expanding to second order:
+For temperatures $T \lesssim 1000\,\mathrm{K}$, the molecules remain tightly bound and fluctuate only weakly around a stable equilibrium configuration $q_i^*$. Writing
+
+$$
+u_i = q_i - q_i^*
+$$
+
+and expanding the potential to quadratic order gives
 
 $$
 V({q_i}) \approx V^* + \frac{1}{2} \sum_{i,j} \frac{\partial^2 V}{\partial q_i \partial q_j} u_i \cdot u_j,
 $$
 
-where $V^* = V({q_i^*})$ and the first derivatives vanish at equilibrium. The Hessian matrix is symmetric and positive definite and can be diagonalized:
+where $V^* = V({q_i^*})$, and the linear term vanishes because we expand about an equilibrium point. The Hessian is symmetric and positive semidefinite, so it can be diagonalized:
 
 $$
 \frac{\partial^2 V}{\partial q \partial q} = O^\top K O, \quad K = \text{diag}(K_s),
 $$
 
-with $O$ orthogonal. Defining transformed variables:
+with $O$ orthogonal. In the normal-mode coordinates
 
 $$
 \tilde{u} = O u, \quad \tilde{p} = O p,
 $$
 
-the partition function becomes:
+the partition function becomes
 
 $$
 Z = \int \prod_{i=1}^n \frac{d^3 \tilde{u}_i d^3 \tilde{p}_i}{h^3}  e^{-\beta\left(\frac{1}{2m} \tilde{p}^\top \tilde{p} + V^* + \frac{1}{2} \tilde{u}^\top K \tilde{u}\right)}.
 $$
 
-This separates into kinetic and potential parts. Using:
+This separates into a product of Gaussian integrals. Using
 
 $$
 \lambda = \sqrt{\frac{h^2 \beta}{2\pi m}},
 $$
 
-and integrating over all $\tilde{p}_i$, we get:
+and integrating over the momenta, we find
 
 $$
 Z = \frac{1}{\lambda^{3n}} \prod_{s=1}^{3n} \int d\tilde{u}_s e^{-\beta \frac{K_s}{2} \tilde{u}_s^2} = \prod_{s=1}^{3n} \sqrt{\frac{m}{K_s h^2 \beta^2}}.
 $$
 
-The internal energy follows as:
+The internal energy is then
 
 $$
 E = -\partial_\beta \ln Z = 3n k_B T,
 $$
 
-which reflects the classical equipartition result: $\frac{1}{2}k_B T$ per quadratic degree of freedom.
+which is just the classical equipartition result: each quadratic term contributes $\frac{1}{2}k_B T$.
 
-If any $K_s = 0$, that mode contributes no $\beta$-dependence, and hence no contribution to $E$. Let $m$ be the number of nonzero modes, then:
+If some $K_s=0$, then the corresponding mode has no restoring force. Such a mode contributes no $\beta$-dependence from the potential term, and therefore changes the energy counting. If $m$ is the number of nonzero modes, then
 
 $$
 E = \frac{3n + m}{2} k_B T.
 $$
 
-The number of zero modes $r = 3n - m$ is determined by symmetry—typically 3 translational and 0–3 rotational modes, depending on whether the molecule is mono-, di-, or polyatomic.
+The number of zero modes is $r = 3n - m$. These are determined by symmetry and typically correspond to 3 translations together with 0 to 3 rotations, depending on the molecule.
 
-Therefore, the heat capacity per molecule is:
+Hence the heat capacity per molecule is
 
 $$
 C_v = \left.\frac{dE}{dT}\right|_V = \left(3n - \frac{r}{2}\right) k_B.
 $$
 
-This predicts a temperature-independent $C_v$.
+Classically this predicts a temperature-independent specific heat.
 
-However, this is not what is observed in experiments: at low temperatures, many degrees of freedom are “frozen out” due to energy quantization, and $C_v$ increases stepwise with temperature as different modes become accessible.
+Experimentally, this is not what happens. At low temperatures many degrees of freedom are frozen out by quantization, and $C_v$ increases only gradually as translational, rotational, and vibrational modes become thermally accessible.
 
 
 
 ![](https://cdn.mathpix.com/cropped/2024_03_19_23a706af92a350552302g-08.jpg?height=709&width=1045&top_left_y=207&top_left_x=578)
 
-For $H_{2}$, a diatomic molecule, we have $n=2$ and $r=5$, accounting for 3 translational and 2 rotational degrees of freedom. 
+For $\mathrm{H}_2$, a diatomic molecule, we have $n=2$ and $r=5$: 3 translational zero modes and 2 rotational ones.
 
-The predicted heat capacity is:
+The classical prediction is therefore
 
 $$
 \frac{C_V}{k_B} = 6 - \frac{5}{2} = \frac{7}{2}  = \frac{\text{3 translational + 2 rotational + 1 vibrational}}{2}.
 $$
 
-However, the observed behavior varies with temperature:
+But the measured behavior depends strongly on temperature:
 
-- As $T \rightarrow 0$, $C_V \sim \frac{3}{2} k_B$ due to center-of-mass translation.
-- Around $T \sim 500 \, \mathrm{K}$, $C_V \sim \frac{5}{2} k_B$, reflecting contributions from center-of-mass translation and rotation.
-- At $T \gg 1000 \, \mathrm{K}$, $C_V \sim \frac{7}{2} k_B$, including contributions from center-of-mass translation, rotation, and vibration.
+- As $T \to 0$, $C_V \sim \frac{3}{2} k_B$, with only center-of-mass translation contributing.
+- Around $T \sim 500\,\mathrm{K}$, $C_V \sim \frac{5}{2} k_B$, as rotational modes begin to contribute.
+- At $T \gg 1000\,\mathrm{K}$, $C_V \sim \frac{7}{2} k_B$, once the vibrational mode also becomes thermally active.
 
-Classical results are only recovered when $k_B T > \mathrm{eV}$. At intermediate temperatures, certain degrees of freedom remain "frozen out" due to energy quantization effects.
+The classical result is recovered only when the thermal energy is large compared with the relevant level spacings. At intermediate temperatures, some modes remain frozen out while others have already equilibrated.
 
 #### Vibrational Modes
 
-A diatomic molecule has $3 \cdot 2 - 5 = 1$ vibrational mode with $K_s > 0$, corresponding to the oscillation of the bond connecting the two atoms.
+A diatomic molecule has
 
-Let $q = x - x_0$ represent the bond length deviation from its equilibrium value $x_0$. The vibrational Hamiltonian is given by:
+$$
+3 \cdot 2 - 5 = 1
+$$
+
+vibrational mode with $K_s > 0$, corresponding to oscillations of the bond length.
+
+Let $q = x - x_0$ denote the deviation of the bond length from equilibrium. The vibrational Hamiltonian is then
 
 $$
 H_{\text{vib}} = \frac{p^2}{2m} + \frac{K_s q^2}{2} = \frac{p^2}{2m} + \frac{m \omega^2}{2} q^2,
@@ -195,73 +222,82 @@ $$
 
 where $\omega = \sqrt{K_s / m}$ is the classical vibrational frequency.
 
-Classically, the partition function is:
+Classically, the partition function is
 
 $$
 Z = \frac{1}{\lambda} \sqrt{\frac{2\pi}{\beta K_s}} = \sqrt{\frac{m}{K_s \hbar^2 \beta^2}} = \frac{k_B T}{\hbar \omega} = \frac{1}{\beta \hbar \omega}.
 $$
 
-The corresponding internal energy is:
+The corresponding internal energy is
 
 $$
 E = \langle H \rangle = -\partial_\beta \ln(Z) = k_B T,
 $$
 
-which reflects two degrees of freedom.
+as expected for two quadratic degrees of freedom.
 
-In quantum mechanics, the energy eigenstates are given by:
+Quantum mechanically, the energy eigenvalues are
 
 $$
 \hat{H}|n\rangle = \hbar \omega \left(n + \frac{1}{2}\right)|n\rangle, \quad n = 0, 1, 2, \dots
 $$
 
-The partition function can be computed as:
+and the partition function is
 
 $$
 \begin{aligned}
-Z & = \sum_{n=
-& =\frac{e^{-\beta \hbar \omega / 2}}{1-e^{-\beta \hbar \omega}}=\frac{1}{2 \sinh (\beta \hbar \omega / 2)}
+Z & = \sum_{n=0}^{\infty} e^{-\beta \hbar \omega \left(n + \frac{1}{2}\right)} \\
+& = \frac{e^{-\beta \hbar \omega / 2}}{1-e^{-\beta \hbar \omega}} \\
+& = \frac{1}{2 \sinh (\beta \hbar \omega / 2)}.
 \end{aligned}
 $$
 
-$$
-Z=\frac{e^{-\beta \hbar \omega / 2}}{1-e^{-\beta \hbar \omega}}=\frac{1}{2 \sinh (\beta \hbar \omega / 2)}
-$$
-
-As $\quad T \rightarrow \infty$, $\beta \rightarrow 0$, we get the classical result, 
+In the high-temperature limit, $\beta \to 0$, this reduces to the classical result:
 
 $$
-\lim _{T \rightarrow \infty} Z=\frac{1}{\beta\hbar\omega}=Z_{\text {classical }}
+\lim _{T \rightarrow \infty} Z=\frac{1}{\beta\hbar\omega}=Z_{\text{classical}}.
 $$
 
-Note this required the $\int \frac{d q d p}{h}$ we've conventionally put in the classical phase-space integral. While it doesn't affect observables, it arises from the semiclassical principle!
+Notice that this matching requires the conventional factor $\int \frac{dq\,dp}{h}$ in the classical phase-space integral. Although this factor does not affect classical equations of motion, it is exactly what the semiclassical correspondence demands.
 
 ```{note} Quantum states and phase space volume
 
-Each quantum state occupies a phase space volume of $2 \pi \hbar$. This relationship arises from the Bohr-Sommerfeld quantization condition:
+Semiclassically, each quantum state occupies a phase-space area of $2 \pi \hbar$. This follows from the Bohr-Sommerfeld quantization condition
 
 $$
-S = \int_{\partial S} p(q) \cdot dq = n \cdot h,
+S = \int_{\partial S} p(q) \cdot dq = n h,
 $$
 
-where $S$ represents the action, and $n$ is an integer. 
+where $n$ is an integer.
 
-The phase space volume can also be expressed as:
+Using Stokes' theorem, the same quantity can be written as
 
 $$
 \int_{\partial S} p \, dq = \int_{S} dp \wedge dq,
 $$
 
-which corresponds to the total phase space volume enclosed. This principle is foundational to the Weyl formula and the Gutzwiller trace formula.
+which is the phase-space area enclosed by the orbit. This idea underlies the Weyl formula and, more broadly, semiclassical trace formulas.
 ```
 
-Since $\ln (Z) = \ln (2) - \ln (\sinh (\beta \hbar \omega / 2))$, the internal energy is given by:
+From
+
+$$
+\ln Z = -\ln \left[2 \sinh (\beta \hbar \omega / 2)\right],
+$$
+
+the internal energy is
 
 $$
 E = -\partial_\beta \ln Z = \frac{\hbar \omega}{2} \coth \left(\frac{\beta \hbar \omega}{2}\right) = \frac{\hbar \omega}{2} \frac{e^{\beta \hbar \omega} + 1}{e^{\beta \hbar \omega} - 1}.
 $$
 
-To visualize this function, we plot the reduced energy $\frac{E}{\hbar \omega}$ as a function of the reduced temperature $T / \theta_\text{vib}$, where $\theta_\text{vib} = \frac{\hbar \omega}{k_B}$ is the vibrational temperature.
+It is convenient to introduce the vibrational temperature
+
+$$
+\theta_\text{vib} = \frac{\hbar \omega}{k_B},
+$$
+
+and plot the reduced energy $E/\hbar\omega$ as a function of $T/\theta_\text{vib}$.
 
 ```{figure} Reduced_Energy_vs_Tvib.png
 ---
@@ -271,22 +307,30 @@ name: energy-vs-temperature
 Plot of the reduced energy $\frac{E}{\hbar \omega}$ as a function of the reduced temperature $T / \theta_\text{vib}$. The energy approaches $\frac{1}{2}$ at low temperatures and increases linearly with $T / \theta_\text{vib}$ at high temperatures, reflecting the transition from quantum to classical behavior.
 ```
 
-The plot shows that at low temperatures ($T / \theta_\text{vib} \ll 1$), the energy approaches the zero-point energy $\frac{\hbar \omega}{2}$. At high temperatures ($T / \theta_\text{vib} \gg 1$), the energy asymptotically approaches the classical result $k_B T$.
+At low temperatures ($T / \theta_\text{vib} \ll 1$), the energy approaches the zero-point value $\hbar\omega/2$. At high temperatures ($T / \theta_\text{vib} \gg 1$), it approaches the classical result $k_B T$.
 
 
 $$
-C_V=\partial_T E=k_{B}\left(\frac{k \omega}{k_{B} T}\right)^{2} \frac{e^{-\beta \hbar \omega}}{\left(1-e^{-\beta A \omega}\right)^{2}}
+C_V=\partial_T E
+=k_{B}\left(\frac{\hbar \omega}{k_{B} T}\right)^{2}
+\frac{e^{-\beta \hbar \omega}}{\left(1-e^{-\beta \hbar \omega}\right)^{2}}.
 $$
 
 ```{note}
-Note $\frac{C_V}{K_{B}} \sim\left(\frac{\hbar w}{K_{B} T}\right)^{2} e^{-\hbar \omega / K_{B} T}$ is exponentially small as $T \rightarrow 0$. This is a general feature of any model with a gap $\Delta E=\hbar \omega $ above ground state.
+As $T \to 0$,
+
+$$
+\frac{C_V}{k_{B}} \sim \left(\frac{\hbar \omega}{k_{B} T}\right)^{2} e^{-\hbar \omega /(k_{B} T)},
+$$
+
+so the heat capacity is exponentially small. This is a general feature of any system with an energy gap $\Delta E = \hbar \omega$ above the ground state.
 ``` 
 
 #### Rotations
 
 ![](https://cdn.mathpix.com/cropped/2024_03_19_23a706af92a350552302g-12.jpg?height=384&width=218&top_left_y=820&top_left_x=194)
 
-The orientation of a diatomic molecule can be described using the angles $\theta$ and $\varphi$, which parameterize a point on the surface of a 3D ball ($S_2$). The Lagrangian for the system is:
+The orientation of a diatomic molecule is specified by the angles $\theta$ and $\phi$, which parameterize a point on the sphere $S^2$. The Lagrangian is
 
 $$
 L = \frac{I}{2} \left(\dot{\theta}^2 + \sin^2 \theta \, \dot{\phi}^2\right),
@@ -295,61 +339,61 @@ $$
 where $I$ is the moment of inertia. The conjugate momenta are given by:
 
 $$
-p_{\theta} = \frac{\partial L}{\partial \dot{\theta}} = I \dot{\theta}, \quad \rho_{\phi} = \frac{\partial L}{\partial \dot{\phi}} = I \sin^2 \theta \, \dot{\phi}.
+p_{\theta} = \frac{\partial L}{\partial \dot{\theta}} = I \dot{\theta}, \quad p_{\phi} = \frac{\partial L}{\partial \dot{\phi}} = I \sin^2 \theta \, \dot{\phi}.
 $$
 
-The Hamiltonian, expressed in terms of these momenta, is:
+The Hamiltonian is therefore
 
 $$
-H = p \dot{q} - L = \frac{1}{2I} \left(\rho_{\theta}^2 + \frac{\rho_{\phi}^2}{\sin^2 \theta}\right) = \frac{\vec{L}^2}{2I},
+H = p \dot{q} - L = \frac{1}{2I} \left(p_{\theta}^2 + \frac{p_{\phi}^2}{\sin^2 \theta}\right) = \frac{\vec{L}^2}{2I},
 $$
 
-where $\vec{L}$ is the angular momentum vector. This formulation is analogous to the dynamics of a particle constrained to move on the surface of a unit ball.
+where $\vec{L}$ is the angular momentum. This is the same Hamiltonian as that of a particle constrained to move on the surface of a sphere.
 
-Classically, the partition function is given by:
+Classically, the partition function is
 
 $$
 \begin{aligned}
-Z & = \frac{1}{h^{2}} \int_{0}^{\pi} \int_{0}^{2 \pi} d\theta \, d\phi \int d\rho_{\theta} \, d\rho_{\phi} \, e^{-\frac{\beta}{2I} \left(\rho_{\theta}^{2} + \frac{\rho_{\phi}^{2}}{\sin^{2} \theta}\right)} \\
+Z & = \frac{1}{h^{2}} \int_{0}^{\pi} \int_{0}^{2 \pi} d\theta \, d\phi \int dp_{\theta} \, dp_{\phi} \, e^{-\frac{\beta}{2I} \left(p_{\theta}^{2} + \frac{p_{\phi}^{2}}{\sin^{2} \theta}\right)} \\
 & = \frac{1}{h^{2}} \int_{0}^{\pi} \int_{0}^{2 \pi} d\theta \, d\phi \, \sqrt{\frac{2 \pi I}{\beta}} \sqrt{\frac{2 \pi I \sin^{2} \theta}{\beta}} \\
 & = \frac{2 \pi I}{\beta h^{2}} \int_{0}^{\pi} d\theta \, \sin \theta \int_{0}^{2 \pi} d\phi \\
 & = \frac{2 \pi I}{\beta} \cdot \frac{4 \pi}{h^{2}}.
 \end{aligned}
 $$
 
-From this, we find:
+Thus
 
 $$
 \ln(Z) \propto -\ln(\beta),
 $$
 
-which implies the energy and heat capacity are:
+so the energy and heat capacity are
 
 $$
 E = k_B T, \quad C_V = k_B.
 $$
 
-This result corresponds to two degrees of freedom, associated with $\rho_{\theta}$ and $\rho_{\phi}$.
+This is the equipartition result for two quadratic degrees of freedom.
 
-Quantum mechanically, the rotational Hamiltonian is expressed as:
+Quantum mechanically, the Hamiltonian is still
 
 $$
 H = \frac{\vec{L}^2}{2I},
 $$
 
-where $\vec{L}$ is the angular momentum operator. However, the components of $\vec{L}$ do not commute:
+but now $\vec{L}$ is an operator, and its components do not commute:
 
 $$
 \left[L_i, L_j\right] \neq 0.
 $$
 
-The wavefunctions are spherical harmonics, $\psi(\theta, \phi) = Y_{l, m}(\theta, \phi)$, with eigenvalues:
+The eigenfunctions are the spherical harmonics $\psi(\theta, \phi) = Y_{l,m}(\theta, \phi)$, with
 
 $$
-\vec{L}^2 = \hbar^2 l(l+1), \quad -l \leq m \leq l.
+\vec{L}^2 Y_{l,m} = \hbar^2 l(l+1) Y_{l,m}, \quad -l \leq m \leq l.
 $$
 
-The quantum partition function is given by:
+The rotational partition function is therefore
 
 $$
 \begin{aligned}
@@ -358,27 +402,27 @@ Z_1 & = \sum_{l=0}^\infty \sum_{|m| \leq l} e^{-\frac{\beta}{2I} \hbar^2 l(l+1)}
 \end{aligned}
 $$
 
-In the high-temperature limit ($T \to \infty$, $\beta \to 0$), the summation over $l$ can be approximated by an integral:
+In the high-temperature limit ($T \to \infty$, $\beta \to 0$), the sum over $l$ can be approximated by an integral:
 
 $$
-\lim_{T \to \infty} Z = \frac{T}{\theta_r}, \quad \theta_r = \frac{h^2}{2I k_B},
+\lim_{T \to \infty} Z = \frac{T}{\theta_r}, \quad \theta_r = \frac{\hbar^2}{2I k_B},
 $$
 
-recovering the classical result $Z_{cl}$.
+which recovers the classical result up to convention-dependent numerical factors in the definition of $\theta_r$.
 
-At low temperatures ($T \to 0$), the partition function simplifies to:
+At low temperatures, only the $l=0$ and $l=1$ states matter, so
 
 $$
 Z = 1 + 3 e^{-2\theta_r / T},
 $$
 
-leading to a steep drop in the specific heat as $T \to 0$. The rotational energy is approximately:
+and the rotational contribution to the specific heat becomes exponentially small. The energy is approximately
 
 $$
 E_{rot} = -\partial_\beta \ln(Z) \approx 6k_B \theta_r e^{-2\theta_r / T},
 $$
 
-and the specific heat is:
+while the heat capacity is
 
 $$
 C_{rot} = \partial_T E_{rot} \approx 3k_B \left(\frac{2\theta_r}{T}\right)^2 e^{-2\theta_r / T}.
