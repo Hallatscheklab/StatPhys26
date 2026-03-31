@@ -94,7 +94,15 @@ $$
 H=\sum_{i=1}^{n} \frac{p_{i}^{2}}{2 m}+V\left(q_{1}, \cdots, q_{n}\right),
 $$
 
-where $n$ is the number of atoms in a molecule. We have rescaled the coordinates so that all particles have the same effective mass $m$ by sending $q_i \rightarrow q_i \sqrt{m_i/m}$ and $p_i \rightarrow p_i \sqrt{m/m_i}$. This preserves the phase-space volume element $dq \cdot dp$.
+where $n$ is the number of atoms in a molecule. For simplicity, we write the Hamiltonian as though all particles had the same mass $m$. This is no real restriction, since for particles with masses $m_i$ we can rescale
+
+$$
+p_i \rightarrow p_i \sqrt{m/m_i},
+\qquad
+q_i \rightarrow q_i \sqrt{m_i/m},
+$$
+
+which makes the kinetic term take the same form while leaving the phase-space volume element $dq \cdot dp$ unchanged.
 
 The single-molecule partition function is
 

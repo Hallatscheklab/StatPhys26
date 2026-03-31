@@ -507,7 +507,14 @@ Z = \int \frac{d q \, d p}{h} e^{-\beta H(q, p)},
 \[
 H=\sum_{i=1}^{n} \frac{p_{i}^{2}}{2 m}+V\left(q_{1}, \cdots, q_{n}\right),
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of atoms in a molecule. We have rescaled the coordinates so that all particles have the same effective mass <span class="math notranslate nohighlight">\(m\)</span> by sending <span class="math notranslate nohighlight">\(q_i \rightarrow q_i \sqrt{m_i/m}\)</span> and <span class="math notranslate nohighlight">\(p_i \rightarrow p_i \sqrt{m/m_i}\)</span>. This preserves the phase-space volume element <span class="math notranslate nohighlight">\(dq \cdot dp\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of atoms in a molecule. For simplicity, we write the Hamiltonian as though all particles had the same mass <span class="math notranslate nohighlight">\(m\)</span>. This is no real restriction, since for particles with masses <span class="math notranslate nohighlight">\(m_i\)</span> we can rescale</p>
+<div class="math notranslate nohighlight">
+\[
+p_i \rightarrow p_i \sqrt{m/m_i},
+\qquad
+q_i \rightarrow q_i \sqrt{m_i/m},
+\]</div>
+<p>which makes the kinetic term take the same form while leaving the phase-space volume element <span class="math notranslate nohighlight">\(dq \cdot dp\)</span> unchanged.</p>
 <p>The single-molecule partition function is</p>
 <div class="math notranslate nohighlight">
 \[
