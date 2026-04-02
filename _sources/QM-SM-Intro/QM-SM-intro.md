@@ -78,9 +78,9 @@ $$
 \boxed{Z = \sum_{\alpha} e^{-\beta E_{\alpha}}}
 $$ (qm-partition-function)
 
-This expression is well defined and avoids the short-distance divergence of the classical treatment. In the examples below, we will see explicitly how the quantum result crosses over to the classical one in the high-temperature limit $T \to \infty$.
+This quantum expression removes the short-distance divergence of the classical Coulomb problem. For hydrogen, however, one must be slightly careful: the Coulomb potential also has infinitely many highly excited bound states that accumulate near the ionization threshold, so the naive sum over all states is not strictly finite in the idealized infinite-volume problem. In practice this is regularized by finite volume, screening, collisions, or ionization, and under ordinary laboratory conditions these very highly excited states are usually irrelevant.  
 
-Later, we will derive {eq}`qm-partition-function` from the general formalism of quantum statistical mechanics.
+In the examples below, we will see explicitly how the quantum result crosses over to the classical one in the high-temperature limit $T \to \infty$. Later, we will derive {eq}`qm-partition-function` from the general formalism of quantum statistical mechanics.
 
 The sum in {eq}`qm-partition-function` runs over all quantum states $\alpha$. These play the role of microstates in the quantum theory.
 
