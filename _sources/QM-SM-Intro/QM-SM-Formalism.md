@@ -155,7 +155,7 @@ $$
 \end{bmatrix}.
 $$
 
-Here the basis is ordered as $(|\rightarrow\rangle, |\leftarrow\rangle)$, which is why the transformed density matrix is $\operatorname{diag}(0,1)$. In this example $U^\dagger = U$ because the Hadamard matrix is real, symmetric, and unitary, so the distinction is numerically invisible, but it is still useful to state the transformation convention correctly.
+Here the basis is ordered as $(|\rightarrow\rangle, |\leftarrow\rangle)$, which is why the transformed density matrix is $\operatorname{diag}(0,1)$. 
 
 So in the left/right basis the state is simply $|\leftarrow\rangle\langle\leftarrow|$. This illustrates that coherences are basis-dependent.
 ```
