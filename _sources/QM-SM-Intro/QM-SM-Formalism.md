@@ -239,7 +239,7 @@ $$
 \hat{\rho}_S = \operatorname{Tr}_B |\Psi\rangle\langle\Psi|
 $$
 
-and this reduced density matrix is typically mixed. If the full pure state $|\Psi\rangle$ is a superposition of total-energy eigenstates within a narrow microcanonical shell, then for a sufficiently large bath one typically finds
+and this reduced density matrix is typically mixed (see below). If the full pure state $|\Psi\rangle$ is a superposition of total-energy eigenstates within a narrow microcanonical shell, then for a sufficiently large bath one typically finds
 
 $$
 \hat{\rho}_S \approx \frac{1}{Z} e^{-\beta \hat{H}_S}.
