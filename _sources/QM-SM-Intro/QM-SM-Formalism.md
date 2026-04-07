@@ -345,6 +345,8 @@ $$
 \mathcal{H} = \operatorname{span}\{|\uparrow\rangle, |\downarrow\rangle\} = \mathbb{C}^2.
 $$
 
+Here $\mathcal{H}$ denotes the full vector space of allowed states. A physical pure state is a normalized vector $|\psi\rangle \in \mathcal{H}$, defined up to an overall phase.
+
 A general state is
 
 $$
