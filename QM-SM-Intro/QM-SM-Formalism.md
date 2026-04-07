@@ -345,7 +345,7 @@ $$
 \mathcal{H} = \operatorname{span}\{|\uparrow\rangle, |\downarrow\rangle\} = \mathbb{C}^2.
 $$
 
-Here $\mathcal{H}$ is the full Hilbert space of allowed states. A physical pure state is a normalized vector $|\psi\rangle \in \mathcal{H}$, and vectors that differ only by an overall phase represent the same physical state.
+Here $\mathcal{H}$ is the full Hilbert space of allowed states. A physical pure state is a normalized vector $|\psi\rangle \in \mathcal{H}$, 
 
 $$
 |\psi\rangle
@@ -355,10 +355,10 @@ $$
 \begin{pmatrix}
 \psi_\uparrow \\
 \psi_\downarrow
-\end{pmatrix}.
+\end{pmatrix} \;,
 $$
 
-which is defined up to an overall phase. 
+and vectors that differ only by an overall phase represent the same physical state.
 
 In the language of quantum information, a single spin-$1/2$ is called a **qubit**, with basis states often written as $|0\rangle$ and $|1\rangle$. The standard operators acting on this space are the Pauli matrices $\sigma^x,\sigma^y,\sigma^z$, often denoted simply by $X$, $Y$, and $Z$.
 
