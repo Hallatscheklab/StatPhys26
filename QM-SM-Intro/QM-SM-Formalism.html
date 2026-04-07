@@ -650,48 +650,17 @@ Z = \operatorname{Tr}(e^{-\beta \hat{H}}).
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Why does the canonical density matrix make sense?</strong></p>
-<p>Yes: a useful way to rationalize <span class="math notranslate nohighlight">\(\hat{\rho}_\beta\)</span> is to consider a small system <span class="math notranslate nohighlight">\(S\)</span> weakly coupled to a very large reservoir <span class="math notranslate nohighlight">\(B\)</span>, with the combined “universe” <span class="math notranslate nohighlight">\(S+B\)</span> isolated at fixed total energy <span class="math notranslate nohighlight">\(E_{\mathrm{tot}}\)</span>.</p>
-<p>If the total system is described by the microcanonical ensemble in a narrow energy window near <span class="math notranslate nohighlight">\(E_{\mathrm{tot}}\)</span>, then the probability that the subsystem is found in an energy eigenstate <span class="math notranslate nohighlight">\(|E_n\rangle\)</span> is proportional to the number of bath states compatible with that choice:</p>
-<div class="math notranslate nohighlight">
-\[
-p_n \propto \Omega_B(E_{\mathrm{tot}} - E_n).
-\]</div>
-<p>Writing the bath entropy as <span class="math notranslate nohighlight">\(S_B(E) = k_B \ln \Omega_B(E)\)</span> and expanding for a large bath,</p>
-<div class="math notranslate nohighlight">
-\[
-S_B(E_{\mathrm{tot}} - E_n)
-\approx
-S_B(E_{\mathrm{tot}})
--
-\left.\frac{\partial S_B}{\partial E}\right|_{E_{\mathrm{tot}}} E_n,
-\]</div>
-<p>we obtain</p>
-<div class="math notranslate nohighlight">
-\[
-\Omega_B(E_{\mathrm{tot}} - E_n)
-\propto
-e^{-E_n/(k_B T)}
-=
-e^{-\beta E_n},
-\]</div>
-<p>where</p>
-<div class="math notranslate nohighlight">
-\[
-\beta = \frac{1}{k_B T}
-=
-\frac{1}{k_B}\left.\frac{\partial S_B}{\partial E}\right|_{E_{\mathrm{tot}}}.
-\]</div>
-<p>Therefore the reduced state of the subsystem is</p>
-<div class="math notranslate nohighlight">
-\[
-\hat{\rho}_S \approx \frac{1}{Z} e^{-\beta \hat{H}_S}.
-\]</div>
-<p>There is an even stronger modern viewpoint: the total state of <span class="math notranslate nohighlight">\(S+B\)</span> may itself be a pure state inside that narrow energy shell. Even then, after tracing out the huge bath,</p>
+<p>One modern viewpoint is that the full universe <span class="math notranslate nohighlight">\(S+B\)</span> may itself be in a pure state <span class="math notranslate nohighlight">\(|\Psi\rangle\)</span>, with <span class="math notranslate nohighlight">\(S\)</span> a small subsystem and <span class="math notranslate nohighlight">\(B\)</span> a very large bath. Even if the total state is pure, the subsystem is described by the reduced density matrix</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{\rho}_S = \operatorname{Tr}_B |\Psi\rangle\langle\Psi|
 \]</div>
-<p>is typically very close to the canonical density matrix of the subsystem. So a subsystem can look thermal and mixed even when the full universe is in a pure state.</p>
+<p>and this reduced density matrix is typically mixed. If the pure state <span class="math notranslate nohighlight">\(|\Psi\rangle\)</span> lies in a narrow energy window of the full Hamiltonian, then for a sufficiently large bath one typically finds</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}_S \approx \frac{1}{Z} e^{-\beta \hat{H}_S}.
+\]</div>
+<p>So a subsystem can look thermal and mixed even when the full universe is in a pure state. This perspective is often referred to as <strong>canonical typicality</strong>.</p>
 </div>
 <p>This leads to an important formal analogy. If we make the substitution</p>
 <div class="math notranslate nohighlight">
