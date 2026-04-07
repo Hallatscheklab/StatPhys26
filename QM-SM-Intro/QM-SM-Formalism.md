@@ -230,6 +230,43 @@ $$
 Z = \operatorname{Tr}(e^{-\beta \hat{H}}).
 $$
 
+```{note}
+**Why does the canonical density matrix make sense?**
+
+One modern viewpoint is that the full universe $S+B$ may itself be in a pure state $|\Psi\rangle$, with $S$ a small subsystem and $B$ a very large bath. Even if the total state is pure, the subsystem is described by the reduced density matrix
+
+$$
+\hat{\rho}_S = \operatorname{Tr}_B |\Psi\rangle\langle\Psi|
+$$
+
+and this reduced density matrix is typically mixed (see below). If the full pure state $|\Psi\rangle$ is a superposition of total-energy eigenstates within a narrow microcanonical shell, then for a sufficiently large bath one typically finds
+
+$$
+\hat{\rho}_S \approx \frac{1}{Z} e^{-\beta \hat{H}_S}.
+$$
+
+One way to understand the suppression of off-diagonal terms is to expand the global state in subsystem energy eigenstates:
+
+$$
+|\Psi\rangle = \sum_n c_n\, |E_n\rangle_S \otimes |\phi_n\rangle_B.
+$$
+
+Then
+
+$$
+\hat{\rho}_S
+=
+\sum_{n,m}
+c_n c_m^*\,
+\langle \phi_m | \phi_n \rangle\,
+|E_n\rangle\langle E_m|.
+$$
+
+Thus the off-diagonal terms are controlled by the bath overlaps $\langle \phi_m | \phi_n \rangle$. For a large bath, the states correlated with different subsystem energies are typically nearly orthogonal, so these overlaps are very small. In that sense, tracing over the bath both makes the subsystem state mixed and drives it toward a density matrix that is approximately diagonal in the subsystem energy basis.
+
+So a subsystem can look thermal and mixed even when the full universe is in a pure state. This perspective is often referred to as **canonical typicality**.
+```
+
 This leads to an important formal analogy. If we make the substitution
 
 $$
