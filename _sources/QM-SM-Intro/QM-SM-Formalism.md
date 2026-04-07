@@ -144,16 +144,18 @@ U = \frac{1}{\sqrt{2}}
 \end{bmatrix},
 $$
 
-and the density matrix in the new basis is
+whose columns are the new basis vectors written in the old basis. Thus $U$ maps coordinate vectors from the left/right basis to the up/down basis, and the density matrix in the new basis is
 
 $$
-\hat{\rho}_{\text{left/right}} = U \hat{\rho}_{\text{up/down}} U^\dagger
+\hat{\rho}_{\text{left/right}} = U^\dagger \hat{\rho}_{\text{up/down}} U
 =
 \begin{bmatrix}
 0 & 0 \\
 0 & 1
 \end{bmatrix}.
 $$
+
+Here the basis is ordered as $(|\rightarrow\rangle, |\leftarrow\rangle)$, which is why the transformed density matrix is $\operatorname{diag}(0,1)$. In this example $U^\dagger = U$ because the Hadamard matrix is real, symmetric, and unitary, so the distinction is numerically invisible, but it is still useful to state the transformation convention correctly.
 
 So in the left/right basis the state is simply $|\leftarrow\rangle\langle\leftarrow|$. This illustrates that coherences are basis-dependent.
 ```

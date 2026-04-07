@@ -572,16 +572,17 @@ U = \frac{1}{\sqrt{2}}
 1 &amp; -1
 \end{bmatrix},
 \end{split}\]</div>
-<p>and the density matrix in the new basis is</p>
+<p>whose columns are the new basis vectors written in the old basis. Thus <span class="math notranslate nohighlight">\(U\)</span> maps coordinate vectors from the left/right basis to the up/down basis, and the density matrix in the new basis is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\hat{\rho}_{\text{left/right}} = U \hat{\rho}_{\text{up/down}} U^\dagger
+\hat{\rho}_{\text{left/right}} = U^\dagger \hat{\rho}_{\text{up/down}} U
 =
 \begin{bmatrix}
 0 &amp; 0 \\
 0 &amp; 1
 \end{bmatrix}.
 \end{split}\]</div>
+<p>Here the basis is ordered as <span class="math notranslate nohighlight">\((|\rightarrow\rangle, |\leftarrow\rangle)\)</span>, which is why the transformed density matrix is <span class="math notranslate nohighlight">\(\operatorname{diag}(0,1)\)</span>. In this example <span class="math notranslate nohighlight">\(U^\dagger = U\)</span> because the Hadamard matrix is real, symmetric, and unitary, so the distinction is numerically invisible, but it is still useful to state the transformation convention correctly.</p>
 <p>So in the left/right basis the state is simply <span class="math notranslate nohighlight">\(|\leftarrow\rangle\langle\leftarrow|\)</span>. This illustrates that coherences are basis-dependent.</p>
 </div>
 </section>
