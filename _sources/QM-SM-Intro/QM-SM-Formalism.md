@@ -230,6 +230,60 @@ $$
 Z = \operatorname{Tr}(e^{-\beta \hat{H}}).
 $$
 
+```{note}
+**Why does the canonical density matrix make sense?**
+
+Yes: a useful way to rationalize $\hat{\rho}_\beta$ is to consider a small system $S$ weakly coupled to a very large reservoir $B$, with the combined "universe" $S+B$ isolated at fixed total energy $E_{\mathrm{tot}}$.
+
+If the total system is described by the microcanonical ensemble in a narrow energy window near $E_{\mathrm{tot}}$, then the probability that the subsystem is found in an energy eigenstate $|E_n\rangle$ is proportional to the number of bath states compatible with that choice:
+
+$$
+p_n \propto \Omega_B(E_{\mathrm{tot}} - E_n).
+$$
+
+Writing the bath entropy as $S_B(E) = k_B \ln \Omega_B(E)$ and expanding for a large bath,
+
+$$
+S_B(E_{\mathrm{tot}} - E_n)
+\approx
+S_B(E_{\mathrm{tot}})
+-
+\left.\frac{\partial S_B}{\partial E}\right|_{E_{\mathrm{tot}}} E_n,
+$$
+
+we obtain
+
+$$
+\Omega_B(E_{\mathrm{tot}} - E_n)
+\propto
+e^{-E_n/(k_B T)}
+=
+e^{-\beta E_n},
+$$
+
+where
+
+$$
+\beta = \frac{1}{k_B T}
+=
+\frac{1}{k_B}\left.\frac{\partial S_B}{\partial E}\right|_{E_{\mathrm{tot}}}.
+$$
+
+Therefore the reduced state of the subsystem is
+
+$$
+\hat{\rho}_S \approx \frac{1}{Z} e^{-\beta \hat{H}_S}.
+$$
+
+There is an even stronger modern viewpoint: the total state of $S+B$ may itself be a pure state inside that narrow energy shell. Even then, after tracing out the huge bath,
+
+$$
+\hat{\rho}_S = \operatorname{Tr}_B |\Psi\rangle\langle\Psi|
+$$
+
+is typically very close to the canonical density matrix of the subsystem. So a subsystem can look thermal and mixed even when the full universe is in a pure state.
+```
+
 This leads to an important formal analogy. If we make the substitution
 
 $$
