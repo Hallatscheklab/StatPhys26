@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bosons, Fermions, and the Many-Body Hilbert Space &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Boson-Fermions/Boson-Fermion-Hilbertspace_transcription';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Formalism of quantum statistical mechanics" href="../QM-SM-Intro/QM-SM-Formalism.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FBoson-Fermions/Boson-Fermion-Hilbertspace_transcription.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bosons, Fermions, and the Many-Body Hilbert Space</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-hilbert-space">Single-Particle Hilbert Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-symmetry-for-identical-bosons">Exchange Symmetry for Identical Bosons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-for-observables">Consequences for observables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-and-interference">Exchange and Interference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosons-in-first-quantized-language">Bosons in First-Quantized Language</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wavefunctions-and-exchange-symmetry">Wavefunctions and Exchange Symmetry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-occupation-number-basis">Bosonic Occupation-Number Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-on-the-single-particle-basis">Dependence on the Single-Particle Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-creation-and-annihilation-operators">Bosonic Creation and Annihilation Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions">Grand-Canonical Statistical Mechanics of Noninteracting Fermions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermionic-creation-and-annihilation-operators">Fermionic Creation and Annihilation Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anticommutation-for-different-orbitals">Anticommutation for Different Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordering-signs-and-the-jordan-wigner-string">Ordering Signs and the Jordan–Wigner String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-comparison">Quick Comparison</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bosons-fermions-and-the-many-body-hilbert-space">
+<h1>Bosons, Fermions, and the Many-Body Hilbert Space<a class="headerlink" href="#bosons-fermions-and-the-many-body-hilbert-space" title="Permalink to this heading">#</a></h1>
+<section id="single-particle-hilbert-space">
+<h2>Single-Particle Hilbert Space<a class="headerlink" href="#single-particle-hilbert-space" title="Permalink to this heading">#</a></h2>
+<p>Consider a single particle with Hilbert space spanned by position kets <span class="math notranslate nohighlight">\(\lvert x\rangle\)</span>.</p>
+<p>Usually one takes
+<span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>,
+but in AMO or condensed-matter settings one may also consider
+<span class="math notranslate nohighlight">\(x \in \mathbb{Z}\)</span>, for example for atoms in an optical lattice.</p>
+<p>This distinction will not matter much in what follows, except that one writes either integrals or sums:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{I} = \int dx\, \lvert x\rangle \langle x\rvert
+\qquad \text{vs.} \qquad
+\mathbb{I} = \sum_x \lvert x\rangle \langle x\rvert
+\]</div>
+<p>and likewise</p>
+<div class="math notranslate nohighlight">
+\[
+\langle x \mid y \rangle = \delta(x-y)
+\qquad \text{vs.} \qquad
+\langle x \mid y \rangle = \delta_{x,y}.
+\]</div>
+<p>In these notes we use the discrete notation.</p>
+<p>For a state <span class="math notranslate nohighlight">\(\lvert \psi \rangle\)</span>, the wavefunction in this basis is</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = \langle x \mid \psi \rangle.
+\]</div>
+<p>For two distinguishable particles, the Hilbert space is spanned by</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x_1, x_2\rangle = \lvert x_1\rangle \otimes \lvert x_2\rangle,
+\]</div>
+<p>with wavefunction</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x_1,x_2)=\langle x_1,x_2 \mid \psi\rangle.
+\]</div>
+<p>Similarly, for <span class="math notranslate nohighlight">\(N\)</span> particles one has a wavefunction</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x_1,x_2,\dots,x_N).
+\]</div>
+<p>For distinguishable particles this wavefunction lives in the full tensor-product Hilbert space. For identical particles, however, the physical Hilbert space is the symmetric subspace (bosons) or antisymmetric subspace (fermions) of that tensor-product space.</p>
+</section>
+<section id="exchange-symmetry-for-identical-bosons">
+<h2>Exchange Symmetry for Identical Bosons<a class="headerlink" href="#exchange-symmetry-for-identical-bosons" title="Permalink to this heading">#</a></h2>
+<p>A basic physical fact is that if the particles belong to the same species, then exchanging their labels does not produce a new physical state. In first quantization, this means that physical states must lie in the symmetric subspace.</p>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{P}_{ij}\lvert \psi \rangle = \lvert \psi \rangle
+\]</div>
+<p>for every exchange operator <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span>. In the position representation this implies that</p>
+<p><span class="math notranslate nohighlight">\(\lvert x_1,x_2\rangle\)</span>
+and
+<span class="math notranslate nohighlight">\(\lvert x_2,x_1\rangle\)</span>
+correspond to the same physical configuration.</p>
+<p>For bosons,</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x_1,\dots,x_i,\dots,x_j,\dots,x_N\rangle
+=
+\lvert x_1,\dots,x_j,\dots,x_i,\dots,x_N\rangle.
+\]</div>
+<p>This is <strong>exchange symmetry</strong>, and it has several important consequences.</p>
+<section id="consequences-for-observables">
+<h3>Consequences for observables<a class="headerlink" href="#consequences-for-observables" title="Permalink to this heading">#</a></h3>
+<p>Any physical observable should be represented by an operator <span class="math notranslate nohighlight">\(\hat{O}\)</span> that does not distinguish particle labels. Thus, for example,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle x_1,x_2 \mid \hat{O} \mid x_1,x_2\rangle
+=
+\langle x_2,x_1 \mid \hat{O} \mid x_2,x_1\rangle.
+\]</div>
+<p>There is no way to measure <em>which</em> boson is at <span class="math notranslate nohighlight">\(x\)</span>; only that a boson is at <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Equivalently, physical observables must respect exchange symmetry, i.e. they must commute with all exchange operators <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span>.</p>
+<p>For example, the local number operator <span class="math notranslate nohighlight">\(\hat{n}(x)\)</span> counts how many particles occupy the single-particle state <span class="math notranslate nohighlight">\(x\)</span>. In a two-particle state its expectation value is schematically</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \hat{n}(x) \rangle
+=
+\sum_{x_2}\psi^*(x,x_2)\psi(x,x_2)
++
+\sum_{x_1}\psi^*(x_1,x)\psi(x_1,x).
+\]</div>
+</section>
+<section id="exchange-and-interference">
+<h3>Exchange and Interference<a class="headerlink" href="#exchange-and-interference" title="Permalink to this heading">#</a></h3>
+<p>Exchange symmetry allows <strong>constructive interference</strong>.</p>
+<p>In quantum mechanics, the amplitude to evolve from an initial configuration
+<span class="math notranslate nohighlight">\(1,2\)</span>
+to a final configuration
+<span class="math notranslate nohighlight">\(1',2'\)</span>
+is a sum over all paths connecting the initial and final states.</p>
+<p>For bosons, these paths include trajectories involving exchange, since</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x_1,x_2\rangle = \lvert x_2,x_1\rangle.
+\]</div>
+<p>This has measurable consequences, for example in two-particle interference effects such as the <strong>Hanbury-Brown–Twiss</strong> effect.</p>
+</section>
+</section>
+<section id="bosons-in-first-quantized-language">
+<h2>Bosons in First-Quantized Language<a class="headerlink" href="#bosons-in-first-quantized-language" title="Permalink to this heading">#</a></h2>
+<section id="wavefunctions-and-exchange-symmetry">
+<h3>Wavefunctions and Exchange Symmetry<a class="headerlink" href="#wavefunctions-and-exchange-symmetry" title="Permalink to this heading">#</a></h3>
+<p>In first quantization we consider wavefunctions</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x_1,x_2,\dots)
+\]</div>
+<p>and impose bosonic symmetry:</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(\dots,x_i,\dots,x_j,\dots)
+=
+\psi(\dots,x_j,\dots,x_i,\dots).
+\]</div>
+<p>Equivalently, if <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span> denotes the operator that swaps particle labels <span class="math notranslate nohighlight">\(i \leftrightarrow j\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{P}_{ij}\psi = \psi.
+\]</div>
+<p>Is this consistent with time evolution? Yes, because any physically admissible Hamiltonian must preserve exchange symmetry:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_i \frac{\hat{p}_i^2}{2m} + \sum_i V(\hat{x}_i) + \frac12 \sum_{i\neq j} U(\hat{x}_i-\hat{x}_j) + \cdots
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{P}_{ij} \hat{H} \hat{P}_{ij} = \hat{H}.
+\]</div>
+<p>Therefore, if</p>
+<div class="math notranslate nohighlight">
+\[
+i\partial_t \psi = \hat{H}\psi
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(\hat{P}_{ij}\psi(0)=\psi(0)\)</span>, then <span class="math notranslate nohighlight">\(\hat{P}_{ij}\psi(t)=\psi(t)\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>For example, one must <strong>forbid</strong> terms like</p>
+<div class="math notranslate nohighlight">
+\[
+V_1(x_1)+V_2(x_2)
+\qquad \text{with } V_1\neq V_2,
+\]</div>
+<p>because those distinguish particle 1 from particle 2.</p>
+</section>
+</section>
+<section id="bosonic-occupation-number-basis">
+<h2>Bosonic Occupation-Number Basis<a class="headerlink" href="#bosonic-occupation-number-basis" title="Permalink to this heading">#</a></h2>
+<p>Because of exchange symmetry, it is natural to expand states using symmetrized basis states.</p>
+<p>For two particles,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\lvert x_1,x_2\rangle_+
+=
+\begin{cases}
+\frac{1}{\sqrt{2}}
+\left(\lvert x_1,x_2\rangle + \lvert x_2,x_1\rangle\right), &amp; x_1\neq x_2,\\[1em]
+\lvert x_1,x_1\rangle, &amp; x_1=x_2.
+\end{cases}
+\end{split}\]</div>
+<p>More generally,</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert \{x_i\}\rangle_+
+=
+\frac{1}{\sqrt{\mathcal N}}
+\sum_{\text{perm}} \lvert \text{Perm}\{x_i\}\rangle,
+\]</div>
+<p>where the sum runs over all permutations of the list <span class="math notranslate nohighlight">\(\{x_i\}\)</span> and <span class="math notranslate nohighlight">\(\mathcal N\)</span> is the appropriate normalization factor.</p>
+<p>Since the ordering no longer matters, we instead label states by the <strong>occupation numbers</strong> <span class="math notranslate nohighlight">\(n_x\)</span>, where <span class="math notranslate nohighlight">\(n_x\)</span> is the number of particles occupying the single-particle state <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>For example, for <span class="math notranslate nohighlight">\(N=2\)</span> particles and orbitals <span class="math notranslate nohighlight">\(x=1,2,3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert 1,3\rangle_+
+\;\leftrightarrow\;
+\lvert n_1=1,n_2=0,n_3=1\rangle
+=
+\lvert 101\rangle,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\lvert 1,2\rangle_+
+\;\leftrightarrow\;
+\lvert n_1=1,n_2=1,n_3=0\rangle
+=
+\lvert 110\rangle,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\lvert 1,1\rangle_+
+\;\leftrightarrow\;
+\lvert n_1=2,n_2=0,n_3=0\rangle
+=
+\lvert 200\rangle.
+\]</div>
+<p>The state <span class="math notranslate nohighlight">\(\lvert \{n_x\}\rangle\)</span> is called an <strong>occupation-number basis state</strong>.</p>
+<p>The total particle number operator is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{N} = \sum_x \hat{n}_x.
+\]</div>
+</section>
+<section id="dependence-on-the-single-particle-basis">
+<h2>Dependence on the Single-Particle Basis<a class="headerlink" href="#dependence-on-the-single-particle-basis" title="Permalink to this heading">#</a></h2>
+<p>The occupation basis depends on the choice of single-particle basis.</p>
+<p>Instead of the basis <span class="math notranslate nohighlight">\(\lvert x\rangle\)</span>, we could use another basis <span class="math notranslate nohighlight">\(\lvert k\rangle\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x\rangle \to \lvert k\rangle,
+\qquad
+\lvert x_1,x_2,\dots\rangle \to \lvert k_1,k_2,\dots\rangle,
+\qquad
+\lvert \{n_x\}\rangle \to \lvert \{n_k\}\rangle.
+\]</div>
+<p>Using, for example,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle x \mid k\rangle = \frac{e^{ikx}}{\sqrt{L}},
+\]</div>
+<p>one can work out overlaps such as</p>
+<div class="math notranslate nohighlight">
+\[
+\langle x_1,x_2,\dots \mid k_1,k_2,\dots\rangle.
+\]</div>
+<p>Computing overlaps between bosonic occupation states in different bases can become nontrivial; mathematically this is related to matrix permanents and, in complexity-theory language, to the <strong>boson sampling problem</strong>.</p>
+</section>
+<section id="noninteracting-bosons">
+<h2>Noninteracting Bosons<a class="headerlink" href="#noninteracting-bosons" title="Permalink to this heading">#</a></h2>
+<p>Suppose the Hamiltonian is noninteracting:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_{i=1}^N \left(\frac{\hat{p}_i^2}{2m}+V(\hat{x}_i)\right).
+\]</div>
+<p>Let the single-particle eigenstates satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\frac{\hat{p}^2}{2m}+V(\hat{x})\right)\lvert \alpha\rangle = E_\alpha \lvert \alpha\rangle.
+\]</div>
+<p>Then the many-body Hilbert space may be described either in first-quantized form,
+<span class="math notranslate nohighlight">\(\lvert \alpha_1,\alpha_2,\dots,\alpha_N\rangle\)</span>
+or in occupation-number form,
+<span class="math notranslate nohighlight">\(\lvert \{n_\alpha\}\rangle\)</span>.</p>
+<p>In the occupation basis,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_\alpha E_\alpha \hat{n}_\alpha.
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{n}_\alpha \lvert n_0,n_1,n_2,\dots\rangle
+=
+n_\alpha \lvert n_0,n_1,n_2,\dots\rangle.
+\]</div>
+<p>Thus the noninteracting bosonic problem is formally equivalent to a collection of decoupled harmonic oscillators,
+with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</span> and occupation number <span class="math notranslate nohighlight">\(n_\alpha\)</span>.</p>
+</section>
+<section id="bosonic-creation-and-annihilation-operators">
+<h2>Bosonic Creation and Annihilation Operators<a class="headerlink" href="#bosonic-creation-and-annihilation-operators" title="Permalink to this heading">#</a></h2>
+<p>Define bosonic ladder operators <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{n}_\alpha = \hat{a}_\alpha^\dagger \hat{a}_\alpha,
+\]</div>
+<p>with commutation relations</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{a}_\alpha,\hat{a}_\beta^\dagger]=\delta_{\alpha\beta},
+\]</div>
+<p>with all other commutators vanishing. Their action on occupation states is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a}_\alpha^\dagger \lvert \dots,n_\alpha,\dots\rangle
+=
+\sqrt{n_\alpha+1}\,
+\lvert \dots,n_\alpha+1,\dots\rangle,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hat{a}_\alpha \lvert \dots,n_\alpha,\dots\rangle
+=
+\sqrt{n_\alpha}\,
+\lvert \dots,n_\alpha-1,\dots\rangle.
+\]</div>
+<p>Thus, <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> <strong>creates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>, while
+<span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> <strong>annihilates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A quick derivation of the standard relations is as follows. If we define the action of <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> on occupation states by the formulas above, then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a}_\alpha^\dagger \hat{a}_\alpha \lvert \dots,n_\alpha,\dots\rangle
+=
+n_\alpha \lvert \dots,n_\alpha,\dots\rangle,
+\]</div>
+<p>so indeed</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{n}_\alpha = \hat{a}_\alpha^\dagger \hat{a}_\alpha.
+\]</div>
+<p>Likewise,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a}_\alpha \hat{a}_\alpha^\dagger \lvert \dots,n_\alpha,\dots\rangle
+=
+(n_\alpha+1) \lvert \dots,n_\alpha,\dots\rangle,
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{a}_\alpha,\hat{a}_\alpha^\dagger]\lvert \dots,n_\alpha,\dots\rangle
+=
+\lvert \dots,n_\alpha,\dots\rangle.
+\]</div>
+<p>Since this holds on every occupation-number basis state, we get</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{a}_\alpha,\hat{a}_\beta^\dagger] = \delta_{\alpha\beta}.
+\]</div>
+</div>
+<p>Under a single-particle unitary change of basis,</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert \alpha\rangle = \sum_x U_{\alpha x}\lvert x\rangle,
+\]</div>
+<p>the creation operators transform as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a}_\alpha^\dagger = \sum_x U_{\alpha x}\, \hat{a}_x^\dagger.
+\]</div>
+<p>A noninteracting Hamiltonian can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_{x,y} \hat{a}_x^\dagger H_{xy} \hat{a}_y
+=
+\sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(H_{xy} = \langle x \mid \hat{H}_{\mathrm{1p}} \mid y \rangle\)</span> are the matrix elements of the single-particle Hamiltonian.</p>
+</section>
+<section id="grand-canonical-statistical-mechanics-of-noninteracting-bosons">
+<h2>Grand-Canonical Statistical Mechanics of Noninteracting Bosons<a class="headerlink" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons" title="Permalink to this heading">#</a></h2>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \sum_\alpha E_\alpha \hat{n}_\alpha,
+\]</div>
+<p>the grand-canonical partition function is simple because all number operators commute:</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{n}_\alpha,\hat{n}_\beta]=0.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-\beta(\hat{H}-\mu \hat{N})}
+=
+e^{-\beta\sum_\alpha (E_\alpha-\mu)\hat{n}_\alpha},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+Z
+=
+\sum_{\{n_\alpha\}}
+e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
+=
+\prod_\alpha
+\left(\sum_{n=0}^{\infty} e^{-\beta n(E_\alpha-\mu)}\right)
+=
+\prod_\alpha
+\frac{1}{1-e^{-\beta(E_\alpha-\mu)}}.
+\]</div>
+<p>This expression converges only if the chemical potential lies below the lowest single-particle energy, i.e. <span class="math notranslate nohighlight">\(\mu &lt; \min_\alpha E_\alpha\)</span>.</p>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n_\alpha\rangle
+=
+\frac{1}{e^{\beta(E_\alpha-\mu)}-1},
+\]</div>
+<p>which is the <strong>Bose-Einstein distribution</strong>.</p>
+</section>
+<section id="fermions-antisymmetry-and-pauli-exclusion">
+<h2>Fermions: Antisymmetry and Pauli Exclusion<a class="headerlink" href="#fermions-antisymmetry-and-pauli-exclusion" title="Permalink to this heading">#</a></h2>
+<p>For fermions, physical states lie in the antisymmetric subspace, so</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{P}_{ij}\psi = -\psi,
+\]</div>
+<p>so for two particles</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x_1,x_2) = -\psi(x_2,x_1).
+\]</div>
+<p>The properly antisymmetrized state is</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x_1,x_2,\dots\rangle_-
+=
+\frac{1}{\sqrt{\mathcal N}}
+\sum_{\text{perm}}
+(-1)^p
+\lvert \text{Perm}\{x_i\}\rangle,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> is the parity of the permutation.</p>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert 1,2\rangle_-
+=
+\frac{1}{\sqrt{2}}
+\left(\lvert 1,2\rangle - \lvert 2,1\rangle\right).
+\]</div>
+<p>If any two coordinates are equal, the antisymmetrized state vanishes:</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert \{x_i\}\rangle_- = 0
+\qquad \text{if any } x_i=x_j.
+\]</div>
+<p>This is the <strong>Pauli exclusion principle</strong>.</p>
+<p>Hence one may restrict to ordered representatives such as</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 &lt; x_2 &lt; x_3 &lt; \cdots
+\]</div>
+<p>and use an occupation basis again, but now</p>
+<div class="math notranslate nohighlight">
+\[
+n_x \in \{0,1\}.
+\]</div>
+</section>
+<section id="exclusion-as-destructive-interference">
+<h2>Exclusion as Destructive Interference<a class="headerlink" href="#exclusion-as-destructive-interference" title="Permalink to this heading">#</a></h2>
+<p>Pauli exclusion can also be understood as a <strong>destructive interference</strong> phenomenon.</p>
+<p>In a path-integral picture, two paths that exchange identical fermions acquire opposite signs, so when the final positions coincide the amplitudes cancel.</p>
+<p>That is why the amplitude for fermions to end up at the same place vanishes.</p>
+</section>
+<section id="grand-canonical-statistical-mechanics-of-noninteracting-fermions">
+<h2>Grand-Canonical Statistical Mechanics of Noninteracting Fermions<a class="headerlink" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions" title="Permalink to this heading">#</a></h2>
+<p>For noninteracting fermions,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}=\sum_\alpha E_\alpha \hat{n}_\alpha,
+\qquad n_\alpha=0,1.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+Z
+=
+\sum_{\{n_\alpha\}}
+e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
+=
+\prod_\alpha \left(\sum_{n=0}^1 e^{-\beta(E_\alpha-\mu)n}\right)
+=
+\prod_\alpha \left(1+e^{-\beta(E_\alpha-\mu)}\right).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n_\alpha\rangle
+=
+\frac{e^{-\beta(E_\alpha-\mu)}}{1+e^{-\beta(E_\alpha-\mu)}}
+=
+\frac{1}{e^{\beta(E_\alpha-\mu)}+1},
+\]</div>
+<p>which is the <strong>Fermi–Dirac distribution</strong>.</p>
+</section>
+<section id="fermionic-creation-and-annihilation-operators">
+<h2>Fermionic Creation and Annihilation Operators<a class="headerlink" href="#fermionic-creation-and-annihilation-operators" title="Permalink to this heading">#</a></h2>
+<p>Define fermionic ladder operators <span class="math notranslate nohighlight">\(\hat{c}_\alpha^\dagger\)</span>, <span class="math notranslate nohighlight">\(\hat{c}_\alpha\)</span> and number operator</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{n}_\alpha = \hat{c}_\alpha^\dagger \hat{c}_\alpha.
+\]</div>
+<p>For a single orbital, with basis states <span class="math notranslate nohighlight">\(\lvert 0\rangle\)</span> and <span class="math notranslate nohighlight">\(\lvert 1\rangle\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{c}^\dagger \lvert 0\rangle = \lvert 1\rangle,
+\qquad
+\hat{c}^\dagger \lvert 1\rangle = 0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hat{c}\lvert 1\rangle = \lvert 0\rangle,
+\qquad
+\hat{c}\lvert 0\rangle = 0,
+\]</div>
+<p>but since <span class="math notranslate nohighlight">\(n\in\{0,1\}\)</span>, one has</p>
+<div class="math notranslate nohighlight">
+\[
+(\hat{c}^\dagger)^2 = \hat{c}^2 = 0.
+\]</div>
+<p>In matrix form for one orbital,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{c} =
+\begin{pmatrix}
+0 &amp; 1\\
+0 &amp; 0
+\end{pmatrix},
+\qquad
+\hat{c}^\dagger =
+\begin{pmatrix}
+0 &amp; 0\\
+1 &amp; 0
+\end{pmatrix},
+\qquad
+\hat{n}=
+\begin{pmatrix}
+0 &amp; 0\\
+0 &amp; 1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This implies</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{c}\hat{c}^\dagger + \hat{c}^\dagger \hat{c} = \mathbb{I},
+\]</div>
+<p>i.e.</p>
+<div class="math notranslate nohighlight">
+\[
+\{\hat{c}^\dagger,\hat{c}\}=1.
+\]</div>
+<p>More generally, fermions satisfy <strong>anticommutation relations</strong> rather than commutation relations.</p>
+</section>
+<section id="anticommutation-for-different-orbitals">
+<h2>Anticommutation for Different Orbitals<a class="headerlink" href="#anticommutation-for-different-orbitals" title="Permalink to this heading">#</a></h2>
+<p>For different orbitals, one must be careful because exchanging fermions changes the sign of the state.</p>
+<p>This leads to</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{c}_x^\dagger \hat{c}_y^\dagger = -\, \hat{c}_y^\dagger \hat{c}_x^\dagger,
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\{\hat{c}_x^\dagger,\hat{c}_y^\dagger\}=0,
+\qquad
+\{\hat{c}_x,\hat{c}_y\}=0,
+\qquad
+\{\hat{c}_x^\dagger,\hat{c}_y\}=\delta_{xy}.
+\]</div>
+<p>Summary:</p>
+<ul class="simple">
+<li><p><strong>Bosons</strong> <span class="math notranslate nohighlight">\(\rightarrow\)</span> commutators</p></li>
+<li><p><strong>Fermions</strong> <span class="math notranslate nohighlight">\(\rightarrow\)</span> anticommutators</p></li>
+</ul>
+</section>
+<section id="ordering-signs-and-the-jordan-wigner-string">
+<h2>Ordering Signs and the Jordan–Wigner String<a class="headerlink" href="#ordering-signs-and-the-jordan-wigner-string" title="Permalink to this heading">#</a></h2>
+<p>Because an occupation state can be built as</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert x_1,x_2,\dots\rangle_-
+=
+\hat{c}_{x_N}^\dagger \cdots \hat{c}_{x_2}^\dagger \hat{c}_{x_1}^\dagger \lvert 0\rangle
+\qquad (x_1&lt;x_2&lt;\cdots),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lvert 0\rangle\)</span> denotes the vacuum state with no particles. Changing the creation order introduces minus signs.</p>
+<p>In particular,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{c}_\alpha^\dagger \lvert n_1,\dots,n_\alpha,\dots\rangle
+=
+\eta\,
+\lvert n_1,\dots,n_\alpha+1,\dots\rangle,
+\]</div>
+<p>where the sign factor is</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = (-1)^{\sum_{\beta&lt;\alpha} n_\beta}.
+\]</div>
+<p>This sign factor is the same ordering structure that appears in the <strong>Jordan–Wigner transformation</strong>.</p>
+<p>So even though the fermionic Hilbert space can look like a tensor product of spin-<span class="math notranslate nohighlight">\(\tfrac12\)</span> degrees of freedom,
+fermionic operators <span class="math notranslate nohighlight">\(\hat{c}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{c}_\alpha\)</span> behave differently from ordinary spin raising and lowering operators. The full Jordan–Wigner transformation makes this relation explicit by mapping fermionic operators to nonlocal spin operators.</p>
+</section>
+<section id="quick-comparison">
+<h2>Quick Comparison<a class="headerlink" href="#quick-comparison" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Bosons</p></th>
+<th class="head"><p>Fermions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exchange symmetry</p></td>
+<td><p>symmetric</p></td>
+<td><p>antisymmetric</p></td>
+</tr>
+<tr class="row-odd"><td><p>Occupation numbers</p></td>
+<td><p><span class="math notranslate nohighlight">\(n_x = 0,1,2,\dots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_x = 0,1\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Algebra</p></td>
+<td><p>commutators</p></td>
+<td><p>anticommutators</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thermal distribution</p></td>
+<td><p>Bose–Einstein</p></td>
+<td><p>Fermi–Dirac</p></td>
+</tr>
+<tr class="row-even"><td><p>Same-state occupancy</p></td>
+<td><p>allowed</p></td>
+<td><p>forbidden</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Boson-Fermions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../QM-SM-Intro/QM-SM-Formalism.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Formalism of quantum statistical mechanics</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-hilbert-space">Single-Particle Hilbert Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-symmetry-for-identical-bosons">Exchange Symmetry for Identical Bosons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-for-observables">Consequences for observables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-and-interference">Exchange and Interference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosons-in-first-quantized-language">Bosons in First-Quantized Language</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wavefunctions-and-exchange-symmetry">Wavefunctions and Exchange Symmetry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-occupation-number-basis">Bosonic Occupation-Number Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-on-the-single-particle-basis">Dependence on the Single-Particle Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-creation-and-annihilation-operators">Bosonic Creation and Annihilation Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions">Grand-Canonical Statistical Mechanics of Noninteracting Fermions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermionic-creation-and-annihilation-operators">Fermionic Creation and Annihilation Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anticommutation-for-different-orbitals">Anticommutation for Different Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordering-signs-and-the-jordan-wigner-string">Ordering Signs and the Jordan–Wigner String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-comparison">Quick Comparison</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
