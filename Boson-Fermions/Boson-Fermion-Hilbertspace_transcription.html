@@ -459,7 +459,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-occupation-number-basis">Bosonic Occupation-Number Basis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-on-the-single-particle-basis">Dependence on the Single-Particle Basis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-creation-and-annihilation-operators">Bosonic Creation and Annihilation Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
@@ -733,9 +732,9 @@ n_\alpha \lvert n_0,n_1,n_2,\dots\rangle.
 \]</div>
 <p>Thus the noninteracting bosonic problem is formally equivalent to a collection of decoupled harmonic oscillators,
 with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</span> and occupation number <span class="math notranslate nohighlight">\(n_\alpha\)</span>.</p>
-</section>
-<section id="bosonic-creation-and-annihilation-operators">
-<h2>Bosonic Creation and Annihilation Operators<a class="headerlink" href="#bosonic-creation-and-annihilation-operators" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Bosonic creation and annihilation operators</strong></p>
 <p>Define bosonic ladder operators <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -746,7 +745,7 @@ with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</
 \[
 [\hat{a}_\alpha,\hat{a}_\beta^\dagger]=\delta_{\alpha\beta},
 \]</div>
-<p>with all other commutators vanishing. Their action on occupation states is</p>
+<p>and all other commutators vanishing. Their action on occupation states is</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{a}_\alpha^\dagger \lvert \dots,n_\alpha,\dots\rangle
@@ -761,10 +760,7 @@ with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</
 \sqrt{n_\alpha}\,
 \lvert \dots,n_\alpha-1,\dots\rangle.
 \]</div>
-<p>Thus, <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> <strong>creates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>, while
-<span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> <strong>annihilates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>Thus, <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> <strong>creates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>, while <span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> <strong>annihilates</strong> a boson in state <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>A quick derivation of the standard relations is as follows. If we define the action of <span class="math notranslate nohighlight">\(\hat{a}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{a}_\alpha\)</span> on occupation states by the formulas above, then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -796,7 +792,6 @@ n_\alpha \lvert \dots,n_\alpha,\dots\rangle,
 \[
 [\hat{a}_\alpha,\hat{a}_\beta^\dagger] = \delta_{\alpha\beta}.
 \]</div>
-</div>
 <p>Under a single-particle unitary change of basis,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -815,6 +810,7 @@ n_\alpha \lvert \dots,n_\alpha,\dots\rangle,
 \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha.
 \]</div>
 <p>Here <span class="math notranslate nohighlight">\(H_{xy} = \langle x \mid \hat{H}_{\mathrm{1p}} \mid y \rangle\)</span> are the matrix elements of the single-particle Hamiltonian.</p>
+</div>
 </section>
 <section id="grand-canonical-statistical-mechanics-of-noninteracting-bosons">
 <h2>Grand-Canonical Statistical Mechanics of Noninteracting Bosons<a class="headerlink" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons" title="Permalink to this heading">#</a></h2>
@@ -1157,7 +1153,6 @@ fermionic operators <span class="math notranslate nohighlight">\(\hat{c}_\alpha^
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-occupation-number-basis">Bosonic Occupation-Number Basis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-on-the-single-particle-basis">Dependence on the Single-Particle Basis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bosonic-creation-and-annihilation-operators">Bosonic Creation and Annihilation Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
