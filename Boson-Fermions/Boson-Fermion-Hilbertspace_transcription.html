@@ -446,7 +446,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-hilbert-space">Single-Particle Hilbert Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hilbert-space-of-particles">Hilbert Space of Particles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-symmetry-for-identical-bosons">Exchange Symmetry for Identical Bosons</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-for-observables">Consequences for observables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-and-interference">Exchange and Interference</a></li>
@@ -481,8 +481,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bosons-fermions-and-the-many-body-hilbert-space">
 <h1>Bosons, Fermions, and the Many-Body Hilbert Space<a class="headerlink" href="#bosons-fermions-and-the-many-body-hilbert-space" title="Permalink to this heading">#</a></h1>
-<section id="single-particle-hilbert-space">
-<h2>Single-Particle Hilbert Space<a class="headerlink" href="#single-particle-hilbert-space" title="Permalink to this heading">#</a></h2>
+<section id="hilbert-space-of-particles">
+<h2>Hilbert Space of Particles<a class="headerlink" href="#hilbert-space-of-particles" title="Permalink to this heading">#</a></h2>
 <p>Consider a single particle with Hilbert space spanned by position kets <span class="math notranslate nohighlight">\(\lvert x\rangle\)</span>.</p>
 <p>Usually one takes
 <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>,
@@ -518,10 +518,10 @@ but in AMO or condensed-matter settings one may also consider
 \[
 \psi(x_1,x_2)=\langle x_1,x_2 \mid \psi\rangle.
 \]</div>
-<p>Similarly, for <span class="math notranslate nohighlight">\(N\)</span> particles one has a wavefunction</p>
+<p>Similarly, for <span class="math notranslate nohighlight">\(N\)</span> distinguishable particles one has the wavefunction</p>
 <div class="math notranslate nohighlight">
 \[
-\psi(x_1,x_2,\dots,x_N).
+\psi(x_1,x_2,\dots,x_N)=\langle x_1,x_2,\dots,x_N \mid \psi\rangle.
 \]</div>
 <p>For distinguishable particles this wavefunction lives in the full tensor-product Hilbert space. For identical particles, however, the physical Hilbert space is the symmetric subspace (bosons) or antisymmetric subspace (fermions) of that tensor-product space.</p>
 </section>
@@ -533,17 +533,10 @@ but in AMO or condensed-matter settings one may also consider
 \[
 \hat{P}_{ij}\lvert \psi \rangle = \lvert \psi \rangle
 \]</div>
-<p>for every exchange operator <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span>. In the position representation this implies that</p>
-<p><span class="math notranslate nohighlight">\(\lvert x_1,x_2\rangle\)</span>
-and
-<span class="math notranslate nohighlight">\(\lvert x_2,x_1\rangle\)</span>
-correspond to the same physical configuration.</p>
-<p>For bosons,</p>
+<p>for every exchange operator <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span>. Equivalently, in the position representation the bosonic wavefunction satisfies</p>
 <div class="math notranslate nohighlight">
 \[
-\lvert x_1,\dots,x_i,\dots,x_j,\dots,x_N\rangle
-=
-\lvert x_1,\dots,x_j,\dots,x_i,\dots,x_N\rangle.
+\psi(\dots,x_i,\dots,x_j,\dots)=\psi(\dots,x_j,\dots,x_i,\dots).
 \]</div>
 <p>This is <strong>exchange symmetry</strong>, and it has several important consequences.</p>
 <section id="consequences-for-observables">
@@ -575,11 +568,7 @@ correspond to the same physical configuration.</p>
 to a final configuration
 <span class="math notranslate nohighlight">\(1',2'\)</span>
 is a sum over all paths connecting the initial and final states.</p>
-<p>For bosons, these paths include trajectories involving exchange, since</p>
-<div class="math notranslate nohighlight">
-\[
-\lvert x_1,x_2\rangle = \lvert x_2,x_1\rangle.
-\]</div>
+<p>For bosons, amplitudes associated with exchanged particle labels contribute to the same physical final state, and therefore add with the same sign.</p>
 <p>This has measurable consequences, for example in two-particle interference effects such as the <strong>Hanbury-Brown–Twiss</strong> effect.</p>
 </section>
 </section>
@@ -868,7 +857,7 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
 =
 \frac{1}{e^{\beta(E_\alpha-\mu)}-1},
 \]</div>
-<p>which is the <strong>Bose-Einstein distribution</strong>.</p>
+<p>which is the <strong>Bose-Einstein statistics</strong>.</p>
 </section>
 <section id="fermions-antisymmetry-and-pauli-exclusion">
 <h2>Fermions: Antisymmetry and Pauli Exclusion<a class="headerlink" href="#fermions-antisymmetry-and-pauli-exclusion" title="Permalink to this heading">#</a></h2>
@@ -954,7 +943,7 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
 =
 \frac{1}{e^{\beta(E_\alpha-\mu)}+1},
 \]</div>
-<p>which is the <strong>Fermi–Dirac distribution</strong>.</p>
+<p>which is the <strong>Fermi–Dirac statistics</strong>.</p>
 </section>
 <section id="fermionic-creation-and-annihilation-operators">
 <h2>Fermionic Creation and Annihilation Operators<a class="headerlink" href="#fermionic-creation-and-annihilation-operators" title="Permalink to this heading">#</a></h2>
@@ -1155,7 +1144,7 @@ fermionic operators <span class="math notranslate nohighlight">\(\hat{c}_\alpha^
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-hilbert-space">Single-Particle Hilbert Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hilbert-space-of-particles">Hilbert Space of Particles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-symmetry-for-identical-bosons">Exchange Symmetry for Identical Bosons</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-for-observables">Consequences for observables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-and-interference">Exchange and Interference</a></li>
