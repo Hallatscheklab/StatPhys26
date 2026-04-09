@@ -730,7 +730,7 @@ n_\alpha \lvert n_0,n_1,n_2,\dots\rangle.
 \[
 \hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha.
 \]</div>
-<p>Thus the noninteracting bosonic problem is formally equivalent to a collection of decoupled harmonic oscillators, with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</span> and occupation number operator <span class="math notranslate nohighlight">\(\hat{n}_\alpha=\hat{a}_\alpha^\dagger \hat{a}_\alpha\)</span>, .</p>
+<p>Thus the noninteracting bosonic problem is formally equivalent to a collection of decoupled harmonic oscillators, with oscillator energy <span class="math notranslate nohighlight">\(E_\alpha\)</span> and occupation number operator <span class="math notranslate nohighlight">\(\hat{n}_\alpha=\hat{a}_\alpha^\dagger \hat{a}_\alpha\)</span>.</p>
 <p>Ladder operators should be familiar to you, but I describe their essence in the following note.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -853,7 +853,7 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
 =
 \frac{1}{e^{\beta(E_\alpha-\mu)}-1},
 \]</div>
-<p>which is the <strong>Bose-Einstein statistics</strong>.</p>
+<p>which is the <strong>Bose-Einstein statistics</strong>, which we’ve already encountered in our discussion of phonons.</p>
 </section>
 <section id="fermions-antisymmetry-and-pauli-exclusion">
 <h2>Fermions: Antisymmetry and Pauli Exclusion<a class="headerlink" href="#fermions-antisymmetry-and-pauli-exclusion" title="Permalink to this heading">#</a></h2>
@@ -1046,9 +1046,10 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
 \[
 \eta = (-1)^{\sum_{\beta&lt;\alpha} n_\beta}.
 \]</div>
-<p>This sign factor is the same ordering structure that appears in the <strong>Jordan–Wigner transformation</strong>.</p>
-<p>So even though the fermionic Hilbert space can look like a tensor product of spin-<span class="math notranslate nohighlight">\(\tfrac12\)</span> degrees of freedom,
-fermionic operators <span class="math notranslate nohighlight">\(\hat{c}_\alpha^\dagger\)</span> and <span class="math notranslate nohighlight">\(\hat{c}_\alpha\)</span> behave differently from ordinary spin raising and lowering operators. The full Jordan–Wigner transformation makes this relation explicit by mapping fermionic operators to nonlocal spin operators.</p>
+<p>This sign factor is exactly the same ordering structure that appears in the <strong>Jordan–Wigner transformation</strong>. The basic point is that when a fermion is created at site <span class="math notranslate nohighlight">\(\alpha\)</span>, one must keep track of how many fermions occupy all sites to its left, because moving the new creation operator past those occupied sites produces a minus sign for each exchange.</p>
+<p>This is why the fermionic Hilbert space can look very similar to a tensor product of spin-<span class="math notranslate nohighlight">\(\tfrac12\)</span> degrees of freedom: each orbital is either empty or occupied, just as a spin-<span class="math notranslate nohighlight">\(\tfrac12\)</span> is either down or up. At the level of basis states, one may therefore label fermionic configurations by binary strings such as <span class="math notranslate nohighlight">\(\lvert 01011\rangle\)</span>, much as one would for spins.</p>
+<p>However, the operators are different. Ordinary spin raising and lowering operators acting on different sites commute, whereas fermionic creation and annihilation operators on different sites anticommute. The Jordan–Wigner transformation makes this distinction explicit by writing a fermionic operator as a local spin flip multiplied by a nonlocal string of <span class="math notranslate nohighlight">\(\hat{Z}\)</span> operators that records the parity of all occupations to the left. That nonlocal string is precisely what reproduces the fermionic minus signs.</p>
+<p>So the Hilbert spaces can be put into one-to-one correspondence, but locality and operator algebra are different: fermions map to spins only at the price of turning simple local fermionic operators into nonlocal spin operators.</p>
 </section>
 <section id="quick-comparison">
 <h2>Quick Comparison<a class="headerlink" href="#quick-comparison" title="Permalink to this heading">#</a></h2>
