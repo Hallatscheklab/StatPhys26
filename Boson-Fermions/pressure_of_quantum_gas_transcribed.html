@@ -454,9 +454,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-limit">Continuum limit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-and-density">Pressure and density</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virial-expansion">Virial expansion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transcription">Note on transcription</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -606,6 +607,10 @@ e^{-\beta m(\varepsilon_{\mathbf{k}}-\mu)}.
 =
 \sqrt{\frac{2\pi\hbar^2\beta}{m}}.
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The remaining sum can be expressed in terms of special functions, namely polylogarithms (equivalently Bose and Fermi integrals), so in that sense the result is analytic. However, these are not elementary functions. The virial expansion is still valuable because in the low-density regime it makes the physics transparent term by term, showing explicitly how quantum-statistical corrections enter as powers of the fugacity or density.</p>
+</div>
 </section>
 <section id="pressure-and-density">
 <h2>Pressure and density<a class="headerlink" href="#pressure-and-density" title="Permalink to this heading">#</a></h2>
@@ -687,39 +692,23 @@ B_2
 -\frac12\int d^Dq\,
 \left(e^{-\beta V(q)} - 1\right).
 \]</div>
-<p>This lets one interpret the quantum-statistical correction as if bosons/fermions had an effective short-range interaction. In the note, the quoted effective potential is</p>
+<p>This lets one interpret the quantum-statistical correction as if bosons/fermions had an effective short-range interaction. In Kadar 7.2, it is shown that <span class="math notranslate nohighlight">\(B_2\)</span> is consistent with the effective potential</p>
 <div class="math notranslate nohighlight">
 \[
 \beta V(r) = \mp e^{-2\pi r^2/\lambda^2},
 \]</div>
 <p>so bosons behave <strong>as if</strong> they attract and fermions <strong>as if</strong> they repel over a range of order <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <p>Of course, this is only an effective description: the origin is <strong>quantum statistics</strong>, not a real interaction.</p>
-</section>
 <section id="quantum-degeneracy">
-<h2>Quantum degeneracy<a class="headerlink" href="#quantum-degeneracy" title="Permalink to this heading">#</a></h2>
+<h3>Quantum degeneracy<a class="headerlink" href="#quantum-degeneracy" title="Permalink to this heading">#</a></h3>
 <p>Quantum effects become important when</p>
 <div class="math notranslate nohighlight">
 \[
 \lambda^D \frac{N}{V} \sim 1,
 \]</div>
 <p>that is, when the thermal wavelength becomes comparable to the interparticle spacing.</p>
-<p>This is the onset of <strong>quantum degeneracy</strong>.</p>
+<p>This is the onset of <strong>quantum degeneracy</strong>, which we’ll study next.</p>
 </section>
-<section id="note-on-transcription">
-<h2>Note on transcription<a class="headerlink" href="#note-on-transcription" title="Permalink to this heading">#</a></h2>
-<p>A few symbols in the handwritten pages were faint, but the final notebook follows the standard derivation and matches the visible formulas in the note:</p>
-<ul class="simple">
-<li><p>fugacity expansion in powers of <span class="math notranslate nohighlight">\(e^{\beta\mu}\)</span>,</p></li>
-<li><p>pressure and density series,</p></li>
-<li><p>second virial coefficient
-$<span class="math notranslate nohighlight">\(
-B_2(T)=\mp \lambda^D / 2^{1+D/2},
-\)</span>$</p></li>
-<li><p>quantum degeneracy criterion
-$<span class="math notranslate nohighlight">\(
-\lambda^D n \sim 1.
-\)</span>$</p></li>
-</ul>
 </section>
 </section>
 
@@ -785,9 +774,10 @@ $<span class="math notranslate nohighlight">\(
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-limit">Continuum limit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-and-density">Pressure and density</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virial-expansion">Virial expansion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transcription">Note on transcription</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
