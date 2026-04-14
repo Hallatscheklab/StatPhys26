@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture Notes on Equilibrium Statistical Mechanics (Physics 211) &#8212; Equilibrium Statistical Physics</title>
+    <title>Pressure of a Quantum Gas &#8212; Equilibrium Statistical Physics</title>
   
   
   
@@ -58,10 +58,12 @@
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro-files/intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Boson-Fermions/pressure_of_quantum_gas_transcribed';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Course Information" href="course-Info-211-2026.html" />
+    <link rel="prev" title="Bosons, Fermions, and the Many-Body Hilbert Space" href="Boson-Fermion-Hilbertspace_transcription.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -145,7 +147,7 @@
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="../intro-files/intro.html">
   
   
   
@@ -176,15 +178,15 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
                     Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="course-Info-211-2026.html">Course Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Quick Summary of Statistical Mechanics</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
@@ -217,8 +219,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pressure of a Quantum Gas</a></li>
 </ul>
 
     </div>
@@ -265,6 +267,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Boson-Fermions/pressure_of_quantum_gas_transcribed.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -290,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2Fintro-files/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FBoson-Fermions/pressure_of_quantum_gas_transcribed.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/intro-files/intro.md" target="_blank"
+      <li><a href="../_sources/Boson-Fermions/pressure_of_quantum_gas_transcribed.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +363,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -391,7 +424,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -402,11 +437,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)</h1>
+    <h1>Pressure of a Quantum Gas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-spectrum">Single-particle spectrum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-potential">Grand potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-gas-expansion">Dilute-gas expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-limit">Continuum limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-and-density">Pressure and density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virial-expansion">Virial expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transcription">Note on transcription</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -416,104 +468,259 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-on-equilibrium-statistical-mechanics-physics-211">
-<h1>Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)<a class="headerlink" href="#lecture-notes-on-equilibrium-statistical-mechanics-physics-211" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNIVERSITY</span> <span class="n">OF</span> <span class="n">CALIFORNIA</span><span class="p">,</span> <span class="n">BERKELEY</span> <span class="n">DEPARTMENT</span> <span class="n">OF</span> <span class="n">PHYSICS</span>
-</pre></div>
-</div>
-<p><strong>Instructor</strong>: Prof. Oskar Hallatschek (he/his), <em>Office</em>: 408C Stanley Hall, <em>Email</em>: <a class="reference external" href="mailto:ohallats&#37;&#52;&#48;berkeley&#46;edu">ohallats<span>&#64;</span>berkeley<span>&#46;</span>edu</a></p>
-<p>The following lecture notes are designed to complement the Berkeley Physics course 211 material covered in the spring of 2026. Special thanks to Mike Zalatel and Dunghai Lee for their invaluable lecture notes, which have partially influenced my own.</p>
-<p>The course structure is adapted and reordered from Kardar’s textbook.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pressure-of-a-quantum-gas">
+<h1>Pressure of a Quantum Gas<a class="headerlink" href="#pressure-of-a-quantum-gas" title="Permalink to this heading">#</a></h1>
+<p>Transcribed from the handwritten lecture note <strong>“Pressure of a quantum gas”</strong>.</p>
+<p>This notebook follows the derivation in the note and keeps the notation as close as possible to the original, while typesetting the equations cleanly.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>Consider a non-relativistic ideal quantum gas with Hamiltonian</p>
+<div class="math notranslate nohighlight">
+\[
+\hat H = \sum_i \frac{\hat p_i^2}{2m}
+\]</div>
+<p>in a box of volume <span class="math notranslate nohighlight">\(V = L^D\)</span>.</p>
+<p>Classically, the equation of state is</p>
+<div class="math notranslate nohighlight">
+\[
+\beta P = \frac{N}{V}.
+\]</div>
+<p>We derive the quantum correction in the <strong>grand canonical ensemble</strong>.</p>
+</section>
+<section id="single-particle-spectrum">
+<h2>Single-particle spectrum<a class="headerlink" href="#single-particle-spectrum" title="Permalink to this heading">#</a></h2>
+<p>The single-particle eigenstates are labeled by wavevector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>, with</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k} = \frac{2\pi}{L}(i,j,k,\dots),
+\qquad
+\varepsilon_{\mathbf{k}} = \frac{\hbar^2 k^2}{2m}.
+\]</div>
+<p>For each mode <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>, the grand partition function contributes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Q}_{\mathbf{k}} =
+\begin{cases}
+1 + e^{-\beta(\varepsilon_{\mathbf{k}}-\mu)}, &amp; \text{fermions},\\[4pt]
+\left(1 - e^{-\beta(\varepsilon_{\mathbf{k}}-\mu)}\right)^{-1}, &amp; \text{bosons}.
+\end{cases}
+\end{split}\]</div>
+<p>Therefore the full grand partition function is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{Q} = \prod_{\mathbf{k}} \mathcal{Q}_{\mathbf{k}}.
+\]</div>
+</section>
+<section id="grand-potential">
+<h2>Grand potential<a class="headerlink" href="#grand-potential" title="Permalink to this heading">#</a></h2>
+<p>The grand potential is</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi = -\frac{1}{\beta}\ln \mathcal{Q}.
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Phi
+= -\frac{1}{\beta}\sum_{\mathbf{k}}
+\begin{cases}
+\ln\!\left(1+e^{-\beta(\varepsilon_{\mathbf{k}}-\mu)}\right), &amp; \text{fermions},\\[4pt]
+-\ln\!\left(1-e^{-\beta(\varepsilon_{\mathbf{k}}-\mu)}\right), &amp; \text{bosons}.
+\end{cases}
+\end{split}\]</div>
+<p>A compact way to write both cases is</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi
+= -\frac{1}{\beta}\sum_{\mathbf{k}}
+\left(\mp \ln\!\left(1 \mp e^{-\beta(\varepsilon_{\mathbf{k}}-\mu)}\right)\right),
+\]</div>
+<p>with the upper sign for fermions and the lower sign for bosons.</p>
+</section>
+<section id="dilute-gas-expansion">
+<h2>Dilute-gas expansion<a class="headerlink" href="#dilute-gas-expansion" title="Permalink to this heading">#</a></h2>
+<p>Assume the gas is dilute, so that</p>
+<div class="math notranslate nohighlight">
+\[
+\beta(\varepsilon_{\mathbf{k}}-\mu) \gg 1.
+\]</div>
+<p>Then we may expand the logarithm using</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(1+x)= -\sum_{m=1}^{\infty}\frac{(-x)^m}{m}.
+\]</div>
+<p>Applying this to the grand potential gives, mode by mode,</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi_{\mathbf{k}}
+=
+\mp \frac{1}{\beta}\sum_{m=1}^{\infty}
+\frac{(\pm)^m}{m}
+e^{-\beta m(\varepsilon_{\mathbf{k}}-\mu)}.
+\]</div>
+<p>Summing over <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi
+=
+\mp \frac{1}{\beta}\sum_{\mathbf{k}}\sum_{m=1}^{\infty}
+\frac{(\pm)^m}{m}
+e^{-\beta m(\varepsilon_{\mathbf{k}}-\mu)}.
+\]</div>
+</section>
+<section id="continuum-limit">
+<h2>Continuum limit<a class="headerlink" href="#continuum-limit" title="Permalink to this heading">#</a></h2>
+<p>For a large box,</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{\mathbf{k}}
+\;\approx\;
+\left(\frac{L}{2\pi}\right)^D \int d^Dk
+=
+V \int \frac{d^Dk}{(2\pi)^D}.
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi
+=
+\mp \frac{V}{\beta}
+\int \frac{d^Dk}{(2\pi)^D}
+\sum_{m=1}^{\infty}
+\frac{(\pm)^m}{m}
+e^{-\beta m(\varepsilon_{\mathbf{k}}-\mu)}.
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\varepsilon_{\mathbf{k}}=\hbar^2k^2/(2m)\)</span>, the Gaussian integral over <span class="math notranslate nohighlight">\(k\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi
+=
+-\frac{V}{\beta \lambda^D}
+\sum_{m=1}^{\infty}
+\frac{(\pm)^{m-1}}{m^{1+D/2}}e^{\beta m\mu},
+\]</div>
+<p>where the thermal wavelength is</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+=
+\sqrt{\frac{2\pi\hbar^2\beta}{m}}.
+\]</div>
+</section>
+<section id="pressure-and-density">
+<h2>Pressure and density<a class="headerlink" href="#pressure-and-density" title="Permalink to this heading">#</a></h2>
+<p>From the grand potential,</p>
+<div class="math notranslate nohighlight">
+\[
+P = -\frac{\Phi}{V},
+\qquad
+n \equiv \frac{N}{V}
+= -\frac{1}{V}\frac{\partial \Phi}{\partial \mu}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\beta P
+=
+\frac{1}{\lambda^D}
+\sum_{m=1}^{\infty}
+\frac{(\pm)^{m-1}}{m^{1+D/2}}e^{\beta m\mu},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+n
+=
+\frac{1}{\lambda^D}
+\sum_{m=1}^{\infty}
+\frac{(\pm)^{m-1}}{m^{D/2}}e^{\beta m\mu}.
+\]</div>
+<p>These are the standard fugacity expansions, with fugacity</p>
+<div class="math notranslate nohighlight">
+\[
+z = e^{\beta\mu}.
+\]</div>
+</section>
+<section id="virial-expansion">
+<h2>Virial expansion<a class="headerlink" href="#virial-expansion" title="Permalink to this heading">#</a></h2>
+<p>Recall the virial expansion</p>
+<div class="math notranslate nohighlight">
+\[
+\beta P
+=
+n\left(1 + B_2(T)n + B_3(T)n^2 + \cdots \right).
+\]</div>
+<p>Keeping only terms through order <span class="math notranslate nohighlight">\(z^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+n\lambda^D = z \pm \frac{z^2}{2^{D/2}} + \cdots
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\beta P\,\lambda^D
+=
+z \pm \frac{z^2}{2^{1+D/2}} + \cdots.
+\]</div>
+<p>Matching these gives the second virial coefficient</p>
+<div class="math notranslate nohighlight">
+\[
+B_2(T)
+=
+\mp \frac{\lambda^D}{2^{1+D/2}}.
+\]</div>
+<p>So:</p>
 <ul class="simple">
-<li><p>Probability &amp; information entropy</p>
-<ul>
-<li><p>Kardar 2, Arovas 1</p></li>
+<li><p><strong>bosons</strong>: <span class="math notranslate nohighlight">\(B_2(T) &lt; 0\)</span>,</p></li>
+<li><p><strong>fermions</strong>: <span class="math notranslate nohighlight">\(B_2(T) &gt; 0\)</span>.</p></li>
 </ul>
-</li>
-<li><p>Fundamentals of thermodynamics via molecular perspective - ensemble theory</p>
-<ul>
-<li><p>Kardar 4, Arovas 4</p></li>
-</ul>
-</li>
-<li><p>Non-equilibrium Fluctuation theorems</p>
-<ul>
-<li><p>lecture notes</p></li>
-</ul>
-</li>
-<li><p>Dynamics of interacting particles</p>
-<ul>
-<li><p>Kardar 5, Arovas 6</p></li>
-</ul>
-</li>
-<li><p>Monte Carlo, Debye-Hueckel, Diffusion</p>
-<ul>
-<li><p>lecture notes</p></li>
-</ul>
-</li>
-<li><p>Study of Hamiltonian dynamics and ergodicity</p>
-<ul>
-<li><p>Arovas 3, Kardar 3.1, 3.2</p></li>
-</ul>
-</li>
-<li><p>Quantum statistical mechanics</p>
-<ul>
-<li><p>Kardar 6+7, Arovas 5</p></li>
-</ul>
-</li>
-<li><p>Exploration of mean field and Landau theory</p>
-<ul>
-<li><p>Arovas 7</p></li>
-</ul>
-</li>
-</ul>
-<p>Important Notes:</p>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h2>
+<p>For bosons, the pressure is <strong>reduced</strong> relative to the classical ideal gas.</p>
+<p>For fermions, the pressure is <strong>increased</strong>.</p>
+<p>Classically, for pairwise interactions one has</p>
+<div class="math notranslate nohighlight">
+\[
+B_2
+=
+-\frac12\int d^Dq\,
+\left(e^{-\beta V(q)} - 1\right).
+\]</div>
+<p>This lets one interpret the quantum-statistical correction as if bosons/fermions had an effective short-range interaction. In the note, the quoted effective potential is</p>
+<div class="math notranslate nohighlight">
+\[
+\beta V(r) = \mp e^{-2\pi r^2/\lambda^2},
+\]</div>
+<p>so bosons behave <strong>as if</strong> they attract and fermions <strong>as if</strong> they repel over a range of order <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>Of course, this is only an effective description: the origin is <strong>quantum statistics</strong>, not a real interaction.</p>
+</section>
+<section id="quantum-degeneracy">
+<h2>Quantum degeneracy<a class="headerlink" href="#quantum-degeneracy" title="Permalink to this heading">#</a></h2>
+<p>Quantum effects become important when</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^D \frac{N}{V} \sim 1,
+\]</div>
+<p>that is, when the thermal wavelength becomes comparable to the interparticle spacing.</p>
+<p>This is the onset of <strong>quantum degeneracy</strong>.</p>
+</section>
+<section id="note-on-transcription">
+<h2>Note on transcription<a class="headerlink" href="#note-on-transcription" title="Permalink to this heading">#</a></h2>
+<p>A few symbols in the handwritten pages were faint, but the final notebook follows the standard derivation and matches the visible formulas in the note:</p>
 <ul class="simple">
-<li><p>Undergraduate level thermodynamics, a prerequisite for this course, will not be covered. Students are encouraged to review this material independently if needed.</p></li>
-<li><p>A brief overview of probabilistic reasoning will be provided (in class and discussions); however, extensive time cannot be dedicated to this. Students are advised to actively review these concepts on their own. (Kardar 2!!)</p></li>
-<li><p>The syllabus is subject to modifications, aiming to incorporate modern topics relevant to current research in active matter, (quantum) information theory, and machine learning.</p></li>
+<li><p>fugacity expansion in powers of <span class="math notranslate nohighlight">\(e^{\beta\mu}\)</span>,</p></li>
+<li><p>pressure and density series,</p></li>
+<li><p>second virial coefficient
+$<span class="math notranslate nohighlight">\(
+B_2(T)=\mp \lambda^D / 2^{1+D/2},
+\)</span>$</p></li>
+<li><p>quantum degeneracy criterion
+$<span class="math notranslate nohighlight">\(
+\lambda^D n \sim 1.
+\)</span>$</p></li>
 </ul>
-<p>Syllabus Updates:
-The syllabus will be updated throughout the course.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="course-Info-211-2026.html">Course Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Quick Summary of Statistical Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html#meaning-of-equilibrium">Meaning of equilibrium</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html#equipartition">Equipartition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html#when-a-macrostate-is-a-microstate">When a Macrostate is a Microstate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html#section-1-ising-paramagnet">Section 1: Ising Paramagnet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html#section-2-freely-jointed-chain-in-an-external-force-field">Section 2: Freely Jointed Chain in an External Force Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html#self-consistency-condition-from-minimizing-f-m-curieweiss">Self-consistency condition from minimizing <span class="math notranslate nohighlight">\(f(m)\)</span> (Curie–Weiss)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html#phase-diagrams">Phase diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html#existence-of-a-phase-transition-in-the-2d-ising-model">Existence of a phase transition in the 2D Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html#variational-treatment-of-a-gas-and-the-van-der-waals-equation-of-state">Variational treatment of a gas and the van der Waals equation of state</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
-</ul>
-</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -529,7 +736,7 @@ The syllabus will be updated throughout the course.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./intro-files"
+            path: "./Boson-Fermions"
         },
         predefinedOutput: true
     }
@@ -546,14 +753,14 @@ The syllabus will be updated throughout the course.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="course-Info-211-2026.html"
-       title="next page">
+    <a class="left-prev"
+       href="Boson-Fermion-Hilbertspace_transcription.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Course Information</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bosons, Fermions, and the Many-Body Hilbert Space</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -562,7 +769,29 @@ The syllabus will be updated throughout the course.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-particle-spectrum">Single-particle spectrum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-potential">Grand potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dilute-gas-expansion">Dilute-gas expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-limit">Continuum limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-and-density">Pressure and density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virial-expansion">Virial expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-degeneracy">Quantum degeneracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transcription">Note on transcription</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

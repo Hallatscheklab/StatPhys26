@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Boson-Fermions/Boson-Fermion-Hilbertspace_transcription';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pressure of a Quantum Gas" href="pressure_of_quantum_gas_transcribed.html" />
     <link rel="prev" title="Formalism of quantum statistical mechanics" href="../QM-SM-Intro/QM-SM-Formalism.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
 </ul>
 
     </div>
@@ -461,7 +463,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions">Grand-Canonical Statistical Mechanics of Noninteracting Fermions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermionic-creation-and-annihilation-operators">Fermionic Creation and Annihilation Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anticommutation-for-different-orbitals">Anticommutation for Different Orbitals</a></li>
@@ -903,12 +904,22 @@ x_1 &lt; x_2 &lt; x_3 &lt; \cdots
 \[
 n_x \in \{0,1\}.
 \]</div>
-</section>
-<section id="exclusion-as-destructive-interference">
-<h2>Exclusion as Destructive Interference<a class="headerlink" href="#exclusion-as-destructive-interference" title="Permalink to this heading">#</a></h2>
-<p>Pauli exclusion can also be understood as a <strong>destructive interference</strong> phenomenon.</p>
-<p>In a path-integral picture, two paths that exchange identical fermions acquire opposite signs, so when the final positions coincide the amplitudes cancel.</p>
-<p>That is why the amplitude for fermions to end up at the same place vanishes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Exclusion as destructive interference</strong></p>
+<p>Pauli exclusion can be understood heuristically as a <strong>destructive interference</strong> effect: in a path-integral picture, contributions related by exchanging two identical fermions come with opposite signs, so when the two particles are forced into the same one-particle state those amplitudes cancel.</p>
+<p>More fundamentally, however, exclusion follows directly from antisymmetry of the fermionic wavefunction,</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x_1,x_2) = -\psi(x_2,x_1).
+\]</div>
+<p>For spinless fermions this implies</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x,x)=0,
+\]</div>
+<p>so the amplitude vanishes when the two particles are brought to the same position. More generally, the Pauli principle says that two identical fermions cannot occupy the same one-particle quantum state.</p>
+</div>
 </section>
 <section id="grand-canonical-statistical-mechanics-of-noninteracting-fermions">
 <h2>Grand-Canonical Statistical Mechanics of Noninteracting Fermions<a class="headerlink" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions" title="Permalink to this heading">#</a></h2>
@@ -1125,6 +1136,15 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
         <p class="prev-next-title">Formalism of quantum statistical mechanics</p>
       </div>
     </a>
+    <a class="right-next"
+       href="pressure_of_quantum_gas_transcribed.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pressure of a Quantum Gas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1156,7 +1176,6 @@ e^{-\beta\sum_\alpha (E_\alpha-\mu)n_\alpha}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noninteracting-bosons">Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-bosons">Grand-Canonical Statistical Mechanics of Noninteracting Bosons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermions-antisymmetry-and-pauli-exclusion">Fermions: Antisymmetry and Pauli Exclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-as-destructive-interference">Exclusion as Destructive Interference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-canonical-statistical-mechanics-of-noninteracting-fermions">Grand-Canonical Statistical Mechanics of Noninteracting Fermions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermionic-creation-and-annihilation-operators">Fermionic Creation and Annihilation Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anticommutation-for-different-orbitals">Anticommutation for Different Orbitals</a></li>
