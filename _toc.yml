@@ -31,7 +31,7 @@ chapters:
 - file: QM-SM-Intro/QM-SM-Formalism
 - file: Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.ipynb
 - file: Boson-Fermions/pressure_of_quantum_gas_transcribed
-# - file: Boson-Fermions/QM-SM-DegenerateFermi
+- file: Boson-Fermions/degenerate_fermi_gas
 # - file: Boson-Fermions/QM-SM-BEC
 # - file: Landau/Landau
 #- file: Landau/Ginzburg-Landau
