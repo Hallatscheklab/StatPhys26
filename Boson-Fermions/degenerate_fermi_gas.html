@@ -477,10 +477,10 @@ document.write(`
 \[
 n \lambda_T^D \gg 1,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(n = N/V\)</span> and, up to a numerical factor of order one,</p>
+<p>where <span class="math notranslate nohighlight">\(n = N/V\)</span> and</p>
 <div class="math notranslate nohighlight">
 \[
-\lambda_T \sim \frac{h}{\sqrt{m k_B T}}.
+\lambda_T = \frac{h}{\sqrt{2\pi m k_B T}}.
 \]</div>
 <p>Typical examples are:</p>
 <ul class="simple">
@@ -577,7 +577,7 @@ P = -\left(\frac{\partial E}{\partial V}\right)_N.
 <p>It is convenient to define</p>
 <div class="math notranslate nohighlight">
 \[
-\gamma_0 := \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D}\,\frac{1}{k_F^D},
+\gamma_n := \int_{|\mathbf{k}|&lt;1} \frac{d^D k}{(2\pi)^D} k^n,
 \]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
@@ -603,12 +603,7 @@ n = \frac{N}{V} = g_s\,\frac{S_{D-1}}{D(2\pi)^D} k_F^D.
 <div class="math notranslate nohighlight">
 \[
 E = \sum_{|\mathbf{k}|&lt;k_F} \varepsilon_{\mathbf{k}}
-= V \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D} \frac{\hbar^2 k^2}{2m}.
-\]</div>
-<p>Define similarly</p>
-<div class="math notranslate nohighlight">
-\[
-\gamma_2 := \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D}\,\frac{k^2}{k_F^{D+2}},
+= V \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D} \frac{\hbar^2 k^2}{2m},
 \]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
@@ -769,46 +764,6 @@ P = \frac{2}{D}\frac{E}{V} = \frac{2}{D+2} n E_F.
 C_V = V\,\frac{\pi^2}{3} k_B^2 T\, g(E_F).
 \]</div>
 <p>These are the central signatures of Fermi degeneracy.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional symbolic definitions used in the notes</span>
-<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-
-<span class="n">D</span><span class="p">,</span> <span class="n">kF</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">EF</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">kB</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D k_F hbar m n E_F V k_B T&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">EF_expr</span> <span class="o">=</span> <span class="n">hbar</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">kF</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
-<span class="n">EF_expr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{\hbar^{2} k_{F}^{2}}{2 m}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In 3D, the standard free-fermion relations are:</span>
-<span class="c1">#   n = k_F^3 / (6*pi^2)   for a single spin species</span>
-<span class="c1">#   E_F = hbar^2 k_F^2 / (2m)</span>
-<span class="c1">#   P = (2/5) n E_F</span>
-<span class="c1">#</span>
-<span class="c1"># If spin-1/2 degeneracy is included explicitly, multiply the density of states</span>
-<span class="c1"># by 2, or equivalently replace n = k_F^3/(3*pi^2).</span>
-
-<span class="n">pi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">n_3d_single_spin</span> <span class="o">=</span> <span class="n">kF</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">P_3d_single_spin</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_3d_single_spin</span> <span class="o">*</span> <span class="n">EF_expr</span>
-
-<span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">P_3d_single_spin</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{\hbar^{2} k_{F}^{5}}{30 \pi^{2} m}\]</div>
-</div>
-</div>
 </section>
 </section>
 
