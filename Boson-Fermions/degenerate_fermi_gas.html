@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>The Degenerate Fermi Gas &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Boson-Fermions/degenerate_fermi_gas';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Pressure of a Quantum Gas" href="pressure_of_quantum_gas_transcribed.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Degenerate Fermi Gas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Boson-Fermions/degenerate_fermi_gas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FBoson-Fermions/degenerate_fermi_gas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Boson-Fermions/degenerate_fermi_gas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Degenerate Fermi Gas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#occupation-of-states-and-the-fermi-sea">1. Occupation of states and the Fermi sea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-fermi-surface-matters">2. Why the Fermi surface matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-temperature-pressure">3. Zero-temperature pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-between-density-and-fermi-momentum">4. Relation between density and Fermi momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-state-energy">5. Ground-state energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-at-t-0">6. Pressure at <span class="math notranslate nohighlight">\(T=0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-of-states-formulation">7. Density of states formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommerfeld-expansion">8. Sommerfeld expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-temperature-heat-capacity">9. Low-temperature heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">10. Physical interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-degenerate-fermi-gas">
+<h1>The Degenerate Fermi Gas<a class="headerlink" href="#the-degenerate-fermi-gas" title="Permalink to this heading">#</a></h1>
+<p>We consider a gas of fermions in the high-density, low-temperature regime where quantum statistics matter strongly. The key condition is that the thermal de Broglie wavelength is large compared with the interparticle spacing, or equivalently</p>
+<div class="math notranslate nohighlight">
+\[
+n \lambda_T^D \gg 1,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n = N/V\)</span> and, up to a numerical factor of order one,</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_T \sim \frac{h}{\sqrt{m k_B T}}.
+\]</div>
+<p>Typical examples are:</p>
+<ul class="simple">
+<li><p>conduction electrons in metals,</p></li>
+<li><p>electrons in white dwarfs,</p></li>
+<li><p>neutrons in neutron stars.</p></li>
+</ul>
+<p>In all of these systems, Pauli exclusion forces particles to occupy many distinct one-particle states even at very low temperature. This leads to a finite pressure already at <span class="math notranslate nohighlight">\(T=0\)</span>, and to a low-temperature heat capacity that is linear in <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>Unless stated otherwise, the formulas below are written for a single internal species. If the particles carry a spin or flavor degeneracy <span class="math notranslate nohighlight">\(g_s\)</span>, multiply the momentum-space state counting and the density of states by <span class="math notranslate nohighlight">\(g_s\)</span>.</p>
+<section id="occupation-of-states-and-the-fermi-sea">
+<h2>1. Occupation of states and the Fermi sea<a class="headerlink" href="#occupation-of-states-and-the-fermi-sea" title="Permalink to this heading">#</a></h2>
+<p>For fermions, the occupation of a one-particle state with energy <span class="math notranslate nohighlight">\(\varepsilon\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+n_F(\varepsilon) = \frac{1}{e^{\beta(\varepsilon-\mu)}+1}.
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(T=0\)</span>, this becomes a step function:</p>
+<div class="math notranslate nohighlight">
+\[
+n_F(\varepsilon) = \Theta(\mu-\varepsilon).
+\]</div>
+<p>At zero temperature the chemical potential equals the Fermi energy,</p>
+<div class="math notranslate nohighlight">
+\[
+\mu(T=0) = E_F,
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+n_F(\varepsilon) = \Theta(E_F-\varepsilon).
+\]</div>
+<p>Thus all one-particle states with <span class="math notranslate nohighlight">\(\varepsilon &lt; E_F\)</span> are filled, and all states with <span class="math notranslate nohighlight">\(\varepsilon &gt; E_F\)</span> are empty.</p>
+<p>For a translationally invariant gas with dispersion <span class="math notranslate nohighlight">\(\varepsilon_{\mathbf k}\)</span>, the filled region in <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>-space is called the <strong>Fermi sea</strong>, and its boundary</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_{\mathbf k} = E_F
+\]</div>
+<p>is the <strong>Fermi surface</strong>.</p>
+<p>For the nonrelativistic free gas,</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_{\mathbf k} = \frac{\hbar^2 k^2}{2m},
+\]</div>
+<p>so the Fermi surface is a sphere of radius <span class="math notranslate nohighlight">\(k_F\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E_F = \frac{\hbar^2 k_F^2}{2m}.
+\]</div>
+</section>
+<section id="why-the-fermi-surface-matters">
+<h2>2. Why the Fermi surface matters<a class="headerlink" href="#why-the-fermi-surface-matters" title="Permalink to this heading">#</a></h2>
+<p>At low but nonzero temperature, only states within an energy window of order <span class="math notranslate nohighlight">\(k_B T\)</span> around the Fermi energy can change their occupation appreciably.</p>
+<p>Excitations therefore consist of</p>
+<ul class="simple">
+<li><p>adding a particle above the Fermi surface, or</p></li>
+<li><p>removing a particle from below it, creating a <strong>hole</strong>.</p></li>
+</ul>
+<p>The number of thermally active states is proportional to the volume of a thin shell around the Fermi surface:</p>
+<div class="math notranslate nohighlight">
+\[
+\#(\text{active states})
+\sim
+g(E_F)\,k_B T.
+\]</div>
+<p>This is the basic reason why the degenerate Fermi gas is gapless and why many thermodynamic quantities at low <span class="math notranslate nohighlight">\(T\)</span> are controlled only by properties near the Fermi surface.</p>
+</section>
+<section id="zero-temperature-pressure">
+<h2>3. Zero-temperature pressure<a class="headerlink" href="#zero-temperature-pressure" title="Permalink to this heading">#</a></h2>
+<p>For a classical ideal gas,</p>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{N}{V} k_B T,
+\]</div>
+<p>so the pressure vanishes as <span class="math notranslate nohighlight">\(T \to 0\)</span>. For fermions this is not true.</p>
+<p>Using thermodynamics,</p>
+<div class="math notranslate nohighlight">
+\[
+P = -\left(\frac{\partial F}{\partial V}\right)_{N,T}.
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(T=0\)</span>, the entropy vanishes for this noninteracting ground state, so <span class="math notranslate nohighlight">\(F=E\)</span> and hence</p>
+<div class="math notranslate nohighlight">
+\[
+P = -\left(\frac{\partial E}{\partial V}\right)_N.
+\]</div>
+<p>We now compute this for a free nonrelativistic Fermi gas in <span class="math notranslate nohighlight">\(D\)</span> spatial dimensions.</p>
+</section>
+<section id="relation-between-density-and-fermi-momentum">
+<h2>4. Relation between density and Fermi momentum<a class="headerlink" href="#relation-between-density-and-fermi-momentum" title="Permalink to this heading">#</a></h2>
+<p>At <span class="math notranslate nohighlight">\(T=0\)</span>, all states with <span class="math notranslate nohighlight">\(|\mathbf{k}| &lt; k_F\)</span> are occupied. For a single internal species,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N}{V} = \int \frac{d^D k}{(2\pi)^D}\,\Theta(k_F-k).
+\]</div>
+<p>It is convenient to define</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_0 := \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D}\,\frac{1}{k_F^D},
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N}{V} = \gamma_0 k_F^D,
+\qquad
+k_F = \left(\frac{N/V}{\gamma_0}\right)^{1/D}.
+\]</div>
+<p>Equivalently, carrying out the angular integral explicitly,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N}{V} = \frac{S_{D-1}}{D(2\pi)^D} k_F^D,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(S_{D-1}\)</span> is the surface area of the unit sphere in <span class="math notranslate nohighlight">\(D\)</span> dimensions. If there is an internal degeneracy <span class="math notranslate nohighlight">\(g_s\)</span>, this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+n = \frac{N}{V} = g_s\,\frac{S_{D-1}}{D(2\pi)^D} k_F^D.
+\]</div>
+</section>
+<section id="ground-state-energy">
+<h2>5. Ground-state energy<a class="headerlink" href="#ground-state-energy" title="Permalink to this heading">#</a></h2>
+<p>The total energy at <span class="math notranslate nohighlight">\(T=0\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+E = \sum_{|\mathbf{k}|&lt;k_F} \varepsilon_{\mathbf{k}}
+= V \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D} \frac{\hbar^2 k^2}{2m}.
+\]</div>
+<p>Define similarly</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_2 := \int_{|\mathbf{k}|&lt;k_F} \frac{d^D k}{(2\pi)^D}\,\frac{k^2}{k_F^{D+2}},
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{E}{V} = \frac{\hbar^2}{2m} \gamma_2 k_F^{D+2}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(k_F \propto (N/V)^{1/D}\)</span>, this implies</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{E}{V} \propto \left(\frac{N}{V}\right)^{1+2/D}.
+\]</div>
+<p>For the free gas one can evaluate the ratio explicitly and obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{E}{N} = \frac{D}{D+2} E_F.
+\]</div>
+</section>
+<section id="pressure-at-t-0">
+<h2>6. Pressure at <span class="math notranslate nohighlight">\(T=0\)</span><a class="headerlink" href="#pressure-at-t-0" title="Permalink to this heading">#</a></h2>
+<p>Because <span class="math notranslate nohighlight">\(E \propto V^{-2/D}\)</span> at fixed <span class="math notranslate nohighlight">\(N\)</span>, differentiating with respect to <span class="math notranslate nohighlight">\(V\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+P = -\left(\frac{\partial E}{\partial V}\right)_N = \frac{2}{D} \frac{E}{V}.
+\]</div>
+<p>Using the explicit integrals, one also finds</p>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{2}{D+2}\,\frac{N}{V} E_F = \frac{2}{D+2} n E_F.
+\]</div>
+<p>This is the degeneracy pressure of the ideal Fermi gas.</p>
+<p>In <span class="math notranslate nohighlight">\(D=3\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{2}{5} n E_F.
+\]</div>
+<p>This remains finite even at <span class="math notranslate nohighlight">\(T=0\)</span>, unlike the classical gas. Physically, the pressure comes from Pauli exclusion: confining the fermions to a smaller volume forces occupation of larger momenta and therefore larger kinetic energies.</p>
+</section>
+<section id="density-of-states-formulation">
+<h2>7. Density of states formulation<a class="headerlink" href="#density-of-states-formulation" title="Permalink to this heading">#</a></h2>
+<p>To study finite temperature, it is useful to introduce the density of one-particle states per unit volume,</p>
+<div class="math notranslate nohighlight">
+\[
+g(E) = \int \frac{d^D k}{(2\pi)^D}\,\delta(E-\varepsilon_{\mathbf{k}}).
+\]</div>
+<p>If there is an internal degeneracy <span class="math notranslate nohighlight">\(g_s\)</span>, then the full density of states is <span class="math notranslate nohighlight">\(g_s g(E)\)</span>.</p>
+<p>Then momentum integrals can be rewritten as energy integrals:</p>
+<div class="math notranslate nohighlight">
+\[
+\int \frac{d^D k}{(2\pi)^D}\,f(\varepsilon_{\mathbf{k}}) = \int dE\,g(E)\,f(E).
+\]</div>
+<p>In particular,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N}{V} = \int dE\,g(E)\,n_F(E),
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{E}{V} = \int dE\,g(E)\,E\,n_F(E).
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(n_F(E) = 1/(e^{\beta(E-\mu)}+1)\)</span>, and one may take the integrals over all energies with the understanding that <span class="math notranslate nohighlight">\(g(E)=0\)</span> outside the physical band. Low-temperature thermodynamics is then controlled by the behavior of <span class="math notranslate nohighlight">\(g(E)\)</span> near <span class="math notranslate nohighlight">\(E=\mu \approx E_F\)</span>.</p>
+</section>
+<section id="sommerfeld-expansion">
+<h2>8. Sommerfeld expansion<a class="headerlink" href="#sommerfeld-expansion" title="Permalink to this heading">#</a></h2>
+<p>At <span class="math notranslate nohighlight">\(T=0\)</span>, the Fermi function is a step function. At low but finite <span class="math notranslate nohighlight">\(T\)</span>, it is a smoothed step, and one can expand integrals of the form</p>
+<div class="math notranslate nohighlight">
+\[
+\int dE\, f(E)\, n_F(E)
+\]</div>
+<p>systematically in powers of temperature.</p>
+<p>The Sommerfeld expansion states that</p>
+<div class="math notranslate nohighlight">
+\[
+\int dE\, f(E)\, n_F(E)
+= \int_{-\infty}^{\mu} dE\, f(E)
++ \frac{\pi^2}{6}(k_B T)^2 f'(\mu)
++ O(T^4).
+\]</div>
+<p>A remarkable feature is that the leading correction depends only on <span class="math notranslate nohighlight">\(f'(\mu)\)</span>, not on the detailed form of <span class="math notranslate nohighlight">\(f(E)\)</span> far from the Fermi surface.</p>
+<p>Applying this to the particle density gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N}{V} = \int_{-\infty}^{\mu} dE\, g(E)
++ \frac{\pi^2}{6}(k_B T)^2 g'(\mu)
++ O(T^4),
+\]</div>
+<p>and applying it to the energy density gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{E}{V} = \int_{-\infty}^{\mu} dE\, E g(E)
++ \frac{\pi^2}{6}(k_B T)^2 \left.\frac{d}{dE}\big(E g(E)\big)\right|_{E=\mu}
++ O(T^4).
+\]</div>
+<p>At fixed particle density one must let <span class="math notranslate nohighlight">\(\mu\)</span> acquire a weak temperature dependence. To leading order,</p>
+<div class="math notranslate nohighlight">
+\[
+\mu(T) = E_F - \frac{\pi^2}{6}(k_B T)^2 \frac{g'(E_F)}{g(E_F)} + O(T^4).
+\]</div>
+</section>
+<section id="low-temperature-heat-capacity">
+<h2>9. Low-temperature heat capacity<a class="headerlink" href="#low-temperature-heat-capacity" title="Permalink to this heading">#</a></h2>
+<p>We want the heat capacity at fixed particle number,</p>
+<div class="math notranslate nohighlight">
+\[
+C_{V,N} = \left(\frac{\partial E}{\partial T}\right)_{V,N}.
+\]</div>
+<p>Because both <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(N\)</span> depend on <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(T\)</span>, one must account for the weak temperature dependence of <span class="math notranslate nohighlight">\(\mu(T)\)</span> needed to keep <span class="math notranslate nohighlight">\(N\)</span> fixed.</p>
+<p>To leading order in <span class="math notranslate nohighlight">\(T\)</span>, the result is</p>
+<div class="math notranslate nohighlight">
+\[
+C_{V,N} = V\,\frac{\pi^2}{3}\,k_B^2 T\, g(E_F).
+\]</div>
+<p>So the heat capacity is <strong>linear in temperature</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+C_V \propto T.
+\]</div>
+<p>This is one of the most important results for metals and more generally for degenerate fermionic matter. If an internal degeneracy <span class="math notranslate nohighlight">\(g_s\)</span> is present, replace <span class="math notranslate nohighlight">\(g(E_F)\)</span> by the full density of states <span class="math notranslate nohighlight">\(g_s g(E_F)\)</span>.</p>
+</section>
+<section id="physical-interpretation">
+<h2>10. Physical interpretation<a class="headerlink" href="#physical-interpretation" title="Permalink to this heading">#</a></h2>
+<p>The linear law</p>
+<div class="math notranslate nohighlight">
+\[
+C_V = V\,\frac{\pi^2}{3}\,k_B^2 T\, g(E_F)
+\]</div>
+<p>reflects the fact that only a fraction of order</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\#(\text{thermally active degrees of freedom})}{\#(\text{all particles})} \sim \frac{k_B T}{E_F}
+\]</div>
+<p>can be excited thermally. Most fermions are buried deep inside the Fermi sea and cannot move because nearby states are already occupied.</p>
+<p>This should be contrasted with:</p>
+<ul class="simple">
+<li><p><strong>gapped systems</strong>, where <span class="math notranslate nohighlight">\(C_V \sim e^{-\Delta/(k_B T)}\)</span>,</p></li>
+<li><p><strong>phonons in 3D</strong>, where <span class="math notranslate nohighlight">\(C_V \sim T^3\)</span>.</p></li>
+</ul>
+<p>Hence a degenerate Fermi gas has a much larger low-temperature heat capacity than a gapped system, while still vanishing as <span class="math notranslate nohighlight">\(T \to 0\)</span>.</p>
+</section>
+<section id="summary">
+<h2>11. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>For an ideal degenerate Fermi gas:</p>
+<ol class="arabic simple">
+<li><p>At <span class="math notranslate nohighlight">\(T=0\)</span>, all states below <span class="math notranslate nohighlight">\(E_F\)</span> are filled.</p></li>
+<li><p>The filled region in momentum space is the Fermi sea, bounded by the Fermi surface.</p></li>
+<li><p>Even at <span class="math notranslate nohighlight">\(T=0\)</span>, the gas has a nonzero pressure,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{2}{D}\frac{E}{V} = \frac{2}{D+2} n E_F.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>At low temperature, thermodynamics is controlled only by states near the Fermi surface.</p></li>
+<li><p>The specific heat is linear in <span class="math notranslate nohighlight">\(T\)</span>,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+C_V = V\,\frac{\pi^2}{3} k_B^2 T\, g(E_F).
+\]</div>
+<p>These are the central signatures of Fermi degeneracy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional symbolic definitions used in the notes</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="n">D</span><span class="p">,</span> <span class="n">kF</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">EF</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">kB</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D k_F hbar m n E_F V k_B T&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">EF_expr</span> <span class="o">=</span> <span class="n">hbar</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">kF</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="n">EF_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\hbar^{2} k_{F}^{2}}{2 m}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In 3D, the standard free-fermion relations are:</span>
+<span class="c1">#   n = k_F^3 / (6*pi^2)   for a single spin species</span>
+<span class="c1">#   E_F = hbar^2 k_F^2 / (2m)</span>
+<span class="c1">#   P = (2/5) n E_F</span>
+<span class="c1">#</span>
+<span class="c1"># If spin-1/2 degeneracy is included explicitly, multiply the density of states</span>
+<span class="c1"># by 2, or equivalently replace n = k_F^3/(3*pi^2).</span>
+
+<span class="n">pi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">n_3d_single_spin</span> <span class="o">=</span> <span class="n">kF</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">P_3d_single_spin</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_3d_single_spin</span> <span class="o">*</span> <span class="n">EF_expr</span>
+
+<span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">P_3d_single_spin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\hbar^{2} k_{F}^{5}}{30 \pi^{2} m}\]</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Boson-Fermions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pressure_of_quantum_gas_transcribed.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pressure of a Quantum Gas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#occupation-of-states-and-the-fermi-sea">1. Occupation of states and the Fermi sea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-fermi-surface-matters">2. Why the Fermi surface matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-temperature-pressure">3. Zero-temperature pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-between-density-and-fermi-momentum">4. Relation between density and Fermi momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-state-energy">5. Ground-state energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-at-t-0">6. Pressure at <span class="math notranslate nohighlight">\(T=0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-of-states-formulation">7. Density of states formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommerfeld-expansion">8. Sommerfeld expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-temperature-heat-capacity">9. Low-temperature heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">10. Physical interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

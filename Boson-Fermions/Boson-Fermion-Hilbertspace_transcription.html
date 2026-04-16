@@ -222,6 +222,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="degenerate_fermi_gas.html">The Degenerate Fermi Gas</a></li>
 </ul>
 
     </div>
@@ -524,6 +525,7 @@ but in AMO or condensed-matter settings one may also consider
 \psi(x_1,x_2,\dots,x_N)=\langle x_1,x_2,\dots,x_N \mid \psi\rangle.
 \]</div>
 <p>For distinguishable particles this wavefunction lives in the full tensor-product Hilbert space. For identical particles, however, the physical Hilbert space is the symmetric subspace (bosons) or antisymmetric subspace (fermions) of that tensor-product space.</p>
+<p>The key physical point is that observables depend on probabilities and expectation values, such as <span class="math notranslate nohighlight">\(|\psi(x_1,x_2,\dots)|^2\)</span>, not directly on the complex amplitude itself. Exchanging two identical particles may therefore change the wavefunction by a phase without changing any observable. For ordinary particles, doing the same exchange twice must return the original state, so that phase can only be <span class="math notranslate nohighlight">\(+1\)</span> or <span class="math notranslate nohighlight">\(-1\)</span>. This gives the two possibilities: bosons with symmetric wavefunctions and fermions with antisymmetric wavefunctions.</p>
 </section>
 <section id="exchange-symmetry-for-identical-bosons">
 <h2>Exchange Symmetry for Identical Bosons<a class="headerlink" href="#exchange-symmetry-for-identical-bosons" title="Permalink to this heading">#</a></h2>
@@ -549,6 +551,7 @@ but in AMO or condensed-matter settings one may also consider
 \langle x_2,x_1 \mid \hat{O} \mid x_2,x_1\rangle.
 \]</div>
 <p>There is no way to measure <em>which</em> boson is at <span class="math notranslate nohighlight">\(x\)</span>; only that a boson is at <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Put differently, the measurable quantity is the probability density <span class="math notranslate nohighlight">\(|\psi|^2\)</span>, not the amplitude <span class="math notranslate nohighlight">\(\psi\)</span> itself. A minus sign in the wavefunction under exchange therefore does not by itself change the probability density, which is why antisymmetric fermionic states are physically allowed alongside symmetric bosonic ones.</p>
 <p>Equivalently, physical observables must respect exchange symmetry, i.e. they must commute with all exchange operators <span class="math notranslate nohighlight">\(\hat{P}_{ij}\)</span>.</p>
 <p>For example, the local number operator <span class="math notranslate nohighlight">\(\hat{n}(x)\)</span> counts how many particles occupy the single-particle state <span class="math notranslate nohighlight">\(x\)</span>. In a two-particle state its expectation value is schematically</p>
 <div class="math notranslate nohighlight">
