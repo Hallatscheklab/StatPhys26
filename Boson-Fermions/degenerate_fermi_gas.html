@@ -641,6 +641,45 @@ P = \frac{2}{5} n E_F.
 \]</div>
 <p>This remains finite even at <span class="math notranslate nohighlight">\(T=0\)</span>, unlike the classical gas. Physically, the pressure comes from Pauli exclusion: confining the fermions to a smaller volume forces occupation of larger momenta and therefore larger kinetic energies.</p>
 <div class="note admonition">
+<p class="admonition-title">SI: Order-of-Magnitude Estimate for a Hard Solid</p>
+<p>This same scale helps explain why ordinary condensed matter is hard to compress. Take a simple metal or hard solid with roughly one conduction electron per atom, so that a typical electron density is</p>
+<div class="math notranslate nohighlight">
+\[
+n \sim 10^{29}\,{\rm m}^{-3},
+\]</div>
+<p>and a typical Fermi energy is a few eV, say</p>
+<div class="math notranslate nohighlight">
+\[
+E_F \sim 5\,{\rm eV} \sim 8\times 10^{-19}\,{\rm J}.
+\]</div>
+<p>Then the zero-temperature Fermi pressure is of order</p>
+<div class="math notranslate nohighlight">
+\[
+P_F \sim \frac{2}{5} n E_F
+\sim
+\frac{2}{5}(10^{29})(8\times 10^{-19})\,{\rm Pa}
+\sim 3\times 10^{10}\,{\rm Pa}.
+\]</div>
+<p>That is tens of gigapascals, an enormous microscopic pressure scale.</p>
+<p>For a nonrelativistic Fermi gas in 3D,</p>
+<div class="math notranslate nohighlight">
+\[
+P \propto n^{5/3},
+\]</div>
+<p>so the bulk modulus scales as</p>
+<div class="math notranslate nohighlight">
+\[
+B = -V\frac{dP}{dV} = n\frac{dP}{dn} = \frac{5}{3}P.
+\]</div>
+<p>Using the estimate above,</p>
+<div class="math notranslate nohighlight">
+\[
+B \sim \frac{5}{3} P_F \sim 5\times 10^{10}\,{\rm Pa},
+\]</div>
+<p>which is indeed in the ballpark of measured bulk moduli of many simple solids and metals.</p>
+<p>A small caveat is important: a solid sitting at ambient conditions does <strong>not</strong> have a net outward pressure of tens of GPa, because the electronic degeneracy pressure is balanced by attractive Coulomb forces from the ions and the binding of the lattice. But when you try to compress the solid further, the steep density dependence of the electronic kinetic energy gives a large restoring force. So, at the scaling level, the large bulk modulus of simple hard solids is very plausibly tied to Fermi pressure.</p>
+</div>
+<div class="note admonition">
 <p class="admonition-title">SI: Scaling Argument for the Chandrasekhar Mass</p>
 <p>A white dwarf is supported by <strong>electron degeneracy pressure</strong> against its self-gravity. A simple scaling argument shows why there is a maximum possible mass.</p>
 <p>Let the star have mass <span class="math notranslate nohighlight">\(M\)</span> and radius <span class="math notranslate nohighlight">\(R\)</span>. If the matter contains about one electron per baryon mass <span class="math notranslate nohighlight">\(\mu_e m_p\)</span>, then the number of electrons is</p>
