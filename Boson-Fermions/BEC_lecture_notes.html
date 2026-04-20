@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bose–Einstein Condensation of an Ideal Bose Gas &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Boson-Fermions/BEC_lecture_notes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="The Degenerate Fermi Gas" href="degenerate_fermi_gas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="degenerate_fermi_gas.html">The Degenerate Fermi Gas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bose–Einstein Condensation of an Ideal Bose Gas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Boson-Fermions/BEC_lecture_notes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FBoson-Fermions/BEC_lecture_notes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Boson-Fermions/BEC_lecture_notes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bose–Einstein Condensation of an Ideal Bose Gas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bose-occupation-numbers">1. Bose occupation numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-temperature-limit">2. Zero-temperature limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-the-condensate-from-the-excited-states">3. Separate the condensate from the excited states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-particles-in-three-dimensions">4. Free particles in three dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fugacity-and-bose-functions">5. Fugacity and Bose functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-condensation-occurs-in-three-dimensions">6. Why condensation occurs in three dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-behavior">Infrared behavior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-temperature">7. Critical temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensate-fraction-below-t-c">8. Condensate fraction below <span class="math notranslate nohighlight">\(T_c\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-of-the-grand-canonical-singularity">9. Physical meaning of the grand-canonical singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-below-the-transition">10. Pressure below the transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-energy-and-heat-capacity">11. Internal energy and heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-numerical-plots">12. Optional numerical plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bose-einstein-condensation-of-an-ideal-bose-gas">
+<h1>Bose–Einstein Condensation of an Ideal Bose Gas<a class="headerlink" href="#bose-einstein-condensation-of-an-ideal-bose-gas" title="Permalink to this heading">#</a></h1>
+<p>These notes derive Bose–Einstein condensation (BEC) for a homogeneous non-interacting Bose gas in three spatial dimensions. The central idea is simple: at fixed temperature, the thermally excited states can accommodate only a finite particle density. Once those excited states are saturated, any additional particles must enter the single-particle ground state, producing a macroscopic occupation of that state.</p>
+<section id="bose-occupation-numbers">
+<h2>1. Bose occupation numbers<a class="headerlink" href="#bose-occupation-numbers" title="Permalink to this heading">#</a></h2>
+<p>For non-interacting bosons in the grand canonical ensemble, the average occupation of a single-particle state with energy <span class="math notranslate nohighlight">\(\epsilon_k\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n_k\rangle = \frac{1}{e^{\beta(\epsilon_k-\mu)}-1},
+\qquad
+\beta = \frac{1}{k_B T}.
+\]</div>
+<p>The total particle number is</p>
+<div class="math notranslate nohighlight">
+\[
+N = \sum_k \langle n_k\rangle .
+\]</div>
+<p>For bosons, the occupation number diverges if the denominator tends to zero and would become unphysical if it became negative. Therefore one must have</p>
+<div class="math notranslate nohighlight">
+\[
+\mu \leq \epsilon_0,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_0=\min_k \epsilon_k\)</span> is the ground-state energy. We choose the zero of energy so that</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_0 = 0,
+\qquad
+\mu \leq 0.
+\]</div>
+</section>
+<section id="zero-temperature-limit">
+<h2>2. Zero-temperature limit<a class="headerlink" href="#zero-temperature-limit" title="Permalink to this heading">#</a></h2>
+<p>At <span class="math notranslate nohighlight">\(T=0\)</span>, all bosons occupy the lowest single-particle state:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n_0\rangle = N,
+\qquad
+\langle n_k\rangle = 0 \quad (k\neq 0).
+\]</div>
+<p>This is the simplest example of a Bose condensate: a macroscopic number of particles occupy one quantum state.</p>
+<p>The central question is whether this remains true at finite temperature.</p>
+</section>
+<section id="separate-the-condensate-from-the-excited-states">
+<h2>3. Separate the condensate from the excited states<a class="headerlink" href="#separate-the-condensate-from-the-excited-states" title="Permalink to this heading">#</a></h2>
+<p>Write</p>
+<div class="math notranslate nohighlight">
+\[
+N = N_0 + N_{\rm ex},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+N_0 = \langle n_0\rangle,
+\qquad
+N_{\rm ex} = \sum_{k\neq 0} \langle n_k\rangle .
+\]</div>
+<p>A Bose–Einstein condensate exists if, in the thermodynamic limit,</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{N,V\to\infty \atop N/V=\text{fixed}} \frac{N_0}{V}
+\]</div>
+<p>is finite and nonzero. Since we take <span class="math notranslate nohighlight">\(N/V\)</span> fixed, this is equivalent to saying that the occupation of the ground state is macroscopic:</p>
+<div class="math notranslate nohighlight">
+\[
+N_0 = O(N).
+\]</div>
+</section>
+<section id="free-particles-in-three-dimensions">
+<h2>4. Free particles in three dimensions<a class="headerlink" href="#free-particles-in-three-dimensions" title="Permalink to this heading">#</a></h2>
+<p>For a gas of free particles in a cubic box, the single-particle energies are</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_k = \frac{\hbar^2 k^2}{2m}.
+\]</div>
+<p>In the thermodynamic limit, the sum over states becomes an integral:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_k \longrightarrow \frac{V}{(2\pi)^3}\int d^3k.
+\]</div>
+<p>Thus the density of particles in excited states is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}}{V}
+= \frac{1}{(2\pi)^3}\int d^3k\,
+\frac{1}{e^{\beta(\epsilon_k-\mu)}-1}.
+\]</div>
+<p>Using spherical symmetry,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}}{V}
+= \frac{1}{2\pi^2}\int_0^\infty dk\,
+\frac{k^2}{e^{\beta(\hbar^2 k^2/2m-\mu)}-1}.
+\]</div>
+</section>
+<section id="fugacity-and-bose-functions">
+<h2>5. Fugacity and Bose functions<a class="headerlink" href="#fugacity-and-bose-functions" title="Permalink to this heading">#</a></h2>
+<p>Define the fugacity</p>
+<div class="math notranslate nohighlight">
+\[
+z = e^{\beta\mu}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\mu\leq 0\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+0 &lt; z \leq 1.
+\]</div>
+<p>Also define the thermal de Broglie wavelength</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_T = \sqrt{\frac{2\pi\hbar^2}{m k_B T}}.
+\]</div>
+<p>Then the excited-state density can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}}{V}
+= \frac{1}{\lambda_T^3} g_{3/2}(z),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+g_s(z)
+= \frac{1}{\Gamma(s)}\int_0^\infty dx\,
+\frac{x^{s-1}}{z^{-1}e^x-1}
+= \sum_{\ell=1}^\infty \frac{z^\ell}{\ell^s}.
+\]</div>
+<p>The function <span class="math notranslate nohighlight">\(g_s(z)\)</span> is also called a Bose function or polylogarithm:</p>
+<div class="math notranslate nohighlight">
+\[
+g_s(z)=\operatorname{Li}_s(z).
+\]</div>
+</section>
+<section id="why-condensation-occurs-in-three-dimensions">
+<h2>6. Why condensation occurs in three dimensions<a class="headerlink" href="#why-condensation-occurs-in-three-dimensions" title="Permalink to this heading">#</a></h2>
+<p>The maximum possible density of thermally excited particles occurs when <span class="math notranslate nohighlight">\(\mu\to 0^-\)</span>, or equivalently <span class="math notranslate nohighlight">\(z\to 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\frac{N_{\rm ex}}{V}\right)_{\max}
+= \frac{1}{\lambda_T^3} g_{3/2}(1)
+= \frac{1}{\lambda_T^3}\zeta(3/2).
+\]</div>
+<p>The value</p>
+<div class="math notranslate nohighlight">
+\[
+\zeta(3/2) \approx 2.612
+\]</div>
+<p>is finite.</p>
+<p>This finiteness is the crucial fact. At fixed <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, the excited states can hold only a finite number of particles:</p>
+<div class="math notranslate nohighlight">
+\[
+N_{\rm ex}^{\max}
+= V\lambda_T^{-3}\zeta(3/2).
+\]</div>
+<p>If the total particle number exceeds this value, the excess particles cannot be accommodated in excited states and must occupy the ground state:</p>
+<div class="math notranslate nohighlight">
+\[
+N_0 = N - N_{\rm ex}^{\max}.
+\]</div>
+<section id="infrared-behavior">
+<h3>Infrared behavior<a class="headerlink" href="#infrared-behavior" title="Permalink to this heading">#</a></h3>
+<p>The finiteness of <span class="math notranslate nohighlight">\(g_{3/2}(1)\)</span> follows from the small-<span class="math notranslate nohighlight">\(x\)</span> behavior of the integral</p>
+<div class="math notranslate nohighlight">
+\[
+g_{3/2}(1)
+= \frac{1}{\Gamma(3/2)}\int_0^\infty dx\,
+\frac{x^{1/2}}{e^x-1}.
+\]</div>
+<p>For small <span class="math notranslate nohighlight">\(x\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+e^x-1 \sim x,
+\]</div>
+<p>so the integrand behaves like</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x^{1/2}}{e^x-1} \sim x^{-1/2}.
+\]</div>
+<p>This is integrable at <span class="math notranslate nohighlight">\(x=0\)</span>. At large <span class="math notranslate nohighlight">\(x\)</span>, the integrand decays exponentially. Therefore <span class="math notranslate nohighlight">\(g_{3/2}(1)\)</span> is finite.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Why 3D is special for the homogeneous ideal gas</strong></p>
+<p>The same infrared argument shows why a free Bose gas condenses at finite temperature in three dimensions, but not in one or two dimensions. In <span class="math notranslate nohighlight">\(d\)</span> spatial dimensions, at <span class="math notranslate nohighlight">\(\mu=0\)</span> and small <span class="math notranslate nohighlight">\(k\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{e^{\beta \hbar^2 k^2/(2m)}-1} \sim \frac{1}{k^2},
+\]</div>
+<p>so the excited-state density behaves in the infrared like</p>
+<div class="math notranslate nohighlight">
+\[
+n_{\rm ex} \sim \int d^d k\,\frac{1}{k^2} \sim \int_0 dk\,k^{d-3}.
+\]</div>
+<p>This integral converges at small <span class="math notranslate nohighlight">\(k\)</span> only for <span class="math notranslate nohighlight">\(d&gt;2\)</span>. Thus a homogeneous ideal Bose gas has a finite-temperature BEC transition in 3D, whereas in 1D and 2D the excited states can absorb arbitrarily many particles as <span class="math notranslate nohighlight">\(\mu\to 0^-\)</span>, so there is no finite-<span class="math notranslate nohighlight">\(T\)</span> condensation in the thermodynamic limit.</p>
+</div>
+</section>
+</section>
+<section id="critical-temperature">
+<h2>7. Critical temperature<a class="headerlink" href="#critical-temperature" title="Permalink to this heading">#</a></h2>
+<p>Let the total density be</p>
+<div class="math notranslate nohighlight">
+\[
+n = \frac{N}{V}.
+\]</div>
+<p>The critical temperature is defined by the condition that the excited states are just saturated:</p>
+<div class="math notranslate nohighlight">
+\[
+n = \frac{1}{\lambda_{T_c}^3}\zeta(3/2).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_T = \sqrt{\frac{2\pi\hbar^2}{m k_B T}},
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+T_c
+= \frac{2\pi\hbar^2}{m k_B}
+\left(\frac{n}{\zeta(3/2)}\right)^{2/3}.
+\]</div>
+<p>Numerically,</p>
+<div class="math notranslate nohighlight">
+\[
+T_c \approx 3.31\,\frac{\hbar^2}{m k_B} n^{2/3}.
+\]</div>
+</section>
+<section id="condensate-fraction-below-t-c">
+<h2>8. Condensate fraction below <span class="math notranslate nohighlight">\(T_c\)</span><a class="headerlink" href="#condensate-fraction-below-t-c" title="Permalink to this heading">#</a></h2>
+<p>For <span class="math notranslate nohighlight">\(T&lt;T_c\)</span>, the excited states are saturated, so the chemical potential is pinned at</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=0,
+\qquad z=1.
+\]</div>
+<p>The number of particles in excited states is then</p>
+<div class="math notranslate nohighlight">
+\[
+N_{\rm ex}(T)
+= V\lambda_T^{-3}\zeta(3/2).
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lambda_T^{-3}\propto T^{3/2}\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}(T)}{N}
+= \left(\frac{T}{T_c}\right)^{3/2}.
+\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_0}{N}
+= 1 - \left(\frac{T}{T_c}\right)^{3/2},
+\qquad T&lt;T_c.
+\]</div>
+<p>Above <span class="math notranslate nohighlight">\(T_c\)</span>, there is no macroscopic condensate in the thermodynamic limit:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_0}{N}=0,
+\qquad T&gt;T_c.
+\]</div>
+</section>
+<section id="physical-meaning-of-the-grand-canonical-singularity">
+<h2>9. Physical meaning of the grand-canonical singularity<a class="headerlink" href="#physical-meaning-of-the-grand-canonical-singularity" title="Permalink to this heading">#</a></h2>
+<p>For an ideal Bose gas with ground-state energy set to zero, the grand-canonical expression becomes singular if one tries to take</p>
+<div class="math notranslate nohighlight">
+\[
+\mu&gt;0.
+\]</div>
+<p>But physically, there is no problem with putting many bosons into the box. The point is that once the excited states are saturated, increasing <span class="math notranslate nohighlight">\(N\)</span> no longer changes <span class="math notranslate nohighlight">\(\mu\)</span>. Instead,</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=0
+\]</div>
+<p>and all additional particles go into the ground state.</p>
+<p>For <span class="math notranslate nohighlight">\(T&lt;T_c\)</span>, the correct picture is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle n_k\rangle
+=
+\begin{cases}
+\dfrac{1}{e^{\beta \epsilon_k}-1}, &amp; k\neq 0,\\[1.2em]
+N-N_{\rm ex}, &amp; k=0.
+\end{cases}
+\end{split}\]</div>
+<p>Adding or removing particles from the <span class="math notranslate nohighlight">\(k=0\)</span> state costs no energy because <span class="math notranslate nohighlight">\(\epsilon_0=0\)</span>. It also contributes no entropy in the ideal-gas approximation, because all condensate particles occupy the same single-particle quantum state.</p>
+<p>Thus, below <span class="math notranslate nohighlight">\(T_c\)</span>, the condensate acts as a particle reservoir for the excited states.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A standard subtlety is that the grand-canonical ensemble gives anomalously large fluctuations of the condensate occupation for the <em>ideal</em> Bose gas. For thermodynamic quantities such as <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(C_V\)</span>, however, the grand-canonical treatment still gives the correct equation of state in the thermodynamic limit.</p>
+</div>
+</section>
+<section id="pressure-below-the-transition">
+<h2>10. Pressure below the transition<a class="headerlink" href="#pressure-below-the-transition" title="Permalink to this heading">#</a></h2>
+<p>The grand potential of the ideal Bose gas is</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega
+= k_B T \sum_k \ln\left(1-ze^{-\beta\epsilon_k}\right).
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega = -PV,
+\]</div>
+<p>the pressure is</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= -\frac{k_B T}{V}\sum_k \ln\left(1-ze^{-\beta\epsilon_k}\right).
+\]</div>
+<p>In the thermodynamic limit,</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= \frac{k_B T}{\lambda_T^3} g_{5/2}(z).
+\]</div>
+<p>Below <span class="math notranslate nohighlight">\(T_c\)</span>, <span class="math notranslate nohighlight">\(z=1\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= \frac{k_B T}{\lambda_T^3}\zeta(5/2).
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lambda_T^{-3}\propto T^{3/2}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P \propto T^{5/2}.
+\]</div>
+<p>A striking consequence is that, below <span class="math notranslate nohighlight">\(T_c\)</span>, the pressure depends only on temperature, not on the total particle density. The condensate particles are in the zero-momentum state and do not contribute to the pressure of the ideal gas.</p>
+<p>This density-independence is special to the non-interacting gas. In a weakly interacting Bose fluid, the condensate does contribute to the mechanical equation of state.</p>
+</section>
+<section id="internal-energy-and-heat-capacity">
+<h2>11. Internal energy and heat capacity<a class="headerlink" href="#internal-energy-and-heat-capacity" title="Permalink to this heading">#</a></h2>
+<p>For a free ideal Bose gas, the internal energy of the excited particles is</p>
+<div class="math notranslate nohighlight">
+\[
+U
+= \frac{3}{2}PV
+= \frac{3}{2}V\frac{k_B T}{\lambda_T^3}g_{5/2}(z).
+\]</div>
+<p>Below <span class="math notranslate nohighlight">\(T_c\)</span>, <span class="math notranslate nohighlight">\(z=1\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+U
+= \frac{3}{2}V\frac{k_B T}{\lambda_T^3}\zeta(5/2).
+\]</div>
+<p>Using the definition of <span class="math notranslate nohighlight">\(T_c\)</span>, this can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+U
+= \frac{3}{2}N k_B T\,
+\frac{\zeta(5/2)}{\zeta(3/2)}
+\left(\frac{T}{T_c}\right)^{3/2}.
+\]</div>
+<p>Therefore, for <span class="math notranslate nohighlight">\(T&lt;T_c\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+C_V
+= \left(\frac{\partial U}{\partial T}\right)_{V,N}
+= \frac{15}{4}N k_B
+\frac{\zeta(5/2)}{\zeta(3/2)}
+\left(\frac{T}{T_c}\right)^{3/2}.
+\]</div>
+<p>At the transition, the heat capacity is continuous for the ideal Bose gas, but its slope is non-analytic. This cusp is the thermodynamic signature of the phase transition.</p>
+<p>Numerically,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C_V(T_c)}{N k_B}
+=
+\frac{15}{4}\frac{\zeta(5/2)}{\zeta(3/2)}
+\approx 1.93.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(T&gt;T_c\)</span>, the fugacity <span class="math notranslate nohighlight">\(z\)</span> is determined implicitly by</p>
+<div class="math notranslate nohighlight">
+\[
+n\lambda_T^3 = g_{3/2}(z).
+\]</div>
+<p>The heat capacity per particle can then be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C_V}{N k_B}
+= \frac{15}{4}\frac{g_{5/2}(z)}{g_{3/2}(z)}
+- \frac{9}{4}\frac{g_{3/2}(z)}{g_{1/2}(z)}.
+\]</div>
+<p>As <span class="math notranslate nohighlight">\(T\to T_c^+\)</span>, <span class="math notranslate nohighlight">\(z\to 1^-\)</span> and <span class="math notranslate nohighlight">\(g_{1/2}(z)\)</span> diverges, so the second term vanishes. The value of <span class="math notranslate nohighlight">\(C_V\)</span> matches the expression from below, while the derivative changes non-analytically.</p>
+</section>
+<section id="optional-numerical-plots">
+<h2>12. Optional numerical plots<a class="headerlink" href="#optional-numerical-plots" title="Permalink to this heading">#</a></h2>
+<p>The following code illustrates three useful facts for the ideal three-dimensional Bose gas in units where <span class="math notranslate nohighlight">\(T_c=1\)</span> and <span class="math notranslate nohighlight">\(N k_B=1\)</span>:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(g_{3/2}(z)\)</span> saturates at the finite value <span class="math notranslate nohighlight">\(\zeta(3/2)\)</span> as <span class="math notranslate nohighlight">\(z\to 1^-\)</span>.</p></li>
+<li><p>The condensate fraction grows continuously below <span class="math notranslate nohighlight">\(T_c\)</span>.</p></li>
+<li><p>The heat capacity has a cusp at the transition.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">zeta</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">polylog</span>
+
+<span class="n">Tc</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">zeta32</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">zeta</span><span class="p">(</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">zeta52</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">zeta</span><span class="p">(</span><span class="mf">2.5</span><span class="p">))</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">zvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">g32_curve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zvals</span><span class="p">])</span>
+<span class="n">condensate_fraction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">T</span> <span class="o">&lt;</span> <span class="n">Tc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">**</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="n">Cv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">Tc</span><span class="p">:</span>
+        <span class="n">Cv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">zeta52</span><span class="o">/</span><span class="n">zeta32</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="mf">1.5</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Solve g_{3/2}(z) = zeta(3/2) / t^{3/2}</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">zeta32</span> <span class="o">/</span> <span class="n">t</span><span class="o">**</span><span class="mf">1.5</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span> <span class="o">-</span> <span class="n">target</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">)</span>
+        <span class="n">g12</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+        <span class="n">g32</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+        <span class="n">g52</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+        <span class="n">Cv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">g52</span><span class="o">/</span><span class="n">g32</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">g32</span><span class="o">/</span><span class="n">g12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">zvals</span><span class="p">,</span> <span class="n">g32_curve</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$g_{3/2}(z)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">zeta32</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\zeta(3/2)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$z=e^{\beta\mu}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$g_{3/2}(z)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Saturation of the excited-state density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2721870cd283bcbee8f908e9c04c13427a103198b29d0dfa93f863e352308b20.png" src="../_images/2721870cd283bcbee8f908e9c04c13427a103198b29d0dfa93f863e352308b20.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">condensate_fraction</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T/T_c$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$N_0/N$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Condensate fraction&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4a843ca58dc585a63d3cfc676ed1aed81cb4efcc5c4b42db93ba447015a6bc17.png" src="../_images/4a843ca58dc585a63d3cfc676ed1aed81cb4efcc5c4b42db93ba447015a6bc17.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Cv</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T/T_c$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$C_V/(Nk_B)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heat capacity of the ideal Bose gas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fbbf0210ed771160123616e27368a38fb796a1bd709d03e7d772b4340f29f477.png" src="../_images/fbbf0210ed771160123616e27368a38fb796a1bd709d03e7d772b4340f29f477.png" />
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>For an ideal Bose gas in three dimensions:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}}{V}=\lambda_T^{-3}g_{3/2}(z),
+\qquad
+z=e^{\beta\mu}\leq 1.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(g_{3/2}(1)=\zeta(3/2)\)</span> is finite, the excited states can hold only a finite density of particles at fixed temperature. The critical temperature is</p>
+<div class="math notranslate nohighlight">
+\[
+T_c
+= \frac{2\pi\hbar^2}{m k_B}
+\left(\frac{n}{\zeta(3/2)}\right)^{2/3}.
+\]</div>
+<p>Below <span class="math notranslate nohighlight">\(T_c\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=0,
+\qquad
+\frac{N_0}{N}=1-\left(\frac{T}{T_c}\right)^{3/2}.
+\]</div>
+<p>The pressure below <span class="math notranslate nohighlight">\(T_c\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+P=\frac{k_B T}{\lambda_T^3}\zeta(5/2),
+\]</div>
+<p>so the condensate itself does not contribute to the pressure in the ideal-gas approximation. The heat capacity has a non-analyticity at <span class="math notranslate nohighlight">\(T_c\)</span>, marking a phase transition.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Boson-Fermions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="degenerate_fermi_gas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Degenerate Fermi Gas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bose-occupation-numbers">1. Bose occupation numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-temperature-limit">2. Zero-temperature limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-the-condensate-from-the-excited-states">3. Separate the condensate from the excited states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-particles-in-three-dimensions">4. Free particles in three dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fugacity-and-bose-functions">5. Fugacity and Bose functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-condensation-occurs-in-three-dimensions">6. Why condensation occurs in three dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-behavior">Infrared behavior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-temperature">7. Critical temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensate-fraction-below-t-c">8. Condensate fraction below <span class="math notranslate nohighlight">\(T_c\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-of-the-grand-canonical-singularity">9. Physical meaning of the grand-canonical singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-below-the-transition">10. Pressure below the transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-energy-and-heat-capacity">11. Internal energy and heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-numerical-plots">12. Optional numerical plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
