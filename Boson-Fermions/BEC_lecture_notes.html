@@ -587,7 +587,26 @@ z = e^{\beta\mu}.
 \[
 \lambda_T = \sqrt{\frac{2\pi\hbar^2}{m k_B T}}.
 \]</div>
-<p>Then the excited-state density can be written as</p>
+<p>To make contact with the standard Bose integral, introduce the dimensionless variable</p>
+<div class="math notranslate nohighlight">
+\[
+x = \beta \frac{\hbar^2 k^2}{2m},
+\qquad z=e^{\beta\mu}.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+k^2\,dk = \frac{1}{2}\left(\frac{2m}{\beta\hbar^2}\right)^{3/2}x^{1/2}\,dx,
+\]</div>
+<p>so the excited-state density becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{N_{\rm ex}}{V}
+= \frac{1}{4\pi^2}\left(\frac{2m}{\beta\hbar^2}\right)^{3/2}
+\int_0^\infty dx\,
+\frac{x^{1/2}}{z^{-1}e^x-1}.
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\Gamma(3/2)=\sqrt{\pi}/2\)</span>, this can be written as</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{N_{\rm ex}}{V}
@@ -601,11 +620,220 @@ g_s(z)
 \frac{x^{s-1}}{z^{-1}e^x-1}
 = \sum_{\ell=1}^\infty \frac{z^\ell}{\ell^s}.
 \]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Supplementary calculation: why the integral equals the sum</p>
+<p>For <span class="math notranslate nohighlight">\(0&lt;z\le 1\)</span>, write</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{z^{-1}e^x-1}
+= \frac{ze^{-x}}{1-ze^{-x}}
+= \sum_{\ell=1}^{\infty} z^\ell e^{-\ell x},
+\]</div>
+<p>which is just the geometric series with ratio <span class="math notranslate nohighlight">\(ze^{-x}\)</span>. Substituting into the integral gives</p>
+<div class="math notranslate nohighlight">
+\[
+g_s(z)
+= \frac{1}{\Gamma(s)}\sum_{\ell=1}^{\infty} z^\ell
+\int_0^\infty dx\,x^{s-1}e^{-\ell x}.
+\]</div>
+<p>Now scale the integration variable as <span class="math notranslate nohighlight">\(u=\ell x\)</span>, so <span class="math notranslate nohighlight">\(dx=du/\ell\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^\infty dx\,x^{s-1}e^{-\ell x}
+= \ell^{-s}\int_0^\infty du\,u^{s-1}e^{-u}
+= \ell^{-s}\Gamma(s).
+\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+g_s(z)
+= \sum_{\ell=1}^{\infty}\frac{z^\ell}{\ell^s}.
+\]</div>
+</div>
 <p>The function <span class="math notranslate nohighlight">\(g_s(z)\)</span> is also called a Bose function or polylogarithm:</p>
 <div class="math notranslate nohighlight">
 \[
 g_s(z)=\operatorname{Li}_s(z).
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">zeta</span>
+<span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">polylog</span>
+
+<span class="n">zvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">nlam3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zvals</span><span class="p">])</span>
+<span class="n">nstar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">zeta</span><span class="p">(</span><span class="mf">1.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">zvals</span><span class="p">,</span> <span class="n">nlam3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">nstar</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$n_*</span><span class="se">\\</span><span class="s1">lambda_T^3=</span><span class="se">\\</span><span class="s1">zeta(3/2)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$z=e^{</span><span class="se">\\</span><span class="s1">beta</span><span class="se">\\</span><span class="s1">mu}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$n</span><span class="se">\\</span><span class="s1">lambda_T^3 = g_{3/2}(z)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Excited-state density as a function of fugacity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+File ~/anaconda3/lib/python3.10/site-packages/IPython/core/formatters.py:340, in BaseFormatter.__call__(self, obj)
+    338     pass
+    339 else:
+--&gt; 340     return printer(obj)
+    341 # Finally look for special method names
+    342 method = get_real_method(obj, self.print_method)
+
+File ~/anaconda3/lib/python3.10/site-packages/IPython/core/pylabtools.py:152, in print_figure(fig, fmt, bbox_inches, base64, **kwargs)
+    149     from matplotlib.backend_bases import FigureCanvasBase
+    150     FigureCanvasBase(fig)
+--&gt; 152 fig.canvas.print_figure(bytes_io, **kw)
+    153 data = bytes_io.getvalue()
+    154 if fmt == &#39;svg&#39;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/backend_bases.py:2164, in FigureCanvasBase.print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)
+   2161     # we do this instead of `self.figure.draw_without_rendering`
+   2162     # so that we can inject the orientation
+   2163     with getattr(renderer, &quot;_draw_disabled&quot;, nullcontext)():
+-&gt; 2164         self.figure.draw(renderer)
+   2165 if bbox_inches:
+   2166     if bbox_inches == &quot;tight&quot;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:95, in _finalize_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer, *args, **kwargs)
+     93 @wraps(draw)
+     94 def draw_wrapper(artist, renderer, *args, **kwargs):
+---&gt; 95     result = draw(artist, renderer, *args, **kwargs)
+     96     if renderer._rasterizing:
+     97         renderer.stop_rasterizing()
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:72, in allow_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer)
+     69     if artist.get_agg_filter() is not None:
+     70         renderer.start_filter()
+---&gt; 72     return draw(artist, renderer)
+     73 finally:
+     74     if artist.get_agg_filter() is not None:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/figure.py:3154, in Figure.draw(self, renderer)
+   3151         # ValueError can occur when resizing a window.
+   3153 self.patch.draw(renderer)
+-&gt; 3154 mimage._draw_list_compositing_images(
+   3155     renderer, self, artists, self.suppressComposite)
+   3157 for sfig in self.subfigs:
+   3158     sfig.draw(renderer)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/image.py:132, in _draw_list_compositing_images(renderer, parent, artists, suppress_composite)
+    130 if not_composite or not has_images:
+    131     for a in artists:
+--&gt; 132         a.draw(renderer)
+    133 else:
+    134     # Composite any adjacent images together
+    135     image_group = []
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:72, in allow_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer)
+     69     if artist.get_agg_filter() is not None:
+     70         renderer.start_filter()
+---&gt; 72     return draw(artist, renderer)
+     73 finally:
+     74     if artist.get_agg_filter() is not None:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axes/_base.py:3034, in _AxesBase.draw(self, renderer)
+   3031     for spine in self.spines.values():
+   3032         artists.remove(spine)
+-&gt; 3034 self._update_title_position(renderer)
+   3036 if not self.axison:
+   3037     for _axis in self._axis_map.values():
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axes/_base.py:2978, in _AxesBase._update_title_position(self, renderer)
+   2976 top = max(top, bb.ymax)
+   2977 if title.get_text():
+-&gt; 2978     ax.yaxis.get_tightbbox(renderer)  # update offsetText
+   2979     if ax.yaxis.offsetText.get_text():
+   2980         bb = ax.yaxis.offsetText.get_tightbbox(renderer)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axis.py:1352, in Axis.get_tightbbox(self, renderer, for_layout_only)
+   1350 # take care of label
+   1351 if self.label.get_visible():
+-&gt; 1352     bb = self.label.get_window_extent(renderer)
+   1353     # for constrained/tight_layout, we want to ignore the label&#39;s
+   1354     # width/height because the adjustments they make can&#39;t be improved.
+   1355     # this code collapses the relevant direction
+   1356     if for_layout_only:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:956, in Text.get_window_extent(self, renderer, dpi)
+    951     raise RuntimeError(
+    952         &quot;Cannot get window extent of text w/o renderer. You likely &quot;
+    953         &quot;want to call &#39;figure.draw_without_rendering()&#39; first.&quot;)
+    955 with cbook._setattr_cm(self.figure, dpi=dpi):
+--&gt; 956     bbox, info, descent = self._get_layout(self._renderer)
+    957     x, y = self.get_unitless_position()
+    958     x, y = self.get_transform().transform((x, y))
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:381, in Text._get_layout(self, renderer)
+    379 clean_line, ismath = self._preprocess_math(line)
+    380 if clean_line:
+--&gt; 381     w, h, d = _get_text_metrics_with_cache(
+    382         renderer, clean_line, self._fontproperties,
+    383         ismath=ismath, dpi=self.figure.dpi)
+    384 else:
+    385     w = h = d = 0
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:69, in _get_text_metrics_with_cache(renderer, text, fontprop, ismath, dpi)
+     66 &quot;&quot;&quot;Call ``renderer.get_text_width_height_descent``, caching the results.&quot;&quot;&quot;
+     67 # Cached based on a copy of fontprop so that later in-place mutations of
+     68 # the passed-in argument do not mess up the cache.
+---&gt; 69 return _get_text_metrics_with_cache_impl(
+     70     weakref.ref(renderer), text, fontprop.copy(), ismath, dpi)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:77, in _get_text_metrics_with_cache_impl(renderer_ref, text, fontprop, ismath, dpi)
+     73 @functools.lru_cache(4096)
+     74 def _get_text_metrics_with_cache_impl(
+     75         renderer_ref, text, fontprop, ismath, dpi):
+     76     # dpi is unused, but participates in cache invalidation (via the renderer).
+---&gt; 77     return renderer_ref().get_text_width_height_descent(text, fontprop, ismath)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py:217, in RendererAgg.get_text_width_height_descent(self, s, prop, ismath)
+    213     return super().get_text_width_height_descent(s, prop, ismath)
+    215 if ismath:
+    216     ox, oy, width, height, descent, font_image = \
+--&gt; 217         self.mathtext_parser.parse(s, self.dpi, prop)
+    218     return width, height, descent
+    220 font = self._prepare_font(prop)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/mathtext.py:79, in MathTextParser.parse(self, s, dpi, prop, antialiased)
+     77 prop = prop.copy() if prop is not None else None
+     78 antialiased = mpl._val_or_rc(antialiased, &#39;text.antialiased&#39;)
+---&gt; 79 return self._parse_cached(s, dpi, prop, antialiased)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/mathtext.py:100, in MathTextParser._parse_cached(self, s, dpi, prop, antialiased)
+     97 if self._parser is None:  # Cache the parser globally.
+     98     self.__class__._parser = _mathtext.Parser()
+--&gt; 100 box = self._parser.parse(s, fontset, fontsize, dpi)
+    101 output = _mathtext.ship(box)
+    102 if self._output_type == &quot;vector&quot;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/_mathtext.py:2165, in Parser.parse(self, s, fonts_object, fontsize, dpi)
+   2162     result = self._expression.parseString(s)
+   2163 except ParseBaseException as err:
+   2164     # explain becomes a plain method on pyparsing 3 (err.explain(0)).
+-&gt; 2165     raise ValueError(&quot;\n&quot; + ParseException.explain(err, 0)) from None
+   2166 self._state_stack = []
+   2167 self._in_subscript_or_superscript = False
+
+ValueError: 
+$n\\lambda_T^3 = g_{3/2}(z)$
+^
+ParseException: Expected end of text, found &#39;$&#39;  (at char 0), (line:1, col:1)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 600x400 with 1 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This plot makes the saturation mechanism visible: for the ideal gas, <span class="math notranslate nohighlight">\(n\\lambda_T^3=g_{3/2}(z)\)</span> increases with <span class="math notranslate nohighlight">\(z\)</span> but never exceeds the finite value <span class="math notranslate nohighlight">\(\\zeta(3/2)\)</span>. Once this maximum excited-state density is reached, any additional particles must go into the condensate.</p>
 </section>
 <section id="why-condensation-occurs-in-three-dimensions">
 <h2>6. Why condensation occurs in three dimensions<a class="headerlink" href="#why-condensation-occurs-in-three-dimensions" title="Permalink to this heading">#</a></h2>
@@ -747,6 +975,13 @@ N_{\rm ex}(T)
 \mu=0
 \]</div>
 <p>and all additional particles go into the ground state.</p>
+<p>More precisely, for densities above the critical value</p>
+<div class="math notranslate nohighlight">
+\[
+n_* = \lambda_T^{-3}\zeta(3/2),
+\]</div>
+<p>the grand-canonical description of the <em>ideal</em> condensate becomes singular, and it is conceptually cleaner to switch to the canonical ensemble with fixed total particle number. In that language, the excited states remain saturated at <span class="math notranslate nohighlight">\(N_{\rm ex}=Vn_*\)</span> while the excess particles accumulate in the <span class="math notranslate nohighlight">\(k=0\)</span> mode.</p>
+<p>The restriction <span class="math notranslate nohighlight">\(\mu\le 0\)</span> here is special to the non-interacting gas with the single-particle ground-state energy chosen as zero. Interacting Bose systems are usually formulated for arbitrary chemical potential, and their equation of state need not show this ideal-gas singularity.</p>
 <p>For <span class="math notranslate nohighlight">\(T&lt;T_c\)</span>, the correct picture is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -783,12 +1018,72 @@ N-N_{\rm ex}, &amp; k=0.
 P
 = -\frac{k_B T}{V}\sum_k \ln\left(1-ze^{-\beta\epsilon_k}\right).
 \]</div>
-<p>In the thermodynamic limit,</p>
+<p>In the thermodynamic limit, this becomes</p>
 <div class="math notranslate nohighlight">
 \[
 P
 = \frac{k_B T}{\lambda_T^3} g_{5/2}(z).
 \]</div>
+<p>The derivation is a straightforward but somewhat algebraic manipulation, so it is separated out here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Supplementary calculation: why the pressure involves <span class="math notranslate nohighlight">\(g_{5/2}(z)\)</span></p>
+<p>Replace the sum by an integral,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{V}\sum_k \to \int \frac{d^3k}{(2\pi)^3},
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= -k_B T\int \frac{d^3k}{(2\pi)^3}\ln\left(1-ze^{-\beta\epsilon_k}\right).
+\]</div>
+<p>Using spherical symmetry and <span class="math notranslate nohighlight">\(\epsilon_k=\hbar^2k^2/(2m)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= -\frac{k_B T}{2\pi^2}\int_0^\infty dk\,k^2
+\ln\left(1-ze^{-\beta\hbar^2k^2/(2m)}\right).
+\]</div>
+<p>Now expand the logarithm,</p>
+<div class="math notranslate nohighlight">
+\[
+-\ln(1-y)=\sum_{\ell=1}^{\infty}\frac{y^\ell}{\ell},
+\qquad y=ze^{-\beta\hbar^2k^2/(2m)},
+\]</div>
+<p>to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= \frac{k_B T}{2\pi^2}\sum_{\ell=1}^{\infty}\frac{z^\ell}{\ell}
+\int_0^\infty dk\,k^2 e^{-\ell\beta\hbar^2k^2/(2m)}.
+\]</div>
+<p>The Gaussian integral is</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^\infty dk\,k^2 e^{-ak^2}
+= \frac{\sqrt{\pi}}{4}a^{-3/2},
+\]</div>
+<p>so with <span class="math notranslate nohighlight">\(a=\ell\beta\hbar^2/(2m)\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= \frac{k_B T}{2\pi^2}\frac{\sqrt{\pi}}{4}
+\left(\frac{2m}{\beta\hbar^2}\right)^{3/2}
+\sum_{\ell=1}^{\infty}\frac{z^\ell}{\ell^{5/2}}.
+\]</div>
+<p>Using the definition</p>
+<div class="math notranslate nohighlight">
+\[
+g_s(z)=\sum_{\ell=1}^{\infty}\frac{z^\ell}{\ell^s},
+\]</div>
+<p>and the thermal wavelength <span class="math notranslate nohighlight">\(\lambda_T=\sqrt{2\pi\hbar^2/(mk_BT)}\)</span>, this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+P
+= \frac{k_B T}{\lambda_T^3} g_{5/2}(z).
+\]</div>
+</div>
 <p>Below <span class="math notranslate nohighlight">\(T_c\)</span>, <span class="math notranslate nohighlight">\(z=1\)</span>, so</p>
 <div class="math notranslate nohighlight">
 \[
@@ -860,11 +1155,12 @@ n\lambda_T^3 = g_{3/2}(z).
 </section>
 <section id="optional-numerical-plots">
 <h2>12. Optional numerical plots<a class="headerlink" href="#optional-numerical-plots" title="Permalink to this heading">#</a></h2>
-<p>The following code illustrates three useful facts for the ideal three-dimensional Bose gas in units where <span class="math notranslate nohighlight">\(T_c=1\)</span> and <span class="math notranslate nohighlight">\(N k_B=1\)</span>:</p>
+<p>The following code illustrates four useful facts for the ideal three-dimensional Bose gas in units where <span class="math notranslate nohighlight">\(T_c=1\)</span> and <span class="math notranslate nohighlight">\(N k_B=1\)</span>:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(g_{3/2}(z)\)</span> saturates at the finite value <span class="math notranslate nohighlight">\(\zeta(3/2)\)</span> as <span class="math notranslate nohighlight">\(z\to 1^-\)</span>.</p></li>
 <li><p>The condensate fraction grows continuously below <span class="math notranslate nohighlight">\(T_c\)</span>.</p></li>
 <li><p>The heat capacity has a cusp at the transition.</p></li>
+<li><p>The chemical potential develops a kink as a function of density at fixed temperature.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -950,6 +1246,187 @@ n\lambda_T^3 = g_{3/2}(z).
 <img alt="../_images/fbbf0210ed771160123616e27368a38fb796a1bd709d03e7d772b4340f29f477.png" src="../_images/fbbf0210ed771160123616e27368a38fb796a1bd709d03e7d772b4340f29f477.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlam3_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">zeta32</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">mu_over_kT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">nlam3_vals</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nlam3</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nlam3_vals</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">nlam3</span> <span class="o">&lt;</span> <span class="n">zeta32</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">polylog</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span> <span class="o">-</span> <span class="n">nlam3</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">)</span>
+        <span class="n">mu_over_kT</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mu_over_kT</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nlam3_vals</span><span class="p">,</span> <span class="n">mu_over_kT</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">zeta32</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$n_*</span><span class="se">\\</span><span class="s1">lambda_T^3=</span><span class="se">\\</span><span class="s1">zeta(3/2)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$n</span><span class="se">\\</span><span class="s1">lambda_T^3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu/(k_B T)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Chemical potential versus density for the ideal Bose gas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+File ~/anaconda3/lib/python3.10/site-packages/IPython/core/formatters.py:340, in BaseFormatter.__call__(self, obj)
+    338     pass
+    339 else:
+--&gt; 340     return printer(obj)
+    341 # Finally look for special method names
+    342 method = get_real_method(obj, self.print_method)
+
+File ~/anaconda3/lib/python3.10/site-packages/IPython/core/pylabtools.py:152, in print_figure(fig, fmt, bbox_inches, base64, **kwargs)
+    149     from matplotlib.backend_bases import FigureCanvasBase
+    150     FigureCanvasBase(fig)
+--&gt; 152 fig.canvas.print_figure(bytes_io, **kw)
+    153 data = bytes_io.getvalue()
+    154 if fmt == &#39;svg&#39;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/backend_bases.py:2164, in FigureCanvasBase.print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)
+   2161     # we do this instead of `self.figure.draw_without_rendering`
+   2162     # so that we can inject the orientation
+   2163     with getattr(renderer, &quot;_draw_disabled&quot;, nullcontext)():
+-&gt; 2164         self.figure.draw(renderer)
+   2165 if bbox_inches:
+   2166     if bbox_inches == &quot;tight&quot;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:95, in _finalize_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer, *args, **kwargs)
+     93 @wraps(draw)
+     94 def draw_wrapper(artist, renderer, *args, **kwargs):
+---&gt; 95     result = draw(artist, renderer, *args, **kwargs)
+     96     if renderer._rasterizing:
+     97         renderer.stop_rasterizing()
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:72, in allow_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer)
+     69     if artist.get_agg_filter() is not None:
+     70         renderer.start_filter()
+---&gt; 72     return draw(artist, renderer)
+     73 finally:
+     74     if artist.get_agg_filter() is not None:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/figure.py:3154, in Figure.draw(self, renderer)
+   3151         # ValueError can occur when resizing a window.
+   3153 self.patch.draw(renderer)
+-&gt; 3154 mimage._draw_list_compositing_images(
+   3155     renderer, self, artists, self.suppressComposite)
+   3157 for sfig in self.subfigs:
+   3158     sfig.draw(renderer)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/image.py:132, in _draw_list_compositing_images(renderer, parent, artists, suppress_composite)
+    130 if not_composite or not has_images:
+    131     for a in artists:
+--&gt; 132         a.draw(renderer)
+    133 else:
+    134     # Composite any adjacent images together
+    135     image_group = []
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/artist.py:72, in allow_rasterization.&lt;locals&gt;.draw_wrapper(artist, renderer)
+     69     if artist.get_agg_filter() is not None:
+     70         renderer.start_filter()
+---&gt; 72     return draw(artist, renderer)
+     73 finally:
+     74     if artist.get_agg_filter() is not None:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axes/_base.py:3034, in _AxesBase.draw(self, renderer)
+   3031     for spine in self.spines.values():
+   3032         artists.remove(spine)
+-&gt; 3034 self._update_title_position(renderer)
+   3036 if not self.axison:
+   3037     for _axis in self._axis_map.values():
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axes/_base.py:2978, in _AxesBase._update_title_position(self, renderer)
+   2976 top = max(top, bb.ymax)
+   2977 if title.get_text():
+-&gt; 2978     ax.yaxis.get_tightbbox(renderer)  # update offsetText
+   2979     if ax.yaxis.offsetText.get_text():
+   2980         bb = ax.yaxis.offsetText.get_tightbbox(renderer)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/axis.py:1352, in Axis.get_tightbbox(self, renderer, for_layout_only)
+   1350 # take care of label
+   1351 if self.label.get_visible():
+-&gt; 1352     bb = self.label.get_window_extent(renderer)
+   1353     # for constrained/tight_layout, we want to ignore the label&#39;s
+   1354     # width/height because the adjustments they make can&#39;t be improved.
+   1355     # this code collapses the relevant direction
+   1356     if for_layout_only:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:956, in Text.get_window_extent(self, renderer, dpi)
+    951     raise RuntimeError(
+    952         &quot;Cannot get window extent of text w/o renderer. You likely &quot;
+    953         &quot;want to call &#39;figure.draw_without_rendering()&#39; first.&quot;)
+    955 with cbook._setattr_cm(self.figure, dpi=dpi):
+--&gt; 956     bbox, info, descent = self._get_layout(self._renderer)
+    957     x, y = self.get_unitless_position()
+    958     x, y = self.get_transform().transform((x, y))
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:381, in Text._get_layout(self, renderer)
+    379 clean_line, ismath = self._preprocess_math(line)
+    380 if clean_line:
+--&gt; 381     w, h, d = _get_text_metrics_with_cache(
+    382         renderer, clean_line, self._fontproperties,
+    383         ismath=ismath, dpi=self.figure.dpi)
+    384 else:
+    385     w = h = d = 0
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:69, in _get_text_metrics_with_cache(renderer, text, fontprop, ismath, dpi)
+     66 &quot;&quot;&quot;Call ``renderer.get_text_width_height_descent``, caching the results.&quot;&quot;&quot;
+     67 # Cached based on a copy of fontprop so that later in-place mutations of
+     68 # the passed-in argument do not mess up the cache.
+---&gt; 69 return _get_text_metrics_with_cache_impl(
+     70     weakref.ref(renderer), text, fontprop.copy(), ismath, dpi)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/text.py:77, in _get_text_metrics_with_cache_impl(renderer_ref, text, fontprop, ismath, dpi)
+     73 @functools.lru_cache(4096)
+     74 def _get_text_metrics_with_cache_impl(
+     75         renderer_ref, text, fontprop, ismath, dpi):
+     76     # dpi is unused, but participates in cache invalidation (via the renderer).
+---&gt; 77     return renderer_ref().get_text_width_height_descent(text, fontprop, ismath)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py:217, in RendererAgg.get_text_width_height_descent(self, s, prop, ismath)
+    213     return super().get_text_width_height_descent(s, prop, ismath)
+    215 if ismath:
+    216     ox, oy, width, height, descent, font_image = \
+--&gt; 217         self.mathtext_parser.parse(s, self.dpi, prop)
+    218     return width, height, descent
+    220 font = self._prepare_font(prop)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/mathtext.py:79, in MathTextParser.parse(self, s, dpi, prop, antialiased)
+     77 prop = prop.copy() if prop is not None else None
+     78 antialiased = mpl._val_or_rc(antialiased, &#39;text.antialiased&#39;)
+---&gt; 79 return self._parse_cached(s, dpi, prop, antialiased)
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/mathtext.py:100, in MathTextParser._parse_cached(self, s, dpi, prop, antialiased)
+     97 if self._parser is None:  # Cache the parser globally.
+     98     self.__class__._parser = _mathtext.Parser()
+--&gt; 100 box = self._parser.parse(s, fontset, fontsize, dpi)
+    101 output = _mathtext.ship(box)
+    102 if self._output_type == &quot;vector&quot;:
+
+File ~/anaconda3/lib/python3.10/site-packages/matplotlib/_mathtext.py:2165, in Parser.parse(self, s, fonts_object, fontsize, dpi)
+   2162     result = self._expression.parseString(s)
+   2163 except ParseBaseException as err:
+   2164     # explain becomes a plain method on pyparsing 3 (err.explain(0)).
+-&gt; 2165     raise ValueError(&quot;\n&quot; + ParseException.explain(err, 0)) from None
+   2166 self._state_stack = []
+   2167 self._in_subscript_or_superscript = False
+
+ValueError: 
+$\\mu/(k_B T)$
+^
+ParseException: Expected end of text, found &#39;$&#39;  (at char 0), (line:1, col:1)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 600x400 with 1 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>At fixed temperature, the slope changes abruptly at the critical density <span class="math notranslate nohighlight">\(n_*=\\lambda_T^{-3}\\zeta(3/2)\)</span>. This kink indicates non-analytic behavior in the thermodynamic description, which is the hallmark of a phase transition. For the ideal Bose gas, the transition is continuous and is commonly classified as second order.</p>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
