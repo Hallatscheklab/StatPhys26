@@ -540,7 +540,7 @@ C_V = T\left(\frac{\partial S}{\partial T}\right)_{N,V}
 </section>
 <section id="latent-heat">
 <h2>2. Latent heat<a class="headerlink" href="#latent-heat" title="Permalink to this heading">#</a></h2>
-<p>For a first-order transition between phases 1 and 2, the free energies are equal at the transition temperature (T_c):</p>
+<p>For a first-order transition between phases 1 and 2, the free energies are equal at the transition temperature <span class="math notranslate nohighlight">\(T_c\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 F_1(T_c)=F_2(T_c).
@@ -576,7 +576,7 @@ E_1 - T_c S_1 = E_2 - T_c S_2,
 <section id="continuous-transitions-and-symmetry-which-ones-are-allowed">
 <h2>3. Continuous transitions and symmetry: which ones are allowed?<a class="headerlink" href="#continuous-transitions-and-symmetry-which-ones-are-allowed" title="Permalink to this heading">#</a></h2>
 <p>Continuous phase transitions are not arbitrary. Empirically and theoretically, they are found only between certain pairs of phases.</p>
-<p>A useful way to think about this is in terms of symmetry groups. Suppose two phases are described by space groups (SG_1) and (SG_2). A direct continuous transition is often possible when one symmetry group is a subgroup of the other:</p>
+<p>A useful way to think about this is in terms of symmetry groups. Suppose two phases are described by space groups <span class="math notranslate nohighlight">\(SG_1\)</span> and <span class="math notranslate nohighlight">\(SG_2\)</span>. A direct continuous transition is often possible when one symmetry group is a subgroup of the other:</p>
 <div class="math notranslate nohighlight">
 \[
 SG_2 \subset SG_1.
@@ -593,12 +593,12 @@ SG_2 \subset SG_1.
 <section id="order-parameters-and-symmetry-breaking">
 <h2>4. Order parameters and symmetry breaking<a class="headerlink" href="#order-parameters-and-symmetry-breaking" title="Permalink to this heading">#</a></h2>
 <p>An <strong>order parameter</strong> is an observable that transforms nontrivially under a symmetry that is broken in the ordered phase.</p>
-<p>If (g\in G) is a symmetry operation and (\phi) is an observable such that</p>
+<p>If <span class="math notranslate nohighlight">\(g\in G\)</span> is a symmetry operation and <span class="math notranslate nohighlight">\(\phi\)</span> is an observable such that</p>
 <div class="math notranslate nohighlight">
 \[
 g\phi \neq \phi,
 \]</div>
-<p>then (\phi) can serve as an order parameter for that symmetry.</p>
+<p>then <span class="math notranslate nohighlight">\(\phi\)</span> can serve as an order parameter for that symmetry.</p>
 <p>The key distinction is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -612,23 +612,23 @@ g\phi \neq \phi,
 \langle \phi \rangle \neq 0,
 \]</div>
 <p>the symmetry is spontaneously broken.</p>
-<p>At zero external field and in the thermodynamic limit, the states (\langle \phi \rangle=0) and (\langle \phi \rangle\neq 0) have different symmetry, so changing between them requires a phase transition. In a finite system, or in the presence of an explicit symmetry-breaking field, this sharp distinction is rounded into a crossover.</p>
+<p>At zero external field and in the thermodynamic limit, the states <span class="math notranslate nohighlight">\(\langle \phi \rangle=0\)</span> and <span class="math notranslate nohighlight">\(\langle \phi \rangle\neq 0\)</span> have different symmetry, so changing between them requires a phase transition. In a finite system, or in the presence of an explicit symmetry-breaking field, this sharp distinction is rounded into a crossover.</p>
 <section id="example-structural-distortion">
 <h3>Example: structural distortion<a class="headerlink" href="#example-structural-distortion" title="Permalink to this heading">#</a></h3>
-<p>In a crystal, atoms may shift from high-symmetry positions below (T_c). The displacement vector</p>
+<p>In a crystal, atoms may shift from high-symmetry positions below <span class="math notranslate nohighlight">\(T_c\)</span>. The displacement vector</p>
 <div class="math notranslate nohighlight">
 \[
 \vec\phi = (\phi_x,\phi_y,\ldots)
 \]</div>
-<p>then serves as the order parameter. If a rotation or reflection changes (\vec\phi), the nonzero expectation value of (\vec\phi) signals spontaneous breaking of that symmetry.</p>
+<p>then serves as the order parameter. If a rotation or reflection changes <span class="math notranslate nohighlight">\(\vec\phi\)</span>, the nonzero expectation value of <span class="math notranslate nohighlight">\(\vec\phi\)</span> signals spontaneous breaking of that symmetry.</p>
 <p>More formally, order parameters transform in irreducible representations of the symmetry group.</p>
 </section>
 </section>
 <section id="effective-free-energy">
 <h2>5. Effective free energy<a class="headerlink" href="#effective-free-energy" title="Permalink to this heading">#</a></h2>
-<p>Suppose we have identified an order parameter (\phi). In principle, we would like to compute its distribution microscopically, but that is usually hard.</p>
+<p>Suppose we have identified an order parameter <span class="math notranslate nohighlight">\(\phi\)</span>. In principle, we would like to compute its distribution microscopically, but that is usually hard.</p>
 <p>Landau’s key idea is to define an <strong>effective free energy</strong> (or effective Hamiltonian) for the order parameter.</p>
-<p>Starting from the microscopic Hamiltonian (H[\psi]), one can formally define (H_{\mathrm{eff}}(\Phi)) through</p>
+<p>Starting from the microscopic Hamiltonian <span class="math notranslate nohighlight">\(H[\psi]\)</span>, one can formally define <span class="math notranslate nohighlight">\(H_{\mathrm{eff}}(\Phi)\)</span> through</p>
 <div class="math notranslate nohighlight">
 \[
 e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}
@@ -650,18 +650,18 @@ e^{-\beta F}
 \frac{\int d\Phi\, \Phi\, e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}}
 {\int d\Phi\, e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}}.
 \]</div>
-<p>In the thermodynamic limit (V\to\infty), the integral is dominated by the minimum of (H_{\mathrm{eff}}), so the equilibrium order parameter is obtained by minimizing the effective free energy.</p>
+<p>In the thermodynamic limit <span class="math notranslate nohighlight">\(V\to\infty\)</span>, the integral is dominated by the minimum of <span class="math notranslate nohighlight">\(H_{\mathrm{eff}}\)</span>, so the equilibrium order parameter is obtained by minimizing the effective free energy.</p>
 </section>
 <section id="landau-expansion-near-a-continuous-transition">
 <h2>6. Landau expansion near a continuous transition<a class="headerlink" href="#landau-expansion-near-a-continuous-transition" title="Permalink to this heading">#</a></h2>
-<p>Near a continuous transition, the order parameter is small, so we expand the effective free energy in powers of (\phi):</p>
+<p>Near a continuous transition, the order parameter is small, so we expand the effective free energy in powers of <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 H_{\mathrm{eff}}(\phi)
 =
 H_0 + \alpha \phi + A \phi^2 + C \phi^3 + B \phi^4 + \cdots
 \]</div>
-<p>where the coefficients depend smoothly on thermodynamic control parameters such as (T), (P), (N), etc.</p>
+<p>where the coefficients depend smoothly on thermodynamic control parameters such as <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(N\)</span>, etc.</p>
 <p>This is the basic Landau strategy:</p>
 <ol class="arabic simple">
 <li><p>identify the order parameter,</p></li>
@@ -670,7 +670,7 @@ H_0 + \alpha \phi + A \phi^2 + C \phi^3 + B \phi^4 + \cdots
 </ol>
 <section id="symmetry-constraints">
 <h3>Symmetry constraints<a class="headerlink" href="#symmetry-constraints" title="Permalink to this heading">#</a></h3>
-<p>Because the microscopic theory is invariant under the symmetry group (G), the effective free energy must obey</p>
+<p>Because the microscopic theory is invariant under the symmetry group <span class="math notranslate nohighlight">\(G\)</span>, the effective free energy must obey</p>
 <div class="math notranslate nohighlight">
 \[
 H_{\mathrm{eff}}(g\phi) = H_{\mathrm{eff}}(\phi)
@@ -687,8 +687,8 @@ H_{\mathrm{eff}}(g\phi) = H_{\mathrm{eff}}(\phi)
 \[
 H_{\mathrm{eff}}(\phi) = H_0 + A\phi^2 + B\phi^4 + \cdots.
 \]</div>
-<p>For a standard continuous transition we also need the polynomial to be stable for large (|\phi|), so the highest retained even-order coefficient must be positive. In the simplest truncation this means (B&gt;0).</p>
-<p>If symmetry allows a cubic term, or if the quartic coefficient becomes negative and a stabilizing (\phi^6) term is needed, then the transition is generically first order rather than continuous.</p>
+<p>For a standard continuous transition we also need the polynomial to be stable for large <span class="math notranslate nohighlight">\(|\phi|\)</span>, so the highest retained even-order coefficient must be positive. In the simplest truncation this means <span class="math notranslate nohighlight">\(B&gt;0\)</span>.</p>
+<p>If symmetry allows a cubic term, or if the quartic coefficient becomes negative and a stabilizing <span class="math notranslate nohighlight">\(\phi^6\)</span> term is needed, then the transition is generically first order rather than continuous.</p>
 </section>
 <section id="aside-how-landau-theory-produces-first-order-transitions">
 <h3>Aside: how Landau theory produces first-order transitions<a class="headerlink" href="#aside-how-landau-theory-produces-first-order-transitions" title="Permalink to this heading">#</a></h3>
@@ -727,28 +727,28 @@ f(\phi)=A\phi^2+B\phi^4+C\phi^6,
 \[
 \phi = \frac{1}{N}\sum_i \sigma_i.
 \]</div>
-<p>Because the symmetry sends (\phi\to -\phi), cubic and other odd terms are forbidden. So the Landau free energy is</p>
+<p>Because the symmetry sends <span class="math notranslate nohighlight">\(\phi\to -\phi\)</span>, cubic and other odd terms are forbidden. So the Landau free energy is</p>
 <div class="math notranslate nohighlight">
 \[
 H_{\mathrm{eff}}(\phi)
 =
 H_0 + A\phi^2 + B\phi^4 + \cdots
 \]</div>
-<p>with (B&gt;0) for stability.</p>
-<p>To find equilibrium, minimize with respect to (\phi):</p>
+<p>with <span class="math notranslate nohighlight">\(B&gt;0\)</span> for stability.</p>
+<p>To find equilibrium, minimize with respect to <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 0=\frac{\partial H_{\mathrm{eff}}}{\partial \phi}
 = 2A\phi + 4B\phi^3
 = \phi(2A+4B\phi^2).
 \]</div>
-<p>Thus for (A&gt;0), the only minimum is</p>
+<p>Thus for <span class="math notranslate nohighlight">\(A&gt;0\)</span>, the only minimum is</p>
 <div class="math notranslate nohighlight">
 \[
 \phi=0,
 \]</div>
 <p>corresponding to the disordered phase.</p>
-<p>For (A&lt;0), there are two minima,</p>
+<p>For <span class="math notranslate nohighlight">\(A&lt;0\)</span>, there are two minima,</p>
 <div class="math notranslate nohighlight">
 \[
 \phi = \pm \sqrt{\frac{|A|}{2B}},
@@ -759,7 +759,7 @@ H_0 + A\phi^2 + B\phi^4 + \cdots
 \[
 A=0.
 \]</div>
-<p>Geometrically, the transition occurs when the curvature at the origin changes sign. For (A&gt;0) there is a single minimum at (\phi=0); for (A&lt;0) the origin becomes unstable and two symmetry-related minima appear.</p>
+<p>Geometrically, the transition occurs when the curvature at the origin changes sign. For <span class="math notranslate nohighlight">\(A&gt;0\)</span> there is a single minimum at <span class="math notranslate nohighlight">\(\phi=0\)</span>; for <span class="math notranslate nohighlight">\(A&lt;0\)</span> the origin becomes unstable and two symmetry-related minima appear.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -812,7 +812,7 @@ A=0.
 <img alt="../_images/21bff5f54bd49ec9db830386cc76113ec608cab5e6e96eff4c131e7f12486014.png" src="../_images/21bff5f54bd49ec9db830386cc76113ec608cab5e6e96eff4c131e7f12486014.png" />
 </div>
 </div>
-<p>The left panel shows the bifurcation from one minimum to two symmetry-related minima. The right panel shows the corresponding square-root onset of the order parameter below (T_c).</p>
+<p>The left panel shows the bifurcation from one minimum to two symmetry-related minima. The right panel shows the corresponding square-root onset of the order parameter below <span class="math notranslate nohighlight">\(T_c\)</span>.</p>
 </section>
 <section id="temperature-dependence-and-the-order-parameter-exponent">
 <h2>8. Temperature dependence and the order-parameter exponent<a class="headerlink" href="#temperature-dependence-and-the-order-parameter-exponent" title="Permalink to this heading">#</a></h2>
@@ -826,7 +826,7 @@ A(T)=a_0(T-T_c)+a_1(T-T_c)^2+\cdots.
 \[
 A(T)\approx a_0(T-T_c).
 \]</div>
-<p>Below (T_c), where (A&lt;0), the order parameter is</p>
+<p>Below <span class="math notranslate nohighlight">\(T_c\)</span>, where <span class="math notranslate nohighlight">\(A&lt;0\)</span>, the order parameter is</p>
 <div class="math notranslate nohighlight">
 \[
 \langle \phi \rangle
@@ -843,28 +843,28 @@ A(T)\approx a_0(T-T_c).
 </section>
 <section id="free-energy-entropy-and-heat-capacity">
 <h2>9. Free energy, entropy, and heat capacity<a class="headerlink" href="#free-energy-entropy-and-heat-capacity" title="Permalink to this heading">#</a></h2>
-<p>Substituting the minimizing value of (\phi) back into the free energy gives</p>
+<p>Substituting the minimizing value of <span class="math notranslate nohighlight">\(\phi\)</span> back into the free energy gives</p>
 <div class="math notranslate nohighlight">
 \[
 F(T)=F_0(T)+A\phi^2+B\phi^4.
 \]</div>
-<p>For (T&gt;T_c), the minimum is at (\phi=0), so</p>
+<p>For <span class="math notranslate nohighlight">\(T&gt;T_c\)</span>, the minimum is at <span class="math notranslate nohighlight">\(\phi=0\)</span>, so</p>
 <div class="math notranslate nohighlight">
 \[
 F(T)=F_0(T).
 \]</div>
-<p>For (T&lt;T_c), using (\phi^2=|A|/(2B)), one finds</p>
+<p>For <span class="math notranslate nohighlight">\(T&lt;T_c\)</span>, using <span class="math notranslate nohighlight">\(\phi^2=|A|/(2B)\)</span>, one finds</p>
 <div class="math notranslate nohighlight">
 \[
 F(T)=F_0(T)-\frac{A^2}{4B}.
 \]</div>
-<p>Since (A\propto T-T_c), the correction is quadratic in (T-T_c). Thus (F) and (S=-\partial F/\partial T) remain continuous, but the heat capacity</p>
+<p>Since <span class="math notranslate nohighlight">\(A\propto T-T_c\)</span>, the correction is quadratic in <span class="math notranslate nohighlight">\(T-T_c\)</span>. Thus <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(S=-\partial F/\partial T\)</span> remain continuous, but the heat capacity</p>
 <div class="math notranslate nohighlight">
 \[
 C = T\frac{\partial S}{\partial T}
 \]</div>
-<p>has a jump at (T_c).</p>
-<p>More explicitly, if (A=a_0(T-T_c)), then below the transition</p>
+<p>has a jump at <span class="math notranslate nohighlight">\(T_c\)</span>.</p>
+<p>More explicitly, if <span class="math notranslate nohighlight">\(A=a_0(T-T_c)\)</span>, then below the transition</p>
 <div class="math notranslate nohighlight">
 \[
 F(T)=F_0(T)-\frac{a_0^2}{4B}(T-T_c)^2,
@@ -883,14 +883,14 @@ C_+(T)=C_0(T).
 \]</div>
 <p>So within Landau mean-field theory:</p>
 <ul class="simple">
-<li><p>(F) is continuous,</p></li>
-<li><p>(S) is continuous,</p></li>
-<li><p>(C) jumps.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> is continuous,</p></li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span> is continuous,</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span> jumps.</p></li>
 </ul>
 </section>
 <section id="external-field-rounding-susceptibility-and-the-isotherm-exponent">
 <h2>10. External field, rounding, susceptibility, and the isotherm exponent<a class="headerlink" href="#external-field-rounding-susceptibility-and-the-isotherm-exponent" title="Permalink to this heading">#</a></h2>
-<p>If an external field (h) couples linearly to the order parameter, then</p>
+<p>If an external field <span class="math notranslate nohighlight">\(h\)</span> couples linearly to the order parameter, then</p>
 <div class="math notranslate nohighlight">
 \[
 H_{\mathrm{eff}}(\phi)
@@ -902,14 +902,14 @@ H_0 - h\phi + A\phi^2 + B\phi^4 + \cdots.
 \[
 h = 2A\phi + 4B\phi^3.
 \]</div>
-<p>Writing (t=T-T_c) and (A=a_0 t), this becomes</p>
+<p>Writing <span class="math notranslate nohighlight">\(t=T-T_c\)</span> and <span class="math notranslate nohighlight">\(A=a_0 t\)</span>, this becomes</p>
 <div class="math notranslate nohighlight">
 \[
 h = 2a_0 t\,\phi + 4B\phi^3.
 \]</div>
 <section id="rounding-of-the-transition">
 <h3>Rounding of the transition<a class="headerlink" href="#rounding-of-the-transition" title="Permalink to this heading">#</a></h3>
-<p>For any nonzero field (h), the order parameter is never exactly zero. Thus the sharp transition is rounded out.</p>
+<p>For any nonzero field <span class="math notranslate nohighlight">\(h\)</span>, the order parameter is never exactly zero. Thus the sharp transition is rounded out.</p>
 <p>Balancing the linear and cubic terms gives the scale of the rounded region:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -923,19 +923,19 @@ h = 2a_0 t\,\phi + 4B\phi^3.
 \[
 \chi = \left(\frac{\partial \phi}{\partial h}\right)_{h\to 0}.
 \]</div>
-<p>For (t&gt;0), the cubic term is negligible and</p>
+<p>For <span class="math notranslate nohighlight">\(t&gt;0\)</span>, the cubic term is negligible and</p>
 <div class="math notranslate nohighlight">
 \[
 \phi \approx \frac{h}{2a_0 t},
 \qquad
 \chi \sim t^{-1}.
 \]</div>
-<p>For (t&lt;0), write (\phi=\phi_0+\delta\phi) with</p>
+<p>For <span class="math notranslate nohighlight">\(t&lt;0\)</span>, write <span class="math notranslate nohighlight">\(\phi=\phi_0+\delta\phi\)</span> with</p>
 <div class="math notranslate nohighlight">
 \[
 \phi_0=\sqrt{\frac{|a_0 t|}{2B}}.
 \]</div>
-<p>Linearizing the equation of state about (\phi_0) gives</p>
+<p>Linearizing the equation of state about <span class="math notranslate nohighlight">\(\phi_0\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[
 h \approx (2A+12B\phi_0^2)\,\delta\phi = 4|a_0 t|\,\delta\phi,
@@ -951,7 +951,7 @@ h \approx (2A+12B\phi_0^2)\,\delta\phi = 4|a_0 t|\,\delta\phi,
 \[
 \chi \sim |t|^{-1}.
 \]</div>
-<p>The exponent is the same above and below (T_c), although the amplitudes differ by a factor of two.</p>
+<p>The exponent is the same above and below <span class="math notranslate nohighlight">\(T_c\)</span>, although the amplitudes differ by a factor of two.</p>
 <p>Hence Landau theory predicts</p>
 <div class="math notranslate nohighlight">
 \[
@@ -960,7 +960,7 @@ h \approx (2A+12B\phi_0^2)\,\delta\phi = 4|a_0 t|\,\delta\phi,
 </section>
 <section id="critical-isotherm">
 <h3>Critical isotherm<a class="headerlink" href="#critical-isotherm" title="Permalink to this heading">#</a></h3>
-<p>At (t=0), the linear term vanishes and</p>
+<p>At <span class="math notranslate nohighlight">\(t=0\)</span>, the linear term vanishes and</p>
 <div class="math notranslate nohighlight">
 \[
 h = 4B\phi^3,
@@ -979,7 +979,7 @@ h = 4B\phi^3,
 </section>
 <section id="summary-of-mean-field-critical-exponents">
 <h2>11. Summary of mean-field critical exponents<a class="headerlink" href="#summary-of-mean-field-critical-exponents" title="Permalink to this heading">#</a></h2>
-<p>Using the reduced temperature (t=T-T_c), Landau mean-field theory gives:</p>
+<p>Using the reduced temperature <span class="math notranslate nohighlight">\(t=T-T_c\)</span>, Landau mean-field theory gives:</p>
 <section id="heat-capacity-exponent">
 <h3>Heat capacity exponent<a class="headerlink" href="#heat-capacity-exponent" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
@@ -1059,9 +1059,9 @@ d_c = 4.
 </section>
 <section id="non-symmetric-models-and-the-liquid-gas-transition">
 <h2>13. Non-symmetric models and the liquid-gas transition<a class="headerlink" href="#non-symmetric-models-and-the-liquid-gas-transition" title="Permalink to this heading">#</a></h2>
-<p>The Ising symmetry (\phi\to -\phi) is what eliminated odd terms from the Landau expansion. But the formalism is more general and can also be applied when no such symmetry is present.</p>
-<p>For the liquid-gas transition, the natural order parameter is the density (n). Across the first-order coexistence line, the density jumps.</p>
-<p>Since (n) itself is not small, expand around the critical density:</p>
+<p>The Ising symmetry <span class="math notranslate nohighlight">\(\phi\to -\phi\)</span> is what eliminated odd terms from the Landau expansion. But the formalism is more general and can also be applied when no such symmetry is present.</p>
+<p>For the liquid-gas transition, the natural order parameter is the density <span class="math notranslate nohighlight">\(n\)</span>. Across the first-order coexistence line, the density jumps.</p>
+<p>Since <span class="math notranslate nohighlight">\(n\)</span> itself is not small, expand around the critical density:</p>
 <div class="math notranslate nohighlight">
 \[
 n = n_c + \delta n.
@@ -1074,29 +1074,33 @@ H_{\mathrm{eff}}(\delta n)
 E_0 + \alpha_1 \delta n + \alpha_2 (\delta n)^2
     + \alpha_3 (\delta n)^3 + \alpha_4 (\delta n)^4 + \cdots.
 \]</div>
-<p>Because there is no (\delta n\to -\delta n) symmetry, odd terms are allowed.</p>
+<p>Because there is no <span class="math notranslate nohighlight">\(\delta n\to -\delta n\)</span> symmetry, odd terms are allowed.</p>
 <p>Now make an additional shift</p>
 <div class="math notranslate nohighlight">
 \[
 \delta n = \phi + \delta n^\ast(P,T),
 \]</div>
-<p>chosen so that the cubic term is removed locally. This is always possible near the critical point: after shifting the variable, the coefficient of (\phi^3) is a smooth function of the shift parameter (\delta n^\ast), and one can choose (\delta n^\ast(P,T)) so that this coefficient vanishes.</p>
+<p>chosen so that the cubic term is removed locally. This is always possible near the critical point: after shifting the variable, the coefficient of <span class="math notranslate nohighlight">\(\phi^3\)</span> is a smooth function of the shift parameter <span class="math notranslate nohighlight">\(\delta n^\ast\)</span>, and one can choose <span class="math notranslate nohighlight">\(\delta n^\ast(P,T)\)</span> so that this coefficient vanishes.</p>
+<p>It is important, however, not to over-interpret this freedom. A shift introduces only <strong>one</strong> adjustable parameter, so it can remove only <strong>one</strong> coefficient at a time. In particular, one can use the shift to eliminate the cubic term, but then the linear and quadratic coefficients are whatever they become after that shift; they cannot also be set to zero by the same redefinition.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Supplementary note: explicit removal of the cubic term</p>
 <p>At quartic order this is easy to see explicitly. If</p>
 <div class="math notranslate nohighlight">
 \[
 f(x)=\alpha_1 x+\alpha_2 x^2+\alpha_3 x^3+\alpha_4 x^4,
 \]</div>
-<p>and we shift (x=\phi+s), then the new cubic coefficient is</p>
+<p>and we shift <span class="math notranslate nohighlight">\(x=\phi+s\)</span>, then the new cubic coefficient is</p>
 <div class="math notranslate nohighlight">
 \[
 \alpha_3 + 4\alpha_4 s.
 \]</div>
-<p>As long as (\alpha_4\neq 0), we can choose</p>
+<p>As long as <span class="math notranslate nohighlight">\(\alpha_4\neq 0\)</span>, we can choose</p>
 <div class="math notranslate nohighlight">
 \[
 s=-\frac{\alpha_3}{4\alpha_4},
 \]</div>
-<p>which removes the cubic term. Here that shift is written as (s=\delta n^\ast(P,T)).</p>
+<p>which removes the cubic term. Here that shift is written as <span class="math notranslate nohighlight">\(s=\delta n^\ast(P,T)\)</span>.</p>
+</div>
 <p>Then one can rewrite the free energy as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1104,14 +1108,14 @@ H_{\mathrm{eff}}(\phi)
 =
 E_0 + h(P,T)\phi + A(P,T)\phi^2 + B(P,T)\phi^4 + \cdots.
 \]</div>
-<p>This looks just like the Ising form, except now the coefficient (h(P,T)) is not forced to vanish by symmetry.</p>
+<p>This looks just like the Ising form, except now the coefficient <span class="math notranslate nohighlight">\(h(P,T)\)</span> is not forced to vanish by symmetry.</p>
 <p>That has an important consequence. A continuous critical point requires</p>
 <div class="math notranslate nohighlight">
 \[
 A=0 \quad \text{and} \quad h=0,
 \]</div>
 <p>so one must tune <strong>two</strong> control parameters.</p>
-<p>In practice, this means the liquid-gas critical point occurs only at a special point ((P_c,T_c)). Away from that point, the transition is generically first order.</p>
+<p>In practice, this means the liquid-gas critical point occurs only at a special point <span class="math notranslate nohighlight">\((P_c,T_c)\)</span>. Away from that point, the transition is generically first order.</p>
 <p>This illustrates a general Landau principle:</p>
 <blockquote>
 <div><p>Without symmetry, a critical point usually requires fine-tuning of multiple parameters.<br />
