@@ -34,4 +34,4 @@ chapters:
 - file: Boson-Fermions/degenerate_fermi_gas
 - file: Boson-Fermions/BEC_lecture_notes
 - file: Landau/landau_theory_notes.ipynb
-#- file: Landau/Ginzburg-Landau
+- file: Landau/Landau_Ginzburg_Ginzburg_Criterion.ipynb
