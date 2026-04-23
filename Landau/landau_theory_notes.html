@@ -1,0 +1,1312 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Landau Theory &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Landau/landau_theory_notes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Bose–Einstein Condensation of an Ideal Bose Gas" href="../Boson-Fermions/BEC_lecture_notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/degenerate_fermi_gas.html">The Degenerate Fermi Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/BEC_lecture_notes.html">Bose–Einstein Condensation of an Ideal Bose Gas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Landau Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Landau/landau_theory_notes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FLandau/landau_theory_notes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Landau/landau_theory_notes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Landau Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transitions-and-non-analytic-thermodynamics">1. Phase transitions and non-analytic thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-transitions">First-order transitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-second-order-transitions">Continuous (second-order) transitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-heat">2. Latent heat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-transitions-and-symmetry-which-ones-are-allowed">3. Continuous transitions and symmetry: which ones are allowed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameters-and-symmetry-breaking">4. Order parameters and symmetry breaking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-structural-distortion">Example: structural distortion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-free-energy">5. Effective free energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#landau-expansion-near-a-continuous-transition">6. Landau expansion near a continuous transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-constraints">Symmetry constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-how-landau-theory-produces-first-order-transitions">Aside: how Landau theory produces first-order transitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ising-example">7. Ising example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-dependence-and-the-order-parameter-exponent">8. Temperature dependence and the order-parameter exponent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-energy-entropy-and-heat-capacity">9. Free energy, entropy, and heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-field-rounding-susceptibility-and-the-isotherm-exponent">10. External field, rounding, susceptibility, and the isotherm exponent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding-of-the-transition">Rounding of the transition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility">Susceptibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-isotherm">Critical isotherm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-mean-field-critical-exponents">11. Summary of mean-field critical exponents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-exponent">Heat capacity exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameter-exponent">Order parameter exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility-exponent">Susceptibility exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-isotherm-exponent">Critical isotherm exponent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-and-universality">12. Experiment and universality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-symmetric-models-and-the-liquid-gas-transition">13. Non-symmetric models and the liquid-gas transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">14. Takeaway</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="landau-theory">
+<h1>Landau Theory<a class="headerlink" href="#landau-theory" title="Permalink to this heading">#</a></h1>
+<p>This section covers the Landau description of continuous and first-order phase transitions, the role of symmetry and order parameters, the Ising example, mean-field critical exponents, universality, and the liquid-gas critical point.</p>
+<section id="phase-transitions-and-non-analytic-thermodynamics">
+<h2>1. Phase transitions and non-analytic thermodynamics<a class="headerlink" href="#phase-transitions-and-non-analytic-thermodynamics" title="Permalink to this heading">#</a></h2>
+<p>A phase transition occurs when a thermodynamic potential, such as the Helmholtz free energy</p>
+<div class="math notranslate nohighlight">
+\[
+F(T,N,V),
+\]</div>
+<p>develops non-analytic behavior as a function of a control parameter such as temperature.</p>
+<p>Two important cases are:</p>
+<section id="first-order-transitions">
+<h3>First-order transitions<a class="headerlink" href="#first-order-transitions" title="Permalink to this heading">#</a></h3>
+<p>At a first-order transition, the free energy itself is continuous, but its first derivative is discontinuous. Since</p>
+<div class="math notranslate nohighlight">
+\[
+S=-\left(\frac{\partial F}{\partial T}\right)_{N,V},
+\qquad
+P=-\left(\frac{\partial F}{\partial V}\right)_{T,N},
+\]</div>
+<p>this means that entropy, volume, or other first derivatives can jump across the transition.</p>
+<p>Typical signatures:</p>
+<ul class="simple">
+<li><p>metastability,</p></li>
+<li><p>hysteresis,</p></li>
+<li><p>latent heat.</p></li>
+</ul>
+</section>
+<section id="continuous-second-order-transitions">
+<h3>Continuous (second-order) transitions<a class="headerlink" href="#continuous-second-order-transitions" title="Permalink to this heading">#</a></h3>
+<p>At a continuous transition, the free energy and its first derivatives remain continuous, but higher derivatives become singular or discontinuous. For example,</p>
+<div class="math notranslate nohighlight">
+\[
+C_V = T\left(\frac{\partial S}{\partial T}\right)_{N,V}
+   = -T\left(\frac{\partial^2 F}{\partial T^2}\right)_{N,V}
+\]</div>
+<p>may jump or diverge.</p>
+<p>So continuous transitions show up as kinks or singularities in observables derived from higher derivatives of the free energy.</p>
+</section>
+</section>
+<section id="latent-heat">
+<h2>2. Latent heat<a class="headerlink" href="#latent-heat" title="Permalink to this heading">#</a></h2>
+<p>For a first-order transition between phases 1 and 2, the free energies are equal at the transition temperature (T_c):</p>
+<div class="math notranslate nohighlight">
+\[
+F_1(T_c)=F_2(T_c).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+F = E - TS,
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+E_1 - T_c S_1 = E_2 - T_c S_2,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+(E_2-E_1) = T_c(S_2-S_1) \equiv \Delta Q.
+\]</div>
+<p>The quantity</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta Q
+\]</div>
+<p>is the <strong>latent heat</strong>: the system absorbs or releases a finite amount of heat at fixed temperature during the phase change.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>melting of ice: large but finite latent heat,</p></li>
+<li><p>liquid-gas transition in water: even larger latent heat.</p></li>
+</ul>
+<p>This is why first-order transitions can be very useful in practice: they allow a system to absorb or release a lot of energy while staying near the transition temperature.</p>
+</section>
+<section id="continuous-transitions-and-symmetry-which-ones-are-allowed">
+<h2>3. Continuous transitions and symmetry: which ones are allowed?<a class="headerlink" href="#continuous-transitions-and-symmetry-which-ones-are-allowed" title="Permalink to this heading">#</a></h2>
+<p>Continuous phase transitions are not arbitrary. Empirically and theoretically, they are found only between certain pairs of phases.</p>
+<p>A useful way to think about this is in terms of symmetry groups. Suppose two phases are described by space groups (SG_1) and (SG_2). A direct continuous transition is often possible when one symmetry group is a subgroup of the other:</p>
+<div class="math notranslate nohighlight">
+\[
+SG_2 \subset SG_1.
+\]</div>
+<p>Then one phase can be obtained from the other by a continuous symmetry-breaking distortion.</p>
+<p>But this subgroup criterion is only a useful guide, not a complete theorem. Even when the symmetry relation allows a continuous transition, the Landau expansion may still contain symmetry-allowed terms that drive the transition first order, such as cubic invariants.</p>
+<p>So the practical Landau logic is:</p>
+<ul class="simple">
+<li><p>symmetry tells us which order parameter is plausible,</p></li>
+<li><p>the Landau polynomial tells us whether a continuous transition is generic or whether first-order behavior is expected instead.</p></li>
+</ul>
+<p>This is one of the first hints that symmetry strongly constrains critical behavior.</p>
+</section>
+<section id="order-parameters-and-symmetry-breaking">
+<h2>4. Order parameters and symmetry breaking<a class="headerlink" href="#order-parameters-and-symmetry-breaking" title="Permalink to this heading">#</a></h2>
+<p>An <strong>order parameter</strong> is an observable that transforms nontrivially under a symmetry that is broken in the ordered phase.</p>
+<p>If (g\in G) is a symmetry operation and (\phi) is an observable such that</p>
+<div class="math notranslate nohighlight">
+\[
+g\phi \neq \phi,
+\]</div>
+<p>then (\phi) can serve as an order parameter for that symmetry.</p>
+<p>The key distinction is:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \phi \rangle = 0
+\qquad \text{vs.} \qquad
+\langle \phi \rangle \neq 0.
+\]</div>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \phi \rangle \neq 0,
+\]</div>
+<p>the symmetry is spontaneously broken.</p>
+<p>At zero external field and in the thermodynamic limit, the states (\langle \phi \rangle=0) and (\langle \phi \rangle\neq 0) have different symmetry, so changing between them requires a phase transition. In a finite system, or in the presence of an explicit symmetry-breaking field, this sharp distinction is rounded into a crossover.</p>
+<section id="example-structural-distortion">
+<h3>Example: structural distortion<a class="headerlink" href="#example-structural-distortion" title="Permalink to this heading">#</a></h3>
+<p>In a crystal, atoms may shift from high-symmetry positions below (T_c). The displacement vector</p>
+<div class="math notranslate nohighlight">
+\[
+\vec\phi = (\phi_x,\phi_y,\ldots)
+\]</div>
+<p>then serves as the order parameter. If a rotation or reflection changes (\vec\phi), the nonzero expectation value of (\vec\phi) signals spontaneous breaking of that symmetry.</p>
+<p>More formally, order parameters transform in irreducible representations of the symmetry group.</p>
+</section>
+</section>
+<section id="effective-free-energy">
+<h2>5. Effective free energy<a class="headerlink" href="#effective-free-energy" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have identified an order parameter (\phi). In principle, we would like to compute its distribution microscopically, but that is usually hard.</p>
+<p>Landau’s key idea is to define an <strong>effective free energy</strong> (or effective Hamiltonian) for the order parameter.</p>
+<p>Starting from the microscopic Hamiltonian (H[\psi]), one can formally define (H_{\mathrm{eff}}(\Phi)) through</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}
+=
+\sum_{\psi} e^{-\beta H[\psi]}\,\delta\!\bigl(\Phi-\phi(\psi)\bigr).
+\]</div>
+<p>Then the partition function becomes</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-\beta F}
+=
+\int d\Phi\, e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)},
+\]</div>
+<p>and expectation values can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \phi \rangle
+=
+\frac{\int d\Phi\, \Phi\, e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}}
+{\int d\Phi\, e^{-\beta V H_{\mathrm{eff}}(\Phi,\beta)}}.
+\]</div>
+<p>In the thermodynamic limit (V\to\infty), the integral is dominated by the minimum of (H_{\mathrm{eff}}), so the equilibrium order parameter is obtained by minimizing the effective free energy.</p>
+</section>
+<section id="landau-expansion-near-a-continuous-transition">
+<h2>6. Landau expansion near a continuous transition<a class="headerlink" href="#landau-expansion-near-a-continuous-transition" title="Permalink to this heading">#</a></h2>
+<p>Near a continuous transition, the order parameter is small, so we expand the effective free energy in powers of (\phi):</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\phi)
+=
+H_0 + \alpha \phi + A \phi^2 + C \phi^3 + B \phi^4 + \cdots
+\]</div>
+<p>where the coefficients depend smoothly on thermodynamic control parameters such as (T), (P), (N), etc.</p>
+<p>This is the basic Landau strategy:</p>
+<ol class="arabic simple">
+<li><p>identify the order parameter,</p></li>
+<li><p>write the most general low-order expansion allowed by symmetry,</p></li>
+<li><p>minimize it.</p></li>
+</ol>
+<section id="symmetry-constraints">
+<h3>Symmetry constraints<a class="headerlink" href="#symmetry-constraints" title="Permalink to this heading">#</a></h3>
+<p>Because the microscopic theory is invariant under the symmetry group (G), the effective free energy must obey</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(g\phi) = H_{\mathrm{eff}}(\phi)
+\qquad \text{for all } g\in G.
+\]</div>
+<p>This strongly constrains which terms are allowed.</p>
+<p>For example, if the symmetry sends</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \to -\phi,
+\]</div>
+<p>then all odd powers are forbidden and the expansion becomes</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\phi) = H_0 + A\phi^2 + B\phi^4 + \cdots.
+\]</div>
+<p>For a standard continuous transition we also need the polynomial to be stable for large (|\phi|), so the highest retained even-order coefficient must be positive. In the simplest truncation this means (B&gt;0).</p>
+<p>If symmetry allows a cubic term, or if the quartic coefficient becomes negative and a stabilizing (\phi^6) term is needed, then the transition is generically first order rather than continuous.</p>
+</section>
+<section id="aside-how-landau-theory-produces-first-order-transitions">
+<h3>Aside: how Landau theory produces first-order transitions<a class="headerlink" href="#aside-how-landau-theory-produces-first-order-transitions" title="Permalink to this heading">#</a></h3>
+<p>The simplest continuous transition came from the even polynomial</p>
+<div class="math notranslate nohighlight">
+\[
+f(\phi)=A\phi^2+B\phi^4,
+\qquad B&gt;0.
+\]</div>
+<p>There are two common ways for Landau theory to predict a <strong>first-order</strong> transition instead:</p>
+<ol class="arabic simple">
+<li><p>symmetry allows a cubic invariant, e.g.
+$<span class="math notranslate nohighlight">\(
+f(\phi)=A\phi^2+C\phi^3+B\phi^4,
+\)</span>$
+which can make the global minimum jump discontinuously as parameters change;</p></li>
+<li><p>the quartic coefficient changes sign, so one must keep a stabilizing sixth-order term,
+$<span class="math notranslate nohighlight">\(
+f(\phi)=A\phi^2+B\phi^4+C\phi^6,
+\qquad B&lt;0,\ C&gt;0,
+\)</span>$
+again producing a discontinuous jump of the order parameter.</p></li>
+</ol>
+<p>So in Landau theory, the order of the transition is encoded directly in the lowest symmetry-allowed terms of the polynomial.</p>
+</section>
+</section>
+<section id="ising-example">
+<h2>7. Ising example<a class="headerlink" href="#ising-example" title="Permalink to this heading">#</a></h2>
+<p>For the Ising model, the symmetry is</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_i \to -\sigma_i,
+\]</div>
+<p>and the order parameter is the magnetization</p>
+<div class="math notranslate nohighlight">
+\[
+\phi = \frac{1}{N}\sum_i \sigma_i.
+\]</div>
+<p>Because the symmetry sends (\phi\to -\phi), cubic and other odd terms are forbidden. So the Landau free energy is</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\phi)
+=
+H_0 + A\phi^2 + B\phi^4 + \cdots
+\]</div>
+<p>with (B&gt;0) for stability.</p>
+<p>To find equilibrium, minimize with respect to (\phi):</p>
+<div class="math notranslate nohighlight">
+\[
+0=\frac{\partial H_{\mathrm{eff}}}{\partial \phi}
+= 2A\phi + 4B\phi^3
+= \phi(2A+4B\phi^2).
+\]</div>
+<p>Thus:</p>
+<ul class="simple">
+<li><p>if (A&gt;0), the only minimum is
+$<span class="math notranslate nohighlight">\(
+\phi=0,
+\)</span>$
+corresponding to the disordered phase;</p></li>
+<li><p>if (A&lt;0), there are two minima
+$<span class="math notranslate nohighlight">\(
+\phi = \pm \sqrt{\frac{|A|}{2B}},
+\)</span>$
+corresponding to the symmetry-broken ordered phase.</p></li>
+</ul>
+<p>So the critical point occurs when</p>
+<div class="math notranslate nohighlight">
+\[
+A=0.
+\]</div>
+<p>Geometrically, the transition occurs when the curvature at the origin changes sign. For (A&gt;0) there is a single minimum at (\phi=0); for (A&lt;0) the origin becomes unstable and two symmetry-related minima appear.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">A_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$A&gt;0$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$A=0$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$A&lt;0$&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">A</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A_values</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;order parameter $\phi$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Landau free energy $f(\phi)$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Free-energy landscape across a continuous transition&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">phi_eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="n">phi_eq</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">B</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">phi_eq</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="o">-</span><span class="n">phi_eq</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">phi_eq</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;reduced control parameter $t \propto T-T_c$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;equilibrium order parameter $\phi_{\rm eq}$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Landau prediction $\phi_{\rm eq} \sim (-t)^{1/2}$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/21bff5f54bd49ec9db830386cc76113ec608cab5e6e96eff4c131e7f12486014.png" src="../_images/21bff5f54bd49ec9db830386cc76113ec608cab5e6e96eff4c131e7f12486014.png" />
+</div>
+</div>
+<p>The left panel shows the bifurcation from one minimum to two symmetry-related minima. The right panel shows the corresponding square-root onset of the order parameter below (T_c).</p>
+</section>
+<section id="temperature-dependence-and-the-order-parameter-exponent">
+<h2>8. Temperature dependence and the order-parameter exponent<a class="headerlink" href="#temperature-dependence-and-the-order-parameter-exponent" title="Permalink to this heading">#</a></h2>
+<p>Near the critical temperature, expand</p>
+<div class="math notranslate nohighlight">
+\[
+A(T)=a_0(T-T_c)+a_1(T-T_c)^2+\cdots.
+\]</div>
+<p>To leading order,</p>
+<div class="math notranslate nohighlight">
+\[
+A(T)\approx a_0(T-T_c).
+\]</div>
+<p>Below (T_c), where (A&lt;0), the order parameter is</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \phi \rangle
+=
+\pm \sqrt{\frac{|A|}{2B}}
+\sim (T_c-T)^{1/2}.
+\]</div>
+<p>Therefore Landau theory predicts the mean-field exponent</p>
+<div class="math notranslate nohighlight">
+\[
+\beta = \frac{1}{2}.
+\]</div>
+<p>This is the classic square-root onset of the order parameter below the transition.</p>
+</section>
+<section id="free-energy-entropy-and-heat-capacity">
+<h2>9. Free energy, entropy, and heat capacity<a class="headerlink" href="#free-energy-entropy-and-heat-capacity" title="Permalink to this heading">#</a></h2>
+<p>Substituting the minimizing value of (\phi) back into the free energy gives</p>
+<div class="math notranslate nohighlight">
+\[
+F(T)=F_0(T)+A\phi^2+B\phi^4.
+\]</div>
+<p>For (T&gt;T_c), the minimum is at (\phi=0), so</p>
+<div class="math notranslate nohighlight">
+\[
+F(T)=F_0(T).
+\]</div>
+<p>For (T&lt;T_c), using (\phi^2=|A|/(2B)), one finds</p>
+<div class="math notranslate nohighlight">
+\[
+F(T)=F_0(T)-\frac{A^2}{4B}.
+\]</div>
+<p>Since (A\propto T-T_c), the correction is quadratic in (T-T_c). Thus (F) and (S=-\partial F/\partial T) remain continuous, but the heat capacity</p>
+<div class="math notranslate nohighlight">
+\[
+C = T\frac{\partial S}{\partial T}
+\]</div>
+<p>has a jump at (T_c).</p>
+<p>More explicitly, if (A=a_0(T-T_c)), then below the transition</p>
+<div class="math notranslate nohighlight">
+\[
+F(T)=F_0(T)-\frac{a_0^2}{4B}(T-T_c)^2,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+C_-(T)=C_0(T)+\frac{T a_0^2}{2B},
+\qquad
+C_+(T)=C_0(T).
+\]</div>
+<p>Therefore the heat-capacity jump is finite:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C = C_-(T_c)-C_+(T_c)=\frac{T_c a_0^2}{2B}.
+\]</div>
+<p>So within Landau mean-field theory:</p>
+<ul class="simple">
+<li><p>(F) is continuous,</p></li>
+<li><p>(S) is continuous,</p></li>
+<li><p>(C) jumps.</p></li>
+</ul>
+</section>
+<section id="external-field-rounding-susceptibility-and-the-isotherm-exponent">
+<h2>10. External field, rounding, susceptibility, and the isotherm exponent<a class="headerlink" href="#external-field-rounding-susceptibility-and-the-isotherm-exponent" title="Permalink to this heading">#</a></h2>
+<p>If an external field (h) couples linearly to the order parameter, then</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\phi)
+=
+H_0 - h\phi + A\phi^2 + B\phi^4 + \cdots.
+\]</div>
+<p>The stationarity condition becomes</p>
+<div class="math notranslate nohighlight">
+\[
+h = 2A\phi + 4B\phi^3.
+\]</div>
+<p>Writing (t=T-T_c) and (A=a_0 t), this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+h = 2a_0 t\,\phi + 4B\phi^3.
+\]</div>
+<section id="rounding-of-the-transition">
+<h3>Rounding of the transition<a class="headerlink" href="#rounding-of-the-transition" title="Permalink to this heading">#</a></h3>
+<p>For any nonzero field (h), the order parameter is never exactly zero. Thus the sharp transition is rounded out.</p>
+<p>Balancing the linear and cubic terms gives the scale of the rounded region:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta t \sim h^{2/3}.
+\]</div>
+</section>
+<section id="susceptibility">
+<h3>Susceptibility<a class="headerlink" href="#susceptibility" title="Permalink to this heading">#</a></h3>
+<p>The susceptibility is</p>
+<div class="math notranslate nohighlight">
+\[
+\chi = \left(\frac{\partial \phi}{\partial h}\right)_{h\to 0}.
+\]</div>
+<p>For (t&gt;0), the cubic term is negligible and</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \approx \frac{h}{2a_0 t},
+\qquad
+\chi \sim t^{-1}.
+\]</div>
+<p>For (t&lt;0), write (\phi=\phi_0+\delta\phi) with</p>
+<div class="math notranslate nohighlight">
+\[
+\phi_0=\sqrt{\frac{|a_0 t|}{2B}}.
+\]</div>
+<p>Linearizing the equation of state about (\phi_0) gives</p>
+<div class="math notranslate nohighlight">
+\[
+h \approx (2A+12B\phi_0^2)\,\delta\phi = 4|a_0 t|\,\delta\phi,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_- = \left(\frac{\partial \phi}{\partial h}\right)_{h\to 0}
+\sim \frac{1}{4a_0|t|}.
+\]</div>
+<p>Therefore the susceptibility has the same exponent on both sides of the transition,</p>
+<div class="math notranslate nohighlight">
+\[
+\chi \sim |t|^{-1}.
+\]</div>
+<p>The exponent is the same above and below (T_c), although the amplitudes differ by a factor of two.</p>
+<p>Hence Landau theory predicts</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma = 1.
+\]</div>
+</section>
+<section id="critical-isotherm">
+<h3>Critical isotherm<a class="headerlink" href="#critical-isotherm" title="Permalink to this heading">#</a></h3>
+<p>At (t=0), the linear term vanishes and</p>
+<div class="math notranslate nohighlight">
+\[
+h = 4B\phi^3,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \sim \operatorname{sgn}(h)\,|h|^{1/3}.
+\]</div>
+<p>Therefore the isotherm exponent is</p>
+<div class="math notranslate nohighlight">
+\[
+\delta = 3.
+\]</div>
+</section>
+</section>
+<section id="summary-of-mean-field-critical-exponents">
+<h2>11. Summary of mean-field critical exponents<a class="headerlink" href="#summary-of-mean-field-critical-exponents" title="Permalink to this heading">#</a></h2>
+<p>Using the reduced temperature (t=T-T_c), Landau mean-field theory gives:</p>
+<section id="heat-capacity-exponent">
+<h3>Heat capacity exponent<a class="headerlink" href="#heat-capacity-exponent" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C \sim
+\begin{cases}
+A_+\, t^{-\alpha}, &amp; t&gt;0,\\[4pt]
+A_-\, (-t)^{-\alpha}, &amp; t&lt;0,
+\end{cases}
+\qquad
+\alpha = 0.
+\end{split}\]</div>
+<p>(The heat capacity jumps rather than diverges.)</p>
+</section>
+<section id="order-parameter-exponent">
+<h3>Order parameter exponent<a class="headerlink" href="#order-parameter-exponent" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle \phi \rangle (t,h=0)
+\sim
+\begin{cases}
+0, &amp; t&gt;0,\\[4pt]
+\pm (-t)^{\beta}, &amp; t&lt;0,
+\end{cases}
+\qquad
+\beta=\frac12.
+\end{split}\]</div>
+</section>
+<section id="susceptibility-exponent">
+<h3>Susceptibility exponent<a class="headerlink" href="#susceptibility-exponent" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\chi(t\neq 0,h=0)\sim |t|^{-\gamma},
+\qquad
+\gamma=1.
+\]</div>
+</section>
+<section id="critical-isotherm-exponent">
+<h3>Critical isotherm exponent<a class="headerlink" href="#critical-isotherm-exponent" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\langle \phi \rangle(t=0,h)
+\sim \operatorname{sgn}(h)\,|h|^{1/\delta},
+\qquad
+\delta=3.
+\]</div>
+</section>
+</section>
+<section id="experiment-and-universality">
+<h2>12. Experiment and universality<a class="headerlink" href="#experiment-and-universality" title="Permalink to this heading">#</a></h2>
+<p>Landau theory correctly predicts that many observables obey power laws near criticality. For example, the order parameter in a uniaxial ferromagnet follows a clean power law close to the transition.</p>
+<p>However, the actual exponents in three-dimensional systems are not generally the mean-field values. For the 3D Ising universality class, experiments and more refined theory give approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha \approx 0.11,
+\qquad
+\beta \approx 0.32,
+\qquad
+\gamma \approx 1.24,
+\qquad
+\delta \approx 4.8.
+\]</div>
+<p>This mismatch is not a failure of the symmetry logic of Landau theory. Instead, it tells us that <strong>fluctuations</strong> matter near criticality, and mean-field theory neglects them.</p>
+<p>For short-range systems with a scalar order parameter, mean-field exponents become exact only above the upper critical dimension</p>
+<div class="math notranslate nohighlight">
+\[
+d_c = 4.
+\]</div>
+<p>Below that dimension, long-wavelength fluctuations renormalize the exponents away from the Landau values.</p>
+<p>Still, Landau theory gets something profound right: systems with very different microscopic physics can share the same critical exponents if they have the same dimensionality, symmetry of the order parameter, and range of interactions. This is the idea of <strong>universality</strong>.</p>
+<p>A classic example is the shared critical behavior of:</p>
+<ul class="simple">
+<li><p>the Ising model,</p></li>
+<li><p>the liquid-gas critical point.</p></li>
+</ul>
+<p>Although magnetization and density are physically very different quantities, their singular behavior near criticality is the same after an appropriate smooth change of variables.</p>
+</section>
+<section id="non-symmetric-models-and-the-liquid-gas-transition">
+<h2>13. Non-symmetric models and the liquid-gas transition<a class="headerlink" href="#non-symmetric-models-and-the-liquid-gas-transition" title="Permalink to this heading">#</a></h2>
+<p>The Ising symmetry (\phi\to -\phi) is what eliminated odd terms from the Landau expansion. But the formalism is more general and can also be applied when no such symmetry is present.</p>
+<p>For the liquid-gas transition, the natural order parameter is the density (n). Across the first-order coexistence line, the density jumps.</p>
+<p>Since (n) itself is not small, expand around the critical density:</p>
+<div class="math notranslate nohighlight">
+\[
+n = n_c + \delta n.
+\]</div>
+<p>Then the effective free energy has the generic form</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\delta n)
+=
+E_0 + \alpha_1 \delta n + \alpha_2 (\delta n)^2
+    + \alpha_3 (\delta n)^3 + \alpha_4 (\delta n)^4 + \cdots.
+\]</div>
+<p>Because there is no (\delta n\to -\delta n) symmetry, odd terms are allowed.</p>
+<p>Now make an additional shift</p>
+<div class="math notranslate nohighlight">
+\[
+\delta n = \phi + \delta n^\ast(P,T),
+\]</div>
+<p>chosen so that the cubic term is removed locally. Then one can rewrite the free energy as</p>
+<div class="math notranslate nohighlight">
+\[
+H_{\mathrm{eff}}(\phi)
+=
+E_0 + h(P,T)\phi + A(P,T)\phi^2 + B(P,T)\phi^4 + \cdots.
+\]</div>
+<p>This looks just like the Ising form, except now the coefficient (h(P,T)) is not forced to vanish by symmetry.</p>
+<p>That has an important consequence:</p>
+<ul class="simple">
+<li><p>a continuous critical point requires
+$<span class="math notranslate nohighlight">\(
+A=0 \quad \text{and} \quad h=0,
+\)</span>$
+so one must tune <strong>two</strong> control parameters;</p></li>
+<li><p>in practice, this means the liquid-gas critical point occurs only at a special point ((P_c,T_c));</p></li>
+<li><p>away from that point, the transition is generically first order.</p></li>
+</ul>
+<p>This illustrates a general Landau principle:</p>
+<blockquote>
+<div><p>Without symmetry, a critical point usually requires fine-tuning of multiple parameters.<br />
+With symmetry, one or more forbidden terms vanish automatically, so continuous transitions become generic.</p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">r_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;disordered minimum&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;near coexistence&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;ordered minimum&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.6</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">w</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;order parameter $\phi$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Landau free energy $f(\phi)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A cubic term can drive a first-order transition&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3958a9e8091aaf6ea5f2ee83146841d742fa603e6eaa238af20f9b4c12e1e843.png" src="../_images/3958a9e8091aaf6ea5f2ee83146841d742fa603e6eaa238af20f9b4c12e1e843.png" />
+</div>
+</div>
+<p>This schematic first-order example shows how two locally stable minima can coexist over a range of parameters. When the global minimum switches discontinuously from one basin to the other, the equilibrium order parameter jumps, which is the Landau signature of a first-order transition.</p>
+</section>
+<section id="takeaway">
+<h2>14. Takeaway<a class="headerlink" href="#takeaway" title="Permalink to this heading">#</a></h2>
+<p>Landau theory gives a remarkably general and economical framework for understanding phase transitions:</p>
+<ol class="arabic simple">
+<li><p>identify the order parameter,</p></li>
+<li><p>use symmetry to constrain the effective free energy,</p></li>
+<li><p>minimize the resulting polynomial,</p></li>
+<li><p>infer phases, phase transitions, and mean-field critical behavior.</p></li>
+</ol>
+<p>Its main strengths are:</p>
+<ul class="simple">
+<li><p>symmetry-based reasoning,</p></li>
+<li><p>qualitative classification of phases and transitions,</p></li>
+<li><p>simple derivation of mean-field exponents,</p></li>
+<li><p>natural bridge to universality.</p></li>
+</ul>
+<p>Its main limitation is that it neglects fluctuations, so the numerical values of critical exponents are often incorrect in low dimensions or near nontrivial critical points.</p>
+<p>That limitation is precisely what renormalization-group theory fixes.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Landau"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Boson-Fermions/BEC_lecture_notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bose–Einstein Condensation of an Ideal Bose Gas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transitions-and-non-analytic-thermodynamics">1. Phase transitions and non-analytic thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-transitions">First-order transitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-second-order-transitions">Continuous (second-order) transitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-heat">2. Latent heat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-transitions-and-symmetry-which-ones-are-allowed">3. Continuous transitions and symmetry: which ones are allowed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameters-and-symmetry-breaking">4. Order parameters and symmetry breaking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-structural-distortion">Example: structural distortion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-free-energy">5. Effective free energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#landau-expansion-near-a-continuous-transition">6. Landau expansion near a continuous transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-constraints">Symmetry constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-how-landau-theory-produces-first-order-transitions">Aside: how Landau theory produces first-order transitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ising-example">7. Ising example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-dependence-and-the-order-parameter-exponent">8. Temperature dependence and the order-parameter exponent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-energy-entropy-and-heat-capacity">9. Free energy, entropy, and heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-field-rounding-susceptibility-and-the-isotherm-exponent">10. External field, rounding, susceptibility, and the isotherm exponent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding-of-the-transition">Rounding of the transition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility">Susceptibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-isotherm">Critical isotherm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-mean-field-critical-exponents">11. Summary of mean-field critical exponents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-exponent">Heat capacity exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameter-exponent">Order parameter exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility-exponent">Susceptibility exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-isotherm-exponent">Critical isotherm exponent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-and-universality">12. Experiment and universality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-symmetric-models-and-the-liquid-gas-transition">13. Non-symmetric models and the liquid-gas transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">14. Takeaway</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
