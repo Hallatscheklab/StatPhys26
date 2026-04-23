@@ -1,0 +1,1184 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Fluctuations and the Ginzburg Criterion &#8212; Equilibrium Statistical Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Landau/Landau_Ginzburg_Ginzburg_Criterion';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Landau Theory" href="landau_theory_notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro-files/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/StatPhys-Logo26.png" class="logo__image only-light" alt="Equilibrium Statistical Physics - Home"/>
+    <script>document.write(`<img src="../_static/StatPhys-Logo26.png" class="logo__image only-dark" alt="Equilibrium Statistical Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro-files/intro.html">
+                    Lecture Notes on Equilibrium Statistical Mechanics (Physics 211)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/course-Info-211-2026.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-files/introduction.html">Quick Summary of Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Coin-flipping.html">Probability, energy and entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Probability-Entropy/Shannon-entropy-2.html">Entropy and information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-1.html">Classical statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/Ensemble-Theory-canonical.html">Energy exchange – canonical ensemble</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensemble-theory-1/L5-ensemble-theory-II.html">Gibbs entropy / Partition Function / Free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thermalization-simulation.html">Molecular Dynamics Simulation of Thermalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gibbs_Distribution.html">Trading conserved quantities between reservoir and system // External forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paramagnet-FLC.html">Two standard examples for a system coupled to an external field</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Spontaneous-Reactions.html">Spontaneous Reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crooks.html">Non-equilibrium fluctuation theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemical-reactions.html">Chemical reactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-all-to-all.html">Statistical mechanics with interactions - Ising models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Ising-lectures/Ising-1D.html">Finite dimensional Ising models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/Variational-methods-Mean-Field.html">Variational Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variational-Methods/interacting-gases-f.html">Interacting Gases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../MonteCarlo/MonteCarlo.html">Monte Carlo, Markov Chains, and the Metropolis Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Poisson-Boltzmann/Poisson-Boltzmann.html">Debye-Hückel theory - charge screening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion.html">Brownian Motion as a Free Energy Minimizing Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diffusion/Diffusion_AI_DDPM_1D.html">Diffusion models in AI as statistical physics: 1D DDPM + a simple learning protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ergodicity/ergodicity.html">Coarse-graining and Ergodic Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro.html">When does quantum mechanics make a difference?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-intro-2.html">Gapless Quantum Matter: Phonons, the Debye Model, and Goldstone’s Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QM-SM-Intro/QM-SM-Formalism.html">Formalism of quantum statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/Boson-Fermion-Hilbertspace_transcription.html">Bosons, Fermions, and the Many-Body Hilbert Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/pressure_of_quantum_gas_transcribed.html">Pressure of a Quantum Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/degenerate_fermi_gas.html">The Degenerate Fermi Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Boson-Fermions/BEC_lecture_notes.html">Bose–Einstein Condensation of an Ideal Bose Gas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="landau_theory_notes.html">Landau Theory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fluctuations and the Ginzburg Criterion</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Hallatscheklab/StatPhys26/blob/master/Landau/Landau_Ginzburg_Ginzburg_Criterion.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Hallatscheklab/StatPhys26/issues/new?title=Issue%20on%20page%20%2FLandau/Landau_Ginzburg_Ginzburg_Criterion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Landau/Landau_Ginzburg_Ginzburg_Criterion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fluctuations and the Ginzburg Criterion</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universality-and-the-puzzle-of-mean-field-theory">1. Universality and the puzzle of mean-field theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-single-order-parameter-to-an-order-parameter-field">2. From a single order parameter to an order-parameter field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coarse-graining">3. Coarse graining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#landau-ginzburg-free-energy">4. Landau-Ginzburg free energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gaussian-approximation">5. The Gaussian approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-solution">6. Fourier transform solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-function">7. Correlation function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-length">8. Correlation length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuation-contribution-to-the-heat-capacity">9. Fluctuation contribution to the heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-versus-ir-divergences">10. UV versus IR divergences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ultraviolet-divergence">Ultraviolet divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-divergence">Infrared divergence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-of-the-fluctuation-heat-capacity">11. Scaling of the fluctuation heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ginzburg-criterion">12. The Ginzburg criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">13. Physical picture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fluctuations-and-the-ginzburg-criterion">
+<h1>Fluctuations and the Ginzburg Criterion<a class="headerlink" href="#fluctuations-and-the-ginzburg-criterion" title="Permalink to this heading">#</a></h1>
+<p>These notes extend Landau mean-field theory by allowing the order parameter to fluctuate in space. The main goal is to understand, from within the Landau framework itself, when mean-field theory becomes unreliable near a critical point.</p>
+<section id="learning-goals">
+<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<p>By the end of this section, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain why Landau theory becomes a field theory for a coarse-grained order parameter.</p></li>
+<li><p>Derive the Gaussian approximation to the Landau-Ginzburg free energy.</p></li>
+<li><p>Compute the two-point correlation function and identify the correlation length.</p></li>
+<li><p>Understand the ultraviolet and infrared divergences that appear in the Gaussian theory.</p></li>
+<li><p>Derive the upper critical dimension and the Ginzburg criterion.</p></li>
+</ol>
+</section>
+<section id="universality-and-the-puzzle-of-mean-field-theory">
+<h2>1. Universality and the puzzle of mean-field theory<a class="headerlink" href="#universality-and-the-puzzle-of-mean-field-theory" title="Permalink to this heading">#</a></h2>
+<p>The liquid-gas critical point and the Ising critical point have the same type of singular behavior. For example, the density difference between liquid and gas behaves like the magnetization in an Ising magnet:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho - \rho_c \sim (T_c - T)^\beta,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+M \sim (T_c - T)^\beta.
+\]</div>
+<p>Experimentally, many systems share the same non-mean-field exponent, approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\beta \approx 0.332.
+\]</div>
+<p>This is one of the first hints of <strong>universality</strong>: very different microscopic systems can have the same critical exponents. Landau theory, however, predicts mean-field exponents, such as</p>
+<div class="math notranslate nohighlight">
+\[
+\beta_{\rm MF} = \frac{1}{2}.
+\]</div>
+<p>So the question is: <strong>Can we see, from inside a generalized Landau theory, why mean-field theory breaks down?</strong></p>
+</section>
+<section id="from-a-single-order-parameter-to-an-order-parameter-field">
+<h2>2. From a single order parameter to an order-parameter field<a class="headerlink" href="#from-a-single-order-parameter-to-an-order-parameter-field" title="Permalink to this heading">#</a></h2>
+<p>In basic Landau theory, the order parameter is a single number, for example the total magnetization density</p>
+<div class="math notranslate nohighlight">
+\[
+\phi.
+\]</div>
+<p>The Landau free energy is expanded as</p>
+<div class="math notranslate nohighlight">
+\[
+\beta H_{\rm eff}(\phi)
+= E_0 + h\phi + \frac{a}{2}\phi^2 + \frac{u}{4}\phi^4 + \cdots.
+\]</div>
+<p>This assumes that the thermodynamics is controlled by a spatially uniform order parameter.</p>
+<p>Near a critical point, however, large domains fluctuate. We therefore introduce a slowly varying coarse-grained field</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(\mathbf{x}).
+\]</div>
+<p>This field is not the microscopic spin at every lattice site. Rather, it is a smoothed version of the microscopic degrees of freedom over a length scale comparable to a coarse-graining scale.</p>
+</section>
+<section id="coarse-graining">
+<h2>3. Coarse graining<a class="headerlink" href="#coarse-graining" title="Permalink to this heading">#</a></h2>
+<p>A concrete definition of a coarse-grained field is</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(\mathbf{x})
+= \sum_i \sigma_i\, w(\mathbf{x} - \mathbf{x}_i),
+\]</div>
+<p>where the smoothing kernel is normalized as</p>
+<div class="math notranslate nohighlight">
+\[
+\int d^D x\, w(\mathbf{x}) = 1.
+\]</div>
+<p>The kernel has width of order</p>
+<div class="math notranslate nohighlight">
+\[
+a,
+\]</div>
+<p>so by construction the field varies slowly on distances shorter than this scale.</p>
+<p>Equivalently, the coarse-grained theory has a short-distance cutoff</p>
+<div class="math notranslate nohighlight">
+\[
+\Lambda \sim \frac{1}{a}.
+\]</div>
+<p>The exact effective Hamiltonian for the coarse-grained field is formally defined by summing over all microscopic configurations that produce a given field:</p>
+<div class="math notranslate nohighlight">
+\[
+\exp\!\left[-\beta H_{\rm eff}\{\phi(\mathbf{x})\}\right]
+=
+\frac{1}{Z_0}
+\sum_{\{\sigma_i\}}
+\exp[-\beta H(\{\sigma_i\})]
+\prod_{\mathbf{x}}
+\delta\!\left(\phi(\mathbf{x}) - \phi_{\rm cg}(\mathbf{x};\{\sigma_i\})\right).
+\]</div>
+<p>This is exact in principle, but not practical. Instead, we write the most general local expansion consistent with the symmetries.</p>
+</section>
+<section id="landau-ginzburg-free-energy">
+<h2>4. Landau-Ginzburg free energy<a class="headerlink" href="#landau-ginzburg-free-energy" title="Permalink to this heading">#</a></h2>
+<p>For a slowly varying field, the effective Hamiltonian can be expanded in powers of the field and its gradients:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta H_{\rm eff}[\phi]
+=
+\int d^D x\,
+\left[
+ h\phi
++ \frac{a}{2}\phi^2
++ \frac{u}{4}\phi^4
++ \frac{\kappa}{2}(\nabla \phi)^2
++ s_1\phi^2(\nabla\phi)^2
++ s_2(\nabla\phi)^4
++ \cdots
+\right].
+\]</div>
+<p>Near the critical point, the order parameter is small and varies slowly. Keeping only the most important terms gives</p>
+<div class="math notranslate nohighlight">
+\[
+\beta H_{\rm eff}[\phi]
+=
+\int d^D x\,
+\left[
+\frac{a}{2}\phi^2(\mathbf{x})
++ \frac{\kappa}{2}(\nabla\phi)^2
++ \frac{u}{4}\phi^4(\mathbf{x})
++ \cdots
+\right].
+\]</div>
+<p>The coefficient <span class="math notranslate nohighlight">\(a\)</span> changes sign at the mean-field transition. For temperatures above the critical temperature, we take</p>
+<div class="math notranslate nohighlight">
+\[
+a(T) = \alpha t,
+\qquad
+ t = \frac{T - T_c}{T_c}.
+\]</div>
+</section>
+<section id="the-gaussian-approximation">
+<h2>5. The Gaussian approximation<a class="headerlink" href="#the-gaussian-approximation" title="Permalink to this heading">#</a></h2>
+<p>For now, ignore the nonlinear term <span class="math notranslate nohighlight">\(u\phi^4\)</span>. The effective Hamiltonian becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\beta H_0[\phi]
+=
+\frac{1}{2}
+\int d^D x\,
+\left[
+ a\phi^2(\mathbf{x}) + \kappa(\nabla\phi)^2
+\right].
+\]</div>
+<p>This is the <strong>Gaussian fixed point</strong> or <strong>Gaussian theory</strong>.</p>
+<p>The approximation is plausible when fluctuations are small, but we will have to check this assumption afterwards.</p>
+</section>
+<section id="fourier-transform-solution">
+<h2>6. Fourier transform solution<a class="headerlink" href="#fourier-transform-solution" title="Permalink to this heading">#</a></h2>
+<p>Use the Fourier convention</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(\mathbf{q})
+= \frac{1}{\sqrt{V}}
+\int d^D x\, e^{-i\mathbf{q}\cdot\mathbf{x}}\phi(\mathbf{x}).
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla \rightarrow i\mathbf{q},
+\]</div>
+<p>and the Gaussian Hamiltonian becomes diagonal:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta H_0
+=
+\frac{1}{2}
+\sum_{\mathbf{q}}
+\left(a + \kappa q^2\right)
+\phi(\mathbf{q})\phi(-\mathbf{q}).
+\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_q = a + \kappa q^2.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\phi(\mathbf{x})\)</span> is real,</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(\mathbf{q}) = \phi^*(-\mathbf{q}).
+\]</div>
+<p>Therefore modes <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(-\mathbf{q}\)</span> are not independent; they should be grouped together in the Gaussian integral.</p>
+<p>For a complex Gaussian variable <span class="math notranslate nohighlight">\(z=x+iy\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\int dx\,dy\,e^{-\epsilon |z|^2}=\frac{\pi}{\epsilon}.
+\]</div>
+<p>The Gaussian free energy is therefore, up to unimportant constants,</p>
+<div class="math notranslate nohighlight">
+\[
+F
+= -\frac{1}{\beta}\ln Z
+= -\frac{k_B T}{2}\sum_{\mathbf{q}}
+\ln\!\left(\frac{\pi k_B T}{\epsilon_q}\right).
+\]</div>
+<p>Equivalently, the singular part is controlled by</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\rm sing}
+\sim
+\frac{k_B T}{2}\sum_{\mathbf{q}}
+\ln\left(a+\kappa q^2\right).
+\]</div>
+</section>
+<section id="correlation-function">
+<h2>7. Correlation function<a class="headerlink" href="#correlation-function" title="Permalink to this heading">#</a></h2>
+<p>The two-point correlation function is</p>
+<div class="math notranslate nohighlight">
+\[
+C(\mathbf{r})
+= \langle \phi(\mathbf{r})\phi(\mathbf{0})\rangle.
+\]</div>
+<p>Using the Fourier expansion,</p>
+<div class="math notranslate nohighlight">
+\[
+C(\mathbf{r})
+= \frac{1}{V}
+\sum_{\mathbf{q},\mathbf{q}'}
+e^{i\mathbf{q}\cdot\mathbf{r}}
+\left\langle \phi(\mathbf{q})\phi(\mathbf{q}')\right\rangle.
+\]</div>
+<p>By translation invariance, the only nonzero contribution comes from</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{q}'=-\mathbf{q}.
+\]</div>
+<p>For the Gaussian theory,</p>
+<div class="math notranslate nohighlight">
+\[
+\left\langle \phi(\mathbf{q})\phi(-\mathbf{q})\right\rangle
+=
+\frac{1}{\beta\epsilon_q}
+=
+\frac{1}{\beta(a+\kappa q^2)}.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+C(\mathbf{r})
+= \frac{1}{\beta V}
+\sum_{\mathbf{q}}
+\frac{e^{i\mathbf{q}\cdot\mathbf{r}}}{a+\kappa q^2}.
+\]</div>
+<p>In the thermodynamic limit,</p>
+<div class="math notranslate nohighlight">
+\[
+C(\mathbf{r})
+=
+\frac{1}{\beta}
+\int\frac{d^D q}{(2\pi)^D}
+\frac{e^{i\mathbf{q}\cdot\mathbf{r}}}{a+\kappa q^2}.
+\]</div>
+</section>
+<section id="correlation-length">
+<h2>8. Correlation length<a class="headerlink" href="#correlation-length" title="Permalink to this heading">#</a></h2>
+<p>Rewrite the denominator as</p>
+<div class="math notranslate nohighlight">
+\[
+a + \kappa q^2
+= \kappa\left(q^2 + \xi^{-2}\right),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\xi = \sqrt{\frac{\kappa}{a}}.
+\]</div>
+<p>The length <span class="math notranslate nohighlight">\(\xi\)</span> is the <strong>correlation length</strong>.</p>
+<p>At criticality, <span class="math notranslate nohighlight">\(a\to 0\)</span> and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\xi \to \infty.
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(a=0\)</span>, the correlation function has a power-law form:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta C(r) \propto \frac{1}{\kappa r^{D-2}}.
+\]</div>
+<p>Away from criticality, correlations decay exponentially. In three dimensions,</p>
+<div class="math notranslate nohighlight">
+\[
+\beta C(r)
+=
+\frac{1}{4\pi\kappa}\frac{e^{-r/\xi}}{r}.
+\]</div>
+<p>More generally, at large <span class="math notranslate nohighlight">\(r\)</span> and fixed <span class="math notranslate nohighlight">\(\xi\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+C(r) \propto \frac{e^{-r/\xi}}{r^{(D-1)/2}}.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">xis</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xis</span><span class="p">:</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="n">xi</span><span class="p">)</span><span class="o">/</span><span class="n">r</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;$\xi=</span><span class="si">{</span><span class="n">xi</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;distance $r$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$e^{-r/\xi}/r$ (3D form, arbitrary units)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Exponential decay of correlations away from criticality&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b09cff9651bf868fa741be15b8052a82a066fa32690364418d1e03a696f7cdac.png" src="../_images/b09cff9651bf868fa741be15b8052a82a066fa32690364418d1e03a696f7cdac.png" />
+</div>
+</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+a(T)=\alpha t,
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\xi = \sqrt{\frac{\kappa}{\alpha}}\, t^{-1/2}.
+\]</div>
+<p>Therefore the Gaussian theory predicts the mean-field correlation-length exponent</p>
+<div class="math notranslate nohighlight">
+\[
+\xi \sim t^{-\nu},
+\qquad
+\nu_{\rm MF}=\frac{1}{2}.
+\]</div>
+</section>
+<section id="fluctuation-contribution-to-the-heat-capacity">
+<h2>9. Fluctuation contribution to the heat capacity<a class="headerlink" href="#fluctuation-contribution-to-the-heat-capacity" title="Permalink to this heading">#</a></h2>
+<p>The singular part of the Gaussian free energy gives a fluctuation contribution to the heat capacity.</p>
+<p>The heat capacity is</p>
+<div class="math notranslate nohighlight">
+\[
+C = -T\frac{\partial^2 F}{\partial T^2}.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_q = a(T) + \kappa q^2,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+a(T)=\alpha t,
+\]</div>
+<p>one finds, up to nonsingular prefactors,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C}{V}
+\sim
+\frac{k_B}{2}
+\int\frac{d^Dq}{(2\pi)^D}
+\left(\frac{\alpha}{a+\kappa q^2}\right)^2.
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{C}{V}
+\sim
+\frac{k_B\alpha^2}{2\kappa^2}
+\int\frac{d^Dq}{(2\pi)^D}
+\frac{1}{(q^2+\\xi^{-2})^2}.
+\end{split}\]</div>
+</section>
+<section id="uv-versus-ir-divergences">
+<h2>10. UV versus IR divergences<a class="headerlink" href="#uv-versus-ir-divergences" title="Permalink to this heading">#</a></h2>
+<p>The integral can fail to converge for two distinct reasons.</p>
+<section id="ultraviolet-divergence">
+<h3>Ultraviolet divergence<a class="headerlink" href="#ultraviolet-divergence" title="Permalink to this heading">#</a></h3>
+<p>Large <span class="math notranslate nohighlight">\(q\)</span> corresponds to short distances. The continuum Gaussian theory incorrectly includes fluctuations down to arbitrarily small length scales.</p>
+<p>But the coarse-grained field was only meant to vary slowly on scales larger than <span class="math notranslate nohighlight">\(a\)</span>. Therefore we introduce a cutoff</p>
+<div class="math notranslate nohighlight">
+\[
+|\mathbf{q}| &lt; \Lambda,
+\qquad
+\Lambda \sim \frac{1}{a}.
+\]</div>
+<p>Dependence on <span class="math notranslate nohighlight">\(\Lambda\)</span> is not universal, because it depends on microscopic details.</p>
+</section>
+<section id="infrared-divergence">
+<h3>Infrared divergence<a class="headerlink" href="#infrared-divergence" title="Permalink to this heading">#</a></h3>
+<p>Small <span class="math notranslate nohighlight">\(q\)</span> corresponds to long distances. As <span class="math notranslate nohighlight">\(t\to 0\)</span>, the correlation length diverges and long-wavelength modes become increasingly important. This is the physically important critical divergence.</p>
+</section>
+</section>
+<section id="scaling-of-the-fluctuation-heat-capacity">
+<h2>11. Scaling of the fluctuation heat capacity<a class="headerlink" href="#scaling-of-the-fluctuation-heat-capacity" title="Permalink to this heading">#</a></h2>
+<p>With the cutoff included,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C}{V}
+\sim
+\frac{k_B\alpha^2}{2\kappa^2}
+\int_0^\Lambda dq\,
+\frac{q^{D-1}}{(q^2+\xi^{-2})^2}.
+\]</div>
+<p>Rescale momenta by</p>
+<div class="math notranslate nohighlight">
+\[
+\bar q = q\xi.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{C}{V}
+\sim
+\frac{k_B\alpha^2}{2\kappa^2}
+\xi^{4-D}
+\int_0^{\xi\Lambda} d\bar q\,
+\frac{\bar q^{D-1}}{(1+\bar q^2)^2}.
+\]</div>
+<p>For large <span class="math notranslate nohighlight">\(\xi\Lambda\)</span>, the integral behaves as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\int_0^{\xi\Lambda} d\bar q\,
+\frac{\bar q^{D-1}}{(1+\bar q^2)^2}
+\sim
+\begin{cases}
+(\xi\Lambda)^{D-4}, &amp; D&gt;4,\\[4pt]
+\ln(\xi\Lambda), &amp; D=4,\\[4pt]
+\text{constant}, &amp; D&lt;4.
+\end{cases}
+\end{split}\]</div>
+<p>Therefore the singular fluctuation contribution behaves as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{C}{V}
+\sim
+\begin{cases}
+\text{nonsingular cutoff-dependent constant}, &amp; D&gt;4,\\[4pt]
+\ln(\xi/a), &amp; D=4,\\[4pt]
+\xi^{4-D}, &amp; D&lt;4.
+\end{cases}
+\end{split}\]</div>
+<p>Because</p>
+<div class="math notranslate nohighlight">
+\[
+\xi \sim t^{-1/2},
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(D&lt;4\)</span> the fluctuation contribution scales as</p>
+<div class="math notranslate nohighlight">
+\[
+C_{\rm fluc} \sim t^{-(4-D)/2}.
+\]</div>
+<p>Thus, for <span class="math notranslate nohighlight">\(D\le 4\)</span>, fluctuations produce a singular contribution to thermodynamics. This identifies</p>
+<div class="math notranslate nohighlight">
+\[
+D_c = 4
+\]</div>
+<p>as the <strong>upper critical dimension</strong> of the scalar <span class="math notranslate nohighlight">\(\phi^4\)</span> theory.</p>
+<p>Above four dimensions, mean-field theory is self-consistent near the critical point. At and below four dimensions, fluctuations increasingly modify mean-field predictions.</p>
+</section>
+<section id="the-ginzburg-criterion">
+<h2>12. The Ginzburg criterion<a class="headerlink" href="#the-ginzburg-criterion" title="Permalink to this heading">#</a></h2>
+<p>Mean-field theory is valid when fluctuation corrections are small compared with the mean-field result. A convenient way to estimate this is to ask when the fluctuation contribution becomes order one.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+R_* = \sqrt{\frac{\kappa}{\alpha}} = \xi(t=1).
+\]</div>
+<p>The Ginzburg temperature scale is obtained from the condition that the fluctuation correction becomes comparable to the mean-field contribution. The result is</p>
+<div class="math notranslate nohighlight">
+\[
+t_G
+\sim
+\left(\frac{a}{R_*}\right)^{\frac{2D}{4-D}}.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(a\)</span> is the microscopic coarse-graining scale.</p>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+t &gt; t_G,
+\]</div>
+<p>fluctuations are relatively small and mean-field theory is approximately valid.</p>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+t &lt; t_G,
+\]</div>
+<p>fluctuations dominate and mean-field theory must be corrected.</p>
+</section>
+<section id="physical-picture">
+<h2>13. Physical picture<a class="headerlink" href="#physical-picture" title="Permalink to this heading">#</a></h2>
+<p>For <span class="math notranslate nohighlight">\(T&gt;T_c\)</span>, the system is organized into fluctuating domains of size approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\xi.
+\]</div>
+<p>As the critical point is approached,</p>
+<div class="math notranslate nohighlight">
+\[
+\xi \to \infty.
+\]</div>
+<p>The system no longer consists of small, weakly correlated patches. Instead, fluctuations occur on all length scales. This is why a local Taylor expansion in a single uniform order parameter is not enough.</p>
+<p>At criticality, there is no characteristic finite domain size. The correlations become scale-free:</p>
+<div class="math notranslate nohighlight">
+\[
+C(r) \sim \frac{1}{r^{D-2}}
+\]</div>
+<p>in the Gaussian theory.</p>
+</section>
+<section id="summary">
+<h2>14. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>The Landau-Ginzburg theory replaces the uniform order parameter by a fluctuating field:</p>
+<div class="math notranslate nohighlight">
+\[
+\phi \longrightarrow \phi(\mathbf{x}).
+\]</div>
+<p>The Gaussian approximation is exactly solvable and gives</p>
+<div class="math notranslate nohighlight">
+\[
+\left\langle \phi(\mathbf{q})\phi(-\mathbf{q})\right\rangle
+=
+\frac{1}{\beta(a+\kappa q^2)}.
+\]</div>
+<p>The correlation length is</p>
+<div class="math notranslate nohighlight">
+\[
+\xi = \sqrt{\frac{\kappa}{a}}
+\sim t^{-1/2}.
+\]</div>
+<p>The fluctuation correction to the heat capacity scales as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C_{\rm fluc}
+\sim
+\begin{cases}
+\text{finite}, &amp; D&gt;4,\\[4pt]
+\ln(1/t), &amp; D=4,\\[4pt]
+t^{-(4-D)/2}, &amp; D&lt;4.
+\end{cases}
+\end{split}\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(D_c=4\)</span> is the upper critical dimension for the scalar Landau-Ginzburg theory. For dimensions below four, sufficiently close to the critical point, fluctuations invalidate the naive mean-field approximation.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Starting from the Gaussian Hamiltonian, derive</p>
+<div class="math notranslate nohighlight">
+\[
+   \left\langle \phi(\mathbf{q})\phi(-\mathbf{q})\right\rangle
+   = \frac{1}{\beta(a+\kappa q^2)}.
+   \]</div>
+</li>
+<li><p>Evaluate the Fourier integral for <span class="math notranslate nohighlight">\(D=3\)</span> and show that</p>
+<div class="math notranslate nohighlight">
+\[
+   \beta C(r)=\frac{1}{4\pi\kappa}\frac{e^{-r/\xi}}{r}.
+   \]</div>
+</li>
+<li><p>Show explicitly that</p>
+<div class="math notranslate nohighlight">
+\[
+   \int_0^{\xi\Lambda}d\bar q\,\frac{\bar q^{D-1}}{(1+\bar q^2)^2}
+   \]</div>
+<p>diverges for <span class="math notranslate nohighlight">\(D&gt;4\)</span>, logarithmically for <span class="math notranslate nohighlight">\(D=4\)</span>, and converges for <span class="math notranslate nohighlight">\(D&lt;4\)</span>.</p>
+</li>
+<li><p>Interpret physically why <span class="math notranslate nohighlight">\(D=4\)</span> is the upper critical dimension for the <span class="math notranslate nohighlight">\(\phi^4\)</span> theory.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Landau"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="landau_theory_notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Landau Theory</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universality-and-the-puzzle-of-mean-field-theory">1. Universality and the puzzle of mean-field theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-single-order-parameter-to-an-order-parameter-field">2. From a single order parameter to an order-parameter field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coarse-graining">3. Coarse graining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#landau-ginzburg-free-energy">4. Landau-Ginzburg free energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gaussian-approximation">5. The Gaussian approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-solution">6. Fourier transform solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-function">7. Correlation function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-length">8. Correlation length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluctuation-contribution-to-the-heat-capacity">9. Fluctuation contribution to the heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-versus-ir-divergences">10. UV versus IR divergences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ultraviolet-divergence">Ultraviolet divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-divergence">Infrared divergence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-of-the-fluctuation-heat-capacity">11. Scaling of the fluctuation heat capacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ginzburg-criterion">12. The Ginzburg criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">13. Physical picture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Oskar Hallatschek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
