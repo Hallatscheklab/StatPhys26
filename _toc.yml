@@ -33,5 +33,5 @@ chapters:
 - file: Boson-Fermions/pressure_of_quantum_gas_transcribed
 - file: Boson-Fermions/degenerate_fermi_gas
 - file: Boson-Fermions/BEC_lecture_notes
-- file: Landau/Landau
+- file: Landau/landau_theory_notes.ipynb
 #- file: Landau/Ginzburg-Landau
