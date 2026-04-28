@@ -483,39 +483,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fluctuations-and-the-ginzburg-criterion">
 <h1>Fluctuations and the Ginzburg Criterion<a class="headerlink" href="#fluctuations-and-the-ginzburg-criterion" title="Permalink to this heading">#</a></h1>
-<p>These notes extend Landau mean-field theory by allowing the order parameter to fluctuate in space. The main goal is to understand, from within the Landau framework itself, when mean-field theory becomes unreliable near a critical point.</p>
-<p>By the end of this section, you should be able to:</p>
-<ol class="arabic simple">
-<li><p>Explain why Landau theory becomes a field theory for a coarse-grained order parameter.</p></li>
-<li><p>Derive the Gaussian approximation to the Landau-Ginzburg free energy.</p></li>
-<li><p>Compute the two-point correlation function and identify the correlation length.</p></li>
-<li><p>Understand the ultraviolet and infrared divergences that appear in the Gaussian theory.</p></li>
-<li><p>Derive the upper critical dimension and the Ginzburg criterion.</p></li>
-</ol>
-<p>For further reading, consult Arovas 7.7 - 7.9</p>
+<p>These notes extend Landau mean-field theory by allowing the order parameter to fluctuate in space. The goal is to see, from within the Landau framework, when mean-field theory becomes unreliable near a critical point.</p>
+<p>We will derive the Gaussian Landau-Ginzburg theory, compute the correlation length and fluctuation heat capacity, and then extract the upper critical dimension and the Ginzburg criterion.</p>
+<p>For further reading, consult Arovas 7.7-7.9.</p>
 <section id="universality-and-the-puzzle-of-mean-field-theory">
 <h2>1. Universality and the puzzle of mean-field theory<a class="headerlink" href="#universality-and-the-puzzle-of-mean-field-theory" title="Permalink to this heading">#</a></h2>
 <p>The liquid-gas critical point and the Ising critical point have the same type of singular behavior. For example, the density difference between liquid and gas behaves like the magnetization in an Ising magnet:</p>
 <div class="math notranslate nohighlight">
 \[
-\rho - \rho_c \sim (T_c - T)^\beta,
+\rho - \rho_c \sim |t|^\beta,
 \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[
-M \sim (T_c - T)^\beta.
+M \sim |t|^\beta.
 \]</div>
 <p>Experimentally, many systems share the same non-mean-field exponent, approximately</p>
 <div class="math notranslate nohighlight">
 \[
-\beta \approx 0.332.
+\beta \approx 0.326.
 \]</div>
-<p>This is one of the first hints of <strong>universality</strong>: very different microscopic systems can have the same critical exponents. Landau theory, however, predicts mean-field exponents, such as</p>
+<p>This is an example of <strong>universality</strong>: very different microscopic systems can share the same critical exponents. Landau theory, however, predicts mean-field values such as</p>
 <div class="math notranslate nohighlight">
 \[
 \beta_{\rm MF} = \frac{1}{2}.
 \]</div>
-<p>So the question is: <strong>Can we see, from inside a generalized Landau theory, why mean-field theory breaks down?</strong></p>
+<p>So the question is: <strong>can a generalized Landau theory explain its own breakdown?</strong></p>
 </section>
 <section id="from-a-single-order-parameter-to-an-order-parameter-field">
 <h2>2. From a single order parameter to an order-parameter field<a class="headerlink" href="#from-a-single-order-parameter-to-an-order-parameter-field" title="Permalink to this heading">#</a></h2>
@@ -530,13 +523,13 @@ M \sim (T_c - T)^\beta.
 \beta H_{\rm eff}(\phi)
 = E_0 + h\phi + \frac{a}{2}\phi^2 + \frac{u}{4}\phi^4 + \cdots.
 \]</div>
-<p>This assumes that the thermodynamics is controlled by a spatially uniform order parameter.</p>
-<p>Near a critical point, however, large domains fluctuate. We therefore introduce a slowly varying coarse-grained field</p>
+<p>This assumes a spatially uniform order parameter.</p>
+<p>Near a critical point, however, large correlated domains fluctuate. We therefore replace the single number by a slowly varying coarse-grained field</p>
 <div class="math notranslate nohighlight">
 \[
 \phi(\mathbf{x}).
 \]</div>
-<p>This field is not the microscopic spin at every lattice site. Rather, it is a smoothed version of the microscopic degrees of freedom over a length scale comparable to a coarse-graining scale.</p>
+<p>This is not the microscopic spin field; it is a smoothed field defined on scales larger than a coarse-graining length.</p>
 </section>
 <section id="coarse-graining">
 <h2>3. Coarse graining<a class="headerlink" href="#coarse-graining" title="Permalink to this heading">#</a></h2>
@@ -554,15 +547,15 @@ M \sim (T_c - T)^\beta.
 <p>The kernel has width of order</p>
 <div class="math notranslate nohighlight">
 \[
-a,
+a_0,
 \]</div>
-<p>so by construction the field varies slowly on distances shorter than this scale.</p>
+<p>so by construction the field varies slowly on shorter distances.</p>
 <p>Equivalently, the coarse-grained theory has a short-distance cutoff</p>
 <div class="math notranslate nohighlight">
 \[
-\Lambda \sim \frac{1}{a}.
+\Lambda \sim \frac{1}{a_0}.
 \]</div>
-<p>The exact effective Hamiltonian for the coarse-grained field is formally defined by summing over all microscopic configurations that produce a given field:</p>
+<p>Formally, the exact coarse-grained Hamiltonian is obtained by summing over all microscopic configurations that produce a given field:</p>
 <div class="math notranslate nohighlight">
 \[
 \exp\!\left[-\beta H_{\rm eff}\{\phi(\mathbf{x})\}\right]
@@ -573,7 +566,7 @@ a,
 \prod_{\mathbf{x}}
 \delta\!\left(\phi(\mathbf{x}) - \phi_{\rm cg}(\mathbf{x};\{\sigma_i\})\right).
 \]</div>
-<p>This is exact in principle, but not practical. Instead, we write the most general local expansion consistent with the symmetries.</p>
+<p>This is exact but not practical. Landau-Ginzburg instead writes the most general local expansion allowed by symmetry.</p>
 </section>
 <section id="landau-ginzburg-free-energy">
 <h2>4. Landau-Ginzburg free energy<a class="headerlink" href="#landau-ginzburg-free-energy" title="Permalink to this heading">#</a></h2>
@@ -593,7 +586,7 @@ a,
 + \cdots
 \right].
 \]</div>
-<p>Near the critical point, the order parameter is small and varies slowly. Keeping only the most important terms gives</p>
+<p>Near criticality, the field is small and slowly varying, so we keep only the leading terms:</p>
 <div class="math notranslate nohighlight">
 \[
 \beta H_{\rm eff}[\phi]
@@ -606,7 +599,7 @@ a,
 + \cdots
 \right].
 \]</div>
-<p>The coefficient <span class="math notranslate nohighlight">\(a\)</span> changes sign at the mean-field transition. For temperatures above the critical temperature, we take</p>
+<p>The coefficient <span class="math notranslate nohighlight">\(a\)</span> changes sign at the mean-field transition. Above <span class="math notranslate nohighlight">\(T_c\)</span> we write</p>
 <div class="math notranslate nohighlight">
 \[
 a(T) = \alpha t,
@@ -627,8 +620,7 @@ a(T) = \alpha t,
  a\phi^2(\mathbf{x}) + \kappa(\nabla\phi)^2
 \right].
 \]</div>
-<p>This is the <strong>Gaussian fixed point</strong> or <strong>Gaussian theory</strong>.</p>
-<p>The approximation is plausible when fluctuations are small, but we will have to check this assumption afterwards.</p>
+<p>This is the <strong>Gaussian theory</strong>. It should work when fluctuations are small; the Ginzburg criterion will tell us when that assumption fails.</p>
 </section>
 <section id="fourier-transform-solution">
 <h2>6. Fourier transform solution<a class="headerlink" href="#fourier-transform-solution" title="Permalink to this heading">#</a></h2>
@@ -664,13 +656,13 @@ a(T) = \alpha t,
 \[
 \phi(\mathbf{q}) = \phi^*(-\mathbf{q}).
 \]</div>
-<p>Therefore modes <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(-\mathbf{q}\)</span> are not independent; they should be grouped together in the Gaussian integral.</p>
+<p>So modes <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(-\mathbf{q}\)</span> are not independent in the Gaussian integral.</p>
 <p>For a complex Gaussian variable <span class="math notranslate nohighlight">\(z=x+iy\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
 \int dx\,dy\,e^{-\epsilon |z|^2}=\frac{\pi}{\epsilon}.
 \]</div>
-<p>The Gaussian free energy is therefore, up to unimportant constants,</p>
+<p>Therefore, up to unimportant constants,</p>
 <div class="math notranslate nohighlight">
 \[
 F
@@ -678,7 +670,7 @@ F
 = -\frac{k_B T}{2}\sum_{\mathbf{q}}
 \ln\!\left(\frac{\pi k_B T}{\epsilon_q}\right).
 \]</div>
-<p>Equivalently, the singular part is controlled by</p>
+<p>The singular part is controlled by</p>
 <div class="math notranslate nohighlight">
 \[
 F_{\rm sing}
@@ -704,7 +696,7 @@ C(\mathbf{r})
 e^{i\mathbf{q}\cdot\mathbf{r}}
 \left\langle \phi(\mathbf{q})\phi(\mathbf{q}')\right\rangle.
 \]</div>
-<p>By translation invariance, the only nonzero contribution comes from</p>
+<p>Translation invariance forces</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbf{q}'=-\mathbf{q}.
@@ -718,7 +710,7 @@ e^{i\mathbf{q}\cdot\mathbf{r}}
 =
 \frac{1}{\beta(a+\kappa q^2)}.
 \]</div>
-<p>Thus</p>
+<p>So</p>
 <div class="math notranslate nohighlight">
 \[
 C(\mathbf{r})
@@ -744,12 +736,12 @@ C(\mathbf{r})
 a + \kappa q^2
 = \kappa\left(q^2 + \xi^{-2}\right),
 \]</div>
-<p>where</p>
+<p>where, for <span class="math notranslate nohighlight">\(T&gt;T_c\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
 \xi = \sqrt{\frac{\kappa}{a}}.
 \]</div>
-<p>The length <span class="math notranslate nohighlight">\(\xi\)</span> is the <strong>correlation length</strong>.</p>
+<p><span class="math notranslate nohighlight">\(\xi\)</span> is the <strong>correlation length</strong>. Below <span class="math notranslate nohighlight">\(T_c\)</span> one again finds <span class="math notranslate nohighlight">\(\xi \sim |t|^{-1/2}\)</span> in Gaussian theory, though with a different nonuniversal amplitude.</p>
 <p>At criticality, <span class="math notranslate nohighlight">\(a\to 0\)</span> and therefore</p>
 <div class="math notranslate nohighlight">
 \[
@@ -767,12 +759,17 @@ a + \kappa q^2
 =
 \frac{1}{4\pi\kappa}\frac{e^{-r/\xi}}{r}.
 \]</div>
-<p>More generally, at large <span class="math notranslate nohighlight">\(r\)</span> and fixed <span class="math notranslate nohighlight">\(\xi\)</span>,</p>
+<p>More generally, for large <span class="math notranslate nohighlight">\(r\)</span> at fixed <span class="math notranslate nohighlight">\(\xi\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
 C(r) \propto \frac{e^{-r/\xi}}{r^{(D-1)/2}}.
 \]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -793,6 +790,7 @@ C(r) \propto \frac{e^{-r/\xi}}{r^{(D-1)/2}}.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/b09cff9651bf868fa741be15b8052a82a066fa32690364418d1e03a696f7cdac.png" src="../_images/b09cff9651bf868fa741be15b8052a82a066fa32690364418d1e03a696f7cdac.png" />
 </div>
@@ -807,7 +805,7 @@ a(T)=\alpha t,
 \[
 \xi = \sqrt{\frac{\kappa}{\alpha}}\, t^{-1/2}.
 \]</div>
-<p>Therefore the Gaussian theory predicts the mean-field correlation-length exponent</p>
+<p>So the Gaussian theory predicts the mean-field exponent</p>
 <div class="math notranslate nohighlight">
 \[
 \xi \sim t^{-\nu},
@@ -844,32 +842,32 @@ a(T)=\alpha t,
 \]</div>
 <p>Equivalently,</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
+\[
 \frac{C}{V}
 \sim
 \frac{k_B\alpha^2}{2\kappa^2}
 \int\frac{d^Dq}{(2\pi)^D}
-\frac{1}{(q^2+\\xi^{-2})^2}.
-\end{split}\]</div>
+\frac{1}{(q^2+\xi^{-2})^2}.
+\]</div>
 </section>
 <section id="uv-versus-ir-divergences">
 <h2>10. UV versus IR divergences<a class="headerlink" href="#uv-versus-ir-divergences" title="Permalink to this heading">#</a></h2>
-<p>The integral can fail to converge for two distinct reasons.</p>
+<p>The integral can fail for two distinct reasons.</p>
 <section id="ultraviolet-divergence">
 <h3>Ultraviolet divergence<a class="headerlink" href="#ultraviolet-divergence" title="Permalink to this heading">#</a></h3>
-<p>Large <span class="math notranslate nohighlight">\(q\)</span> corresponds to short distances. The continuum Gaussian theory incorrectly includes fluctuations down to arbitrarily small length scales.</p>
-<p>But the coarse-grained field was only meant to vary slowly on scales larger than <span class="math notranslate nohighlight">\(a\)</span>. Therefore we introduce a cutoff</p>
+<p>Large <span class="math notranslate nohighlight">\(q\)</span> corresponds to short distances. The continuum theory incorrectly includes fluctuations down to arbitrarily small scales.</p>
+<p>But the coarse-grained field was only meant to vary slowly on scales larger than <span class="math notranslate nohighlight">\(a_0\)</span>. Therefore we introduce a cutoff</p>
 <div class="math notranslate nohighlight">
 \[
 |\mathbf{q}| &lt; \Lambda,
 \qquad
-\Lambda \sim \frac{1}{a}.
+\Lambda \sim \frac{1}{a_0}.
 \]</div>
-<p>Dependence on <span class="math notranslate nohighlight">\(\Lambda\)</span> is not universal, because it depends on microscopic details.</p>
+<p>Dependence on <span class="math notranslate nohighlight">\(\Lambda\)</span> is not universal because it depends on microscopic details.</p>
 </section>
 <section id="infrared-divergence">
 <h3>Infrared divergence<a class="headerlink" href="#infrared-divergence" title="Permalink to this heading">#</a></h3>
-<p>Small <span class="math notranslate nohighlight">\(q\)</span> corresponds to long distances. As <span class="math notranslate nohighlight">\(t\to 0\)</span>, the correlation length diverges and long-wavelength modes become increasingly important. This is the physically important critical divergence.</p>
+<p>Small <span class="math notranslate nohighlight">\(q\)</span> corresponds to long distances. As <span class="math notranslate nohighlight">\(t\to 0\)</span>, the correlation length diverges and long-wavelength modes dominate. This is the physically important critical divergence.</p>
 </section>
 </section>
 <section id="scaling-of-the-fluctuation-heat-capacity">
@@ -917,7 +915,7 @@ a(T)=\alpha t,
 \sim
 \begin{cases}
 \text{nonsingular cutoff-dependent constant}, &amp; D&gt;4,\\[4pt]
-\ln(\xi/a), &amp; D=4,\\[4pt]
+\ln(\xi/a_0), &amp; D=4,\\[4pt]
 \xi^{4-D}, &amp; D&lt;4.
 \end{cases}
 \end{split}\]</div>
@@ -931,42 +929,59 @@ a(T)=\alpha t,
 \[
 C_{\rm fluc} \sim t^{-(4-D)/2}.
 \]</div>
-<p>Thus, for <span class="math notranslate nohighlight">\(D\le 4\)</span>, fluctuations produce a singular contribution to thermodynamics. This identifies</p>
+<p>Thus for <span class="math notranslate nohighlight">\(D\le 4\)</span>, fluctuations produce a singular thermodynamic contribution. This identifies</p>
 <div class="math notranslate nohighlight">
 \[
 D_c = 4
 \]</div>
 <p>as the <strong>upper critical dimension</strong> of the scalar <span class="math notranslate nohighlight">\(\phi^4\)</span> theory.</p>
-<p>Above four dimensions, mean-field theory is self-consistent near the critical point. At and below four dimensions, fluctuations increasingly modify mean-field predictions.</p>
+<p>Above four dimensions, mean-field theory is self-consistent near criticality. At and below four dimensions, fluctuations increasingly modify it.</p>
 </section>
 <section id="the-ginzburg-criterion">
 <h2>12. The Ginzburg criterion<a class="headerlink" href="#the-ginzburg-criterion" title="Permalink to this heading">#</a></h2>
-<p>Mean-field theory is valid when fluctuation corrections are small compared with the mean-field result. A convenient way to estimate this is to ask when the fluctuation contribution becomes order one.</p>
-<p>Let</p>
+<p>Mean-field theory is valid when order-parameter fluctuations inside a correlation volume are small compared with the mean-field order parameter itself.</p>
+<p>Below <span class="math notranslate nohighlight">\(T_c\)</span>, Landau theory gives</p>
 <div class="math notranslate nohighlight">
 \[
-R_* = \sqrt{\frac{\kappa}{\alpha}} = \xi(t=1).
+\phi_{\rm MF}^2 \sim \frac{|a|}{u} \sim \frac{\alpha |t|}{u}.
 \]</div>
-<p>The Ginzburg temperature scale is obtained from the condition that the fluctuation correction becomes comparable to the mean-field contribution. The result is</p>
+<p>A Gaussian estimate of the fluctuations averaged over a region of size <span class="math notranslate nohighlight">\(\xi\)</span> gives, up to constants of order one,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle (\delta \phi)^2 \rangle_{\xi}
+\sim
+\int_{q\lesssim \xi^{-1}} \frac{d^D q}{(2\pi)^D}
+\frac{k_B T_c}{|a|+\kappa q^2}
+\sim
+\frac{k_B T_c}{\kappa\,\xi^{D-2}}.
+\]</div>
+<p>The Ginzburg criterion is the requirement</p>
+<div class="math notranslate nohighlight">
+\[
+\langle (\delta \phi)^2 \rangle_{\xi} \ll \phi_{\rm MF}^2.
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\xi \sim \xi_0 |t|^{-1/2}\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[
+\xi_0 = \sqrt{\frac{\kappa}{\alpha}},
+\]</div>
+<p>this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+|t| \gg t_G,
+\]</div>
+<p>where, up to numerical factors,</p>
 <div class="math notranslate nohighlight">
 \[
 t_G
 \sim
-\left(\frac{a}{R_*}\right)^{\frac{2D}{4-D}}.
+\left(\frac{k_B T_c\,u}{\alpha^2\xi_0^D}\right)^{\!\frac{2}{4-D}}
+\sim
+\left(\frac{k_B T_c\,u}{\kappa^{D/2}\alpha^{(4-D)/2}}\right)^{\!\frac{2}{4-D}}
+\qquad (D&lt;4).
 \]</div>
-<p>Here <span class="math notranslate nohighlight">\(a\)</span> is the microscopic coarse-graining scale.</p>
-<p>For</p>
-<div class="math notranslate nohighlight">
-\[
-t &gt; t_G,
-\]</div>
-<p>fluctuations are relatively small and mean-field theory is approximately valid.</p>
-<p>For</p>
-<div class="math notranslate nohighlight">
-\[
-t &lt; t_G,
-\]</div>
-<p>fluctuations dominate and mean-field theory must be corrected.</p>
+<p>For <span class="math notranslate nohighlight">\(|t|\gg t_G\)</span>, fluctuations are relatively small and mean-field theory is approximately valid. For <span class="math notranslate nohighlight">\(|t|\lesssim t_G\)</span>, fluctuations dominate and mean-field theory must be corrected.</p>
+<p>At <span class="math notranslate nohighlight">\(D=4\)</span> the criterion is modified by logarithms, and for <span class="math notranslate nohighlight">\(D&gt;4\)</span> mean-field theory becomes asymptotically self-consistent sufficiently close to criticality.</p>
 </section>
 <section id="physical-picture">
 <h2>13. Physical picture<a class="headerlink" href="#physical-picture" title="Permalink to this heading">#</a></h2>
@@ -980,7 +995,7 @@ t &lt; t_G,
 \[
 \xi \to \infty.
 \]</div>
-<p>The system no longer consists of small, weakly correlated patches. Instead, fluctuations occur on all length scales. This is why a local Taylor expansion in a single uniform order parameter is not enough.</p>
+<p>The system no longer consists of small, weakly correlated patches. Instead, fluctuations occur on all scales, so a theory of one uniform order parameter is no longer enough.</p>
 <p>At criticality, there is no characteristic finite domain size. The correlations become scale-free:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1041,7 +1056,7 @@ C(r) \sim \frac{1}{r^{D-2}}
 $<span class="math notranslate nohighlight">\(
 S(q) \propto \frac{1}{\xi^{-2}+q^2}.
 \)</span><span class="math notranslate nohighlight">\(
-They are not a full interacting Ising simulation, but they capture the key physical message of the Gaussian Landau-Ginzburg theory: as \)</span>\xi$ grows, the field organizes into larger correlated patches, and near criticality there is no short finite length scale left.</p>
+They are not a full interacting Ising simulation, but they capture the key Gaussian message: as \)</span>\xi$ grows, the field organizes into larger correlated patches, and near criticality no short finite length scale remains.</p>
 </section>
 <section id="summary">
 <h2>14. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
@@ -1057,11 +1072,10 @@ They are not a full interacting Ising simulation, but they capture the key physi
 =
 \frac{1}{\beta(a+\kappa q^2)}.
 \]</div>
-<p>The correlation length is</p>
+<p>The correlation length scales as</p>
 <div class="math notranslate nohighlight">
 \[
-\xi = \sqrt{\frac{\kappa}{a}}
-\sim t^{-1/2}.
+\xi \sim |t|^{-1/2}.
 \]</div>
 <p>The fluctuation correction to the heat capacity scales as</p>
 <div class="math notranslate nohighlight">
@@ -1070,11 +1084,11 @@ C_{\rm fluc}
 \sim
 \begin{cases}
 \text{finite}, &amp; D&gt;4,\\[4pt]
-\ln(1/t), &amp; D=4,\\[4pt]
-t^{-(4-D)/2}, &amp; D&lt;4.
+\ln(1/|t|), &amp; D=4,\\[4pt]
+|t|^{-(4-D)/2}, &amp; D&lt;4.
 \end{cases}
 \end{split}\]</div>
-<p>Thus <span class="math notranslate nohighlight">\(D_c=4\)</span> is the upper critical dimension for the scalar Landau-Ginzburg theory. For dimensions below four, sufficiently close to the critical point, fluctuations invalidate the naive mean-field approximation.</p>
+<p>Thus <span class="math notranslate nohighlight">\(D_c=4\)</span> is the upper critical dimension for the scalar short-range <span class="math notranslate nohighlight">\(\phi^4\)</span> theory. Below four dimensions, sufficiently near criticality, fluctuations invalidate naive mean-field theory.</p>
 </section>
 <section id="additional-exercises">
 <h2>Additional Exercises<a class="headerlink" href="#additional-exercises" title="Permalink to this heading">#</a></h2>
