@@ -451,7 +451,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universality-and-the-puzzle-of-mean-field-theory">1. Universality and the puzzle of mean-field theory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-single-order-parameter-to-an-order-parameter-field">2. From a single order parameter to an order-parameter field</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coarse-graining">3. Coarse graining</a></li>
@@ -470,7 +469,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ginzburg-criterion">12. The Ginzburg criterion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">13. Physical picture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">Additional Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -485,8 +484,6 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="fluctuations-and-the-ginzburg-criterion">
 <h1>Fluctuations and the Ginzburg Criterion<a class="headerlink" href="#fluctuations-and-the-ginzburg-criterion" title="Permalink to this heading">#</a></h1>
 <p>These notes extend Landau mean-field theory by allowing the order parameter to fluctuate in space. The main goal is to understand, from within the Landau framework itself, when mean-field theory becomes unreliable near a critical point.</p>
-<section id="learning-goals">
-<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>By the end of this section, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Explain why Landau theory becomes a field theory for a coarse-grained order parameter.</p></li>
@@ -495,7 +492,7 @@ document.write(`
 <li><p>Understand the ultraviolet and infrared divergences that appear in the Gaussian theory.</p></li>
 <li><p>Derive the upper critical dimension and the Ginzburg criterion.</p></li>
 </ol>
-</section>
+<p>For further reading, consult Arovas 7.7 - 7.9</p>
 <section id="universality-and-the-puzzle-of-mean-field-theory">
 <h2>1. Universality and the puzzle of mean-field theory<a class="headerlink" href="#universality-and-the-puzzle-of-mean-field-theory" title="Permalink to this heading">#</a></h2>
 <p>The liquid-gas critical point and the Ising critical point have the same type of singular behavior. For example, the density difference between liquid and gas behaves like the magnetization in an Ising magnet:</p>
@@ -990,6 +987,61 @@ t &lt; t_G,
 C(r) \sim \frac{1}{r^{D-2}}
 \]</div>
 <p>in the Gaussian theory.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">xis</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+
+<span class="n">kx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">ky</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">KX</span><span class="p">,</span> <span class="n">KY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="n">KX</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">KY</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">gaussian_field</span><span class="p">(</span><span class="n">xi</span><span class="p">):</span>
+    <span class="c1"># Use the Gaussian Landau-Ginzburg structure factor S(q) ~ 1/(xi^-2 + q^2).</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">xi</span><span class="o">**-</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q2</span><span class="p">)</span>
+    <span class="n">spectrum</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span> <span class="o">*</span> <span class="n">noise</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">field</span> <span class="o">-=</span> <span class="n">field</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">field</span> <span class="o">/=</span> <span class="n">field</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">field</span>
+
+<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">gaussian_field</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xis</span><span class="p">]</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">xis</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">fr</span><span class="s1">&#39;$\xi=</span><span class="si">{</span><span class="n">xi</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;field $\phi(\mathbf</span><span class="si">{x}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Gaussian random-field snapshots: larger $\xi$ means larger correlated domains&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4d571c65ee1d1267610c0b463f8f9a6fdd7208a981213abaa0be99a9b0fa4d63.png" src="../_images/4d571c65ee1d1267610c0b463f8f9a6fdd7208a981213abaa0be99a9b0fa4d63.png" />
+</div>
+</div>
+<p>These snapshots are sampled from a Gaussian random field with structure factor
+$<span class="math notranslate nohighlight">\(
+S(q) \propto \frac{1}{\xi^{-2}+q^2}.
+\)</span><span class="math notranslate nohighlight">\(
+They are not a full interacting Ising simulation, but they capture the key physical message of the Gaussian Landau-Ginzburg theory: as \)</span>\xi$ grows, the field organizes into larger correlated patches, and near criticality there is no short finite length scale left.</p>
 </section>
 <section id="summary">
 <h2>14. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
@@ -1024,8 +1076,8 @@ t^{-(4-D)/2}, &amp; D&lt;4.
 \end{split}\]</div>
 <p>Thus <span class="math notranslate nohighlight">\(D_c=4\)</span> is the upper critical dimension for the scalar Landau-Ginzburg theory. For dimensions below four, sufficiently close to the critical point, fluctuations invalidate the naive mean-field approximation.</p>
 </section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="additional-exercises">
+<h2>Additional Exercises<a class="headerlink" href="#additional-exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Starting from the Gaussian Hamiltonian, derive</p>
 <div class="math notranslate nohighlight">
@@ -1107,7 +1159,6 @@ t^{-(4-D)/2}, &amp; D&lt;4.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universality-and-the-puzzle-of-mean-field-theory">1. Universality and the puzzle of mean-field theory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-single-order-parameter-to-an-order-parameter-field">2. From a single order parameter to an order-parameter field</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coarse-graining">3. Coarse graining</a></li>
@@ -1126,7 +1177,7 @@ t^{-(4-D)/2}, &amp; D&lt;4.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ginzburg-criterion">12. The Ginzburg criterion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">13. Physical picture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">Additional Exercises</a></li>
 </ul>
   </nav></div>
 

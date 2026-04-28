@@ -502,6 +502,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="landau-theory">
 <h1>Landau Theory<a class="headerlink" href="#landau-theory" title="Permalink to this heading">#</a></h1>
 <p>This section covers the Landau description of continuous and first-order phase transitions, the role of symmetry and order parameters, the Ising example, mean-field critical exponents, universality, and the liquid-gas critical point.</p>
+<p>For further reading, consult Arovas section 7.6.</p>
 <section id="phase-transitions-and-non-analytic-thermodynamics">
 <h2>1. Phase transitions and non-analytic thermodynamics<a class="headerlink" href="#phase-transitions-and-non-analytic-thermodynamics" title="Permalink to this heading">#</a></h2>
 <p>A phase transition occurs when a thermodynamic potential, such as the Helmholtz free energy</p>
@@ -1198,7 +1199,8 @@ d_c = 4.
 <section id="non-symmetric-models-and-the-liquid-gas-transition">
 <h2>13. Non-symmetric models and the liquid-gas transition<a class="headerlink" href="#non-symmetric-models-and-the-liquid-gas-transition" title="Permalink to this heading">#</a></h2>
 <p>The Ising symmetry <span class="math notranslate nohighlight">\(\phi\to -\phi\)</span> is what eliminated odd terms from the Landau expansion. But the formalism is more general and can also be applied when no such symmetry is present.</p>
-<p>For the liquid-gas transition, the natural order parameter is the density <span class="math notranslate nohighlight">\(n\)</span>. Across the first-order coexistence line, the density jumps.</p>
+<p>For the liquid-gas transition, the natural order parameter is the density <span class="math notranslate nohighlight">\(n\)</span>. Across the first-order coexistence line, the density jumps from a low-density gas value to a high-density liquid value.</p>
+<p>This is already visible in the van der Waals picture. Below the critical temperature, the equation of state has an S-shaped isotherm, signaling that two densities compete. After the Maxwell construction, one finds a first-order coexistence line terminating at a critical endpoint. Landau theory is the coarse-grained language for the same geometry of the free energy.</p>
 <p>Since <span class="math notranslate nohighlight">\(n\)</span> itself is not small, expand around the critical density:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1212,7 +1214,8 @@ H_{\mathrm{eff}}(\delta n)
 E_0 + \alpha_1 \delta n + \alpha_2 (\delta n)^2
     + \alpha_3 (\delta n)^3 + \alpha_4 (\delta n)^4 + \cdots.
 \]</div>
-<p>Because there is no <span class="math notranslate nohighlight">\(\delta n\to -\delta n\)</span> symmetry, odd terms are allowed.</p>
+<p>Because there is no <span class="math notranslate nohighlight">\(\delta n\to -\delta n\)</span> symmetry, odd terms are allowed. In particular, a cubic term is generically present. This is the Landau reflection of the fact that liquid and gas are not symmetry partners: there is no microscopic operation that exchanges them while leaving the Hamiltonian invariant.</p>
+<p>At temperatures below the critical point, such a generic non-symmetric polynomial can have two competing minima, one representing the liquid and the other the gas. Equality of the two minima gives coexistence, while a jump from one global minimum to the other gives a first-order transition.</p>
 <p>Now make an additional shift</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1247,6 +1250,7 @@ H_{\mathrm{eff}}(\phi)
 E_0 + h(P,T)\phi + A(P,T)\phi^2 + B(P,T)\phi^4 + \cdots.
 \]</div>
 <p>This looks just like the Ising form, except now the coefficient <span class="math notranslate nohighlight">\(h(P,T)\)</span> is not forced to vanish by symmetry.</p>
+<p>This is exactly why the liquid-gas critical point is special. Away from the critical point, the free-energy density is generically tilted (<span class="math notranslate nohighlight">\(h\neq 0\)</span>), so one minimum is favored over the other. Along the coexistence line the two minima are degenerate, but the density still jumps discontinuously between them. Only at the endpoint do the two minima merge continuously.</p>
 <p>That has an important consequence. A continuous critical point requires</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1254,6 +1258,14 @@ A=0 \quad \text{and} \quad h=0,
 \]</div>
 <p>so one must tune <strong>two</strong> control parameters.</p>
 <p>In practice, this means the liquid-gas critical point occurs only at a special point <span class="math notranslate nohighlight">\((P_c,T_c)\)</span>. Away from that point, the transition is generically first order.</p>
+<p>In the van der Waals model, this special point is characterized by the critical isotherm having an inflection point,</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\frac{\partial P}{\partial v}\right)_T = 0,
+\qquad
+\left(\frac{\partial^2 P}{\partial v^2}\right)_T = 0,
+\]</div>
+<p>which is the equation-of-state counterpart of the Landau conditions <span class="math notranslate nohighlight">\(h=0\)</span> and <span class="math notranslate nohighlight">\(A=0\)</span>.</p>
 <p>This illustrates a general Landau principle:</p>
 <blockquote>
 <div><p>Without symmetry, a critical point usually requires fine-tuning of multiple parameters.<br />
