@@ -688,6 +688,38 @@ g\phi \neq \phi,
 <p>then serves as the order parameter. If a rotation or reflection changes <span class="math notranslate nohighlight">\(\vec\phi\)</span>, the nonzero expectation value of <span class="math notranslate nohighlight">\(\vec\phi\)</span> signals spontaneous breaking of that symmetry.</p>
 <p>More formally, order parameters transform in irreducible representations of the symmetry group.</p>
 <div class="dropdown admonition">
+<p class="admonition-title">Supplementary note: why the primary order parameter usually transforms as a single irrep</p>
+<p>In Landau theory, a continuous transition begins when one particular distortion mode first becomes unstable. That mode must be something the high-symmetry parent phase can classify by symmetry. Those symmetry types are precisely the irreducible representations of the parent group <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<p>If a distortion is described by an order parameter <span class="math notranslate nohighlight">\(\eta\)</span>, then every symmetry operation <span class="math notranslate nohighlight">\(g\in G\)</span> sends it to another allowed distortion,</p>
+<div class="math notranslate nohighlight">
+\[
+\eta \longrightarrow D(g)\eta.
+\]</div>
+<p>So the components of <span class="math notranslate nohighlight">\(\eta\)</span> span a representation of <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<p>Now suppose this representation is reducible, so it can be decomposed into independent symmetry sectors,</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = (\eta_A,\eta_B),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta_A\)</span> and <span class="math notranslate nohighlight">\(\eta_B\)</span> transform according to different irreps. Symmetry then prevents them from mixing at quadratic order, so the Landau free energy has the form</p>
+<div class="math notranslate nohighlight">
+\[
+F = F_0 + a_A(T)\eta_A^2 + a_B(T)\eta_B^2 + \cdots.
+\]</div>
+<p>Because the two sectors have different symmetry character, they are controlled by different coefficients <span class="math notranslate nohighlight">\(a_A(T)\)</span> and <span class="math notranslate nohighlight">\(a_B(T)\)</span>. Generically there is no reason for both coefficients to vanish at exactly the same temperature. Instead, one channel softens first, for example</p>
+<div class="math notranslate nohighlight">
+\[
+a_A(T_c)=0,
+\qquad
+a_B(T_c)&gt;0.
+\]</div>
+<p>Then the primary distortion at the transition belongs to the single irrep <span class="math notranslate nohighlight">\(A\)</span>. The other component may remain massive, appear only at lower temperature, or be induced secondarily after the first instability has already occurred.</p>
+<p>The intuitive picture is that irreps are independent symmetry channels of distortion, and a generic continuous transition chooses one channel to soften first.</p>
+<p>A useful analogy is a symmetric object with several normal modes. If a square table buckles, the first instability is not an arbitrary mixture of all possible deformations. It bends, twists, or elongates in one symmetry pattern first. Those patterns are classified by irreps of the square’s symmetry group.</p>
+<p>This is why Landau theory usually takes the primary order parameter to transform as a single irrep of the parent phase. If one starts with a reducible representation, one is really describing several distinct symmetry-breaking tendencies at once, and making them all critical simultaneously would require extra tuning.</p>
+<p>There are exceptions: two irreps can become critical together at an accidental degeneracy, because of an enlarged hidden symmetry, at a multicritical point, or through strong coupling. But in the generic Landau picture of a continuous transition, the mode that first condenses transforms as one irreducible representation.</p>
+</div>
+<div class="dropdown admonition">
 <p class="admonition-title">Supplementary note: BaTiO<span class="math notranslate nohighlight">\(_3\)</span> as a structural-order-parameter example</p>
 <p>A useful cartoon example is BaTiO<span class="math notranslate nohighlight">\(_3\)</span>, viewed in a two-dimensional square projection of the perovskite unit cell.</p>
 <p>In the <strong>high-temperature paraelectric phase</strong> (<span class="math notranslate nohighlight">\(T&gt;T_c\)</span>), the Ti ion sits at the high-symmetry center of the cell. In this square projection the configuration is invariant under the mirror operations <span class="math notranslate nohighlight">\(M_x\)</span> and <span class="math notranslate nohighlight">\(M_y\)</span>, as well as a <span class="math notranslate nohighlight">\(C_4\)</span> rotation.</p>
