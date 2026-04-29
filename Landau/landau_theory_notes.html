@@ -1303,6 +1303,22 @@ A=0 \quad \text{and} \quad h=0,
 <div><p>Without symmetry, a critical point usually requires fine-tuning of multiple parameters.<br />
 With symmetry, one or more forbidden terms vanish automatically, so continuous transitions become generic.</p>
 </div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Supplementary note: why there is generically no solid-liquid critical point</p>
+<p>The liquid-gas case is special because liquid and gas have the same symmetries. Neither phase breaks translations or rotations, so one can imagine a line of first-order transitions ending at a point where the density difference vanishes continuously. That is why a liquid-gas critical point is possible.</p>
+<p>For an ordinary solid-liquid transition, the situation is different. A crystal breaks the continuous translation and rotation symmetries of the liquid down to a discrete space group. The order parameter is therefore not a simple scalar density shift but a set of density-wave amplitudes at nonzero reciprocal-lattice wavevectors:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(\mathbf r)=\rho_0+\sum_{\mathbf G}\rho_{\mathbf G}e^{i\mathbf G\cdot \mathbf r}.
+\]</div>
+<p>Landau theory then allows cubic invariants whenever three symmetry-related wavevectors satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf G_1+\mathbf G_2+\mathbf G_3=0.
+\]</div>
+<p>Such terms generically appear for common crystal structures and favor a first-order jump into the ordered phase. So, unlike the liquid-gas case, there is usually no symmetry reason that would let the ordered amplitude go continuously to zero at an endpoint.</p>
+<p>The practical conclusion is: in ordinary three-dimensional equilibrium systems, melting and freezing are generically first order and do not terminate at a critical point. A continuous solid-liquid transition would require additional special structure or fine tuning, so it is not the generic outcome.</p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
